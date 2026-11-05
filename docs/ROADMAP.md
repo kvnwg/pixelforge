@@ -166,7 +166,7 @@ Commit: `Phase 4: parts library, randomizer, knight`
 
 ## Phase 5: Humanoid combat (CHECKPOINT)
 
-Status: not started
+Status: done (commit recorded in the Phase 5 notes below)
 
 Tasks:
 1. Read COMBAT.md fully. Add any missing detail to it before drawing.
@@ -184,6 +184,38 @@ Acceptance:
 **CHECKPOINT:** the human watches the knight and anchor_girl fight the target dummy in the preview, with both the player and enemy timing profiles.
 
 Commit: `Phase 5: humanoid combat set and combat data`
+
+### Phase 5 notes and self-review (checkpoint waived, see the top of this file)
+
+What was built:
+- All 16 combat animations (the 13 listed plus Rolling Knight's `roll`, `backflip` and `vault`, specced in COMBAT.md section 3) in s, e and n for the base body and every humanoid part, built from head and torso offsets, stances and arm poses (ANIMATION_SPEC.md section 9).
+- Weapon poses for the sword and hilt, mace, staff and orb, lance and spearhead, bow, and the shield's guard; strike smears; the unarmed `fist` default; hitboxes and named points per pose.
+- Combat data: phases, events with resolved points, hitboxes, hurtboxes, root motion, timing profiles (retimed at build time, exported with holds and base durations). Validator E15 to E18, E20 and W8 (E19 and W9 need FX: Phase 6).
+- `pf review --combat` timelines, `pf battle`, and the preview's Arena view with a training dummy, hit stop and a timing profile toggle. Placeholder spark and projectiles until Phase 6.
+- `knight_enemy` (enemy profile: slash tell 340 ms, heavy 480 ms, both over the 300 ms minimum).
+- Rolling Knight classes list the combat animations their kit uses (GAMES.md).
+
+Acceptance: `pf validate` passes all 41 parts and 21 recipes with 0 errors and 0 warnings, including the enemy-profile knight's telegraph checks; the knight's slash and heavy read at 1x on all three backgrounds, strike frames have smears, and hitboxes cover the weapon and smear on active frames only (tests/test_combat.py checks this).
+
+What the review images show (knight, anchor_girl; strips at 1x and 2x, timelines, battle strips, arena screenshots):
+- Slash facing e: frame 0 leans back with the sword cocked behind the helm (only the blade sticking out behind shows), frame 1 coils 1 px lower, frame 2 lunges with the arm fully reached and the blade down-forward under a light arc smear, frame 3 follows through low, frame 4 returns to ready. Facing s and n the sword rises beside the head on the weapon side and chops down past the body with the smear running down that side.
+- Heavy: lift (sword up in front of the face), the tell (cocked far back behind the head, body leaning back), squash, slam with a vertical smear, sword flat on the ground in front (the `impact_big` point), heave back.
+- Unarmed (anchor_girl): the same body motion; the punch reaches 4 px and bursts in an accent crescent. At 1x the burst is subtle on beige; the body lean and reach carry the read, and the arena's hit stop, flash and spark make the hit unmistakable.
+- Reactions: hurt flashes cream and recoils; stun sways with limp arms; death buckles to a slumped kneel with the weapon dropped in front; victory hops with the weapon high. Dodge, backflip and vault leave the ground with tucked legs and a smaller shadow; the roll balls up low.
+- Battle strip knight vs anchor_girl: the defender flashes on the hit frame and recoils after; the spark sits where the blade meets her.
+
+Rubric (knight / anchor_girl):
+1. Style match 4 / 4: same parts, palette and auto outline; weapons are 1 px lines in their own shades; smears use the weapon's lightest shade (or accent light), nothing brighter.
+2. 1x readability 4 / 4: windup and strike shapes are obvious on beige, light and dark; the girl's punch reads from the reach and lean more than the burst.
+3. Silhouette 4 / 4: the cocked weapon and the reach change the outline clearly; the solid silhouettes show lean back, lunge and crouch.
+4. Motion 4 / 4: planted feet hold (W1 clean), the hair trails at most 1 px, holds before the strike and long recovery frames give weight. Timing is for the human to judge in the arena.
+5. Consistency 4 / 4: head height constant (E10), same proportions in every direction; west mirrors east exactly.
+6. Cleanliness 4 / 4: no isolated pixels or flat areas (W3, W5 clean); blades are drawn in pixel pairs.
+7. Part fit 4 / 4: rigid parts follow the head and torso, the shield rides the torso, clothes never dip below the ground, weapons never leave the canvas (checked for every frame that uses each pose).
+8. Appeal 4 / 4: the knight's slash and slam feel punchy; the girl's victory hop and kneel read cute.
+9. Combat readability 4 / 4: tells are whole-body (W8 clean) and visible for the full windup; the hit has a smear, and in the arena hit stop, flash and spark; the enemy knight's tells are longer and its glowing eyes mark it as a foe.
+
+Known limits, recorded in the docs: death ends kneeling rather than lying down (ANIMATION_SPEC.md section 8); the roll is a crouch-dash, not a somersault; facing n the strike is mostly the body motion and the side smear; smears and sparks are placeholders until Phase 6.
 
 ---
 

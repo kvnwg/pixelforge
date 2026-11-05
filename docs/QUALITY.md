@@ -31,11 +31,11 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E12 | Export integrity: JSON frame rects match the sheet, every duration is positive, tags cover all frames with no overlap, events point at valid frames. |
 | E13 | Part material: every pixel in a part file is from that part's declared material base ramp or the outline color. |
 | E14 | Completeness: every animated part in a recipe has a sheet for every animation the recipe lists. |
-| E15 | Hitboxes: every active frame of an attack has at least one hitbox; no other frame has any; all boxes lie inside the canvas. |
+| E15 | Hitboxes: every active frame of an attack has at least one hitbox; no other frame has any; all boxes lie inside the canvas. Attacks whose hit is a `spawn` (bow, spells) are exempt from the first part: the projectile carries the hit. |
 | E16 | Events: every attack has `windup`, `hit` (or `spawn` for ranged and spells) and `recover`; event frames exist; spawn and vfx points are inside the canvas and within 3 px of a hand anchor or held item tip. |
 | E17 | Telegraph: for enemy, elite and boss timing profiles, the time from the first windup frame to `hit` or `spawn` meets the profile minimum. |
-| E18 | Size class: sprites use their size class's canvas, pivot, safe bounds and mirror axis. |
-| E19 | FX colors: FX art uses only `fx_ramps` within `fx_constraints`; character art never uses FX ramp colors (glow eye presets are the only exception). |
+| E18 | Size class: sprites use their size class's canvas, pivot, safe bounds and mirror axis. Checked as: every part's cells are its rig's canvas size and every anchor lies inside the class's safe bounds (canvas, pivot and mirror axis themselves come from the class, so E1, E6 and E9 hold them). |
+| E19 | FX colors: FX art uses only `fx_ramps` within `fx_constraints`; character art never uses FX ramp colors (glow eye presets are the only exception). Checked from Phase 6 with the FX pipeline; character frames already only pass E2 with their own presets. |
 | E20 | Root motion: animations that declare root motion have one value per frame. |
 
 ### Warnings
@@ -46,11 +46,11 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk, after undoing the planned motion (the upper body above the `hip` anchor moved by the head anchor's delta). Usually means boiling or a misaligned layer. A plain pixel count would flag the spec's own 1 px breathing, which moves about half the pixels. Pixels of lagging rigid parts (loose hair) are left out, since they move one frame late by design. |
 | W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one frame, not counting eyes and pixels listed in a part's `allow_singletons`. |
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
-| W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. |
+| W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. Frames flagged `flash` are skipped: they are one color on purpose. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
 | W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). |
-| W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. |
-| W9 | Hidden tell: FX overlap the attacker's silhouette during the windup phase. |
+| W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. The strongest pose of the windup phase counts (a heavy attack lifts first, then cocks back). |
+| W9 | Hidden tell: FX overlap the attacker's silhouette during the windup phase. Checked from Phase 6, when attacks play real FX. |
 | W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. |
 
 Validator output must say which character, animation, direction, frame and pixel coordinates failed, and suggest the likely cause.

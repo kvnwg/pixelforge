@@ -123,9 +123,9 @@ Specced for E with a one-handed weapon in the near hand. Held items need drawn f
 
 **Smear (frame 2 only):** a 1 px wide arc tracing the weapon's path from high-back to low-front, 5 to 8 px long, in the weapon's lightest shade (or accent light for unarmed). It reads as speed. Never use white.
 
-**S (attacking toward the camera):** the weapon swings from viewer-right high to low center in front of the body; lunge offset is (0, +1) instead of (+1, 0).
+**S (attacking toward the camera):** lunge offset is (0, +1) instead of (+1, 0). As drawn (Phase 5) the weapon is raised beside the head on the weapon side (viewer-left) and chops down past the body on that side, with the smear running down it; a swing across the front would cover the body.
 
-**N (attacking away):** the swing is mostly visible above the head and shoulders; lunge offset is (0, -1). The weapon is mostly behind the body at the end.
+**N (attacking away):** lunge offset is (0, -1). As drawn, the s swing mirrored: up beside the head on the viewer-right, down past the body on that side. Across the front it would be hidden behind the body.
 
 ---
 
@@ -155,13 +155,26 @@ Optional despawn: 4 more frames of 100 ms using the dissolve effect (Bayer 4x4, 
 
 Directions: draw death for S and E (W mirrored). N reuses S frames 3 and 4 (the lying pose works from any facing) but frames 1 and 2 are drawn from behind.
 
+**As drawn (Phase 5): death ends in a slumped kneel, not lying down.** Every part of a humanoid is drawn upright (hair, helmets, clothes follow the head and torso anchors), so a lying pose would mean redrawing every part on its side. Frames 3 and 4 kneel (torso down 2 px, legs folded, the head bowed 1 px into the collar facing s and e) with the weapon dropped on the ground in front. Each direction keeps its own view, n included. A lying pose can come later as its own drawn animation if a game needs it; most games add a fade or the dissolve effect.
+
 ---
 
-## 9. Later animations (not in v1)
+## 9. How the combat set is built (Phase 5)
+
+`tools/art/combat.py` builds every combat frame from a few choices instead of drawing it whole:
+
+- **Head and torso offsets** from idle frame 0. The head may sit 1 px ahead of or behind the torso (a lean) and may sink into it by 1 px (a squash, a slump), never float above it. The body grid is split into head rows (to y 19), torso rows (y 20 to 24) and legs.
+- **A stance** per direction: a legs grid drawn 4 rows tall (5 for airborne ones) so it fits any torso height; the lowered torso covers the top rows. Stances: `ready` (feet apart, the front foot 2 px ahead), `lunge` (front foot 1 px further), `crouch` (knees out), `kneel`, `tuck` and `swing` (airborne). Facing n the stance matches s on screen.
+- **Arm poses** per direction and side (`ready`, `fwd`, `low`, `up_back`, `up`, `overhead`, `limp`, `tuck`, plus `guard`, `back` and `draw` for the far arm), a few pixels each, moved with the torso. Combat arm poses are 4-connected runs of one shade, so a reaching arm never breaks into single pixels. The forward arm reaches 4 px from the shoulder so a strike clears the body. Facing n the arm poses mirror s.
+- **Held poses**: each frame names the pose its held items take (COMBAT.md section 3).
+
+Lagging parts (hair locks, ponytails) trail by one frame but never by more than 1 px, so they drift behind a 3 px lunge instead of detaching. In grounded frames nothing but held items is drawn below the baseline: a robe or tabard pushed down by a deep crouch folds onto the ground row.
+
+## 10. Later animations (not in v1)
 
 Specs to write here before drawing: run (6 frames), jump (with shadow shrink), cast (staff raise and glow), interact or pick up, sit, emotes (a 1 to 2 frame bounce with a small icon above the head).
 
-## 10. Review checklist for any animation
+## 11. Review checklist for any animation
 
 - Planted feet never move.
 - Head height constant, except frames flagged squash.

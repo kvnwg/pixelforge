@@ -108,7 +108,7 @@ SMEAR_S = {  # down the weapon side, from above the shoulder to the blade
 # Unarmed (the fist): shorter arcs ending at the fist
 FIST_SMEAR_E = {  # a crescent bursting in front of the fist
     "strike": [(0, -3), (1, -3), (1, -2), (2, -2), (2, -1), (2, 0), (2, 1), (2, 2), (1, 2),
-               (1, 3), (0, 3)],
+               (1, 3), (0, 3), (3, -1), (3, 0), (3, 1)],  # thick in the middle, thin at the tips
     "slam": [(0, -9), (1, -9), (1, -8), (2, -7), (2, -6), (2, -5), (2, -4), (2, -3), (2, -2)],
 }
 FIST_SMEAR_S = {

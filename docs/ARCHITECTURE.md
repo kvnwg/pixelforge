@@ -118,6 +118,15 @@ This layout opens cleanly in Aseprite with a 32x32 grid, so a human can edit any
 
 A rigid part may provide animated sheets for specific animations (for example a sword is rigid for idle and walk but needs drawn frames for attack, since art is never rotated).
 
+Held items (Phase 5) do this with **pose cells** instead: one cell per direction for each pose a frame can ask of them, drawn in the same idle-hand coordinates as `rigid.png`, so the compositor moves them with the hand like the rest cell:
+
+- `pose_<name>.png`: the item in that pose, at its usual z-order place.
+- `pose_<name>_behind.png`: the item drawn behind the whole character (a sword cocked behind the head shows only where it sticks out). A pose with only a behind cell has nothing in front.
+- `smear_<name>.png` (held_near only): the strike's smear, composited after the outline on empty pixels only, never outlined, so it can't cover the body.
+- `hitboxes.json`: hitboxes per pose and direction, and named points per pose (`weapon_tip`, `bow_nock`, `shield_front`), in idle-hand coordinates (COMBAT.md section 4).
+
+The base body's frames name the pose each held item takes (`"pose": {"held_near": "strike", "held_far": "guard"}` in anchors.json); trims follow their parent slot's pose; an item without that pose uses its rest cell. `tools/art/weapons.py` draws every pose as clean pixel lines in the item's shades (2:1 and 1:2 slopes in pixel pairs) and checks each against every frame that uses it, so no pose runs off the canvas or past x = 28 facing e (west mirrors x to 30 - x).
+
 ### 5.2 `part.yaml`
 
 ```yaml
@@ -134,6 +143,7 @@ hides: []                 # slots this part hides, e.g. a helmet hides [hair_fro
 lags: true                # this part trails the upper body by one frame (hair locks)
 allow_singletons: []      # pixel coords allowed to be isolated (e.g. a highlight); a list,
                           # or a map per direction, in frame-0 coordinates
+pose_singletons: {}       # the same per pose cell: {pose_draw: {e: [[x, y]]}} (bow tips)
 # origin: auto            # rigid parts: 'auto' (default) means the cell is drawn in place for
                           # idle frame 0, so the origin is the attach anchor in that frame
 notes: "Anchor girl's hair."
@@ -174,7 +184,10 @@ Every rig has its own base body (`parts/body/<rig>/`). For the humanoid rig it i
 - Hands are the pixel where a held item's grip sits.
 - The humanoid also has `hip` (the first leg row: everything above it is the upper body, used by the change-budget rule W2), `chin` (the chin row, used by the head-height rule E10), `torso` (the collar center: clothing, belts and tabards attach here), `back` (where a cape hangs), `foot_near` and `foot_far` (the bottom-center pixel of each foot), and a `planted` list naming the feet that carry weight in that frame (used by the jitter rule W1).
 - Facing s, the near arm, hand and foot are the character's right: the viewer's left.
-- `pf anchors --check` renders every frame with anchor points marked, so wrong anchors are obvious.
+- Combat frames (Phase 5) also carry `shield_front` (where a guard is struck when no shield names its own) and `pose`, the pose each held slot takes.
+- `pf anchors --check [--anim A]` renders every frame with anchor points marked, so wrong anchors are obvious.
+
+A rig may name **default parts** in `style.json` (`rigs.<rig>.defaults`): every recipe on the rig gets them unless it names its own. The humanoid's default `held_near` is `fist`: no art, only the unarmed strike smears, reach hitboxes and the fist as `weapon_tip`.
 
 ## 7. Layer order
 
@@ -232,16 +245,19 @@ Randomizer: `pf random --seed N --count K` picks a part per slot from allowed va
 
 For each animation, each direction in `s, e, n`, each frame:
 
-1. Resolve the recipe: for each slot, get the part (skip slots hidden by other parts).
-2. For each part, get its cell for this (anim, dir, frame). Rigid parts: take the direction cell and translate by `anchor - origin`. Parts with `lags: true` use the previous frame's offset (frame 0 uses the last frame's offset for loops); drawn parts with `lags: true` use the previous frame's cell.
+1. Resolve the recipe: the base body slots, then the rig's default parts, then the recipe's parts (skip slots hidden by other parts).
+2. For each part, get its cell for this (anim, dir, frame). Rigid parts: take the direction cell (or the pose cell the frame asks for) and translate by `anchor - origin`. Parts with `lags: true` use the previous frame's offset, moved at most 1 px behind the current one (frame 0 uses the last frame's offset for loops); drawn parts with `lags: true` use the previous frame's cell. Held items posed behind the character go first, under everything. In grounded frames every layer but the held items is cut at the baseline.
 3. Recolor the cell: map each pixel of the part's material base ramp to the recipe's preset ramp (index to index). Outline-colored pixels pass through.
 4. Stack the cells in z-order with binary alpha (a pixel is either fully replaced or untouched). Keep a record of which pixels are hand-placed outline pixels.
 5. Compute the silhouette: every opaque pixel that is not outline-colored.
 6. Generate the outline (section 10) and draw it in the outline color.
 7. Restore hand-placed outline pixels.
 8. Composite the result over the shadow layer (shadow drawn from `style.json`, never outlined).
-9. Apply effects flagged for this frame (flash, closed eyes for blink).
-10. Run per-frame validation.
+9. Apply effects flagged for this frame (closed eyes for blink and `eyes_closed` frames), then draw the held item's smear on empty pixels, then the flash.
+10. Record the frame's combat data: named points (rig anchors plus the held items' pose points), the hurtbox (body pixels without held items or smears) and, on active frames, the held item's hitboxes for its pose, moved with the hand and clipped to the canvas.
+11. Run per-frame validation.
+
+After compositing, frame durations are retimed for the recipe's timing profile (COMBAT.md section 2).
 
 Then mirror every finished `e` frame into `w` (section 12), run animation-level validation, and export.
 
@@ -312,7 +328,10 @@ Per character, in `out/<name>/`:
       "phases": {"attack_slash_e": ["windup", "windup", "active", "recovery", "recovery"]},
       "hitboxes": {"attack_slash_e": {"2": [{"x": 17, "y": 13, "w": 11, "h": 13}]}},
       "hurtboxes": {"...": "per frame, see COMBAT.md section 5"},
-      "root_motion": {"dodge_e": [0, -4, -3, -1]}
+      "root_motion": {"dodge_e": [0, -4, -3, -1]},
+      "holds": {"attack_slash_e": [0, 1]},
+      "base_durations": {"attack_slash_e": [120, 80, 60, 140, 160]},
+      "timing_profiles": {"player": {"telegraph_min_ms": 0, "hold_scale": 1.0}}
     }
   }
 }
@@ -334,8 +353,8 @@ Per character, in `out/<name>/`:
 | `pf random --seed N --count K` | generate random recipes and build them |
 | `pf preview` | start a local server for `tools/preview` |
 | `pf diff a.png b.png` | pixel diff image + count |
-| `pf review <recipe> --combat` | adds timeline images with phases, events, hitboxes and hurtboxes |
-| `pf battle <attacker> <defender> --anim A` | attacker vs defender strip with reactions and FX, 1x and 4x |
+| `pf review <recipe> --combat` | adds timeline images with phases, events, hitboxes and hurtboxes (Phase 5) |
+| `pf battle <attacker> <defender> --anim A [--dir D] [--profile P]` | attacker vs defender strip with reactions and placeholder FX, 4x and 1x (Phase 5) |
 | `pf roster` | every monster and the anchor side by side, plus silhouettes |
 | `pf fx build <name>` / `pf fx review <name>` | build and review FX assets |
 
@@ -352,7 +371,9 @@ Per character, in `out/<name>/`:
 - Movement test: the character walks across a strip at a configurable speed, to judge foot sliding
 - Random blink while idle (the game's behavior: blink_<dir> for 100 ms every 2.5 to 5 s)
 
-Views are routed by the hash: `#player`, `#gallery`, `#walk-test`. `pf preview --bundle out.html` inlines `out/index.json`, every character's JSON and PNG, and the anchor, so the same page works as a single file (and can be published as a page) with no server.
+- Arena (Phase 5): a fighter attacks a training dummy with hit stop, flash, knockback, placeholder sparks and projectiles, hit and hurt boxes, and a timing profile toggle that retimes the attack from the exported holds (COMBAT.md section 9)
+
+Views are routed by the hash: `#player`, `#gallery`, `#walk-test`, `#arena`. `pf preview --bundle out.html` inlines `out/index.json`, every character's JSON and PNG, and the anchor, so the same page works as a single file (and can be published as a page) with no server.
 
 ## 17. Review renders
 
@@ -366,6 +387,8 @@ Views are routed by the hash: `#player`, `#gallery`, `#walk-test`. `pf preview -
 - `turnaround.png`: idle frame 0 in s, e, n, w at 8x
 - `vs_anchor.png`: this character next to the anchor at 8x, plus a palette usage report
 - `exploded_<dir>.png`: each layer on its own in z-order, then the composite
+- `<anim>_<dir>_timeline.png` (`--combat`): frames under a time bar proportional to duration, colored by phase, with event markers, event points circled, hitboxes red and hurtboxes blue
+- `review/battle/battle_<a>_vs_<b>_<anim>.png` (`pf battle`): the attack against a defender who reacts from the hit on
 
 ## 18. Tests
 
@@ -376,7 +399,7 @@ Views are routed by the hash: `#player`, `#gallery`, `#walk-test`. `pf preview -
 - Validator tests: hand-made broken sprites (gap in outline, stray pixel, off-palette color, baseline drift) must each trigger the right rule
 - Determinism: building the same recipe twice gives identical bytes
 - Export test: JSON frame rects and tags match the sheet
-- Combat data test: every attack has windup, hit (or spawn) and recover events, hitboxes only on active frames, and enemy-profile builds meet telegraph minimums
+- Combat data test: every attack has windup, hit (or spawn) and recover events, hitboxes only on active frames, and enemy-profile builds meet telegraph minimums (`tests/test_combat.py`, with E15 to E18 and W8 triggered on purpose)
 - Size class test: a medium-class test sprite mirrors around x = 23 and exports with pivot (23, 43)
 
 ## 19. Extending

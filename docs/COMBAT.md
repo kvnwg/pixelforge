@@ -157,19 +157,66 @@ Four 150 ms frames swaying the upper body (-1, 0), (0, 0), (+1, 0), (0, 0), eyes
 | 2 | 200 | land squash (0, +1) |
 | 3 | 300 | proud stance, weapon up |
 
+### Rolling Knight dodges: roll, backflip, vault
+
+Rolling Knight dodges in any direction, so these are drawn in s, e and n like the attacks and the game picks the row from the dodge vector's dominant axis. Never rotated: the game's current quarter-turn roll becomes drawn frames. Root motion is in px along the facing (negative is backward); the game sets the real distance and may scale it.
+
+**roll** (Guardian, Blade, Cleric): a tucked crouch-dash forward. A real somersault would need the head and helmet drawn upside down, which rigid parts can't do, so the knight balls up and shoots forward and the motion plus a dust puff sell it.
+
+| Frame | ms | Pose | Root motion |
+|---|---|---|---|
+| 0 | 50 | crouch, leaning forward (head 1 px ahead of the torso); `vfx dust_puff` at `foot_near` | 4 |
+| 1 | 80 | balled up: torso down 3 px, head down 1 more, knees out, weapon tucked | 14 |
+| 2 | 80 | balled up (held) | 16 |
+| 3 | 70 | crouch, rising | 14 |
+| 4 | 60 | recover to the ready stance | 6 |
+
+**backflip** (Ranger): spring up and back.
+
+| Frame | ms | Pose | Root motion |
+|---|---|---|---|
+| 0 | 60 | crouch | 0 |
+| 1 | 90 | airborne 3 px up, leaning back, arms up, legs tucked | -20 |
+| 2 | 90 | airborne 4 px up, fully tucked (the peak) | -26 |
+| 3 | 90 | land in a crouch | -20 |
+| 4 | 90 | recover | -8 |
+
+**vault** (Lancer): spring forward over the planted lance.
+
+| Frame | ms | Pose | Root motion |
+|---|---|---|---|
+| 0 | 60 | crouch, leaning forward, lance couched | 0 |
+| 1 | 90 | airborne 3 px up, the lance raised high | 20 |
+| 2 | 120 | airborne 4 px up, legs swung forward under the body | 30 |
+| 3 | 90 | land in a crouch | 20 |
+
+The Arcanist's blink is FX plus a fade in the game; it uses `dodge` as its drawn fallback.
+
+### Decisions made while drawing the set (Phase 5)
+
+- **combat_idle bobs between 0 and +1**, like idle, instead of +1 and +2: the humanoid's legs are 3 rows, and +2 leaves one row, which reads as a squat at 1x. The wide stance and the raised weapon carry "ready".
+- **Facing s and n, swings happen on the weapon side.** The weapon arm is on the viewer's left facing s and the right facing n, so the windup raises the weapon beside the head and the strike chops down past the body on that side, with the smear running down that side. A swing across the front would be hidden by the body facing n and would cover it facing s.
+- **Weapon poses are drawn per item** (`ready`, `raised`, `strike`, `low`, `overhead`, `back`, `slam`, `ground`, `aim`, `draw`, `release`, `guard`, `tuck`, `high`, `dropped`); the base body's frames name the pose each held item takes (anchors.json `pose`). An item with no drawing for a pose falls back to its rest cell. Swords and maces share one geometry; staffs, lances and bows have their own. A weapon cocked behind the head is drawn behind the character (a `_behind` cell) so only the part sticking out shows.
+- **Unarmed** characters hold the `fist` (the humanoid rig's default `held_near`): no art, only accent-light smears (a crescent burst in front of a punch, an arc over a hammer fist), reach hitboxes and the fist as `weapon_tip`.
+- **block** works with or without a shield: a shield is raised in front (it rides the torso, so it never swings off the body); a weapon is held upright in front as a parry.
+- **cast** is the same body animation for every caster; a staff is raised then thrust forward, other items do what their poses say.
+- **hurt** keeps the weapon up (`ready`) while the body is knocked back, so a long item never swings off the canvas.
+- **death ends in a slumped kneel** (ANIMATION_SPEC.md section 8).
+
 ---
 
 ## 4. Hitboxes and hurtboxes
 
-- **Hurtbox** (where this character can be hit): generated automatically for every frame as the silhouette's bounding box inset by 1 px. Can be overridden per animation.
-- **Hitbox** (where this attack deals damage): authored rectangles, only on `active` frames. For weapon attacks they live with the held item part (`parts/held_near/sword/hitboxes.json`), so a spear and a dagger can share the same body animation with different reach. Unarmed and monster attacks author them on the rig.
-- Coordinates are pixels in the frame's canvas.
+- **Hurtbox** (where this character can be hit): generated automatically for every frame as the body's bounding box inside its outline (the silhouette inset by 1 px), leaving out held items and smears. Can be overridden per animation.
+- **Hitbox** (where this attack deals damage): authored rectangles, only on `active` frames. For weapon attacks they live with the held item part, per pose (`parts/held_near/sword/hitboxes.json`), so a spear and a dagger can share the same body animation with different reach. Unarmed humanoids get theirs from the `fist`; monster attacks author them on the rig.
+- Coordinates are pixels in the frame's canvas. In `hitboxes.json` they are in idle-hand coordinates, like the item's cells: the compositor moves them with the hand and clips them to the canvas.
+- Facing e a hitbox covers the weapon and its smear. Facing s and n it also reaches toward the target (below the feet facing s, above the head facing n), since a top-down game resolves hits in front of the attacker.
+- Attacks whose hit is a `spawn` (bow, spells) have no hitbox: the projectile carries the hit.
 
 ```json
 {
-  "attack_slash": {
-    "e": { "2": [ {"x": 17, "y": 13, "w": 11, "h": 13} ] }
-  }
+  "hitboxes": { "strike": { "s": [[6, 11, 16, 21]], "e": [[15, 12, 9, 15]], "n": [[9, 3, 16, 27]] } },
+  "points":   { "strike": { "weapon_tip": { "s": [8, 28], "e": [21, 25], "n": [22, 28] } } }
 }
 ```
 
@@ -194,6 +241,8 @@ The preview shows hitboxes (red) and hurtboxes (blue) as overlays, and `pf revie
 
 Required: every attack has `windup`, `hit` (or `spawn` for ranged), and `recover`. Points must be within 3 px of a hand anchor or a held item's tip.
 
+Named points come from the rig's anchors (`hand_near`, `foot_near`, `shield_front`...) and from the held items' poses (`weapon_tip`, `bow_nock`, `shield_front`). The export resolves them per frame: an event with `"point": "weapon_tip"` is written as `"point": [25, 26], "point_name": "weapon_tip"`.
+
 Export (in the JSON `meta.pixelforge` block):
 
 ```json
@@ -206,8 +255,13 @@ Export (in the JSON `meta.pixelforge` block):
 "phases": { "attack_slash_e": ["windup", "windup", "active", "recovery", "recovery"] },
 "hitboxes": { "attack_slash_e": { "2": [ {"x": 17, "y": 13, "w": 11, "h": 13} ] } },
 "hurtboxes": { "attack_slash_e": { "0": [ {"x": 11, "y": 11, "w": 9, "h": 16} ] } },
-"root_motion": { "dodge_e": [0, -4, -3, -1] }
+"root_motion": { "dodge_e": [0, -4, -3, -1] },
+"holds": { "attack_slash_e": [0, 1] },
+"base_durations": { "attack_slash_e": [120, 80, 60, 140, 160] },
+"timing_profiles": { "enemy": {"telegraph_min_ms": 300, "hold_scale": 1.7} }
 ```
+
+Frame durations in the sheet are already retimed for the recipe's profile; `holds`, `base_durations` and `timing_profiles` let a game (or the preview) retime the same art for another profile with the rule in section 2.
 
 ---
 
@@ -269,3 +323,5 @@ In addition to the standard review images:
 - `pf review <recipe> --combat` adds `<anim>_<dir>_timeline.png`: frames laid out with widths proportional to duration, phases colored (windup amber, active red, recovery gray), events as markers, hitboxes and hurtboxes drawn.
 - `pf battle <attacker> <defender> --anim <attack>` renders `battle_<a>_vs_<b>.png`: the attacker's frames with the defender reacting on the hit frame and FX at their spawn and impact points, at 1x and 4x. This is the closest a still image gets to how the fight will feel.
 - The human judges actual timing in the preview, which plays the attack against a target dummy with hit stop applied.
+
+Built in Phase 5: the timeline and battle renders, and the preview's Arena view (`#arena`): a fighter attacks a training dummy, `hit` freezes both for 70 ms (90 ms for `attack_heavy`), the dummy flashes and is knocked back 1 px, `spawn` launches a projectile, and a profile toggle (player, enemy, elite, boss) retimes the attack. Sparks and projectiles are placeholders in the `impact` and `arcane` FX ramps until the Phase 6 library; the dummy is a preview prop, not exported art.

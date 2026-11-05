@@ -64,25 +64,17 @@ Fill these in as they get built. Built so far:
 - `pf diff a.png b.png [--out PATH]` (Phase 1).
 - `pf template <slot> <variant> <anim|rigid>` (Phase 4): an empty sheet and a `*_guide.png` with the base body and anchor_girl ghosted in.
 - `pf random --seed N --count K` (Phase 4): random characters from `parts/compat.yaml` into `characters/random/`, built, with `review/random_<seed>_gallery.png`.
-- `pf preview [--port N] [--bundle PATH]` (Phase 3a): serves the repo and opens at http://127.0.0.1:8000/tools/preview/ (views: #player, #gallery, #walk-test); `--bundle` writes one self-contained HTML file with every built character inlined.
+- `pf preview [--port N] [--bundle PATH]` (Phase 3a): serves the repo and opens at http://127.0.0.1:8000/tools/preview/ (views: #player, #gallery, #walk-test, #arena); `--bundle` writes one self-contained HTML file with every built character inlined.
+- `pf review <recipe> --combat` (Phase 5): adds `<anim>_<dir>_timeline.png` for combat animations.
+- `pf battle <attacker> <defender> --anim A [--dir D] [--profile P]` (Phase 5): `review/battle/battle_<a>_vs_<b>_<anim>.png`.
+- `pf anchors --check [--anim A]`: limit the anchor check to some animations.
 
-Art is drawn in code as character grids by the scripts in `tools/art/` (run them with `.venv/bin/python tools/art/<script>.py`); the PNGs they write are canonical.
+Art is drawn in code as character grids by the scripts in `tools/art/` (run them with `.venv/bin/python tools/art/<script>.py`); the PNGs they write are canonical. Order: `humanoid.py` (base body, with `combat.py` for the combat poses), `anchor_girl.py`, `parts_library.py`, then `weapons.py` (held item poses, smears, hitboxes; it also checks every pose against every frame that uses it).
 
-Planned:
+Planned (not built yet):
 
-- `pf build <recipe>` / `pf build --all`
-- `pf validate [paths]`
-- `pf review <recipe> [--anim A] [--dir D]`
-- `pf template <slot> <variant> <anim>`
-- `pf anchors --check`
-- `pf palette --check`
-- `pf random --seed N --count K`
-- `pf preview`
-- `pf diff a.png b.png`
-- `pf review <recipe> --combat`
-- `pf battle <attacker> <defender> --anim A`
-- `pf roster`
-- `pf fx build <name>` / `pf fx review <name>`
+- `pf roster` (Phase 7)
+- `pf fx build <name>` / `pf fx review <name>` (Phase 6)
 
 ## Current status
 
