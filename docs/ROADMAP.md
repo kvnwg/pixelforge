@@ -37,7 +37,7 @@ Commit: `Phase 0: foundation, style loader, outline pass`
 
 ## Phase 1: Decompose the anchor (CHECKPOINT)
 
-Status: not started
+Status: done (commit 096c0f5)
 
 Tasks:
 1. Sheet I/O, part loading, recipe loading, compositor, recolor, shadow, validator (E1 to E14, W1 to W6), export, `pf review` with all review images.
@@ -60,7 +60,7 @@ Commit: `Phase 1: anchor decomposed into parts, pixel-exact rebuild`
 
 ## Phase 2: Turnaround (CHECKPOINT)
 
-Status: not started
+Status: done (see git log: Phase 2)
 
 Tasks:
 1. Draw the base body and every anchor_girl part for E and N, idle frame 0. W comes from mirroring.

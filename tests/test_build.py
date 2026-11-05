@@ -104,3 +104,20 @@ def test_export_json_matches_the_sheet(girl):
             cell = image[r["y"]:r["y"] + r["h"], r["x"]:r["x"] + r["w"]]
             assert np.array_equal(cell, f.image)
             assert data["frames"][tag["from"] + i]["duration"] == f.duration
+
+
+def test_turnaround_keeps_head_and_height(girl):
+    """Phase 2: same head height (10 rows) and total height (18 rows) facing s, e, n and w."""
+    from pixelforge.validate import Validator
+    v = Validator(girl.composer)
+    for d in ("s", "e", "n", "w"):
+        f = girl.frames[("idle", d)][0]
+        assert v.head_height(f) == 10, d
+        rows = np.flatnonzero((f.sprite[..., 3] == 255).any(axis=1))
+        assert (rows.min(), rows.max()) == (10, 27), d  # outline row 10 to the baseline
+
+
+def test_west_is_east_mirrored_around_the_pivot(girl):
+    from pixelforge.sheet import mirror
+    for e, w in zip(girl.frames[("idle", "e")], girl.frames[("idle", "w")]):
+        assert np.array_equal(mirror(e.image, 15)[0], w.image)

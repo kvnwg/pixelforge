@@ -39,6 +39,86 @@
      "foot_far"
     ]
    }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hand_near": [
+     15,
+     23
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     16,
+     27
+    ],
+    "foot_far": [
+     13,
+     26
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ]
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     17,
+     26
+    ],
+    "foot_far": [
+     13,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ]
+   }
   ]
  }
 }

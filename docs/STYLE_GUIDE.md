@@ -211,6 +211,12 @@ Other outline facts:
 - Side-view proportions (design guidance, not measured): head 9 to 10 px wide including outline, hair adding volume at the back; one eye visible near the front; body 7 to 8 px wide; near arm drawn in front of the torso; far arm mostly hidden.
 - N view: no face, hair covers the head, the collar line becomes a hair-to-cloth boundary, the belt continues around the back.
 
+How the humanoid turnaround was drawn (Phase 2, measured from the parts in `parts/`):
+
+- **Side view (e):** the head keeps its 10 rows (fill rows 11 to 19) and is 8 px wide (10 with outline), rounded on top like the front view; the chin row pulls in one pixel at the front. Hair covers the top and the whole back half of the head, bangs end on row 15 with one pixel of forehead at the front, and the back hair hangs to the nape on row 19, which gives the back of the head its volume. One eye at (17, 18), the same row as the front view, one pixel inside the front of the face. The face is the lit front quarter of the head; a skin-mid column next to the hair is the side of the face. The near arm is a 1 px forearm and hand in front of the dress, lit; the far arm is drawn but hidden behind the torso. The near leg is planted in light leather with the foot pointing forward; the far leg is set back one pixel up and behind, darker, its foot two outline pixels like the anchor's.
+- **Back view (n):** the silhouette and the arm and leg positions on screen match the front view, so turning never pops. The hair covers the whole head down to row 19: a lit crown on rows 11 to 13 (like the top of the hair facing s), one light strand down the middle, short dark strands, darker sides and nape. The hair meets the dress directly on row 20. No eyes. The sash is a band around the back; its tail hangs in front and isn't seen.
+- **Lag overlap:** hair that trails the head (`hair_locks`, `hair_back`) overlaps the hair that moves with it by a row, so a lag frame never opens a gap onto the bald head.
+
 ---
 
 ## 11. Brightness belongs to FX

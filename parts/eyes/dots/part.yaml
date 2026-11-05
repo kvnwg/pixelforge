@@ -7,5 +7,5 @@ origin: auto
 lags: false
 rigs:
 - humanoid
-notes: Two 1 px eyes, 3 px apart.
+notes: Two 1 px eyes, 3 px apart; one facing e; none facing n.
 allow_singletons: []
