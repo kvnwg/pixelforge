@@ -98,7 +98,7 @@ Commit: `Phase 3a: idle and blink`
 
 ## Phase 3b: Walk (CHECKPOINT)
 
-Status: done (see git log: Phase 3b)
+Status: done (commit 4d102c8)
 
 Tasks:
 1. Base body and all parts for walk frames 0 to 3, all directions, per ANIMATION_SPEC.md section 5.
@@ -117,7 +117,7 @@ Commit: `Phase 3b: walk cycle`
 
 ## Phase 4: Parts library, recoloring, knight (CHECKPOINT)
 
-Status: not started
+Status: done (commit 43c2c10)
 
 Tasks:
 1. `pf template` for drawing parts against the base body.
@@ -135,7 +135,12 @@ Tasks:
 4. `parts/compat.yaml` and `pf random`.
 5. Gallery mode in the preview.
 
-Rolling Knight also needs its six class looks (plumed sallet, mitre, wizard hat, winged helm, mace, lance; GAMES.md). Ask the human whether they join this phase.
+Rolling Knight also needs its six class looks (plumed sallet, mitre, wizard hat, winged helm, mace, lance; GAMES.md). Done in this phase: `characters/rolling_knight/rk_*.yaml`.
+
+Notes from building it:
+- Greaves, boots and gauntlets are derived from every leg and arm frame of the base body (`tools/art/parts_library.py`), so they fit every pose. Gauntlets cover the whole visible arm: a knight in plate with bare forearms read wrong.
+- The sword's blade is 4 px plus a 3 px crossguard and a grip pixel, not the brief's 6 to 7: the near hand bobs 1 px down in idle and walk, and the tip's outline has to stay inside the safe area (y 30).
+- Trim slots `headwear_trim`, `belt_trim` and `held_near_trim` carry the second material of an item (plume, buckle, hilt, orb, spearhead).
 
 Acceptance:
 - Knight builds, validates, and reads as a knight at 1x.

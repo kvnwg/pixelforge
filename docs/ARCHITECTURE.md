@@ -180,13 +180,15 @@ Every rig has its own base body (`parts/body/<rig>/`). For the humanoid rig it i
 
 Z-order comes from `style.json` (`z_order.s`, `z_order.e`, `z_order.n`), bottom to top. Defaults:
 
-- **s:** shadow, back, hair_back, held_far, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, eyes, hair_front, hair_locks, headwear, held_near
-- **e:** shadow, held_far, arm_far, back, body, legs_wear, feet, torso_wear, over_torso, belt, hair_back, eyes, hair_front, hair_locks, headwear, arm_near, hands, held_near
-- **n:** shadow, held_far, held_near, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, hair_front, hair_locks, hair_back, headwear, back
+- **s:** shadow, back, hair_back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, held_far, arm_near, hands, hair_front, hair_locks, eyes, headwear, headwear_trim, held_near, held_near_trim
+- **e:** shadow, held_far, arm_far, back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, hair_back, hair_front, hair_locks, eyes, headwear, headwear_trim, arm_near, hands, held_near, held_near_trim
+- **n:** shadow, held_far, held_near, held_near_trim, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, arm_near, hands, hair_front, hair_locks, hair_back, headwear, headwear_trim, back
 
 Notes: in the N view, `hair_back` is drawn over the head because it's what you see from behind, and a cape (`back`) goes over everything except headwear. Arms are above clothing in S and N because they hang beside the torso. In E, the near arm and its held item are in front of everything.
 
 `hides`: a part can hide other slots (a helmet hides `hair_front`, `hair_locks` and `hair_back`). Hidden slots are skipped entirely.
+
+Trim slots (added in Phase 4): `headwear_trim` (a plume), `belt_trim` (a buckle) and `held_near_trim` (a hilt, an orb, a spearhead) hold the second material of a two-material item, since every part has one material. Facing s, `held_far` sits just above the far arm, so a shield on it is in front of the body (the kit first had it behind the body, where a shield barely showed). Eyes sit above `hair_locks` so a lowered lock never hides an eye.
 
 `hair_locks` (added in Phase 1): the loose hair in front that trails the head by one frame. Facing s these are the outer locks framing the face (ANIMATION_SPEC.md section 2); `hair_front` holds the rest of the front hair, which moves with the head. A slot of its own keeps `lags` a whole-part setting.
 
@@ -224,7 +226,7 @@ anims: [idle, walk, blink, combat_idle, attack_slash, attack_heavy, block_enter,
 
 `characters/anchor_girl.yaml` must rebuild the anchor exactly (see ROADMAP Phase 1).
 
-Randomizer: `pf random --seed N --count K` picks a part per slot from allowed variants and a preset per material, respecting `hides` and a compatibility list in `parts/compat.yaml` (e.g. great_helm is incompatible with hair_back/long_straight). It writes the recipes it generated to `characters/random/` so a good one can be kept.
+Randomizer: `pf random --seed N --count K` picks a part per slot from allowed variants and a preset per material, respecting `hides` and `parts/compat.yaml`: weighted hairstyles (one hairstyle sets up to three hair slots), weighted variants per slot, trims that follow their parent part (a sword gets a hilt), `requires` (a tabard needs plate or a tunic) and `incompatible` pairs (a bun under a tall hat). It redraws any character that would use more than 16 colors in any idle or walk frame, and writes the recipes it generated to `characters/random/` so a good one can be kept. Same seed, same characters.
 
 ## 9. Compositing pipeline
 
@@ -259,6 +261,8 @@ draw all hand-placed outline pixels
 ```
 
 Unit test: run this on `style/anchor.png` with its outline pixels removed except the four hand-placed ones listed in `style.json` (`anchor.hand_placed_outline`). The result must equal `style/anchor.png` exactly.
+
+Grounded frames measure open soles from the baseline rather than the lowest silhouette row, in a band from `baseline - 2` to `baseline + 1` (the row under the feet). For the anchor that is the same thing; it matters when a held item hangs below the feet: a sword tip keeps a closed outline instead of moving the soles down. Airborne frames get no open soles.
 
 ## 11. Recoloring
 

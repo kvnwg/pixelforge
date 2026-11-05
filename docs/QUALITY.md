@@ -22,8 +22,8 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E3 | Alpha is only 0 or 255, except ground shadow pixels, which must be exactly the outline color at alpha 70. |
 | E4 | Closed outline: no silhouette pixel has a transparent or shadow-only neighbor directly up, down, left or right, except at open-sole positions. |
 | E5 | No floating pixels: every opaque pixel has at least one opaque neighbor among its 8 surrounding pixels. |
-| E6 | Baseline: in grounded frames, the lowest silhouette row is 27. Frames flagged `airborne` or `lying` in the animation definition are exempt. |
-| E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
+| E6 | Baseline: in grounded frames, the feet (the lowest pixels of the body, legs wear and boots layers, even where a robe covers them) are on row 27. Held items may hang lower. Frames flagged `airborne` or `lying` in the animation definition are exempt. |
+| E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette, without held items, stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
 | E8 | Bounds: no opaque pixel outside x 2..29, y 2..30. |
 | E9 | Mirror: every `w` frame equals its `e` frame mirrored around x = 15. |
 | E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. |
@@ -46,7 +46,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk, after undoing the planned motion (the upper body above the `hip` anchor moved by the head anchor's delta). Usually means boiling or a misaligned layer. A plain pixel count would flag the spec's own 1 px breathing, which moves about half the pixels. Pixels of lagging rigid parts (loose hair) are left out, since they move one frame late by design. |
 | W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one frame, not counting eyes and pixels listed in a part's `allow_singletons`. |
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
-| W5 | A material uses a single shade over more than 22 connected pixels (flat, unshaded area). The doc first said 12, but the anchor's own hair light covers 22, and the anchor wins. |
+| W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
 | W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). |
 | W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. |

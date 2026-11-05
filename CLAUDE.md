@@ -62,6 +62,8 @@ Fill these in as they get built. Built so far:
 - `pf review <recipe> [--anim A] [--dir D] [--recolors]` (Phase 1): review images in `review/<name>/`.
 - `pf anchors --check [--rig R]` (Phase 1): `review/anchors_<rig>.png`.
 - `pf diff a.png b.png [--out PATH]` (Phase 1).
+- `pf template <slot> <variant> <anim|rigid>` (Phase 4): an empty sheet and a `*_guide.png` with the base body and anchor_girl ghosted in.
+- `pf random --seed N --count K` (Phase 4): random characters from `parts/compat.yaml` into `characters/random/`, built, with `review/random_<seed>_gallery.png`.
 - `pf preview [--port N] [--bundle PATH]` (Phase 3a): serves the repo and opens at http://127.0.0.1:8000/tools/preview/ (views: #player, #gallery, #walk-test); `--bundle` writes one self-contained HTML file with every built character inlined.
 
 Art is drawn in code as character grids by the scripts in `tools/art/` (run them with `.venv/bin/python tools/art/<script>.py`); the PNGs they write are canonical.
