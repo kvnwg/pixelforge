@@ -555,18 +555,37 @@ def _combat(c: _Checker, raw: dict[str, Any], directions: list[str]
 
 
 def _animations(c: _Checker, raw: dict[str, Any], event_types: set[str]) -> None:
-    for name, a in c.entries(c.get(raw, "", "animations", "object"), "animations"):
-        p = f"animations.{name}"
+    sets = [("animations", c.get(raw, "", "animations", "object"))]
+    for rig, spec in (raw.get("rigs") or {}).items():
+        if isinstance(spec, dict) and "animations" in spec:
+            sets.append((f"rigs.{rig}.animations", c.get(spec, f"rigs.{rig}", "animations", "object")))
+    known = set(raw.get("animations") or {})
+    for prefix, anims in sets:
+        names = known | set(anims or {})
+        for name, a in c.entries(anims, prefix):
+            if "alias" in a:
+                if a["alias"] not in names:
+                    c.fail(f"{prefix}.{name}.alias", f"{a['alias']!r} is not an animation")
+                    continue
+                if "frames_ms" not in a:
+                    target = (anims or {}).get(a["alias"]) or raw["animations"].get(a["alias"])
+                    a = {**target, **a}
+            _animation(c, f"{prefix}.{name}", a, event_types)
+
+
+def _animation(c: _Checker, p: str, a: dict[str, Any], event_types: set[str]) -> None:
+    if True:
         c.get(a, p, "loop", "bool")
         frames = c.get(a, p, "frames_ms", "list of ints")
         if frames is None:
-            continue
+            return
         if not frames or any(ms <= 0 for ms in frames):
             c.fail(f"{p}.frames_ms", "needs at least one frame, every duration positive")
-            continue
+            return
         n = len(frames)
         for key in ("hold_frames", "active_frames", "airborne_frames", "flash_frames",
-                    "squash_frames", "displaced_frames", "lying_frames", "eyes_closed_frames"):
+                    "squash_frames", "displaced_frames", "lying_frames", "eyes_closed_frames",
+                    "grounded_frames"):
             for i in c.get(a, p, key, "list of ints", optional=True) or []:
                 if not 0 <= i < n:
                     c.fail(f"{p}.{key}", f"frame {i} does not exist ({n} frames)")

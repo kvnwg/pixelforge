@@ -749,10 +749,12 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
       } else if (e.type === "spawn" && Array.isArray(e.point)) {
         const [tx, ty] = dummyCentre(L);
         const bow = arena.anim === "shoot_bow" || e.fx === "arrow";
-        const proj = bow ? "arrow" : SPELLS[el];
+        const named = !bow && e.fx && state.fx[e.fx] ? e.fx : null;  // e.g. a slime's poison glob
+        const proj = bow ? "arrow" : named || SPELLS[el];
         const impact = () => {
           struck();
-          const inst = bow ? fxInstance("arrow", "impact", d, tx, ty) : fxInstance(fxName(proj ? proj + "_impact" : "impact_" + el, el), null, d, tx, ty);
+          const impactName = proj && state.fx[proj + "_impact"] ? proj + "_impact" : "impact_" + el;
+          const inst = bow ? fxInstance("arrow", "impact", d, tx, ty) : fxInstance(fxName(impactName, el), null, d, tx, ty);
           if (inst) arena.fxs.push(inst);
         };
         const shot = proj && fxInstance(proj, "travel", d, L.fx + e.point[0], L.fy + e.point[1], { travel: { to: [tx, ty], speed: 170, arrive: impact } });

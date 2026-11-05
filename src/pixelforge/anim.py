@@ -16,6 +16,7 @@ FLAG_KEYS = {
     "displaced_frames": "displaced",
     "lying_frames": "lying",
     "eyes_closed_frames": "eyes_closed",
+    "grounded_frames": "grounded",  # a hovering rig (flyer) touching down: shadow at full size
 }
 
 
@@ -28,7 +29,8 @@ class AnimDef:
     events: tuple[dict[str, Any], ...]
     phases: tuple[str, ...] | None
     root_motion: tuple[float, ...] | None
-    source: tuple[str, int] | None  # derived animations: built from (anim, frame) of another
+    source: tuple[str, int | None] | None  # derived: (anim, frame) of another; frame None = the
+                                           # same frame index (an alias, e.g. combat_idle = idle)
     effect: str | None  # effect applied to every frame ("close_eyes" for blink)
     only_directions: tuple[str, ...] | None  # drawn directions when limited (blink: s, e)
     combat: bool
@@ -53,7 +55,10 @@ class AnimDef:
         return tuple(d for d in style.directions if d in drawn or d in mirrored)
 
     def source_frame(self, index: int) -> tuple[str, int]:
-        return self.source if self.source else (self.name, index)
+        if not self.source:
+            return (self.name, index)
+        anim, frame = self.source
+        return (anim, index if frame is None else frame)
 
     def event_frame(self, *types: str) -> int | None:
         frames = [int(e["frame"]) for e in self.events if e.get("type") in types]
@@ -85,22 +90,34 @@ def tell_ms(anim: AnimDef, durations: list[int]) -> int | None:
     return sum(durations[(anim.event_frame("windup") or 0):hit])
 
 
-def load_anims(style: Style) -> dict[str, AnimDef]:
+def anim_specs(style: Style, rig: str | None = None) -> dict[str, dict[str, Any]]:
+    """The raw animation definitions a rig uses: the global set, then the rig's own
+    (`rigs.<rig>.animations` in style.json) over it. An alias copies another's timing."""
+    specs = {k: v for k, v in style.raw["animations"].items() if isinstance(v, dict)}
+    if rig:
+        specs.update((style.raw.get("rigs", {}).get(rig, {}) or {}).get("animations", {}))
     out = {}
-    for name, a in style.raw["animations"].items():
-        if not isinstance(a, dict):
-            continue
+    for name, a in specs.items():
+        if "alias" in a and "frames_ms" not in a:
+            a = {**specs[a["alias"]], **a}
+        out[name] = a
+    return out
+
+
+def load_anims(style: Style, rig: str | None = None) -> dict[str, AnimDef]:
+    out = {}
+    for name, a in anim_specs(style, rig).items():
         frames_ms = tuple(a["frames_ms"])
         phases = None
         if "active_frames" in a or a.get("phases"):
             phases = tuple(a.get("phases") or _phases(len(frames_ms), set(a.get("active_frames", []))))
-        src = a.get("source")
+        src = a.get("source") or ({"anim": a["alias"], "frame": None} if "alias" in a else None)
         out[name] = AnimDef(
             name=name, loop=bool(a["loop"]), frames_ms=frames_ms,
             flags={flag: frozenset(a.get(key, [])) for key, flag in FLAG_KEYS.items()},
             events=tuple(a.get("events", [])), phases=phases,
             root_motion=tuple(a["root_motion_px"]) if "root_motion_px" in a else None,
-            source=(src["anim"], int(src["frame"])) if src else None,
+            source=(src["anim"], None if src.get("frame") is None else int(src["frame"])) if src else None,
             effect=a.get("effect"),
             only_directions=tuple(a["directions"]) if "directions" in a else None,
             combat=bool(a.get("combat", False)), raw=a,

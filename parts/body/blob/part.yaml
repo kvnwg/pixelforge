@@ -1,0 +1,8 @@
+slot: body
+variant: blob
+material: slime
+kind: animated
+lags: false
+rigs:
+- blob
+notes: The slime's dome, redrawn for every squash and stretch.

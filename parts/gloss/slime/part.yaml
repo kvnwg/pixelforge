@@ -1,0 +1,10 @@
+slot: gloss
+variant: slime
+material: slime_highlight
+kind: rigid
+attach: gloss
+origin: auto
+lags: false
+rigs:
+- blob
+notes: The 2 px gloss high on the light side.

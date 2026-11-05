@@ -82,13 +82,17 @@ class Composer:
         self.root, self.style, self.recipe = Path(root), style, recipe
         self.lib = library or Library(root, style)
         self.rig: Rig = load_rig(root, style, recipe.rig)
-        self.anims: dict[str, AnimDef] = load_anims(style)
+        self.anims: dict[str, AnimDef] = load_anims(style, recipe.rig)
+        self.rig_spec = style.raw["rigs"][recipe.rig]
         self.size = self.rig.size.canvas
         self.parts = self._resolve()
         materials = {p.material for p in self.parts.values()}
         self.maps = {m: ramp_map(style.materials[m], preset_ramp(style, m, recipe.colors.get(m)))
                      for m in materials}
-        lid = style.raw["effects"].get("close_eyes", {"material": "skin", "shade": 0})
+        # closed eyes take a shade of the body around them: skin for humanoids, the rig's own
+        # material for monsters (rigs.<rig>.close_eyes)
+        lid = self.rig_spec.get("close_eyes") or style.raw["effects"].get(
+            "close_eyes", {"material": "skin", "shade": 0})
         self.lid = parse_hex(preset_ramp(style, lid["material"], recipe.colors.get(lid["material"]))
                              [lid["shade"]])
         self.flash_rgb = parse_hex(style.flash)
@@ -184,7 +188,12 @@ class Composer:
 
     # ------------------------------------------------------------------ frames
     def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str]) -> dict[int, tuple[int, int]]:
+        """The ground shadow: the style's ellipse, or the rig's own (`rigs.<rig>.shadow_rows`,
+        a hovering flyer's small shadow that never bobs); airborne jumps shrink it."""
         rows = dict(self.style.shadow.rows)
+        own = self.rig_spec.get("shadow_rows")
+        if own and "grounded" not in flags:
+            return {int(y): (int(x0), int(x1)) for y, (x0, x1) in own.items()}
         if "airborne" in flags:
             sil = sprite[..., 3] == 255
             ys = np.flatnonzero(sil.any(axis=1))
@@ -216,6 +225,8 @@ class Composer:
                 if layer is not None:
                     layers.append(layer)
         flags = src.frame_flags(src_index) | anim.frame_flags(index)
+        if self.rig_spec.get("hover") and "grounded" not in flags:
+            flags = flags | {"airborne"}  # a flyer's body floats above its grounded pivot
         if not flags & {"airborne", "lying"}:
             # nothing but held items goes below the ground: a skirt or tabard pushed under the
             # baseline by a deep crouch folds onto it
@@ -271,6 +282,9 @@ class Composer:
 
     def combat_data(self, frame: Frame, anim: AnimDef, direction: str, index: int) -> None:
         pts = self.rig.points(anim.name, direction, index)
+        if "active" in frame.flags:  # monsters (and any rig) author their own hitboxes
+            for box in pts.get("hitboxes", []):
+                frame.hitboxes.append(tuple(int(v) for v in box))
         frame.points = {k: (int(v[0]), int(v[1])) for k, v in pts.items()
                         if isinstance(v, list) and len(v) == 2 and all(isinstance(c, int) for c in v)}
         # the hurtbox: the body's bounding box inside its outline (the outlined silhouette inset

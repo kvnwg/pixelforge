@@ -61,7 +61,9 @@ class Validator:
         self.change_budget = float(v.get("change_budget", 0.35))
         self.area_change_max = float(v.get("area_change_max", 0.15))
         self.drift = v.get("pivot_drift_px", {"s": 1, "n": 1, "e": 2, "w": 2})
-        self.motion_anims = set(v.get("motion_checked_anims", ["idle", "walk"]))
+        rig_v = composer.rig_spec.get("validator", {})
+        self.motion_anims = set(rig_v.get("motion_checked_anims",
+                                          v.get("motion_checked_anims", ["idle", "walk"])))
         size = composer.rig.size
         self.pivot = size.pivot
         self.bounds = size.safe_bounds
@@ -539,9 +541,9 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
                 out.append(Finding("error", "E16", f.label, f"event point {point} {xy} is off the canvas"))
             if e["type"] in ("spawn", "vfx"):
                 refs = [f.points[k] for k in ("hand_near", "hand_far", "weapon_tip", "bow_nock",
-                                              "shield_front") if k in f.points]
+                                              "shield_front", "mouth") if k in f.points]
                 if refs and not any(_near(xy, r, 3) for r in refs) and point not in (
-                        "foot_near", "foot_far", "head", "torso"):
+                        "foot_near", "foot_far", "head", "torso", "ground", "back"):
                     out.append(Finding("error", "E16", f.label, f"{e['type']} point {xy} is more than "
                                                                 f"3 px from a hand or weapon tip"))
         if profile_name in ("enemy", "elite", "boss") and len(fs) == adef.frames:

@@ -263,7 +263,9 @@ def anchors(
     from .rig import load_rig
     style = _style()
     r = load_rig(style.root, style, rig)
-    anims = [a for a in r.anchors if a in style.raw["animations"] and (not anim or a in anim)]
+    from .anim import anim_specs
+    known = anim_specs(style, rig)
+    anims = [a for a in r.anchors if a in known and (not anim or a in anim)]
     if anim:
         r = replace(r, anchors={a: v for a, v in r.anchors.items() if a in anims})
     bare = parse_recipe({"name": f"{rig}_bare", "rig": rig, "parts": {}, "anims": anims}, style)

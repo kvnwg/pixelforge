@@ -1,0 +1,11 @@
+slot: eyes
+variant: slime
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- blob
+allow_singletons: {}
+notes: Two 1 px eyes in the lower half, 3 px apart; forward facing e; none facing n.

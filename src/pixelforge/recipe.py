@@ -53,7 +53,9 @@ def parse_recipe(data: dict[str, Any], style: Style, path: Path | None = None) -
             problems.append(f"colors.{material}: {preset!r} is not a preset of {material} "
                             f"({', '.join(style.materials[material].presets)})")
     anims = tuple(data.get("anims") or [])
-    unknown = [a for a in anims if a not in style.raw["animations"]]
+    from .anim import anim_specs
+    rig_name = rig if isinstance(rig, str) else None
+    unknown = [a for a in anims if a not in anim_specs(style, rig_name)]
     if unknown:
         problems.append(f"anims: {unknown} are not animations in style.json")
     if problems:

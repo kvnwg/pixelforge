@@ -1,0 +1,19 @@
+name: slime
+rig: blob
+timing_profile: enemy
+seed: 1
+parts:
+  gloss: slime
+  eyes: slime
+colors:
+  slime: mint
+  slime_highlight: mint
+  eyes: dark
+anims:
+- idle
+- combat_idle
+- move
+- attack_slam
+- attack_spit
+- hurt
+- death

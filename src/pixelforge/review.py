@@ -545,6 +545,8 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
     ranged = spawn_i is not None and hit_i is None
     axis = 0 if d in ("e", "w") else 1
     sign = 1 if d in ("e", "s") else -1
+    rm = list(adef.root_motion or [0] * len(frames))
+    travel = [int(round(sum(rm[:i + 1]))) for i in range(len(frames))]  # px along the facing
     if ranged:
         gap = 30
     else:
@@ -555,7 +557,8 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
         hb = idle[0].hurtbox or (11, 11, 9, 16)
         near_edge = (hb[0] if sign > 0 else size - hb[0] - hb[2]) if axis == 0 else \
             (hb[1] if sign > 0 else size - hb[1] - hb[3])
-        gap = max(reach - near_edge - 2, 6)
+        hit_travel = travel[hit_i] if hit_i is not None else 0
+        gap = max(reach + hit_travel - near_edge - 2, 6)
     W = size + gap if axis == 0 else size
     H = size if axis == 0 else size + gap
     ax, ay = (0, 0) if sign > 0 else ((gap, 0) if axis == 0 else (0, gap))
@@ -580,12 +583,19 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
         f = frames[i]
         if e["type"] == "hit":
             bx, by, bw, bh = (f.hitboxes or [(target[0] - ax - 1, target[1] - ay - 1, 2, 2)])[0]
+            if axis == 0:
+                bx += travel[i] * sign
+            else:
+                by += travel[i] * sign
             cx = min(max(ax + bx + bw // 2, dx + hb[0]), dx + hb[0] + hb[2] - 1)
             cy = min(max(ay + by + bh // 2, dy + hb[1]), dy + hb[1] + hb[3] - 1)
             shots.append({"fx": resolve_fx(fxlib, e.get("fx", "spark_small"), element),
                           "anim": None, "start": i, "pos": (cx, cy)})
         elif e["type"] == "vfx":
             pt = f.points.get(e.get("point")) if isinstance(e.get("point"), str) else None
+            if pt:
+                pt = (pt[0] + (travel[i] * sign if axis == 0 else 0),
+                      pt[1] + (travel[i] * sign if axis == 1 else 0))
             name = resolve_fx(fxlib, e.get("fx"), element)
             if pt and name:
                 fx, _ = fxlib.get(name)
@@ -599,8 +609,14 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
         elif e["type"] == "spawn":
             pt = f.points.get(e.get("point")) if isinstance(e.get("point"), str) else None
             sx, sy = (ax + pt[0], ay + pt[1]) if pt else (ax + size // 2, ay + size // 2)
+            sx += travel[i] * sign if axis == 0 else 0
+            sy += travel[i] * sign if axis == 1 else 0
             if anim == "shoot_bow" or e.get("fx") == "arrow":
                 proj, impact, impact_anim = "arrow", "arrow", "impact"
+            elif e.get("fx") and fxlib is not None and fxlib.has(e["fx"]):
+                proj = e["fx"]  # the event names its projectile (a slime's poison glob)
+                impact = f"{proj}_impact" if fxlib.has(f"{proj}_impact") else f"impact_{element}"
+                impact_anim = None
             elif element in SPELLS:
                 proj = SPELLS[element]
                 impact, impact_anim = f"{proj}_impact", None
@@ -624,7 +640,9 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
         else:
             react = idle[i % len(idle)]
         blit(scene, react.image, dx, dy)
-        blit(scene, f.image, ax, ay)
+        mx = travel[i] * sign if axis == 0 else 0
+        my = travel[i] * sign if axis == 1 else 0
+        blit(scene, f.image, ax + mx, ay + my)
         for shot in shots:
             if shot["start"] is None or i < shot["start"] or i >= shot.get("until", 10 ** 6):
                 continue
@@ -647,7 +665,7 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
                 x, y = round(x0 + (x1 - x0) * u), round(y0 + (y1 - y0) * u)
             elif "follow" in shot:
                 pt = f.points.get(shot["follow"], (size // 2, size // 2))
-                x, y = ax + pt[0], ay + pt[1]
+                x, y = ax + mx + pt[0], ay + my + pt[1]
             else:
                 x, y = shot["pos"]
             target_layer = layers_below if fx.layer == "below" else layers_above
