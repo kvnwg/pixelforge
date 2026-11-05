@@ -13,8 +13,13 @@ Run: .venv/bin/python tools/art/anchor_girl.py
 
 from __future__ import annotations
 
-from artlib import FRAMES, empty, g, write_part, write_recipe
-from humanoid import LEGS_E, LEGS_IDLE, LEGS_S, leather_legs
+from artlib import empty, g, write_part, write_recipe
+
+# Combat animations every humanoid recipe lists (shoot_bow only with a bow in hand)
+COMBAT_ANIMS = ["combat_idle", "attack_slash", "attack_heavy", "cast", "block_enter", "block_hold",
+                "block_impact", "dodge", "hurt", "stun", "death", "victory", "roll", "backflip",
+                "vault"]
+from humanoid import leather_legs, legs_frames
 
 BLANK = ["..............."]
 #                x: 890123456789012
@@ -137,8 +142,16 @@ RECIPE = {
         "accent": "gold (anchor)",
         "eyes": "navy (anchor)",
     },
-    "anims": ["idle", "blink", "walk"],
+    "anims": ["idle", "blink", "walk", *COMBAT_ANIMS],
 }
+
+
+def leggings() -> dict:
+    """Leather leggings for every drawn pose of the base legs (idle, walk and combat)."""
+    out: dict = {}
+    for (anim, d, i), legs in legs_frames().items():
+        out.setdefault(anim, {})[(d, i)] = leather_legs(legs)
+    return out
 
 
 def rigid(material: str, attach: str, notes: str, lags: bool = False, **extra) -> dict:
@@ -168,10 +181,7 @@ def main() -> None:
     write_part("legs_wear", "leggings", {
         "material": "leather", "kind": "animated", "lags": False, "rigs": ["humanoid"],
         "notes": "Leather leggings and shoes, redrawn per frame with the legs.",
-    }, {"idle": {(d, i): leather_legs(LEGS_IDLE[d]) for d in ("s", "e", "n")
-                 for i in range(FRAMES["idle"])},
-        "walk": {(d, i): leather_legs(legs[i]) for d, legs in (("s", LEGS_S), ("e", LEGS_E),
-                                                                ("n", LEGS_S)) for i in range(4)}})
+    }, leggings())
     write_recipe("anchor_girl.yaml", RECIPE)
     print("wrote anchor_girl's parts and recipe")
 

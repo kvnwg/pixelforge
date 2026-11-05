@@ -20,7 +20,4 @@ colors:
   cloth: navy (anchor)
   leather: dark
   accent: gold (anchor)
-anims:
-- idle
-- blink
-- walk
+anims: [idle, blink, walk, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, roll, hurt, stun, death, victory]

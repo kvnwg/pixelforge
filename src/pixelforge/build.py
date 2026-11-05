@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .anim import retime
 from .compose import Composer, Frame, mirror_frame
 from .parts import Library
 from .recipe import Recipe, find_recipe, load_recipe
@@ -62,6 +63,12 @@ def build(root: Path, recipe: Recipe | str, *, style: Style | None = None,
             if (anim, east) in result.frames:
                 result.frames[(anim, west)] = [mirror_frame(f, rig.size.mirror_axis_x, west)
                                                for f in result.frames[(anim, east)]]
+    profile = style.raw["combat"]["timing_profiles"][recipe.timing_profile]
+    for (anim, d), frames in result.frames.items():
+        adef = composer.anims[anim]
+        if len(frames) == adef.frames:
+            for f, ms in zip(frames, retime(adef, [f.duration for f in frames], profile)):
+                f.duration = ms
     if validate:
         result.findings = run_validation(result)
     return result
@@ -78,4 +85,5 @@ def run_validation(b: Build) -> list[Finding]:
         for anim in b.recipe.anims:
             if (anim, east) in b.frames and (anim, west) in b.frames:
                 findings += v.mirror(b.frames[(anim, east)], b.frames[(anim, west)])
+    findings += v.combat(b.frames, b.recipe.timing_profile)
     return findings

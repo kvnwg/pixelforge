@@ -1,0 +1,10 @@
+slot: held_near
+variant: fist
+material: accent
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: 'Unarmed: the rig default for held_near. No art; strike smears and hitboxes.'

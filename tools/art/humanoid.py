@@ -297,21 +297,33 @@ def walk() -> tuple[dict, dict, dict, dict]:
     return body, near, far, anchors
 
 
+def combat_frames() -> dict:
+    """The combat animations (tools/art/combat.py), built on idle frame 0."""
+    import combat
+    return combat.combat(BODY0, ANCHORS0)
+
+
 def legs_frames() -> dict:
     """(anim, direction, frame) -> legs codes, for every drawn pose."""
     out = {("idle", d, i): LEGS_IDLE[d] for d in ("s", "e", "n") for i in range(len(IDLE_UPPER_DY))}
     for i in range(4):
         out[("walk", "s", i)] = out[("walk", "n", i)] = LEGS_S[i]
         out[("walk", "e", i)] = LEGS_E[i]
+    for anim, res in combat_frames().items():
+        for (d, i), legs in res["legs"].items():
+            out[(anim, d, i)] = legs
     return out
 
 
 def arm_frames() -> dict:
-    """(anim, direction, frame) -> (near arm codes, far arm codes)."""
+    """(anim, direction, frame) -> (near arm codes, far arm codes, torso x offset)."""
     _, near, far, _ = idle()
     _, wnear, wfar, _ = walk()
-    out = {("idle", d, i): (near[(d, i)], far[(d, i)]) for (d, i) in near}
-    out.update({("walk", d, i): (wnear[(d, i)], wfar[(d, i)]) for (d, i) in wnear})
+    out = {("idle", d, i): (near[(d, i)], far[(d, i)], 0) for (d, i) in near}
+    out.update({("walk", d, i): (wnear[(d, i)], wfar[(d, i)], 0) for (d, i) in wnear})
+    for anim, res in combat_frames().items():
+        for key in res["near"]:
+            out[(anim, *key)] = (res["near"][key], res["far"][key], res["torso_dx"][key])
     return out
 
 
@@ -319,16 +331,23 @@ def main() -> None:
     body, near, far, anchors = idle()
     wbody, wnear, wfar, wanchors = walk()
     meta = {"material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"]}
+    combat = combat_frames()
+    sheets = {key: {"idle": v0, "walk": v1} for key, v0, v1 in
+              (("body", body, wbody), ("near", near, wnear), ("far", far, wfar))}
+    for anim, res in combat.items():
+        for key in ("body", "near", "far"):
+            sheets[key][anim] = res[key]
     write_part("body", "humanoid", {**meta, "notes": "Skin-only mannequin: bald head, bare "
                                                       "torso, legs. Arms are separate slots."},
-               {"idle": body, "walk": wbody})
+               sheets["body"])
     write_part("arm_near", "humanoid", {**meta, "notes": "The near arm (the character's right; "
                                                           "viewer-left facing s). Holds held_near."},
-               {"idle": near, "walk": wnear})
+               sheets["near"])
     write_part("arm_far", "humanoid", {**meta, "notes": "The far arm (the character's left; "
                                                          "viewer-right facing s). Holds held_far."},
-               {"idle": far, "walk": wfar})
-    write_anchors("humanoid", {"idle": anchors, "walk": wanchors})
+               sheets["far"])
+    write_anchors("humanoid", {"idle": anchors, "walk": wanchors,
+                               **{anim: res["anchors"] for anim, res in combat.items()}})
     print("wrote the humanoid base body")
 
 

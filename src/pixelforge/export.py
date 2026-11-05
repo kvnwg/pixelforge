@@ -48,6 +48,7 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
     rows = sheet_layout(b)
     frames, tags = [], []
     loops, events, phases, root_motion, durations, stride_px = {}, {}, {}, {}, {}, {}
+    holds, hitboxes, hurtboxes, base_ms = {}, {}, {}, {}
     i = 0
     for r, (anim, d, n) in enumerate(rows):
         adef = b.composer.anims[anim]
@@ -66,7 +67,28 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
         tags.append({"name": tag, "from": start, "to": i - 1, "direction": "forward"})
         loops[anim] = adef.loop
         if adef.events:
-            events[tag] = [dict(e) for e in adef.events]
+            frames_here = b.frames[(anim, d)]
+            resolved = []
+            for e in adef.events:
+                e = dict(e)
+                point = e.get("point")
+                if isinstance(point, str) and int(e["frame"]) < len(frames_here):
+                    xy = frames_here[int(e["frame"])].points.get(point)
+                    if xy is not None:
+                        e["point"] = [xy[0], xy[1]]
+                        e["point_name"] = point
+                resolved.append(e)
+            events[tag] = resolved
+        if adef.flags.get("hold"):
+            holds[tag] = sorted(adef.flags["hold"])
+        boxes = {str(i): [{"x": x, "y": y, "w": w, "h": h} for x, y, w, h in f.hitboxes]
+                 for i, f in enumerate(b.frames[(anim, d)]) if f.hitboxes}
+        if boxes:
+            hitboxes[tag] = boxes
+        if adef.combat:
+            hurtboxes[tag] = {str(i): [dict(zip("xywh", f.hurtbox))]
+                              for i, f in enumerate(b.frames[(anim, d)]) if f.hurtbox}
+        base_ms[tag] = list(adef.frames_ms)
         if adef.phases:
             phases[tag] = list(adef.phases)
         if adef.root_motion:
@@ -80,8 +102,9 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
     meta_pf: dict[str, Any] = {
         "pivot": list(size.pivot), "size_class": size.name, "rig": b.composer.rig.name,
         "timing_profile": b.recipe.timing_profile, "loop": loops, "events": events,
-        "phases": phases, "hitboxes": {}, "hurtboxes": {}, "root_motion": root_motion,
-        "stride_px": stride_px,
+        "phases": phases, "hitboxes": hitboxes, "hurtboxes": hurtboxes, "root_motion": root_motion,
+        "stride_px": stride_px, "holds": holds, "base_durations": base_ms,
+        "timing_profiles": b.style.raw["combat"]["timing_profiles"],
     }
     if extra:
         meta_pf.update(extra)

@@ -8,3 +8,136 @@ lags: false
 rigs:
 - humanoid
 notes: Sword crossguard and grip.
+pose_singletons:
+  pose_ready:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_raised:
+    s:
+    - - 10
+      - 22
+    n:
+    - - 20
+      - 22
+  pose_raised_behind:
+    e:
+    - - 15
+      - 22
+  pose_strike:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_low:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_overhead:
+    s:
+    - - 10
+      - 22
+    e:
+    - - 17
+      - 23
+    n:
+    - - 20
+      - 22
+  pose_back:
+    s:
+    - - 10
+      - 22
+    n:
+    - - 20
+      - 22
+  pose_back_behind:
+    e:
+    - - 15
+      - 23
+  pose_slam:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_ground:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_aim:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_guard:
+    s:
+    - - 9
+      - 23
+    e:
+    - - 18
+      - 23
+    n:
+    - - 21
+      - 23
+  pose_tuck:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 14
+      - 23
+    n:
+    - - 20
+      - 23
+  pose_high:
+    s:
+    - - 10
+      - 22
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 22
+  pose_dropped:
+    s:
+    - - 9
+      - 24
+    e:
+    - - 20
+      - 24
+    n:
+    - - 21
+      - 24

@@ -271,8 +271,8 @@ def anchors_check(rig: Rig, b: Build | None, k: int = 8) -> Image.Image:
         arr = flat(base, (232, 226, 208)) if base is not None else np.full((size, size, 3), 232, np.uint8)
         arr = pixel_grid(big(arr, k), k)
         for name, p in pts.items():
-            if name == "planted":
-                continue
+            if not (isinstance(p, list) and len(p) == 2 and all(isinstance(c, int) for c in p)):
+                continue  # "planted" names feet, "pose" maps slots to poses
             px, py = p
             c = colors.get(name, (0, 0, 0))
             arr[py * k + 2:(py + 1) * k - 2, px * k + 2:(px + 1) * k - 2] = c

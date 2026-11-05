@@ -15,6 +15,7 @@ FLAG_KEYS = {
     "squash_frames": "squash",
     "displaced_frames": "displaced",
     "lying_frames": "lying",
+    "eyes_closed_frames": "eyes_closed",
 }
 
 
@@ -53,6 +54,35 @@ class AnimDef:
 
     def source_frame(self, index: int) -> tuple[str, int]:
         return self.source if self.source else (self.name, index)
+
+    def event_frame(self, *types: str) -> int | None:
+        frames = [int(e["frame"]) for e in self.events if e.get("type") in types]
+        return min(frames) if frames else None
+
+
+def retime(anim: AnimDef, durations: list[int], profile: dict) -> list[int]:
+    """Timing profiles (COMBAT.md section 2): hold frames are scaled by hold_scale; then, if the
+    tell (first windup frame to the hit or spawn) is still shorter than telegraph_min_ms, the
+    last hold frame before the hit is extended until it meets it."""
+    holds = anim.flags.get("hold", frozenset())
+    out = [round(ms * float(profile.get("hold_scale", 1.0))) if i in holds else ms
+           for i, ms in enumerate(durations)]
+    hit = anim.event_frame("hit", "spawn")
+    start = anim.event_frame("windup") or 0
+    minimum = int(profile.get("telegraph_min_ms", 0))
+    if hit is not None and minimum:
+        tell = sum(out[start:hit])
+        if tell < minimum:
+            before = [i for i in holds if start <= i < hit]
+            out[max(before) if before else hit - 1] += minimum - tell
+    return out
+
+
+def tell_ms(anim: AnimDef, durations: list[int]) -> int | None:
+    hit = anim.event_frame("hit", "spawn")
+    if hit is None:
+        return None
+    return sum(durations[(anim.event_frame("windup") or 0):hit])
 
 
 def load_anims(style: Style) -> dict[str, AnimDef]:

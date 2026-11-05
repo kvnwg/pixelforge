@@ -19,7 +19,4 @@ colors:
   leather: dark
   accent: silver
   eyes: dark
-anims:
-- idle
-- blink
-- walk
+anims: [idle, blink, walk, combat_idle, cast, dodge, hurt, stun, death, victory]

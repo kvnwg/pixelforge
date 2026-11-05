@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 from typing import Optional
 
@@ -166,6 +167,7 @@ def review(
 def anchors(
     check: bool = typer.Option(True, "--check/--no-check", help="Render the anchor check image."),
     rig: str = typer.Option("humanoid", "--rig", help="Rig to check."),
+    anim: Optional[list[str]] = typer.Option(None, "--anim", help="Only these animations."),
 ) -> None:
     """Render every base body frame with its anchor points marked."""
     from .build import build
@@ -174,7 +176,9 @@ def anchors(
     from .rig import load_rig
     style = _style()
     r = load_rig(style.root, style, rig)
-    anims = [a for a in r.anchors if a in style.raw["animations"]]
+    anims = [a for a in r.anchors if a in style.raw["animations"] and (not anim or a in anim)]
+    if anim:
+        r = replace(r, anchors={a: v for a, v in r.anchors.items() if a in anims})
     bare = parse_recipe({"name": f"{rig}_bare", "rig": rig, "parts": {}, "anims": anims}, style)
     b = build(style.root, bare, style=style, validate=False)
     out = style.root / "review" / f"anchors_{rig}.png"

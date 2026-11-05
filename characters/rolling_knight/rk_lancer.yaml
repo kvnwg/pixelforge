@@ -22,7 +22,4 @@ colors:
   accent: red
   skin: tan
   eyes: brown
-anims:
-- idle
-- blink
-- walk
+anims: [idle, blink, walk, combat_idle, attack_slash, vault, hurt, stun, death, victory]

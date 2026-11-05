@@ -31,6 +31,7 @@ class Part:
     hides: frozenset[str]
     lags: bool
     allow_singletons: dict[str, tuple[tuple[int, int], ...]]  # per direction, frame-0 coords
+    pose_singletons: dict[str, dict[str, tuple[tuple[int, int], ...]]]  # per pose cell, then dir
     rigs: tuple[str, ...]
     notes: str
     folder: Path
@@ -99,6 +100,8 @@ def load_part(folder: Path, style: Style) -> Part:
     singles = data.get("allow_singletons") or {}
     if isinstance(singles, list):  # same list for every direction
         singles = {d: singles for d in style.drawn_directions}
+    pose_singles = {pose: {d: tuple((int(x), int(y)) for x, y in v) for d, v in per_dir.items()}
+                    for pose, per_dir in (data.get("pose_singletons") or {}).items()}
     rigs = tuple(data.get("rigs") or ["humanoid"])
     unknown = [r for r in rigs if r not in style.raw.get("rigs", {})]
     if unknown:
@@ -110,6 +113,7 @@ def load_part(folder: Path, style: Style) -> Part:
         origin=origin, animated_overrides=frozenset(data.get("animated_overrides") or []),
         hides=hides, lags=bool(data.get("lags", False)),
         allow_singletons={d: tuple((int(x), int(y)) for x, y in v) for d, v in singles.items()},
+        pose_singletons=pose_singles,
         rigs=rigs, notes=str(data.get("notes", "")), folder=folder,
     )
 

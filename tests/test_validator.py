@@ -100,9 +100,12 @@ def test_wrong_color_in_a_part_file_is_E13(root, style, tmp_path):
     assert "E13" in rules(found)
 
 
-def test_missing_sheet_is_E14(root, style, girl):
+def test_missing_sheet_is_E14(root, style, girl, tmp_path):
+    import shutil
+    shutil.copytree(root / "parts", tmp_path / "parts")
+    (tmp_path / "parts" / "legs_wear" / "leggings" / "attack_slash.png").unlink()
     recipe = replace(girl.recipe, anims=("idle", "attack_slash"))
-    b = build(root, recipe, style=style)
+    b = build(tmp_path, recipe, style=style)
     assert any(f.rule == "E14" and "attack_slash" in f.message for f in b.findings)
 
 

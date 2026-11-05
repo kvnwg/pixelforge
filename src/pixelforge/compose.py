@@ -13,8 +13,10 @@ West frames are mirrored from finished east frames by the build (build.py).
 
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from pathlib import Path
+
+import json
 
 import numpy as np
 
@@ -29,7 +31,8 @@ from .rig import Rig, load_rig
 from .sheet import mirror, shift
 from .style import Style
 
-EMPTY, OUTLINE = -1, -2
+EMPTY, OUTLINE, SMEAR = -1, -2, -3
+HELD_SLOTS = ("held_near", "held_near_trim", "held_far")
 
 
 @dataclass
@@ -39,6 +42,7 @@ class Layer:
     image: np.ndarray  # recolored cell in canvas coordinates
     offset: tuple[int, int]  # translation applied to a rigid part; (0, 0) for drawn cells
     dropped: int  # opaque pixels pushed off the canvas by that translation
+    sheet: str = ""  # the sheet the cell came from: "rigid", "pose_raised", "walk"...
 
 
 @dataclass
@@ -56,6 +60,9 @@ class Frame:
     flags: frozenset[str]
     source: tuple[str, int]  # the drawn (anim, frame) this frame comes from
     mirrored_from: str | None = None
+    hitboxes: list[tuple[int, int, int, int]] = field(default_factory=list)  # x, y, w, h
+    hurtbox: tuple[int, int, int, int] | None = None
+    points: dict[str, tuple[int, int]] = field(default_factory=dict)  # named points for events
 
     @property
     def label(self) -> str:
@@ -92,6 +99,8 @@ class Composer:
         for slot in ("body", "arm_near", "arm_far"):
             if (self.lib.root / slot / self.rig.name / "part.yaml").is_file():
                 chosen[slot] = self.rig.name
+        # rig defaults (an unarmed humanoid holds the 'fist': no art, just its smear and hitboxes)
+        chosen.update(self.style.raw["rigs"][self.rig.name].get("defaults", {}))
         chosen.update(self.recipe.parts)
         present: dict[str, Part] = {}
         for slot, variant in chosen.items():
@@ -113,9 +122,14 @@ class Composer:
         return self.rig.anchor("idle", direction, 0, part.attach)
 
     def offset(self, part: Part, anim: AnimDef, direction: str, index: int) -> tuple[int, int]:
-        """Where a rigid part sits in this frame (lagging parts use the previous frame)."""
-        f = self.lag_frame(part, anim, direction, index)
-        ax, ay = self.rig.anchor(anim.name, direction, f, part.attach)
+        """Where a rigid part sits in this frame. A lagging part trails its anchor by one frame
+        but never by more than 1 px, so a lock drifts behind a big move instead of detaching."""
+        ax, ay = self.rig.anchor(anim.name, direction, index, part.attach)
+        if part.lags:
+            px, py = self.rig.anchor(anim.name, direction,
+                                     self.lag_frame(part, anim, direction, index), part.attach)
+            ax -= max(-1, min(1, ax - px))
+            ay -= max(-1, min(1, ay - py))
         ox, oy = self.origin(part, direction)
         return ax - ox, ay - oy
 
@@ -125,22 +139,48 @@ class Composer:
         n = self.rig.frame_count(anim.name, direction)
         return (index - 1) % n if anim.loop else max(index - 1, 0)
 
-    def layer(self, part: Part, anim: AnimDef, direction: str, index: int) -> Layer | None:
+    def pose(self, part: Part, anim: AnimDef, direction: str, index: int) -> str | None:
+        """The pose a frame asks of a part (a weapon raised, striking...); trims follow their
+        parent slot's pose."""
+        poses = self.rig.points(anim.name, direction, index).get("pose", {})
+        slot = part.slot[:-5] if part.slot.endswith("_trim") else part.slot
+        return poses.get(slot)
+
+    def pose_sheet(self, part: Part, pose: str | None, behind: bool = False):
+        """A held item's cell for a pose: pose_<name>.png, drawn in idle-hand coordinates like
+        rigid.png. A pose may put the item behind the character (pose_<name>_behind.png, a
+        weapon cocked behind the head); one with only a behind cell has nothing in front."""
+        if not pose:
+            return None if behind else self.lib.sheet(part, RIGID_SHEET)
+        if behind:
+            return self.lib.sheet(part, f"pose_{pose}_behind")
+        front = self.lib.sheet(part, f"pose_{pose}")
+        if front is not None or self.lib.sheet(part, f"pose_{pose}_behind") is not None:
+            return front
+        return self.lib.sheet(part, RIGID_SHEET)
+
+    def layer(self, part: Part, anim: AnimDef, direction: str, index: int,
+              behind: bool = False) -> Layer | None:
         if not part.drawn(anim.name):
-            sheet = self.lib.sheet(part, RIGID_SHEET)
+            sheet = self.pose_sheet(part, self.pose(part, anim, direction, index), behind)
             cell = sheet.get(direction, 0) if sheet else None
             if cell is None or not cell[..., 3].any():
                 return None
             dx, dy = self.offset(part, anim, direction, index)
             cell, dropped = shift(cell, dx, dy)
             offset = (dx, dy)
+            name = sheet.path.stem if getattr(sheet, "path", None) else RIGID_SHEET
+        elif behind:
+            return None
         else:
             sheet = self.lib.sheet(part, anim.name)
             cell = sheet.get(direction, self.lag_frame(part, anim, direction, index)) if sheet else None
             if cell is None or not cell[..., 3].any():
                 return None
             offset, dropped = (0, 0), 0
-        return Layer(part.slot, part, recolor(cell, self.maps[part.material]), offset, dropped)
+            name = anim.name
+        return Layer(part.slot, part, recolor(cell, self.maps[part.material]), offset, dropped,
+                     name)
 
     # ------------------------------------------------------------------ frames
     def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str]) -> dict[int, tuple[int, int]]:
@@ -163,12 +203,26 @@ class Composer:
         src_name, src_index = anim.source_frame(index)
         src = self.anims[src_name]
         layers = []
+        for slot in HELD_SLOTS:  # held items posed behind the character go under everything
+            part = self.parts.get(slot)
+            if part is not None:
+                layer = self.layer(part, src, direction, src_index, behind=True)
+                if layer is not None:
+                    layers.append(layer)
         for slot in self.rig.z_order[direction]:
             part = self.parts.get(slot)
             if part is not None:
                 layer = self.layer(part, src, direction, src_index)
                 if layer is not None:
                     layers.append(layer)
+        flags = src.frame_flags(src_index) | anim.frame_flags(index)
+        if not flags & {"airborne", "lying"}:
+            # nothing but held items goes below the ground: a skirt or tabard pushed under the
+            # baseline by a deep crouch folds onto it
+            base = self.rig.size.pivot[1]
+            for layer in layers:
+                if layer.slot not in HELD_SLOTS:
+                    layer.image[base + 1:] = 0
         sprite = np.zeros((self.size, self.size, 4), np.uint8)
         owner = np.full((self.size, self.size), EMPTY, np.int16)
         for i, layer in enumerate(layers):
@@ -176,25 +230,73 @@ class Composer:
             sprite[mask] = layer.image[mask]
             owner[mask] = i
         o = self.style.outline
-        flags = src.frame_flags(src_index) | anim.frame_flags(index)
         airborne = "airborne" in flags
         result = outline(sprite, o.rgb, open_soles=o.open_soles and not airborne,
                          sole_rows=o.sole_rows, lowest=None if airborne else self.rig.size.pivot[1])
         sprite = result.image
         owner[result.ring] = OUTLINE
-        if anim.effect == "close_eyes":
+        if anim.effect == "close_eyes" or "eyes_closed" in flags:
             eyes = np.isin(owner, [i for i, l in enumerate(layers) if l.slot == "eyes"])
             sprite = close_eyes(sprite, eyes, self.lid)
+        # Smears trace a strike: drawn after the outline, in the weapon's own material, only on
+        # empty pixels (behind the character), never outlined.
+        held = self.parts.get("held_near")
+        if held is not None and not held.drawn(src.name):
+            pose = self.pose(held, src, direction, src_index)
+            sheet = self.lib.sheet(held, f"smear_{pose}") if pose else None
+            cell = sheet.get(direction, 0) if sheet else None
+            if cell is not None and cell[..., 3].any():
+                cell, _ = shift(cell, *self.offset(held, src, direction, src_index))
+                cell = recolor(cell, self.maps[held.material])
+                mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0)
+                sprite[mask] = cell[mask]
+                owner[mask] = SMEAR
         if "flash" in flags:
             sprite = flash(sprite, o.rgb, self.flash_rgb)
         shadow = shadow_layer(self.style.shadow, o.rgb, self.size,
                               rows=self.shadow_rows(sprite, flags))
-        return Frame(
+        frame = Frame(
             character=self.recipe.name, anim=anim_name, direction=direction, index=index,
             duration=anim.frames_ms[index], sprite=sprite, image=over_shadow(sprite, shadow),
             layers=layers, owner=owner, open_soles=result.open, flags=flags,
             source=(src_name, src_index),
         )
+        self.combat_data(frame, src, direction, src_index)
+        return frame
+
+    # ------------------------------------------------------------------ combat data
+    def part_data(self, part: Part) -> dict:
+        path = part.folder / "hitboxes.json"
+        return json.loads(path.read_text()) if path.is_file() else {}
+
+    def combat_data(self, frame: Frame, anim: AnimDef, direction: str, index: int) -> None:
+        pts = self.rig.points(anim.name, direction, index)
+        frame.points = {k: (int(v[0]), int(v[1])) for k, v in pts.items()
+                        if isinstance(v, list) and len(v) == 2 and all(isinstance(c, int) for c in v)}
+        body = (frame.sprite[..., 3] == 255) & (frame.owner != SMEAR)
+        body &= ~frame.slot_mask(*HELD_SLOTS)
+        if body.any():
+            ys, xs = np.nonzero(body)
+            x0, y0, x1, y1 = int(xs.min()) + 1, int(ys.min()) + 1, int(xs.max()) - 1, int(ys.max()) - 1
+            frame.hurtbox = (x0, y0, max(x1 - x0 + 1, 1), max(y1 - y0 + 1, 1))
+        for slot in ("held_near", "held_far"):
+            part = self.parts.get(slot)
+            if part is None:
+                continue
+            data = self.part_data(part)
+            pose = self.pose(part, anim, direction, index) or "rest"
+            dx, dy = (0, 0) if part.drawn(anim.name) else self.offset(part, anim, direction, index)
+            for name, per_dir in data.get("points", {}).get(pose, {}).items():
+                if direction in per_dir:
+                    x, y = per_dir[direction]
+                    frame.points[name] = (x + dx, y + dy)
+            if slot == "held_near" and "active" in frame.flags:
+                for x, y, w, h in data.get("hitboxes", {}).get(pose, {}).get(direction, []):
+                    # a reach box moves with the hand; the canvas clips it
+                    x0, y0 = max(x + dx, 0), max(y + dy, 0)
+                    x1, y1 = min(x + dx + w, self.size), min(y + dy + h, self.size)
+                    if x1 > x0 and y1 > y0:
+                        frame.hitboxes.append((x0, y0, x1 - x0, y1 - y0))
 
 
 def mirror_frame(frame: Frame, axis: int, direction: str) -> Frame:
@@ -210,8 +312,15 @@ def mirror_frame(frame: Frame, axis: int, direction: str) -> Frame:
                 out[:, x2] = a[:, x]
         return out
 
+    def box(b):
+        x, y, w, h = b
+        return (2 * axis - (x + w - 1), y, w, h)
+
     return replace(
         frame, direction=direction, sprite=m(frame.sprite), image=m(frame.image),
         layers=[replace(layer, image=m(layer.image)) for layer in frame.layers],
         owner=m2(frame.owner), open_soles=m2(frame.open_soles), mirrored_from=frame.direction,
+        hitboxes=[box(b) for b in frame.hitboxes],
+        hurtbox=box(frame.hurtbox) if frame.hurtbox else None,
+        points={k: (2 * axis - x, y) for k, (x, y) in frame.points.items()},
     )

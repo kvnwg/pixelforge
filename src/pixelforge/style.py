@@ -565,7 +565,8 @@ def _animations(c: _Checker, raw: dict[str, Any], event_types: set[str]) -> None
             c.fail(f"{p}.frames_ms", "needs at least one frame, every duration positive")
             continue
         n = len(frames)
-        for key in ("hold_frames", "active_frames", "airborne_frames", "flash_frames"):
+        for key in ("hold_frames", "active_frames", "airborne_frames", "flash_frames",
+                    "squash_frames", "displaced_frames", "lying_frames", "eyes_closed_frames"):
             for i in c.get(a, p, key, "list of ints", optional=True) or []:
                 if not 0 <= i < n:
                     c.fail(f"{p}.{key}", f"frame {i} does not exist ({n} frames)")

@@ -12,7 +12,7 @@ from typing import Iterable
 import numpy as np
 
 from .color import parse_hex, to_hex
-from .compose import EMPTY, OUTLINE, Composer, Frame
+from .compose import EMPTY, OUTLINE, SMEAR, Composer, Frame
 from .parts import RIGID_SHEET, Library, Part
 from .sheet import Sheet, SheetError, mirror
 from .style import Style
@@ -89,7 +89,8 @@ class Validator:
             return [Finding("error", "E1", where, f"frame is {img.shape[1]} x {img.shape[0]}, "
                                                   f"not {size} x {size}")]
         alpha = img[..., 3]
-        opaque = alpha == 255
+        smear = f.owner == SMEAR
+        opaque = (alpha == 255) & ~smear
         is_outline = opaque & np.all(img[..., :3] == np.asarray(self.outline_rgb, np.uint8), axis=-1)
         sil = opaque & ~is_outline
 
@@ -186,7 +187,8 @@ class Validator:
             out.append(Finding("error", "E11", where, f"{n_colors} colors, more than {limit}"))
         if f.mirrored_from is None:
             out += self._singletons(f, sil, where)
-            out += self._flat_areas(f, where)
+            if "flash" not in f.flags:  # a flash frame is one flat color on purpose
+                out += self._flat_areas(f, where)
         for layer in f.layers:
             if layer.dropped:
                 out.append(Finding("error", "E8", where, f"{layer.part.id}: {layer.dropped} pixels "
@@ -203,7 +205,10 @@ class Validator:
         for i, layer in enumerate(f.layers):
             if layer.slot == "eyes":
                 allowed |= f.owner == i
-            for x, y in layer.part.allow_singletons.get(f.direction, ()):
+            per_dir = layer.part.allow_singletons
+            if layer.sheet.startswith("pose_"):  # a held item's pose lists its own tips
+                per_dir = layer.part.pose_singletons.get(layer.sheet, {})
+            for x, y in per_dir.get(f.direction, ()):
                 x2, y2 = x + layer.offset[0], y + layer.offset[1]
                 if 0 <= x2 < img.shape[1] and 0 <= y2 < img.shape[0]:
                     allowed[y2, x2] = True
@@ -447,3 +452,89 @@ def validate_part(part: Part, lib: Library, style: Style) -> list[Finding]:
                                f"colors outside the {part.material} base ramp: {colors}",
                                _px(opaque & ~ok), "one material per part file"))
     return out
+
+
+def _near(a: tuple[int, int], b: tuple[int, int], r: int) -> bool:
+    return abs(a[0] - b[0]) <= r and abs(a[1] - b[1]) <= r
+
+
+def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
+    """E15 hitboxes, E16 events, E17 telegraph, W8 weak tell (COMBAT.md, QUALITY.md)."""
+    from .anim import tell_ms
+    out: list[Finding] = []
+    size = self.c.size
+    profile = self.style.raw["combat"]["timing_profiles"][profile_name]
+    for (anim, d), fs in frames.items():
+        adef = self.c.anims[anim]
+        if not adef.combat:
+            continue
+        where = f"{self.c.recipe.name} {anim} {d}"
+        active = adef.flags.get("active", frozenset())
+        ranged = adef.event_frame("spawn") is not None  # the projectile carries the hit
+        for f in fs:
+            if f.index in active and not f.hitboxes and not ranged:
+                out.append(Finding("error", "E15", f.label, "active frame without a hitbox",
+                                   hint="the held item has no hitbox for this pose (hitboxes.json)"))
+            if f.index not in active and f.hitboxes:
+                out.append(Finding("error", "E15", f.label, "hitbox outside the active phase"))
+            for x, y, w, h in f.hitboxes:
+                if x < 0 or y < 0 or x + w > size or y + h > size:
+                    out.append(Finding("error", "E15", f.label, f"hitbox {(x, y, w, h)} leaves the canvas"))
+        attack = bool(active) or adef.event_frame("hit", "spawn") is not None
+        if attack:
+            types = {e["type"] for e in adef.events}
+            missing = [t for t in ("windup", "recover") if t not in types]
+            if not types & {"hit", "spawn"}:
+                missing.append("hit or spawn")
+            if missing:
+                out.append(Finding("error", "E16", where, f"attack lacks events: {missing}"))
+        for e in adef.events:
+            i = int(e["frame"])
+            if not 0 <= i < len(fs):
+                out.append(Finding("error", "E16", where, f"event {e['type']} on frame {i} of {len(fs)}"))
+                continue
+            point = e.get("point")
+            if point is None:
+                continue
+            f = fs[i]
+            xy = f.points.get(point) if isinstance(point, str) else tuple(point)
+            if xy is None:
+                out.append(Finding("error", "E16", f.label, f"event point {point!r} is not defined",
+                                   hint="add it to the rig anchors or the held item's points"))
+                continue
+            if not (0 <= xy[0] < size and 0 <= xy[1] < size):
+                out.append(Finding("error", "E16", f.label, f"event point {point} {xy} is off the canvas"))
+            if e["type"] in ("spawn", "vfx"):
+                refs = [f.points[k] for k in ("hand_near", "hand_far", "weapon_tip", "bow_nock",
+                                              "shield_front") if k in f.points]
+                if refs and not any(_near(xy, r, 3) for r in refs) and point not in (
+                        "foot_near", "foot_far", "head", "torso"):
+                    out.append(Finding("error", "E16", f.label, f"{e['type']} point {xy} is more than "
+                                                                f"3 px from a hand or weapon tip"))
+        if profile_name in ("enemy", "elite", "boss") and len(fs) == adef.frames:
+            tell = tell_ms(adef, [f.duration for f in fs])
+            if tell is not None and tell < int(profile["telegraph_min_ms"]):
+                out.append(Finding("error", "E17", where, f"tell is {tell} ms, under the {profile_name} "
+                                                          f"minimum {profile['telegraph_min_ms']} ms"))
+        rm = adef.root_motion
+        if rm is not None and len(rm) != adef.frames:
+            out.append(Finding("error", "E20", where, f"{len(rm)} root motion values for {adef.frames} frames"))
+        if attack and ("combat_idle", d) in frames and adef.event_frame("windup") is not None:
+            # the tell is the strongest pose of the windup phase (a heavy lifts, then cocks back)
+            ref = frames[("combat_idle", d)][0].sprite[..., 3] == 255
+            hit = adef.event_frame("hit", "spawn") or len(fs)
+            best, change = None, -1.0
+            for f in fs[adef.event_frame("windup"):hit]:
+                sil = f.sprite[..., 3] == 255
+                c = (ref ^ sil).sum() / max((ref | sil).sum(), 1)
+                if c > change:
+                    best, change = f, c
+            if best is not None and change < 0.08:
+                out.append(Finding("warning", "W8", best.label, f"windup pose differs from "
+                                                                f"combat_idle by {change:.1%} "
+                                                                f"(under 8%)",
+                                   hint="make the tell a whole-body pose: lean, crouch, raise"))
+    return out
+
+
+Validator.combat = _combat_checks

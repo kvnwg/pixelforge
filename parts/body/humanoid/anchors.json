@@ -1012,5 +1012,10230 @@
     ]
    }
   ]
+ },
+ "combat_idle": {
+  "s": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "attack_slash": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     19
+    ],
+    "hand_far": [
+     19,
+     21
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     10,
+     20
+    ],
+    "hand_far": [
+     19,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "strike",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     25
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     12,
+     19
+    ],
+    "hand_far": [
+     17,
+     22
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     12
+    ],
+    "chin": [
+     14,
+     20
+    ],
+    "torso": [
+     14,
+     21
+    ],
+    "back": [
+     11,
+     22
+    ],
+    "hip": [
+     14,
+     26
+    ],
+    "hand_near": [
+     12,
+     20
+    ],
+    "hand_far": [
+     17,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     22
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     17,
+     11
+    ],
+    "chin": [
+     17,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     13,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     19,
+     21
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     21
+    ],
+    "pose": {
+     "held_near": "strike",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     13,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     21
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     20,
+     21
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     20,
+     21
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     22
+    ],
+    "hand_far": [
+     10,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "strike",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     10,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "attack_heavy": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     18
+    ],
+    "hand_far": [
+     20,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "overhead",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     19
+    ],
+    "hand_far": [
+     20,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     10,
+     21
+    ],
+    "hand_far": [
+     20,
+     20
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "slam",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     12,
+     26
+    ],
+    "hand_far": [
+     20,
+     25
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     26
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     25
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     12,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     18
+    ],
+    "hand_far": [
+     14,
+     18
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     20
+    ],
+    "pose": {
+     "held_near": "overhead",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     13,
+     10
+    ],
+    "chin": [
+     13,
+     18
+    ],
+    "torso": [
+     14,
+     19
+    ],
+    "back": [
+     11,
+     20
+    ],
+    "hip": [
+     14,
+     24
+    ],
+    "hand_near": [
+     13,
+     11
+    ],
+    "hand_far": [
+     13,
+     18
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     20
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     12
+    ],
+    "chin": [
+     14,
+     20
+    ],
+    "torso": [
+     14,
+     21
+    ],
+    "back": [
+     11,
+     22
+    ],
+    "hip": [
+     14,
+     26
+    ],
+    "hand_near": [
+     13,
+     13
+    ],
+    "hand_far": [
+     13,
+     20
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     22
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     12
+    ],
+    "chin": [
+     16,
+     20
+    ],
+    "torso": [
+     16,
+     21
+    ],
+    "back": [
+     13,
+     22
+    ],
+    "hip": [
+     16,
+     26
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     12,
+     24
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     22
+    ],
+    "pose": {
+     "held_near": "slam",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     13
+    ],
+    "chin": [
+     16,
+     21
+    ],
+    "torso": [
+     16,
+     22
+    ],
+    "back": [
+     13,
+     23
+    ],
+    "hip": [
+     16,
+     27
+    ],
+    "hand_near": [
+     18,
+     26
+    ],
+    "hand_far": [
+     12,
+     25
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     23
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     12
+    ],
+    "chin": [
+     16,
+     20
+    ],
+    "torso": [
+     16,
+     21
+    ],
+    "back": [
+     13,
+     22
+    ],
+    "hip": [
+     16,
+     26
+    ],
+    "hand_near": [
+     18,
+     25
+    ],
+    "hand_far": [
+     12,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     22
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     20,
+     18
+    ],
+    "hand_far": [
+     10,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "overhead",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     20,
+     19
+    ],
+    "hand_far": [
+     10,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     20,
+     21
+    ],
+    "hand_far": [
+     10,
+     20
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "back",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     10,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "slam",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     25
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     25
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "shoot_bow": {
+  "s": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     12,
+     23
+    ],
+    "hand_far": [
+     19,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     12,
+     22
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     12,
+     22
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     12,
+     23
+    ],
+    "hand_far": [
+     19,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     12,
+     22
+    ],
+    "hand_far": [
+     20,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     21
+    ],
+    "hand_far": [
+     18,
+     22
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     21
+    ],
+    "hand_far": [
+     15,
+     20
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     21
+    ],
+    "hand_far": [
+     15,
+     20
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     21
+    ],
+    "hand_far": [
+     18,
+     22
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     17,
+     21
+    ],
+    "hand_far": [
+     10,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     11,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "draw",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     11,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "release",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "cast": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     18
+    ],
+    "hand_far": [
+     20,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     18
+    ],
+    "hand_far": [
+     20,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     10,
+     18
+    ],
+    "hand_far": [
+     20,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     12,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     18
+    ],
+    "hand_far": [
+     14,
+     18
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     20
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     12,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     18
+    ],
+    "hand_far": [
+     14,
+     18
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     20
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     13,
+     10
+    ],
+    "chin": [
+     13,
+     18
+    ],
+    "torso": [
+     14,
+     19
+    ],
+    "back": [
+     11,
+     20
+    ],
+    "hip": [
+     14,
+     24
+    ],
+    "hand_near": [
+     17,
+     18
+    ],
+    "hand_far": [
+     13,
+     18
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     20
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     13,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     19,
+     21
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     21
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     13,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     19,
+     21
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     21
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     20,
+     18
+    ],
+    "hand_far": [
+     10,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     20,
+     18
+    ],
+    "hand_far": [
+     10,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     20,
+     18
+    ],
+    "hand_far": [
+     10,
+     18
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "raised",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     22
+    ],
+    "hand_far": [
+     10,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     18,
+     22
+    ],
+    "hand_far": [
+     10,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "aim",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "block_enter": {
+  "s": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     17,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     18,
+     22
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     16,
+     22
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     13,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ]
+ },
+ "block_hold": {
+  "s": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     17,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     17,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     16,
+     22
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     14,
+     12
+    ],
+    "chin": [
+     14,
+     20
+    ],
+    "torso": [
+     14,
+     21
+    ],
+    "back": [
+     11,
+     22
+    ],
+    "hip": [
+     14,
+     26
+    ],
+    "hand_near": [
+     16,
+     23
+    ],
+    "hand_far": [
+     17,
+     22
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     22
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     13,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ]
+ },
+ "block_impact": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     11,
+     21
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     17,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     13,
+     11
+    ],
+    "chin": [
+     13,
+     19
+    ],
+    "torso": [
+     13,
+     20
+    ],
+    "back": [
+     10,
+     21
+    ],
+    "hip": [
+     13,
+     25
+    ],
+    "hand_near": [
+     15,
+     22
+    ],
+    "hand_far": [
+     16,
+     21
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     17,
+     21
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     16,
+     22
+    ],
+    "hand_far": [
+     17,
+     21
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     13,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "guard",
+     "held_far": "guard"
+    }
+   }
+  ]
+ },
+ "dodge": {
+  "s": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     12,
+     19
+    ],
+    "hand_far": [
+     18,
+     19
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     12,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     16,
+     19
+    ],
+    "hand_far": [
+     15,
+     19
+    ],
+    "foot_near": [
+     17,
+     25
+    ],
+    "foot_far": [
+     13,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     19,
+     18
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     18,
+     19
+    ],
+    "hand_far": [
+     12,
+     19
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     16
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "hurt": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     20,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     20,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     14,
+     23
+    ],
+    "hand_far": [
+     10,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     13
+    ],
+    "chin": [
+     14,
+     21
+    ],
+    "torso": [
+     14,
+     21
+    ],
+    "back": [
+     11,
+     22
+    ],
+    "hip": [
+     14,
+     26
+    ],
+    "hand_near": [
+     14,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "stun": {
+  "s": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     14,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     10,
+     24
+    ],
+    "hand_far": [
+     18,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     14,
+     24
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     24
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     16,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     16,
+     24
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     24
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     14,
+     24
+    ],
+    "hand_far": [
+     12,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     15,
+     24
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     13,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     16,
+     24
+    ],
+    "hand_far": [
+     14,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     21
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     15,
+     24
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     14,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     14,
+     19
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     24
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     11
+    ],
+    "chin": [
+     16,
+     19
+    ],
+    "torso": [
+     16,
+     20
+    ],
+    "back": [
+     16,
+     21
+    ],
+    "hip": [
+     16,
+     25
+    ],
+    "hand_near": [
+     20,
+     24
+    ],
+    "hand_far": [
+     12,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     16,
+     19
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     24
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "death": {
+  "s": [
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     20,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     23
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     25
+    ],
+    "hand_far": [
+     19,
+     25
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     11,
+     26
+    ],
+    "hand_far": [
+     19,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     26
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     14
+    ],
+    "chin": [
+     15,
+     22
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     11,
+     26
+    ],
+    "hand_far": [
+     19,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     26
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     14
+    ],
+    "chin": [
+     15,
+     22
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     11,
+     26
+    ],
+    "hand_far": [
+     19,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     26
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     14,
+     11
+    ],
+    "chin": [
+     14,
+     19
+    ],
+    "torso": [
+     14,
+     20
+    ],
+    "back": [
+     11,
+     21
+    ],
+    "hip": [
+     14,
+     25
+    ],
+    "hand_near": [
+     14,
+     23
+    ],
+    "hand_far": [
+     10,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     15,
+     25
+    ],
+    "hand_far": [
+     13,
+     25
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     12,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     15,
+     26
+    ],
+    "hand_far": [
+     13,
+     26
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     23
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     14
+    ],
+    "chin": [
+     16,
+     22
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     12,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     15,
+     26
+    ],
+    "hand_far": [
+     13,
+     26
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     23
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     14
+    ],
+    "chin": [
+     16,
+     22
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     12,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     15,
+     26
+    ],
+    "hand_far": [
+     13,
+     26
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     23
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     24
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     25
+    ],
+    "hand_far": [
+     11,
+     25
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "low",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     19,
+     26
+    ],
+    "hand_far": [
+     11,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "ground",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     19,
+     26
+    ],
+    "hand_far": [
+     11,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     13
+    ],
+    "chin": [
+     15,
+     21
+    ],
+    "torso": [
+     15,
+     22
+    ],
+    "back": [
+     15,
+     23
+    ],
+    "hip": [
+     15,
+     27
+    ],
+    "hand_near": [
+     19,
+     26
+    ],
+    "hand_far": [
+     11,
+     26
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "dropped",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "victory": {
+  "s": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     10,
+     16
+    ],
+    "hand_far": [
+     20,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     10,
+     20
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     10,
+     19
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     12,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     18,
+     16
+    ],
+    "hand_far": [
+     14,
+     16
+    ],
+    "foot_near": [
+     17,
+     25
+    ],
+    "foot_far": [
+     13,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     19,
+     18
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     20
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     18,
+     19
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     20,
+     16
+    ],
+    "hand_far": [
+     10,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     16
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     20,
+     20
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     20,
+     19
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "roll": {
+  "s": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     23
+    ],
+    "hand_far": [
+     18,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     15
+    ],
+    "chin": [
+     15,
+     23
+    ],
+    "torso": [
+     15,
+     23
+    ],
+    "back": [
+     15,
+     24
+    ],
+    "hip": [
+     15,
+     28
+    ],
+    "hand_near": [
+     12,
+     25
+    ],
+    "hand_far": [
+     18,
+     25
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     27
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     15
+    ],
+    "chin": [
+     15,
+     23
+    ],
+    "torso": [
+     15,
+     23
+    ],
+    "back": [
+     15,
+     24
+    ],
+    "hip": [
+     15,
+     28
+    ],
+    "hand_near": [
+     12,
+     25
+    ],
+    "hand_far": [
+     18,
+     25
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     27
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     23
+    ],
+    "hand_far": [
+     18,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     17,
+     12
+    ],
+    "chin": [
+     17,
+     20
+    ],
+    "torso": [
+     16,
+     21
+    ],
+    "back": [
+     13,
+     22
+    ],
+    "hip": [
+     16,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     16,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     22
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     17,
+     14
+    ],
+    "chin": [
+     17,
+     22
+    ],
+    "torso": [
+     16,
+     23
+    ],
+    "back": [
+     13,
+     24
+    ],
+    "hip": [
+     16,
+     28
+    ],
+    "hand_near": [
+     17,
+     25
+    ],
+    "hand_far": [
+     16,
+     25
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     20,
+     24
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     17,
+     14
+    ],
+    "chin": [
+     17,
+     22
+    ],
+    "torso": [
+     16,
+     23
+    ],
+    "back": [
+     13,
+     24
+    ],
+    "hip": [
+     16,
+     28
+    ],
+    "hand_near": [
+     17,
+     25
+    ],
+    "hand_far": [
+     16,
+     25
+    ],
+    "foot_near": [
+     18,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     20,
+     24
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     17,
+     12
+    ],
+    "chin": [
+     17,
+     20
+    ],
+    "torso": [
+     16,
+     21
+    ],
+    "back": [
+     13,
+     22
+    ],
+    "hip": [
+     16,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     16,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     22
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     15
+    ],
+    "chin": [
+     15,
+     23
+    ],
+    "torso": [
+     15,
+     23
+    ],
+    "back": [
+     15,
+     24
+    ],
+    "hip": [
+     15,
+     28
+    ],
+    "hand_near": [
+     18,
+     25
+    ],
+    "hand_far": [
+     12,
+     25
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     22
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     15
+    ],
+    "chin": [
+     15,
+     23
+    ],
+    "torso": [
+     15,
+     23
+    ],
+    "back": [
+     15,
+     24
+    ],
+    "hip": [
+     15,
+     28
+    ],
+    "hand_near": [
+     18,
+     25
+    ],
+    "hand_far": [
+     12,
+     25
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     17,
+     27
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     22
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     23
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "backflip": {
+  "s": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     10,
+     16
+    ],
+    "hand_far": [
+     20,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     7
+    ],
+    "chin": [
+     15,
+     15
+    ],
+    "torso": [
+     15,
+     16
+    ],
+    "back": [
+     15,
+     17
+    ],
+    "hip": [
+     15,
+     21
+    ],
+    "hand_near": [
+     12,
+     18
+    ],
+    "hand_far": [
+     18,
+     18
+    ],
+    "foot_near": [
+     13,
+     24
+    ],
+    "foot_far": [
+     17,
+     24
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     24
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     13,
+     8
+    ],
+    "chin": [
+     13,
+     16
+    ],
+    "torso": [
+     14,
+     17
+    ],
+    "back": [
+     11,
+     18
+    ],
+    "hip": [
+     14,
+     22
+    ],
+    "hand_near": [
+     17,
+     16
+    ],
+    "hand_far": [
+     13,
+     16
+    ],
+    "foot_near": [
+     17,
+     25
+    ],
+    "foot_far": [
+     13,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     18,
+     18
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     14,
+     7
+    ],
+    "chin": [
+     14,
+     15
+    ],
+    "torso": [
+     14,
+     16
+    ],
+    "back": [
+     11,
+     17
+    ],
+    "hip": [
+     14,
+     21
+    ],
+    "hand_near": [
+     15,
+     18
+    ],
+    "hand_far": [
+     14,
+     18
+    ],
+    "foot_near": [
+     17,
+     24
+    ],
+    "foot_far": [
+     13,
+     24
+    ],
+    "planted": [],
+    "shield_front": [
+     18,
+     17
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     12,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     17,
+     22
+    ],
+    "hand_far": [
+     13,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     21
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     20,
+     16
+    ],
+    "hand_far": [
+     10,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     16
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     7
+    ],
+    "chin": [
+     15,
+     15
+    ],
+    "torso": [
+     15,
+     16
+    ],
+    "back": [
+     15,
+     17
+    ],
+    "hip": [
+     15,
+     21
+    ],
+    "hand_near": [
+     18,
+     18
+    ],
+    "hand_far": [
+     12,
+     18
+    ],
+    "foot_near": [
+     13,
+     24
+    ],
+    "foot_far": [
+     17,
+     24
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     15
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     11
+    ],
+    "chin": [
+     15,
+     19
+    ],
+    "torso": [
+     15,
+     20
+    ],
+    "back": [
+     15,
+     21
+    ],
+    "hip": [
+     15,
+     25
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     19
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
+ },
+ "vault": {
+  "s": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     12,
+     24
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     10,
+     16
+    ],
+    "hand_far": [
+     20,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     21
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     7
+    ],
+    "chin": [
+     15,
+     15
+    ],
+    "torso": [
+     15,
+     16
+    ],
+    "back": [
+     15,
+     17
+    ],
+    "hip": [
+     15,
+     21
+    ],
+    "hand_near": [
+     12,
+     18
+    ],
+    "hand_far": [
+     18,
+     18
+    ],
+    "foot_near": [
+     13,
+     24
+    ],
+    "foot_far": [
+     17,
+     24
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "e": [
+   {
+    "head": [
+     17,
+     12
+    ],
+    "chin": [
+     17,
+     20
+    ],
+    "torso": [
+     16,
+     21
+    ],
+    "back": [
+     13,
+     22
+    ],
+    "hip": [
+     16,
+     26
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     19,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     20,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     8
+    ],
+    "chin": [
+     16,
+     16
+    ],
+    "torso": [
+     16,
+     17
+    ],
+    "back": [
+     13,
+     18
+    ],
+    "hip": [
+     16,
+     22
+    ],
+    "hand_near": [
+     19,
+     16
+    ],
+    "hand_far": [
+     15,
+     16
+    ],
+    "foot_near": [
+     17,
+     25
+    ],
+    "foot_far": [
+     13,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     20,
+     18
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     16,
+     7
+    ],
+    "chin": [
+     16,
+     15
+    ],
+    "torso": [
+     16,
+     16
+    ],
+    "back": [
+     13,
+     17
+    ],
+    "hip": [
+     16,
+     21
+    ],
+    "hand_near": [
+     17,
+     18
+    ],
+    "hand_far": [
+     16,
+     18
+    ],
+    "foot_near": [
+     19,
+     23
+    ],
+    "foot_far": [
+     16,
+     23
+    ],
+    "planted": [],
+    "shield_front": [
+     20,
+     17
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
+     23
+    ],
+    "hand_far": [
+     13,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ],
+  "n": [
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     18,
+     24
+    ],
+    "hand_far": [
+     11,
+     23
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     8
+    ],
+    "chin": [
+     15,
+     16
+    ],
+    "torso": [
+     15,
+     17
+    ],
+    "back": [
+     15,
+     18
+    ],
+    "hip": [
+     15,
+     22
+    ],
+    "hand_near": [
+     20,
+     16
+    ],
+    "hand_far": [
+     10,
+     16
+    ],
+    "foot_near": [
+     13,
+     25
+    ],
+    "foot_far": [
+     17,
+     25
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     16
+    ],
+    "pose": {
+     "held_near": "high",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     7
+    ],
+    "chin": [
+     15,
+     15
+    ],
+    "torso": [
+     15,
+     16
+    ],
+    "back": [
+     15,
+     17
+    ],
+    "hip": [
+     15,
+     21
+    ],
+    "hand_near": [
+     18,
+     18
+    ],
+    "hand_far": [
+     12,
+     18
+    ],
+    "foot_near": [
+     13,
+     24
+    ],
+    "foot_far": [
+     17,
+     24
+    ],
+    "planted": [],
+    "shield_front": [
+     15,
+     15
+    ],
+    "pose": {
+     "held_near": "tuck",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "ready",
+     "held_far": "rest"
+    }
+   }
+  ]
  }
 }

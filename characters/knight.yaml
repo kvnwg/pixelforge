@@ -23,4 +23,4 @@ colors:
   leather: dark
   accent: gold (anchor)
   eyes: dark
-anims: [idle, blink, walk]
+anims: [idle, blink, walk, combat_idle, attack_slash, attack_heavy, cast, block_enter, block_hold, block_impact, dodge, hurt, stun, death, victory, roll, backflip, vault]
