@@ -1,0 +1,8 @@
+slot: held_near
+variant: cinderwyrm_tail
+material: metal
+kind: animated
+lags: false
+rigs:
+- dragon
+notes: 'No art: the tail sweep''s white swing trail (smear_attack_tail).'

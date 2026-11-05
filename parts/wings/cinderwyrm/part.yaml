@@ -1,0 +1,8 @@
+slot: wings
+variant: cinderwyrm
+material: membrane
+kind: animated
+lags: false
+rigs:
+- dragon
+notes: Wing membranes in panels between the finger bones.

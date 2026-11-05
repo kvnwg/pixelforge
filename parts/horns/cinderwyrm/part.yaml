@@ -1,0 +1,8 @@
+slot: horns
+variant: cinderwyrm
+material: horn
+kind: animated
+lags: false
+rigs:
+- dragon
+notes: Horns, back spikes, claws, teeth and belly plates.

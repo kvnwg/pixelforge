@@ -1,0 +1,11 @@
+slot: eyes
+variant: cinderwyrm
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- dragon
+allow_singletons: {}
+notes: Glowing eyes under the brow.

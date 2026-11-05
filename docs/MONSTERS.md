@@ -231,6 +231,31 @@ Known limits: the ogre's arms are tubes, simpler than its hand-drawn torso; its 
 
 ---
 
+
+### 5.8 Big, slow monsters: the Cinderwyrm (2026-11-05)
+
+Asked for: "monsters that are BIG and slow like dragons or what not". An original design on the huge size class.
+
+**Concept.** A heavy four-legged fire wyrm: ember scales with pale belly plates, a long neck and tail, a horned head whose jaw drops open, membrane wings folded over its back that spread when it roars, back spikes along the spine and tail. It moves slowly and every attack warns for almost a second on the boss profile.
+
+**Size class.** Huge: 96 x 96, pivot (47, 91), mirror axis 47; about 65 rows tall and 80 px long facing e, over three times a hero's height; a 41 px footprint.
+
+**Rig `dragon`** (`tools/art/dragon.py`). Built like the Stone Warden: shaded rounded segments (`stone_codes`) and polylines painted back to front per frame from the pose's joints, contours where a limb meets the body, each layer flattened to what it shows. Layers: `wings` (membrane: panels between the finger bones, alternating shades), `body` (scales: body, neck and tail as continuous tapering limbs, legs, head, wing bones), `horns` (horn: horns, back spikes, claws, teeth, belly plates), `eyes` (glow, rigid), `held_near` (no art: the tail sweep's white trail). Points: `mouth` (the breath's spawn point, the bite's hitbox), `tail_tip` (the sweep's hitbox), `head`, `eyes`, `torso`, `foot_near`, `foot_far`. New presets: scales `ember` and `obsidian`, membrane `ember` and `ash`, horn `gilded`.
+
+**Animations** (base ms; the boss profile scales holds x 2.2):
+
+| Animation | Frames | What happens | Tell on `boss` |
+|---|---|---|---|
+| idle | 520, 280, 520, 280 | a slow breath; the head follows the body | |
+| walk | 6 x 260 | heavy steps, the body dipping as each front foot lands; footsteps raise dust | |
+| attack_bite | 220, 260 (hold), 60 hit, 110, 220, 240 | the head draws back and coils, then lunges with the jaws open and snaps shut; `impact_big` at the mouth | 1056 ms |
+| attack_tail | 220, 300 (hold), 60 hit, 110, 240, 220 | the tail rises high behind, then sweeps low with a white trail; `impact_big` at the tip | 1144 ms |
+| breath | 260, 420 (hold), 110, 150, 260, 220 | rears and inhales with the wings half raised (`gather_glow_fire` at the mouth; `charge_loop_frame` 1 can hold it), then breathes a fan of 5 fireballs from the mouth | 1496 ms |
+| roar | 240 (hold), 520, 320, 300 | rears with the wings spread wide, `sound_rings` at the mouth | |
+| hurt, death | 80/160/180; 100/220/260/320/700 | a flash and a recoil; staggers, the head drops to the ground, the body sags, `poof_smoke` | |
+
+Recipes: `cinderwyrm` (ember scales, ember wings, pale horns, yellow glowing eyes) and `cinderwyrm_obsidian` (the family's dark variant: obsidian scales, ash wings, gilded horns, red eyes). `tests/test_dragon.py` checks the size class, the tells, the fireball fan, the bite's hitbox at the jaws, the tail's trail and the family recolor.
+
 ## 6. Variants: elites and families
 
 - **Family variant** (frost wolf, fire slime): new material presets plus matching FX element. Change value pattern, not just hue, so it reads differently in grayscale.

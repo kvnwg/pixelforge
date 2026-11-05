@@ -468,3 +468,17 @@ What the review images show: facing s, a pale skull under antlers spreading acro
 
 Rubric: style match 4, 1x readability 4 (skull, antlers and mane read at 1x; the berries are small), silhouette 5 (the antlers make it unmistakable), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 5, combat readability 4 (the tells are unchanged and the trails mark the hits).
 
+---
+
+## New monsters I: a big, slow dragon
+
+Status: done (commit "Cinderwyrm: a big, slow dragon on the huge canvas")
+
+Asked for: "monsters that are BIG and slow like dragons or what not, and also monsters that are humanoid and tall, almost like a messmer from elden ring, that's quick". The first half: the Cinderwyrm (MONSTERS.md section 5.8), an original fire dragon on the huge 96 px canvas, with an obsidian family variant. Slow by design: 260 ms walk frames and tells of 1056 to 1496 ms on the boss profile (bite, tail sweep with a white trail, a fan of fireballs, a wing-spread roar). Both validate with 0 errors and 0 warnings.
+
+What the review images show: facing e, a red wyrm over 60 px tall with a horned head on a long neck, a membrane wing raised over its back, a spiked tail and four clawed legs on the ground; facing s, the head and horns over pale belly plates with both wings spread to the sides and the tail curling out; facing n, the back, both wings and the tail coming toward the camera. The bite draws the head back and lunges with the jaws open; the breath rears with half-raised wings and drops the open jaw.
+
+Rubric: style match 4, 1x readability 4, silhouette 4 (the wings and horns carry it; the e wing is a broad sail), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4. Known limit: facing e the tail sweep's trail is small (it runs behind the body); s and n show it fully.
+
+Next: sword slashes that sweep across the body with an arc (the human's latest request), then the tall, quick humanoid duelist.
+

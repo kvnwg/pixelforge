@@ -1,0 +1,26 @@
+name: cinderwyrm
+family: cinderwyrm
+rig: dragon
+timing_profile: boss
+seed: 1
+parts:
+  wings: cinderwyrm
+  body: cinderwyrm
+  horns: cinderwyrm
+  eyes: cinderwyrm
+  held_near: cinderwyrm_tail
+anims:
+- idle
+- walk
+- combat_idle
+- attack_bite
+- attack_tail
+- breath
+- roar
+- hurt
+- death
+colors:
+  scales: ember
+  membrane: ember
+  horn: pale
+  eyes: glow yellow

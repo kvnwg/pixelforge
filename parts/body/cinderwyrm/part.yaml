@@ -1,0 +1,8 @@
+slot: body
+variant: cinderwyrm
+material: scales
+kind: animated
+lags: false
+rigs:
+- dragon
+notes: Body, neck, head, tail and legs in overlapping segments; wing bones.
