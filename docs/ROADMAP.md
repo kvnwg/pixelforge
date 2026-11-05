@@ -60,7 +60,7 @@ Commit: `Phase 1: anchor decomposed into parts, pixel-exact rebuild`
 
 ## Phase 2: Turnaround (CHECKPOINT)
 
-Status: done (see git log: Phase 2)
+Status: done (commit 5097766)
 
 Tasks:
 1. Draw the base body and every anchor_girl part for E and N, idle frame 0. W comes from mirroring.
@@ -79,7 +79,7 @@ Commit: `Phase 2: four-direction turnaround`
 
 ## Phase 3a: Idle (CHECKPOINT)
 
-Status: not started
+Status: done (see git log: Phase 3a)
 
 Tasks:
 1. Base body and all parts for idle frames 0 to 3, all directions, per ANIMATION_SPEC.md section 3.

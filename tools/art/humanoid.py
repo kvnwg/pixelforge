@@ -8,7 +8,7 @@ Run: .venv/bin/python tools/art/humanoid.py
 
 from __future__ import annotations
 
-from artlib import FRAMES, empty, g, write_anchors, write_part
+from artlib import FRAMES, IDLE_UPPER_DY, empty, g, grid, shift_anchors, split_shift, write_anchors, write_part
 
 # ---------------------------------------------------------------------------------------------
 # idle frame 0, facing s (the anchor pose). The head under the hair is a complete bald head, the
@@ -112,40 +112,56 @@ BODY_N = g([
 ])
 
 ANCHORS_S0 = {
-    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [15, 21],
+    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [15, 21], "hip": [15, 25],
     "hand_near": [11, 23], "hand_far": [19, 23],
     "foot_near": [13, 27], "foot_far": [17, 26], "planted": ["foot_near", "foot_far"],
 }
 ANCHORS_E0 = {
-    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [12, 21],
+    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [12, 21], "hip": [15, 25],
     "hand_near": [15, 23], "hand_far": [13, 23],
     "foot_near": [16, 27], "foot_far": [13, 26], "planted": ["foot_near", "foot_far"],
 }
 ANCHORS_N0 = {
-    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [15, 21],
+    "head": [15, 11], "chin": [15, 19], "torso": [15, 20], "back": [15, 21], "hip": [15, 25],
     "hand_near": [19, 23], "hand_far": [11, 23],
     "foot_near": [17, 26], "foot_far": [13, 27], "planted": ["foot_near", "foot_far"],
 }
 
 
+HIP = 25  # first leg row in idle frame 0, every direction
+BODY0 = {"s": BODY_S, "e": BODY_E, "n": BODY_N}
+ARM_NEAR0 = {"s": ARM_NEAR_S, "e": ARM_NEAR_E, "n": ARM_FAR_S}
+ARM_FAR0 = {"s": ARM_FAR_S, "e": ARM_FAR_E, "n": ARM_NEAR_S}
+ANCHORS0 = {"s": ANCHORS_S0, "e": ANCHORS_E0, "n": ANCHORS_N0}
+
+
+def idle() -> tuple[dict, dict, dict, dict]:
+    """Idle: the upper body breathes down and up 1 px; legs and feet never move.
+    Hands move with the upper body; hair locks lag through their part's `lags`."""
+    body, near, far, anchors = {}, {}, {}, {}
+    for d in ("s", "e", "n"):
+        anchors[d] = []
+        for i, dy in enumerate(IDLE_UPPER_DY):
+            body[(d, i)] = split_shift(BODY0[d], HIP, 0, dy)
+            near[(d, i)] = grid.translate(ARM_NEAR0[d], 0, dy)
+            far[(d, i)] = grid.translate(ARM_FAR0[d], 0, dy)
+            anchors[d].append(shift_anchors(ANCHORS0[d], 0, dy))
+    return body, near, far, anchors
+
+
 def main() -> None:
-    idle = FRAMES["idle"]
-    write_part("body", "humanoid", {
-        "material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"],
-        "notes": "Skin-only mannequin: bald head, bare torso, legs. Arms are separate slots.",
-    }, {"idle": {("s", 0): BODY_S, ("e", 0): BODY_E, ("n", 0): BODY_N}}, {"idle": idle})
-    write_part("arm_near", "humanoid", {
-        "material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"],
-        "notes": "The near arm (the character's right; viewer-left facing s). Holds held_near.",
-    }, {"idle": {("s", 0): ARM_NEAR_S, ("e", 0): ARM_NEAR_E, ("n", 0): ARM_FAR_S}},
-        {"idle": idle})
-    write_part("arm_far", "humanoid", {
-        "material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"],
-        "notes": "The far arm (the character's left; viewer-right facing s). Holds held_far.",
-    }, {"idle": {("s", 0): ARM_FAR_S, ("e", 0): ARM_FAR_E, ("n", 0): ARM_NEAR_S}},
-        {"idle": idle})
-    write_anchors("humanoid", {"idle": {"s": [ANCHORS_S0], "e": [ANCHORS_E0],
-                                        "n": [ANCHORS_N0]}})
+    body, near, far, anchors = idle()
+    meta = {"material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"]}
+    write_part("body", "humanoid", {**meta, "notes": "Skin-only mannequin: bald head, bare "
+                                                      "torso, legs. Arms are separate slots."},
+               {"idle": body})
+    write_part("arm_near", "humanoid", {**meta, "notes": "The near arm (the character's right; "
+                                                          "viewer-left facing s). Holds held_near."},
+               {"idle": near})
+    write_part("arm_far", "humanoid", {**meta, "notes": "The far arm (the character's left; "
+                                                         "viewer-right facing s). Holds held_far."},
+               {"idle": far})
+    write_anchors("humanoid", {"idle": anchors})
     print("wrote the humanoid base body")
 
 

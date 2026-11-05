@@ -268,12 +268,11 @@ class Validator:
             tag = f"{where} {a.index}->{b.index}"
             out += self._jitter(a, b, tag)
             if motion:
-                both = (a.sprite[..., 3] == 255) | (b.sprite[..., 3] == 255)
-                changed = both & np.any(a.sprite != b.sprite, axis=-1)
-                base = max(int((a.sprite[..., 3] == 255).sum()), 1)
-                if changed.sum() / base > self.change_budget:
-                    out.append(Finding("warning", "W2", tag, f"{int(changed.sum())} of {base} pixels "
-                                                             f"changed ({changed.sum() / base:.0%})",
+                residual, base = self._residual(a, b)
+                if residual / base > self.change_budget:
+                    out.append(Finding("warning", "W2", tag,
+                                       f"{residual} of {base} pixels changed beyond the planned "
+                                       f"motion ({residual / base:.0%})",
                                        hint="boiling, or a misaligned layer"))
                 sa = self._sil(a).sum()
                 sb = self._sil(b).sum()
@@ -290,30 +289,61 @@ class Validator:
     def _sil(self, f: Frame) -> np.ndarray:
         return (f.sprite[..., 3] == 255) & (f.owner >= 0)
 
-    def _jitter(self, a: Frame, b: Frame, tag: str) -> list[Finding]:
-        out = []
-        rig = self.c.rig
-        da, db = a.mirrored_from or a.direction, b.mirrored_from or b.direction
+    def _points(self, f: Frame) -> dict:
         try:
-            pa = set(rig.planted(*a.source[:1], da, a.source[1]))
-            pb = set(rig.planted(*b.source[:1], db, b.source[1]))
+            return self.c.rig.points(f.source[0], f.mirrored_from or f.direction, f.source[1])
         except Exception:
-            return out
-        for foot in sorted(pa & pb):
-            (xa, ya) = rig.anchor(a.source[0], da, a.source[1], foot)
-            (xb, yb) = rig.anchor(b.source[0], db, b.source[1], foot)
-            if a.mirrored_from:
-                xa, xb = 2 * self.pivot[0] - xa, 2 * self.pivot[0] - xb
+            return {}
+
+    def _x(self, f: Frame, x: int) -> int:
+        return 2 * self.c.rig.size.mirror_axis_x - x if f.mirrored_from else x
+
+    def _residual(self, a: Frame, b: Frame) -> tuple[int, int]:
+        """Pixels that changed beyond the planned motion: the upper body (above the `hip`
+        anchor) is moved by the head anchor's delta before comparing; legs compare in place."""
+        pa, pb = self._points(a), self._points(b)
+        base = max(int((a.sprite[..., 3] == 255).sum()), 1)
+        expected = a.sprite.copy()
+        if "head" in pa and "head" in pb and "hip" in pa:
+            dx = self._x(b, pb["head"][0]) - self._x(a, pa["head"][0])
+            dy = pb["head"][1] - pa["head"][1]
+            hip = pa["hip"][1]
+            upper = a.sprite.copy()
+            upper[hip:] = 0
+            legs = a.sprite.copy()
+            legs[:hip] = 0
+            from .sheet import shift
+            moved, _ = shift(upper, dx, dy)
+            expected = np.where(moved[..., 3:] == 255, moved, legs)
+        both = (expected[..., 3] == 255) | (b.sprite[..., 3] == 255)
+        changed = both & np.any(expected != b.sprite, axis=-1)
+        return int(changed.sum()), base
+
+    def _jitter(self, a: Frame, b: Frame, tag: str) -> list[Finding]:
+        """A planted foot must not move or change: compare its bottom row (x - 1 to x + 1) in the
+        lower-body layers, so a belt or skirt swinging in front of it is not jitter."""
+        out = []
+        pa, pb = self._points(a), self._points(b)
+        for foot in sorted(set(pa.get("planted", [])) & set(pb.get("planted", []))):
+            xa, ya = self._x(a, pa[foot][0]), pa[foot][1]
+            xb, yb = self._x(b, pb[foot][0]), pb[foot][1]
             if (xa, ya) != (xb, yb):
-                out.append(Finding("warning", "W1", tag, f"planted {foot} moved from ({xa},{ya}) to "
-                                                         f"({xb},{yb})", hint="planted feet must "
-                                                                              "not slide"))
+                out.append(Finding("warning", "W1", tag, f"planted {foot} moved from ({xa},{ya}) "
+                                                         f"to ({xb},{yb})",
+                                   hint="planted feet must not slide"))
                 continue
-            win = (slice(ya - 1, ya + 1), slice(xa - 1, xa + 2))
-            diff = np.any(a.image[win] != b.image[win], axis=-1)
-            if diff.any():
-                pts = tuple((int(x) + xa - 1, int(y) + ya - 1) for y, x in np.argwhere(diff))
-                out.append(Finding("warning", "W1", tag, f"planted {foot} changed", pts,
+            lower = ("body", "legs_wear", "feet")
+            la = {l.slot: l.image for l in a.layers if l.slot in lower}
+            lb = {l.slot: l.image for l in b.layers if l.slot in lower}
+            changed = set()
+            for slot in set(la) | set(lb):
+                ia = la.get(slot, np.zeros_like(a.image))[ya, xa - 1:xa + 2]
+                ib = lb.get(slot, np.zeros_like(b.image))[ya, xa - 1:xa + 2]
+                for i in np.flatnonzero(np.any(ia != ib, axis=-1)):
+                    changed.add((int(xa - 1 + i), int(ya)))
+            if changed:
+                out.append(Finding("warning", "W1", tag, f"planted {foot} changed",
+                                   tuple(sorted(changed)),
                                    "lock planted foot pixels; move the other leg only"))
         return out
 

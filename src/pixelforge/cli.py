@@ -202,3 +202,27 @@ def diff(a: Path, b: Path, out: Optional[Path] = typer.Option(None, "--out")) ->
         typer.echo(f"diff image: {out}")
     if mask.any():
         raise typer.Exit(1)
+
+
+@app.command()
+def preview(
+    port: int = typer.Option(8000, "--port", help="Port for the local server."),
+    bundle: Optional[Path] = typer.Option(None, "--bundle",
+                                          help="Write a single self-contained HTML file instead."),
+) -> None:
+    """Serve tools/preview (reads out/index.json), or bundle it into one HTML file."""
+    from .bundle import write_bundle
+    style = _style()
+    if bundle:
+        path = write_bundle(style.root, bundle)
+        typer.echo(f"bundle: {path} ({path.stat().st_size // 1024} KB)")
+        return
+    import functools
+    import http.server
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(style.root))
+    with http.server.ThreadingHTTPServer(("127.0.0.1", port), handler) as server:
+        typer.echo(f"preview: http://127.0.0.1:{port}/tools/preview/  (Ctrl+C to stop)")
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass

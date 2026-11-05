@@ -68,3 +68,27 @@ def write_recipe(path: str, data: dict[str, Any]) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(yaml.safe_dump(data, sort_keys=False, allow_unicode=True))
     return out
+
+
+# ---------------------------------------------------------------------------------------------
+# Pose helpers. Animated parts follow the base body's pose offsets exactly (ANIMATION_SPEC.md).
+
+IDLE_UPPER_DY = [0, 1, 1, 0]  # ANIMATION_SPEC.md section 3: upper body offsets per idle frame
+
+
+def split_shift(codes: np.ndarray, hip: int, dx: int, dy: int) -> np.ndarray:
+    """Move the rows above `hip` (the upper body) by (dx, dy); rows from `hip` down (the legs)
+    stay. Where they overlap, the upper body is in front (the belt covers the top leg row)."""
+    upper = codes.copy()
+    upper[hip:] = grid.CLEAR
+    legs = codes.copy()
+    legs[:hip] = grid.CLEAR
+    return grid.overlay(legs, grid.translate(upper, dx, dy))
+
+
+def shift_anchors(points: dict, dx: int, dy: int, *, keep=("foot_near", "foot_far", "planted", "hip")
+                  ) -> dict:
+    out = {}
+    for name, value in points.items():
+        out[name] = value if name in keep else [value[0] + dx, value[1] + dy]
+    return out

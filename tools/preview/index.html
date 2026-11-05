@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- pf:head -->
+<title>pixelforge Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&family=Pixelify+Sans:wght@500;700&display=swap">
+<style>
+/* Layout: a workbench. Controls sit in a rail beside the stage (above it on phones); the stage
+   shows the sprite at an integer zoom over the chosen ground, with a filmstrip of every frame. */
+:root {
+  --bg: #e7e5ec;
+  --surface: #f5f4f7;
+  --ink: #2a2130;
+  --muted: #675f70;
+  --line: #d2cdd9;
+  --accent: #8f6528;
+  --accent-ink: #fffaf0;
+  --hit: #b9473d;
+  --windup: #a8741f;
+  --recovery: #7b7584;
+  --focus: #5a556b;
+  --display: "Pixelify Sans", "Courier New", monospace;
+  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a161d; --surface: #241f28; --ink: #ece6ef; --muted: #a49bab; --line: #3a3340;
+    --accent: #d2ab70; --accent-ink: #1a161d; --hit: #e2715f; --windup: #dcae5c;
+    --recovery: #8f879a; --focus: #b7a9d6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a161d; --surface: #241f28; --ink: #ece6ef; --muted: #a49bab; --line: #3a3340;
+  --accent: #d2ab70; --accent-ink: #1a161d; --hit: #e2715f; --windup: #dcae5c;
+  --recovery: #8f879a; --focus: #b7a9d6; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  background: var(--bg); color: var(--ink); font: 15px/1.45 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 40px;
+}
+h1, h2 { font-family: var(--display); font-weight: 700; letter-spacing: 0.02em; text-wrap: balance; margin: 0; }
+h1 { font-size: 1.6rem; display: flex; align-items: baseline; gap: 0.5ch; }
+h1 small { font: 500 1rem var(--display); color: var(--muted); }
+h2 { font-size: 1.05rem; }
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 18px; }
+.views { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 3px; }
+.views a { color: var(--muted); text-decoration: none; padding: 6px 12px; border-radius: 4px; font-weight: 700; }
+.views a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.player { display: grid; grid-template-columns: minmax(220px, 260px) minmax(0, 1fr); gap: 20px; align-items: start; }
+.rail { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+.rail label, .rail .group { display: grid; gap: 5px; font-size: 0.82rem; color: var(--muted); }
+.rail .caption { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+select, button, input[type="range"] { font: inherit; color: var(--ink); }
+select { background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; width: 100%; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button, .transport button, .ghost {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 5px 10px; cursor: pointer;
+  font-family: var(--mono); font-size: 0.82rem; min-width: 2.4rem;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; font-size: 0.85rem; color: var(--ink); }
+.toggles label { display: flex; align-items: center; gap: 6px; color: var(--ink); }
+.stagecol { display: grid; gap: 12px; min-width: 0; }
+.stage { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+.cell { display: grid; gap: 4px; justify-items: start; }
+.cell span { font: 600 0.75rem var(--mono); color: var(--muted); text-transform: uppercase; }
+canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: block; max-width: 100%; border-radius: 3px; }
+.transport { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.transport .readout { font: 0.85rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.play { background: var(--accent) !important; color: var(--accent-ink) !important; border-color: var(--accent) !important; font-weight: 600; }
+.film { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+.film button { background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 4px; cursor: pointer; display: grid; gap: 3px; justify-items: center; color: var(--ink); }
+.film button[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.film small { font: 0.7rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip { font: 600 0.62rem var(--mono); padding: 1px 4px; border-radius: 3px; color: var(--accent-ink); background: var(--recovery); }
+.chip.windup { background: var(--windup); } .chip.active, .chip.hit { background: var(--hit); }
+.meta { font-size: 0.82rem; color: var(--muted); margin: 0; }
+.meta code { font-family: var(--mono); color: var(--ink); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
+.gallery button { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 6px; justify-items: center; cursor: pointer; color: var(--ink); }
+.gallery small { font: 0.75rem var(--mono); color: var(--muted); overflow-wrap: anywhere; text-align: center; }
+.walk { display: grid; gap: 12px; }
+.walk .controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 0.85rem; }
+.walk .controls label { display: flex; align-items: center; gap: 8px; }
+.walkstrip { width: 100%; }
+.note { background: var(--surface); border: 1px dashed var(--line); border-radius: 8px; padding: 14px; color: var(--muted); }
+@media (max-width: 760px) {
+  .player { grid-template-columns: minmax(0, 1fr); }
+  .stagecol { order: -1; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+<!-- /pf:head -->
+</head>
+<body>
+<!-- pf:body -->
+<header class="top">
+  <h1>pixelforge <small>preview</small></h1>
+  <nav class="views" aria-label="Views">
+    <a href="#player" data-view="player">Player</a>
+    <a href="#gallery" data-view="gallery">Gallery</a>
+    <a href="#walk-test" data-view="walk-test">Walk test</a>
+  </nav>
+</header>
+
+<section id="view-player" class="player">
+  <aside class="rail" aria-label="Controls">
+    <label for="char">Character<select id="char"></select></label>
+    <label for="anim">Animation<select id="anim"></select></label>
+    <div class="group"><span class="caption">Direction</span><div class="seg" id="dirs"></div></div>
+    <div class="group"><span class="caption">Zoom</span><div class="seg" id="zoom"></div></div>
+    <div class="group"><span class="caption">Ground</span><div class="seg" id="ground"></div></div>
+    <div class="group"><span class="caption">Speed</span><div class="seg" id="speed"></div></div>
+    <div class="group"><span class="caption">Show</span>
+      <div class="toggles">
+        <label><input type="checkbox" id="t-onion"> Onion skin</label>
+        <label><input type="checkbox" id="t-guides" checked> Pivot, baseline</label>
+        <label><input type="checkbox" id="t-grid"> Pixel grid</label>
+        <label><input type="checkbox" id="t-anchor"> Anchor beside</label>
+        <label><input type="checkbox" id="t-blink" checked> Random blink</label>
+        <label><input type="checkbox" id="t-boxes"> Hit and hurt boxes</label>
+      </div>
+    </div>
+  </aside>
+  <div class="stagecol">
+    <div class="stage" id="stage" aria-live="off"></div>
+    <div class="transport">
+      <button type="button" id="prev" aria-label="Previous frame">&#9664;</button>
+      <button type="button" id="playpause" class="play">Pause</button>
+      <button type="button" id="next" aria-label="Next frame">&#9654;</button>
+      <span class="readout" id="readout"></span>
+    </div>
+    <div class="film" id="film" aria-label="Frames"></div>
+    <p class="meta" id="meta"></p>
+  </div>
+</section>
+
+<section id="view-gallery" hidden>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section id="view-walk-test" class="walk" hidden>
+  <div class="controls">
+    <label for="walk-char">Character <select id="walk-char"></select></label>
+    <label for="walk-speed">Speed <input type="range" id="walk-speed" min="8" max="60" step="1" value="19"> <span id="walk-speed-out" class="readout">19 px/s</span></label>
+    <label><input type="checkbox" id="walk-marks" checked> Ground marks</label>
+  </div>
+  <canvas id="walkstrip" class="walkstrip" width="320" height="128" aria-label="Walk test"></canvas>
+  <p class="meta">Whole-pixel steps at the speed above. Planted feet should stay on the ground marks; if they slide, shorten frame durations or slow the walk. ANIMATION_SPEC.md section 5 targets about 19 px per second.</p>
+</section>
+
+<p class="note" id="empty" hidden></p>
+<!-- pf:data -->
+<script>
+(() => {
+  const BUNDLE = window.PIXELFORGE_BUNDLE || null;
+  const GROUNDS = { beige: "#c3bc9d", light: "#e8e2d0", dark: "#2b2b33", checker: null };
+  const DIR_ORDER = ["s", "e", "n", "w"];
+  const $ = (id) => document.getElementById(id);
+  const prefs = load("pf-preview", { zoom: 4, ground: "beige", speed: 1 });
+  const state = { chars: [], byName: {}, char: null, anim: "idle", dir: "s", playing: true,
+                  zoom: prefs.zoom, ground: prefs.ground, speed: prefs.speed, anchorImg: null };
+
+  function load(key, fallback) {
+    try { return Object.assign({}, fallback, JSON.parse(localStorage.getItem(key) || "{}")); }
+    catch (e) { return fallback; }
+  }
+  function save() {
+    try { localStorage.setItem("pf-preview", JSON.stringify({ zoom: state.zoom, ground: state.ground, speed: state.speed })); }
+    catch (e) { /* storage unavailable: keep defaults */ }
+  }
+  function image(src) {
+    return new Promise((ok, fail) => { const im = new Image(); im.onload = () => ok(im); im.onerror = fail; im.src = src; });
+  }
+  async function getJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + " " + r.status); return r.json(); }
+
+  async function loadAll() {
+    const index = BUNDLE ? BUNDLE.index : await getJSON("../../out/index.json");
+    for (const entry of index.characters) {
+      const json = BUNDLE ? BUNDLE.characters[entry.name].json : await getJSON("../../out/" + entry.json);
+      const img = await image(BUNDLE ? BUNDLE.characters[entry.name].png : "../../out/" + entry.image);
+      const tags = {}, anims = {};
+      for (const t of json.meta.frameTags) {
+        tags[t.name] = t;
+        const cut = t.name.lastIndexOf("_");
+        const anim = t.name.slice(0, cut), dir = t.name.slice(cut + 1);
+        (anims[anim] = anims[anim] || []).push(dir);
+      }
+      const ch = { name: entry.name, entry, json, img, tags, anims, pf: json.meta.pixelforge,
+                   cell: json.frames[0] ? json.frames[0].sourceSize.w : 32 };
+      state.chars.push(ch); state.byName[ch.name] = ch;
+    }
+    try { state.anchorImg = await image(BUNDLE ? BUNDLE.anchor : "../../style/anchor_with_shadow.png"); }
+    catch (e) { state.anchorImg = null; }
+  }
+
+  // ---------------------------------------------------------------- actors: a tag playing on a clock
+  class Actor {
+    constructor(ch, tag) { this.set(ch, tag); }
+    set(ch, tag) {
+      this.ch = ch; this.tag = ch.tags[tag]; this.name = tag; this.i = 0; this.t = 0; this.hold = 0;
+      const anim = tag.slice(0, tag.lastIndexOf("_"));
+      this.loop = !!(ch.pf.loop || {})[anim];
+      this.blinkAt = 2500 + Math.random() * 2500; this.blinking = 0;
+    }
+    get count() { return this.tag ? this.tag.to - this.tag.from + 1 : 0; }
+    get index() { return this.tag ? this.tag.from + this.i : -1; }
+    duration(i) { return this.ch.json.frames[this.tag.from + i].duration; }
+    step(dt) {
+      if (!this.tag) return;
+      if (this.blinking > 0) this.blinking -= dt;
+      this.blinkAt -= dt;
+      if (this.hold > 0) { this.hold -= dt; if (this.hold <= 0) { this.i = 0; this.t = 0; } return; }
+      this.t += dt;
+      while (this.t >= this.duration(this.i)) {
+        this.t -= this.duration(this.i);
+        if (this.i + 1 < this.count) this.i++;
+        else if (this.loop) this.i = 0;
+        else { this.hold = 700; this.t = 0; break; }
+      }
+    }
+    go(delta) { this.i = (this.i + delta + this.count) % this.count; this.t = 0; this.hold = 0; }
+  }
+
+  // ---------------------------------------------------------------- drawing
+  function paintGround(ctx, w, h, ground, z) {
+    if (GROUNDS[ground]) { ctx.fillStyle = GROUNDS[ground]; ctx.fillRect(0, 0, w, h); return; }
+    const s = Math.max(4, z * 2);
+    for (let y = 0; y < h; y += s) for (let x = 0; x < w; x += s) {
+      ctx.fillStyle = ((x / s + y / s) % 2) ? "#bdbdc4" : "#e3e3e8"; ctx.fillRect(x, y, s, s);
+    }
+  }
+  function drawCell(ctx, ch, index, dx, dy, z, alpha = 1) {
+    if (index < 0) return;
+    const f = ch.json.frames[index].frame;
+    ctx.globalAlpha = alpha;
+    ctx.drawImage(ch.img, f.x, f.y, f.w, f.h, dx, dy, f.w * z, f.h * z);
+    ctx.globalAlpha = 1;
+  }
+  function overlay(ctx, ch, actor, z, opts) {
+    const cell = ch.cell, w = cell * z;
+    if (opts.grid && z >= 4) {
+      ctx.strokeStyle = "rgba(0,0,0,0.13)"; ctx.lineWidth = 1; ctx.beginPath();
+      for (let p = 0; p <= cell; p++) { ctx.moveTo(p * z + 0.5, 0); ctx.lineTo(p * z + 0.5, w); ctx.moveTo(0, p * z + 0.5); ctx.lineTo(w, p * z + 0.5); }
+      ctx.stroke();
+    }
+    if (opts.guides) {
+      const [px, py] = ch.pf.pivot;
+      ctx.fillStyle = "rgba(214,69,65,0.85)"; ctx.fillRect(0, (py + 1) * z - 1, w, Math.max(1, z / 4));
+      ctx.fillStyle = "rgba(60,120,220,0.85)";
+      ctx.fillRect(px * z, 0, z, Math.max(2, z)); ctx.fillRect(px * z, w - Math.max(2, z), z, Math.max(2, z));
+    }
+    if (opts.boxes && actor) {
+      const i = String(actor.i), name = actor.name;
+      const draw = (boxes, color) => { (boxes || []).forEach((b) => { ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.strokeRect(b.x * z + 1, b.y * z + 1, b.w * z - 2, b.h * z - 2); }); };
+      draw(((ch.pf.hurtboxes || {})[name] || {})[i], "rgba(59,139,255,0.9)");
+      draw(((ch.pf.hitboxes || {})[name] || {})[i], "rgba(255,59,59,0.95)");
+    }
+  }
+  function frameFor(actor, ch, dir) {
+    // Random blink: the game swaps blink in every 2.5 to 5 s while idle (ANIMATION_SPEC.md section 4).
+    if ($("t-blink").checked && actor.name.startsWith("idle_") && ch.tags["blink_" + dir]) {
+      if (actor.blinkAt <= 0) { actor.blinking = 100; actor.blinkAt = 2500 + Math.random() * 2500; }
+      if (actor.blinking > 0) return ch.tags["blink_" + dir].from;
+    }
+    return actor.index;
+  }
+
+  // ---------------------------------------------------------------- player view
+  let stageActors = [];
+  function buildSelectors() {
+    const sel = $("char"), wsel = $("walk-char");
+    sel.innerHTML = wsel.innerHTML = "";
+    for (const ch of state.chars) { sel.add(new Option(ch.name, ch.name)); wsel.add(new Option(ch.name, ch.name)); }
+    const seg = (id, values, key, label) => {
+      const box = $(id); box.innerHTML = "";
+      for (const v of values) {
+        const b = document.createElement("button"); b.type = "button"; b.textContent = label ? label(v) : v;
+        b.dataset.value = v; b.addEventListener("click", () => { state[key] = typeof state[key] === "number" ? Number(v) : v; save(); refreshSegs(); rebuildStage(); });
+        box.appendChild(b);
+      }
+    };
+    seg("zoom", [1, 2, 4, 8], "zoom", (v) => v + "x");
+    seg("ground", Object.keys(GROUNDS), "ground");
+    seg("speed", [1, 0.5, 0.25], "speed", (v) => v + "x");
+  }
+  function refreshSegs() {
+    for (const [id, key] of [["zoom", "zoom"], ["ground", "ground"], ["speed", "speed"], ["dirs", "dir"]]) {
+      for (const b of $(id).children) b.setAttribute("aria-pressed", String(b.dataset.value === String(state[key])));
+    }
+  }
+  function chooseChar(name) {
+    state.char = state.byName[name] || state.chars[0];
+    $("char").value = state.char.name;
+    const animSel = $("anim"); animSel.innerHTML = "";
+    const anims = Object.keys(state.char.anims).filter((a) => a !== "blink");
+    for (const a of anims) animSel.add(new Option(a, a));
+    if (!anims.includes(state.anim)) state.anim = anims[0];
+    animSel.value = state.anim;
+    chooseAnim(state.anim);
+  }
+  function chooseAnim(anim) {
+    state.anim = anim;
+    const dirs = DIR_ORDER.filter((d) => (state.char.anims[anim] || []).includes(d));
+    const box = $("dirs"); box.innerHTML = "";
+    for (const d of [...dirs, "all"]) {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = d; b.dataset.value = d;
+      b.addEventListener("click", () => { state.dir = d; refreshSegs(); rebuildStage(); });
+      box.appendChild(b);
+    }
+    if (state.dir !== "all" && !dirs.includes(state.dir)) state.dir = dirs[0];
+    refreshSegs(); rebuildStage();
+  }
+  function rebuildStage() {
+    const stage = $("stage"); stage.innerHTML = "";
+    const ch = state.char, z = state.zoom;
+    const dirs = state.dir === "all" ? DIR_ORDER.filter((d) => ch.tags[state.anim + "_" + d]) : [state.dir];
+    stageActors = dirs.map((d) => {
+      const cell = document.createElement("div"); cell.className = "cell";
+      const c = document.createElement("canvas"); c.width = c.height = ch.cell * z;
+      c.setAttribute("aria-label", ch.name + " " + state.anim + " " + d);
+      cell.appendChild(c); const s = document.createElement("span"); s.textContent = d; cell.appendChild(s);
+      stage.appendChild(cell);
+      return { dir: d, canvas: c, actor: new Actor(ch, state.anim + "_" + d) };
+    });
+    if ($("t-anchor").checked && state.anchorImg) {
+      const cell = document.createElement("div"); cell.className = "cell";
+      const c = document.createElement("canvas"); c.width = c.height = 32 * z;
+      const ctx = c.getContext("2d"); ctx.imageSmoothingEnabled = false;
+      paintGround(ctx, c.width, c.height, state.ground, z); ctx.drawImage(state.anchorImg, 0, 0, 32 * z, 32 * z);
+      cell.appendChild(c); const s = document.createElement("span"); s.textContent = "anchor"; cell.appendChild(s);
+      stage.appendChild(cell);
+    }
+    buildFilm();
+    const pf = ch.pf;
+    $("meta").innerHTML = `pivot <code>${pf.pivot.join(", ")}</code> · ${pf.size_class || "small"} · timing <code>${pf.timing_profile || "player"}</code> · ${(pf.loop || {})[state.anim] ? "loops" : "plays once"}`;
+  }
+  function buildFilm() {
+    const film = $("film"); film.innerHTML = "";
+    const lead = stageActors[0]; if (!lead) return;
+    const ch = state.char, tagName = lead.actor.name;
+    const phases = (ch.pf.phases || {})[tagName] || [];
+    const events = (ch.pf.events || {})[tagName] || [];
+    for (let i = 0; i < lead.actor.count; i++) {
+      const b = document.createElement("button"); b.type = "button";
+      const c = document.createElement("canvas"); c.width = c.height = ch.cell * 2;
+      const ctx = c.getContext("2d"); ctx.imageSmoothingEnabled = false;
+      paintGround(ctx, c.width, c.height, state.ground, 2); drawCell(ctx, ch, lead.actor.tag.from + i, 0, 0, 2);
+      const label = document.createElement("small"); label.textContent = `${i} · ${lead.actor.duration(i)}ms`;
+      b.append(c, label);
+      if (phases[i]) { const p = document.createElement("span"); p.className = "chip " + phases[i]; p.textContent = phases[i]; b.appendChild(p); }
+      for (const e of events.filter((ev) => ev.frame === i)) { const p = document.createElement("span"); p.className = "chip " + e.type; p.textContent = e.type; b.appendChild(p); }
+      b.addEventListener("click", () => { state.playing = false; syncPlay(); for (const s of stageActors) { s.actor.i = i; s.actor.t = 0; s.actor.hold = 0; } });
+      film.appendChild(b);
+    }
+  }
+  function drawStage() {
+    const opts = { guides: $("t-guides").checked, grid: $("t-grid").checked, boxes: $("t-boxes").checked };
+    for (const s of stageActors) {
+      const ctx = s.canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+      const z = state.zoom, ch = state.char;
+      paintGround(ctx, s.canvas.width, s.canvas.height, state.ground, z);
+      if ($("t-onion").checked && s.actor.count > 1) {
+        const prev = s.actor.tag.from + ((s.actor.i - 1 + s.actor.count) % s.actor.count);
+        drawCell(ctx, ch, prev, 0, 0, z, 0.35);
+      }
+      drawCell(ctx, ch, frameFor(s.actor, ch, s.dir), 0, 0, z);
+      overlay(ctx, ch, s.actor, z, opts);
+    }
+    const lead = stageActors[0];
+    if (lead && lead.actor.count) {
+      $("readout").textContent = `frame ${lead.actor.i} · ${lead.actor.count} frames · ${lead.actor.duration(lead.actor.i)} ms`;
+      [...$("film").children].forEach((b, i) => b.setAttribute("aria-current", String(i === lead.actor.i)));
+    }
+  }
+  function syncPlay() { $("playpause").textContent = state.playing ? "Pause" : "Play"; }
+
+  // ---------------------------------------------------------------- gallery view
+  let galleryActors = [];
+  function buildGallery() {
+    const box = $("gallery"); box.innerHTML = "";
+    galleryActors = state.chars.filter((ch) => ch.tags.idle_s || Object.keys(ch.tags)[0]).map((ch) => {
+      const tag = ch.tags.idle_s ? "idle_s" : Object.keys(ch.tags)[0];
+      const b = document.createElement("button"); b.type = "button";
+      const c = document.createElement("canvas"); c.width = c.height = ch.cell * 2;
+      const label = document.createElement("small"); label.textContent = ch.name;
+      b.append(c, label);
+      b.addEventListener("click", () => { chooseChar(ch.name); location.hash = "#player"; });
+      box.appendChild(b);
+      return { canvas: c, actor: new Actor(ch, tag), ch };
+    });
+  }
+  function drawGallery() {
+    for (const g of galleryActors) {
+      const ctx = g.canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+      paintGround(ctx, g.canvas.width, g.canvas.height, state.ground, 2);
+      drawCell(ctx, g.ch, frameFor(g.actor, g.ch, "s"), 0, 0, 2);
+    }
+  }
+
+  // ---------------------------------------------------------------- walk test view
+  const walk = { x: 0, dir: 1, actor: null, ch: null };
+  function setupWalk(name) {
+    const ch = state.byName[name] || state.chars[0];
+    walk.ch = ch; walk.x = 0; walk.dir = 1;
+    walk.actor = ch.tags.walk_e ? new Actor(ch, "walk_e") : null;
+    $("walk-char").value = ch.name;
+  }
+  function drawWalk(dt) {
+    const c = $("walkstrip"), ch = walk.ch;
+    const z = 4, cell = ch ? ch.cell : 32;
+    const width = Math.max(320, Math.floor(c.clientWidth || 640));
+    if (c.width !== width) { c.width = width; c.height = cell * z; }
+    const ctx = c.getContext("2d"); ctx.imageSmoothingEnabled = false;
+    paintGround(ctx, c.width, c.height, state.ground, z);
+    if (!ch || !walk.actor) {
+      ctx.fillStyle = "#3a263a"; ctx.font = "16px sans-serif";
+      ctx.fillText("This character has no walk yet.", 16, 40); return;
+    }
+    const speed = Number($("walk-speed").value);
+    const span = Math.floor(c.width / z) - cell;
+    walk.x += walk.dir * speed * dt / 1000;
+    if (walk.x > span) { walk.x = span; walk.dir = -1; walk.actor.set(ch, ch.tags.walk_w ? "walk_w" : "walk_e"); }
+    if (walk.x < 0) { walk.x = 0; walk.dir = 1; walk.actor.set(ch, "walk_e"); }
+    if ($("walk-marks").checked) {
+      ctx.fillStyle = "rgba(58,38,58,0.35)";
+      for (let gx = 0; gx < c.width / z; gx += 4) ctx.fillRect(gx * z, (ch.pf.pivot[1] + 1) * z, z, z);
+    }
+    drawCell(ctx, ch, walk.actor.index, Math.round(walk.x) * z, 0, z);
+  }
+
+  // ---------------------------------------------------------------- views and clock
+  const VIEWS = ["player", "gallery", "walk-test"];
+  function route() {
+    const want = location.hash.slice(1);
+    const view = VIEWS.includes(want) ? want : "player";
+    for (const v of VIEWS) $("view-" + v).hidden = v !== view;
+    for (const a of document.querySelectorAll(".views a")) {
+      if (a.dataset.view === view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    }
+    state.view = view;
+  }
+  let last = performance.now();
+  function tick(now) {
+    const dt = Math.min(100, now - last) * state.speed; last = now;
+    if (state.view === "player") {
+      if (state.playing) stageActors.forEach((s) => s.actor.step(dt)); else stageActors.forEach((s) => { s.actor.blinkAt -= 0; });
+      drawStage();
+    } else if (state.view === "gallery") { galleryActors.forEach((g) => g.actor.step(dt)); drawGallery(); }
+    else if (state.view === "walk-test") { if (walk.actor) walk.actor.step(dt); drawWalk(dt); }
+    requestAnimationFrame(tick);
+  }
+
+  async function start() {
+    try { await loadAll(); }
+    catch (e) {
+      const note = $("empty"); note.hidden = false;
+      note.textContent = "No built characters found. Run pf build --all, then pf preview from the pixelforge folder.";
+      for (const v of VIEWS) $("view-" + v).hidden = true;
+      return;
+    }
+    if (!state.chars.length) { $("empty").hidden = false; $("empty").textContent = "No characters in out/index.json yet. Run pf build --all."; return; }
+    buildSelectors();
+    $("char").addEventListener("change", (e) => chooseChar(e.target.value));
+    $("anim").addEventListener("change", (e) => chooseAnim(e.target.value));
+    $("t-anchor").addEventListener("change", rebuildStage);
+    $("playpause").addEventListener("click", () => { state.playing = !state.playing; syncPlay(); });
+    $("prev").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(-1)); });
+    $("next").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(1)); });
+    $("walk-char").addEventListener("change", (e) => setupWalk(e.target.value));
+    $("walk-speed").addEventListener("input", (e) => { $("walk-speed-out").textContent = e.target.value + " px/s"; });
+    document.addEventListener("keydown", (e) => {
+      if (state.view !== "player" || e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
+      if (e.key === " ") { e.preventDefault(); state.playing = !state.playing; syncPlay(); }
+      if (e.key === "ArrowLeft") { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(-1)); }
+      if (e.key === "ArrowRight") { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(1)); }
+    });
+    const first = state.byName.knight ? "knight" : state.byName.anchor_girl ? "anchor_girl" : state.chars[0].name;
+    chooseChar(first);
+    buildGallery();
+    const walker = state.chars.find((ch) => ch.tags.walk_e);
+    setupWalk(walker ? walker.name : first);
+    window.addEventListener("hashchange", route);
+    route(); syncPlay();
+    requestAnimationFrame(tick);
+  }
+  start();
+})();
+</script>
+<!-- /pf:body -->
+</body>
+</html>

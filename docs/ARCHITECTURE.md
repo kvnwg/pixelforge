@@ -172,7 +172,7 @@ Every rig has its own base body (`parts/body/<rig>/`). For the humanoid rig it i
 
 - `head` is a fixed reference pixel on the head (choose the top-center of the skull fill and keep that definition for every frame).
 - Hands are the pixel where a held item's grip sits.
-- The humanoid also has `chin` (the chin row, used by the head-height rule E10), `torso` (the collar center: clothing, belts and tabards attach here), `back` (where a cape hangs), `foot_near` and `foot_far` (the bottom-center pixel of each foot), and a `planted` list naming the feet that carry weight in that frame (used by the jitter rule W1).
+- The humanoid also has `hip` (the first leg row: everything above it is the upper body, used by the change-budget rule W2), `chin` (the chin row, used by the head-height rule E10), `torso` (the collar center: clothing, belts and tabards attach here), `back` (where a cape hangs), `foot_near` and `foot_far` (the bottom-center pixel of each foot), and a `planted` list naming the feet that carry weight in that frame (used by the jitter rule W1).
 - Facing s, the near arm, hand and foot are the character's right: the viewer's left.
 - `pf anchors --check` renders every frame with anchor points marked, so wrong anchors are obvious.
 
@@ -346,6 +346,9 @@ Per character, in `out/<name>/`:
 - Toggles: onion skin, pivot and baseline, grid, side-by-side with the anchor
 - Gallery mode: every built character's idle at 2x in a grid
 - Movement test: the character walks across a strip at a configurable speed, to judge foot sliding
+- Random blink while idle (the game's behavior: blink_<dir> for 100 ms every 2.5 to 5 s)
+
+Views are routed by the hash: `#player`, `#gallery`, `#walk-test`. `pf preview --bundle out.html` inlines `out/index.json`, every character's JSON and PNG, and the anchor, so the same page works as a single file (and can be published as a page) with no server.
 
 ## 17. Review renders
 

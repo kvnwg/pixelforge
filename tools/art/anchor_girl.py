@@ -28,9 +28,7 @@ HAIR_FRONT_S = g(BLANK + [
     "...122221221...",  # y12 center part: mid tone at x = 16
     "...122221221...",  # y13
     "...112221121...",  # y14
-    "...0112..110...",  # y15 bangs; the outer pixels sit under the locks (no gap when they lag)
-    "...............",  # y16
-    ".....2...2.....",  # y17 inner locks
+    "...0112..110...",  # y15 bangs; the side pixels sit under the locks (no gap when they lag)
 ])
 # Facing e the hair covers the top and back of the head; bangs end on row 15 with one pixel of
 # forehead at the front. hair_back is the back of the head and the nape, trailing the head.
@@ -52,22 +50,22 @@ HAIR_BACK_E = g(BLANK * 4 + [
 # Facing n the hair covers the whole head: hair_front is the crown, hair_back hangs below it.
 HAIR_FRONT_N = g(BLANK + [
     "....1222221....",  # y11 the crown catches the light, like the top of the hair facing s
-    "...122222221...",  # y12
-    "...112222211...",  # y13
-    "...011121110...",  # y14 one light strand down the middle
+    "...022222221...",  # y12 shadow side dark, lit side mid
+    "...012222211...",  # y13
+    "...011121011...",  # y14 one light strand down the middle; the right dark strand starts
 ])
 HAIR_BACK_N = g(BLANK * 4 + [
-    "...011121110...",  # y14 (under hair_front)
-    "...011011010...",  # y15 short dark strands split the mass
+    "...011121011...",  # y14 (under hair_front)
+    "...011011011...",  # y15 short dark strands split the mass
     "...011011010...",  # y16
     "...001011000...",  # y17
     "...001011000...",  # y18
     "....0001100....",  # y19 down to the collar: the hair meets the dress
 ])
 HAIR_LOCKS_S = g(BLANK * 5 + [
-    "...01.....10...",  # y15
+    "...011...110...",  # y15 the side hair framing the face, rows 15 to 17, trails the head
     "...00.....00...",  # y16
-    "...02.....20...",  # y17
+    "...022...220...",  # y17
 ])
 
 DRESS_S = g(BLANK * 10 + [
@@ -138,7 +136,7 @@ RECIPE = {
         "accent": "gold (anchor)",
         "eyes": "navy (anchor)",
     },
-    "anims": ["idle"],
+    "anims": ["idle", "blink"],
 }
 
 
@@ -169,8 +167,8 @@ def main() -> None:
     write_part("legs_wear", "leggings", {
         "material": "leather", "kind": "animated", "lags": False, "rigs": ["humanoid"],
         "notes": "Leather leggings and shoes, redrawn per frame with the legs.",
-    }, {"idle": {("s", 0): LEGGINGS_S, ("e", 0): LEGGINGS_E, ("n", 0): LEGGINGS_N}},
-        {"idle": FRAMES["idle"]})
+    }, {"idle": {(d, i): legs for d, legs in (("s", LEGGINGS_S), ("e", LEGGINGS_E),
+                                              ("n", LEGGINGS_N)) for i in range(FRAMES["idle"])}})
     write_recipe("anchor_girl.yaml", RECIPE)
     print("wrote anchor_girl's parts and recipe")
 

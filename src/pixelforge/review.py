@@ -160,7 +160,7 @@ def strip_1x(b: Build, anim: str) -> Image.Image:
     size = b.composer.size
     n = max(len(b.frames[(anim, d)]) for d in dirs)
     backgrounds = bgs(b)
-    block_w = n * (size + 4)
+    block_w = max(n * (size + 4), 96)
     im, dr = canvas(12 + 3 * (block_w + 16) + n * (2 * size + 4) + 12,
                     28 + len(dirs) * (2 * size + 6) + 10)
     for j, (name, color) in enumerate(backgrounds.items()):

@@ -48,6 +48,7 @@ Breathing with a hair lag. Feet never move.
 - Hands move with the upper body.
 - Eyes move with the head and stay open (blink is separate).
 - N: identical motion; the back hair is the lagging part.
+- S: the side hair framing the face (rows 15 to 17) lags as one clump. Eyes are drawn above the locks, so a lowered lock never hides an eye. In the frame where the body settles, a row of skin shows under the lifted locks; in the frame where it rises, the locks hang a row lower beside the eyes.
 - E: identical motion; the back of the hair lags.
 
 ## 4. blink (1 frame, all directions with visible eyes)
