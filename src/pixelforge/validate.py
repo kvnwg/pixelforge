@@ -637,8 +637,10 @@ def roster_findings(builds: list, threshold: float = 0.85) -> list[Finding]:
     monsters = [b for b in builds if is_monster(b.recipe)]
     for i, a in enumerate(monsters):
         for b in monsters[i + 1:]:
-            if a.recipe.rig == b.recipe.rig and a.recipe.parts == b.recipe.parts:
-                continue  # a recolored variant of the same monster is a family, not a clash
+            fam_a = a.recipe.raw.get("family", a.recipe.name)
+            fam_b = b.recipe.raw.get("family", b.recipe.name)
+            if fam_a == fam_b or (a.recipe.rig == b.recipe.rig and a.recipe.parts == b.recipe.parts):
+                continue  # variants and elites of one family share a shape on purpose
             for d in ("s", "e"):
                 fa = a.frames.get(("combat_idle", d)) or a.frames.get(("idle", d))
                 fb = b.frames.get(("combat_idle", d)) or b.frames.get(("idle", d))

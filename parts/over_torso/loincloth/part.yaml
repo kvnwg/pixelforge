@@ -1,0 +1,10 @@
+slot: over_torso
+variant: loincloth
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid_small
+notes: A ragged loincloth.

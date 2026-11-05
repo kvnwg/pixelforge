@@ -191,6 +191,11 @@
           "#526540",
           "#67805c",
           "#7b9977"
+        ],
+        "ogre": [
+          "#755e4d",
+          "#8f7863",
+          "#a8957e"
         ]
       },
       "anchor_use": "face, neck line, arms, hands"
@@ -526,6 +531,11 @@
           "#525b2b",
           "#637345",
           "#758c5f"
+        ],
+        "bog": [
+          "#394523",
+          "#4a5c3a",
+          "#5c7453"
         ]
       },
       "anchor_use": "goblins, trolls"
@@ -1341,7 +1351,174 @@
       "size_class": "small",
       "height_rows": 14,
       "head_rows": 8,
-      "examples": "goblin, imp, kobold"
+      "examples": "goblin, imp, kobold",
+      "note": "Goblins, imps, kobolds: 14 rows, an 8-row head, 2-row legs (MONSTERS.md section 5.4). Drawn per pose by tools/art/goblin.py.",
+      "z_order": {
+        "s": [
+          "shadow",
+          "body",
+          "over_torso",
+          "ears",
+          "eyes",
+          "headwear",
+          "held_near"
+        ],
+        "e": [
+          "shadow",
+          "body",
+          "over_torso",
+          "ears",
+          "eyes",
+          "headwear",
+          "held_near"
+        ],
+        "n": [
+          "shadow",
+          "held_near",
+          "body",
+          "over_torso",
+          "ears",
+          "headwear",
+          "eyes"
+        ]
+      },
+      "close_eyes": {
+        "material": "hide",
+        "shade": 0
+      },
+      "validator": {
+        "motion_checked_anims": [],
+        "note": "a 14-row body: every 1 px bob is a big share of it"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            400,
+            150,
+            400,
+            150
+          ]
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "walk": {
+          "loop": true,
+          "frames_ms": [
+            110,
+            110,
+            110,
+            110
+          ],
+          "note": "quick little steps"
+        },
+        "attack_slash": {
+          "loop": false,
+          "frames_ms": [
+            140,
+            100,
+            60,
+            140,
+            160
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "recover"
+            }
+          ],
+          "note": "the club swing: raised, coiled, down, follow-through"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            120,
+            140
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1
+          ],
+          "displaced_frames": [
+            0,
+            1
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            140,
+            140,
+            400
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1,
+            2,
+            3
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3
+          ],
+          "combat": true,
+          "events": [
+            {
+              "frame": 3,
+              "type": "vfx",
+              "fx": "poof_smoke",
+              "point": "torso"
+            }
+          ],
+          "note": "flash, buckle, kneel, then poof_smoke as the game removes it"
+        },
+        "victory": {
+          "loop": true,
+          "frames_ms": [
+            200,
+            150,
+            200,
+            300
+          ],
+          "airborne_frames": [
+            1
+          ],
+          "combat": true
+        }
+      }
     },
     "humanoid_large": {
       "size_class": "medium",

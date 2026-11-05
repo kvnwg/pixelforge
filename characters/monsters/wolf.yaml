@@ -1,4 +1,5 @@
 name: wolf
+family: wolf
 rig: quadruped
 timing_profile: enemy
 seed: 1

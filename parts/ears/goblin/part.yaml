@@ -1,0 +1,10 @@
+slot: ears
+variant: goblin
+material: hide
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid_small
+notes: 'Wide pointed ears: the goblin''s signature.'

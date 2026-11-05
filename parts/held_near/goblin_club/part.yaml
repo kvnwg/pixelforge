@@ -1,0 +1,8 @@
+slot: held_near
+variant: goblin_club
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid_small
+notes: A stubby club, drawn per frame.

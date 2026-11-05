@@ -1,0 +1,10 @@
+slot: eyes
+variant: goblin
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- humanoid_small
+notes: Beady eyes; one in profile.

@@ -1,0 +1,25 @@
+name: goblin_chief
+family: goblin
+rig: humanoid_small
+timing_profile: elite
+seed: 1
+parts:
+  ears: goblin
+  eyes: goblin
+  over_torso: loincloth
+  held_near: goblin_club
+  headwear: crown
+colors:
+  hide: bog
+  cloth: crimson
+  leather: dark
+  accent: gold (anchor)
+  eyes: glow red
+anims:
+- idle
+- walk
+- combat_idle
+- attack_slash
+- hurt
+- death
+- victory

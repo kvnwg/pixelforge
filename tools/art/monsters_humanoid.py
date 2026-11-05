@@ -199,7 +199,7 @@ def skeleton() -> None:
 # ============================================================================== families
 def frost_wolf() -> None:
     write_recipe("monsters/frost_wolf.yaml", {
-        "name": "frost_wolf", "rig": "quadruped", "timing_profile": "enemy", "seed": 1,
+        "name": "frost_wolf", "family": "wolf", "rig": "quadruped", "timing_profile": "enemy", "seed": 1,
         "parts": {"tail": "wolf", "eyes": "wolf"},
         "colors": {"fur": "frost", "eyes": "glow ghost"},
         "anims": ["idle", "combat_idle", "walk", "run", "attack_bite", "howl", "hurt", "death"],

@@ -1,0 +1,10 @@
+slot: headwear
+variant: crown
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid_small
+notes: 'A three-pointed crown: the goblin chief''s trait.'

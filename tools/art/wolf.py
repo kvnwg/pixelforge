@@ -382,7 +382,7 @@ def main() -> None:
                {"rigid": eyes})
     write_anchors(RIG, anchors)
     write_recipe("monsters/wolf.yaml", {
-        "name": "wolf", "rig": RIG, "timing_profile": "enemy", "seed": 1,
+        "name": "wolf", "family": "wolf", "rig": RIG, "timing_profile": "enemy", "seed": 1,
         "parts": {"tail": "wolf", "eyes": "wolf"},
         "colors": {"fur": "gray", "eyes": "glow yellow"},
         "anims": ["idle", "combat_idle", "walk", "run", "attack_bite", "howl", "hurt", "death"],

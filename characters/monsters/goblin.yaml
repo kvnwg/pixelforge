@@ -1,0 +1,23 @@
+name: goblin
+family: goblin
+rig: humanoid_small
+timing_profile: enemy
+seed: 1
+parts:
+  ears: goblin
+  eyes: goblin
+  over_torso: loincloth
+  held_near: goblin_club
+colors:
+  hide: goblin
+  cloth: mustard
+  leather: brown (anchor)
+  eyes: glow yellow
+anims:
+- idle
+- walk
+- combat_idle
+- attack_slash
+- hurt
+- death
+- victory

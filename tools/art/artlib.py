@@ -32,17 +32,17 @@ FRAMES = {name: len(a["frames_ms"]) for name, a in STYLE.raw["animations"].items
 Cells = dict[tuple[str, int], np.ndarray]  # (direction, frame) -> codes
 
 
-def g(rows: list[str], x0: int = 8, y0: int = 10) -> np.ndarray:
+def g(rows: list[str], x0: int = 8, y0: int = 10, size: int = SIZE) -> np.ndarray:
     """Codes from a grid whose first character is at (x0, y0)."""
-    return grid.parse(rows, x0, y0, SIZE)
+    return grid.parse(rows, x0, y0, size)
 
 
-def empty() -> np.ndarray:
-    return np.full((SIZE, SIZE), grid.CLEAR, np.int8)
+def empty(size: int = SIZE) -> np.ndarray:
+    return np.full((size, size), grid.CLEAR, np.int8)
 
 
 def write_part(slot: str, variant: str, meta: dict[str, Any], sheets: dict[str, Cells],
-               frames: dict[str, int] | None = None) -> Path:
+               frames: dict[str, int] | None = None, size: int = SIZE) -> Path:
     folder = ROOT / "parts" / slot / variant
     folder.mkdir(parents=True, exist_ok=True)
     data = {"slot": slot, "variant": variant, **meta}
@@ -51,7 +51,7 @@ def write_part(slot: str, variant: str, meta: dict[str, Any], sheets: dict[str, 
     for anim, cells in sheets.items():
         n = 1 if anim == "rigid" else (frames or {}).get(anim, FRAMES.get(anim, 1))
         painted = {key: grid.paint(codes, ramp, OUTLINE) for key, codes in cells.items()}
-        write_sheet(folder / f"{anim}.png", painted, DIRS, n, SIZE)
+        write_sheet(folder / f"{anim}.png", painted, DIRS, n, size)
     return folder
 
 
