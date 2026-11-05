@@ -262,9 +262,7 @@ class Composer:
             return None
         cell = None
         if held.drawn(src.name):
-            if front:
-                return None
-            sheet = self.lib.sheet(held, f"smear_{src.name}")
+            sheet = self.lib.sheet(held, f"smear_{src.name}" + ("_front" if front else ""))
             if sheet is not None and index < sheet.frames:
                 cell = sheet.get(direction, index)
         else:

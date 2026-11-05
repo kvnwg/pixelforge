@@ -1,0 +1,8 @@
+slot: body
+variant: duelist
+material: metal
+kind: animated
+lags: false
+rigs:
+- humanoid_tall
+notes: Plate armor, the crested helm and the limbs, posed per frame.

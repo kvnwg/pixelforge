@@ -1,0 +1,16 @@
+slot: eyes
+variant: duelist
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- humanoid_tall
+allow_singletons:
+  s:
+  - - 21
+    - 12
+  - - 25
+    - 12
+notes: Eyes glowing in the visor slit.

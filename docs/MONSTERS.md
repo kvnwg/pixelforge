@@ -256,6 +256,30 @@ Asked for: "monsters that are BIG and slow like dragons or what not". An origina
 
 Recipes: `cinderwyrm` (ember scales, ember wings, pale horns, yellow glowing eyes) and `cinderwyrm_obsidian` (the family's dark variant: obsidian scales, ash wings, gilded horns, red eyes). `tests/test_dragon.py` checks the size class, the tells, the fireball fan, the bite's hitbox at the jaws, the tail's trail and the family recolor.
 
+
+### 5.9 Tall, quick humanoids: the Ashen Duelist (2026-11-05)
+
+Asked for: "monsters that are humanoid and tall, almost like a messmer from elden ring, that's quick". An original design (not that character): a lean duelist twice a hero's height.
+
+**Concept.** Dark plate armor, a round crested helm with a pale plume and eyes glowing behind the visor, a long tattered crimson cape, and a glaive (a long shaft with a curved blade) as tall as itself. It closes distance fast and strikes in a blink, but every attack still telegraphs.
+
+**Size class.** Medium: 48 x 48, pivot (23, 43); about 40 rows tall with the plume, 2.2 times a hero.
+
+**Rig `humanoid_tall`** (`tools/art/duelist.py`). A joint skeleton per frame (hips, knees, feet, neck, shoulders, elbows, hands, the glaive's angle and grip) drawn as shaded tube limbs, a polygon torso and cape and an oval helm, painted back to front with the dragon's Painter and flattened per layer. Facing s and n the strikes have their own hand and glaive poses: the slash rises high on the weapon side and sweeps across the front, the lunge thrusts at the camera (s) or away (n). Layers: `cape` and `plume` (cloth), `body` (metal), `shaft` (leather: the shaft with grip wraps, the belt), `blade` (metal; the recipe's `slot_colors` makes it steel on obsidian armor), `eyes` (glow), `held_near` (no art: the trails, including `smear_attack_slash_front`, drawn over the body facing s).
+
+**Animations** (elite profile: holds x 1.8, a 350 ms minimum tell):
+
+| Animation | Frames (base ms) | What happens |
+|---|---|---|
+| idle | 400, 220, 400, 220 | the cape sways; the glaive stands upright |
+| walk | 6 x 90 | quick, long strides |
+| attack_slash | 120, 140 (holds), 50 hit, 80, 160 | the glaive drawn back high (the tell), swept across in front with a white arc, followed through low |
+| attack_lunge | 120, 160 (holds), 50 hit, 80, 180 | coils low with the point forward (the tell), then dashes 16 px (root motion) driving the point out |
+| dodge | 70, 110, 120 | a quick airborne backstep, 12 px back |
+| hurt, death | 80/140/140; 100/200/260/600 | a flash and a recoil; sinks to the knees and falls |
+
+Recipe: `ashen_duelist` (elite; obsidian armor, a scarlet cape, a snow plume, a steel blade, yellow glowing eyes). `tests/test_duelist.py` checks the height, the quick strikes against the elite minimum, the lunge's dash and the dodge, and the slash crossing the body.
+
 ## 6. Variants: elites and families
 
 - **Family variant** (frost wolf, fire slime): new material presets plus matching FX element. Change value pattern, not just hue, so it reads differently in grayscale.

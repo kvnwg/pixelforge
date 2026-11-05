@@ -1,0 +1,8 @@
+slot: shaft
+variant: duelist
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid_tall
+notes: The glaive's shaft and the belt.

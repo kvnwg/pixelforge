@@ -1,0 +1,8 @@
+slot: held_near
+variant: duelist_glaive
+material: metal
+kind: animated
+lags: false
+rigs:
+- humanoid_tall
+notes: 'No art: the white trails of the glaive''s sweep and lunge (smear_<anim>).'

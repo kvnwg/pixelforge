@@ -1,0 +1,8 @@
+slot: plume
+variant: duelist
+material: cloth
+kind: animated
+lags: false
+rigs:
+- humanoid_tall
+notes: The helm's plume, sweeping back.

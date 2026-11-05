@@ -1,0 +1,30 @@
+name: ashen_duelist
+family: ashen_duelist
+rig: humanoid_tall
+timing_profile: elite
+seed: 1
+parts:
+  cape: duelist
+  body: duelist
+  plume: duelist
+  shaft: duelist
+  blade: duelist
+  eyes: duelist
+  held_near: duelist_glaive
+anims:
+- idle
+- walk
+- combat_idle
+- attack_slash
+- attack_lunge
+- dodge
+- hurt
+- death
+colors:
+  metal: obsidian
+  cloth: scarlet
+  leather: black
+  eyes: glow yellow
+slot_colors:
+  blade: steel
+  plume: snow

@@ -3633,6 +3633,258 @@
           "note": "staggers, the head drops to the ground, the body sags and lies still"
         }
       }
+    },
+    "humanoid_tall": {
+      "size_class": "medium",
+      "examples": "tall, quick humanoids: the Ashen Duelist",
+      "footprint": 13,
+      "note": "The Ashen Duelist (MONSTERS.md section 5.9), drawn by tools/art/duelist.py: a joint skeleton per frame with tube limbs, polygon torso and cape, painted back to front; every layer keeps only what it shows.",
+      "z_order": {
+        "s": [
+          "shadow",
+          "cape",
+          "body",
+          "shaft",
+          "blade",
+          "plume",
+          "held_near",
+          "eyes"
+        ],
+        "e": [
+          "shadow",
+          "cape",
+          "body",
+          "shaft",
+          "blade",
+          "plume",
+          "held_near",
+          "eyes"
+        ],
+        "n": [
+          "shadow",
+          "cape",
+          "body",
+          "shaft",
+          "blade",
+          "plume",
+          "held_near",
+          "eyes"
+        ]
+      },
+      "close_eyes": {
+        "material": "metal",
+        "shade": 0
+      },
+      "emitters": [
+        "weapon_tip",
+        "hand_near",
+        "torso"
+      ],
+      "validator": {
+        "motion_checked_anims": [],
+        "note": "a lean figure posed per frame by its joints"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            400,
+            220,
+            400,
+            220
+          ]
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "walk": {
+          "loop": true,
+          "frames_ms": [
+            90,
+            90,
+            90,
+            90,
+            90,
+            90
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "footstep",
+              "point": "foot_near"
+            },
+            {
+              "frame": 3,
+              "type": "footstep",
+              "point": "foot_far"
+            }
+          ],
+          "note": "quick, long strides; the cape streams"
+        },
+        "attack_slash": {
+          "loop": false,
+          "frames_ms": [
+            120,
+            140,
+            50,
+            80,
+            160
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "recover"
+            }
+          ],
+          "note": "the glaive drawn back high behind (the tell), swept across in front with a white arc"
+        },
+        "attack_lunge": {
+          "loop": false,
+          "frames_ms": [
+            120,
+            160,
+            50,
+            80,
+            180
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2,
+            3
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "root_motion_px": [
+            0,
+            0,
+            12,
+            4,
+            0
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "recover"
+            }
+          ],
+          "note": "coils low with the point forward (the tell), then dashes 16 px driving the point out"
+        },
+        "dodge": {
+          "loop": false,
+          "frames_ms": [
+            70,
+            110,
+            120
+          ],
+          "airborne_frames": [
+            1
+          ],
+          "root_motion_px": [
+            0,
+            -10,
+            -2
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2
+          ],
+          "note": "a quick backstep"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            140,
+            140
+          ],
+          "flash_frames": [
+            0
+          ],
+          "displaced_frames": [
+            0,
+            1,
+            2
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            100,
+            200,
+            260,
+            600
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            2,
+            3
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3
+          ],
+          "combat": true,
+          "events": [
+            {
+              "frame": 3,
+              "type": "vfx",
+              "fx": "poof_smoke",
+              "point": "torso"
+            }
+          ],
+          "lying_frames": [
+            3
+          ]
+        }
+      }
     }
   },
   "combat": {

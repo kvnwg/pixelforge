@@ -490,3 +490,15 @@ Status: done (commit "Sword slashes sweep across the body with an arc")
 
 Asked for: "for sword swings, they should go across body and leave an arc". `attack_slash` (every humanoid: knights, the classes, heroes, the orc and skeleton) now sweeps across the front instead of chopping down the weapon side: new held poses `sweep` and `across`, an `across` arm reaching over the chest (2 px thick) and an `after` follow-through on the far side, per-view arcs (over the hips facing s, drawn over the body; over the head facing n; over the top and down in front facing e), and trails that may be drawn in front of the body (`smear_<pose>_front`, composited over the sprite). The validator counts a trail over the body as cover (E4, E5) and ignores what it isolates for a frame (W3). The lance keeps its thrust and fists draw smaller arcs. `tests/test_trails.py` checks that the blade starts on the weapon side, ends on the far side and that its trail crosses the body from one side to the other.
 
+---
+
+## New monsters II: a tall, quick duelist
+
+Status: done (commit "Ashen Duelist: a tall, quick glaive fighter")
+
+The second half of "monsters that are humanoid and tall, almost like a messmer from elden ring, that's quick": the Ashen Duelist (MONSTERS.md section 5.9), an original design on the medium canvas, about 40 px tall. Quick by design: 90 ms walk frames, 50 ms strike frames, a 16 px dash lunge and a backstep, with tells that meet the elite profile's 350 ms minimum. Its slash sweeps across the body like the heroes' (a front trail facing s, over the head facing n). Validates with 0 errors and 0 warnings.
+
+What the review images show: a dark armored figure twice a hero's height with a pale crest and glowing eyes, a crimson cape and a glaive as tall as itself. The slash raises the glaive high on the weapon side and sweeps it across the front, leaving a white arc; the lunge coils low with the point forward, then drives it out at full stretch; from behind the cape covers the back in vertical folds.
+
+Rubric: style match 4 (longer limbs than the chibi cast, by design for a tall monster), 1x readability 4, silhouette 4 (the glaive and cape carry it), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4. Known limit: facing s the lunge's thrust at the camera is foreshortened (the point drops in front of the body).
+
