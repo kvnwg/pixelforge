@@ -10,7 +10,7 @@ Why this order: everything is built on the base body and its walk cycle. If thos
 
 ## Phase 0: Foundation
 
-Status: not started
+Status: done (commit c81464e)
 
 Tasks:
 1. `git init`, `.gitignore` (out/ except out/examples/, review/, caches, venvs), private GitHub repo named `pixelforge` via `gh repo create pixelforge --private --source=. --push` (if `gh` is missing or not logged in, stop and tell the human how to install and log in).
