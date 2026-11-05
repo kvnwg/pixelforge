@@ -76,7 +76,7 @@ def build(root: Path, recipe: Recipe | str, *, style: Style | None = None,
 
 def run_validation(b: Build) -> list[Finding]:
     v = Validator(b.composer)
-    findings = v.completeness(b.recipe.anims)
+    findings = v.completeness(b.recipe.anims) + v.size_class()
     for (anim, d), frames in b.frames.items():
         for f in frames:
             findings += v.frame(f)

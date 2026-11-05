@@ -62,7 +62,7 @@ def perp(kind: str) -> tuple[int, int]:
 SWORD_E = {
     "ready": ((1, 0), "steep", 1, -1, 4, False),     # up and forward in front of the face
     "raised": ((0, -1), "shallow", -1, -1, 6, True),  # cocked back behind the head
-    "strike": ((1, 0), "shallow", 1, 1, 6, False),   # extended forward and down
+    "strike": ((1, 0), "shallow", 1, 1, 4, False),   # extended forward and down
     "low": ((1, 0), "shallow", 1, 1, 4, False),      # follow-through, low in front
     "overhead": ((2, 0), "v", 0, -1, 6, False),      # lifted straight up, clear of the face
     "back": ((0, 0), "shallow", -1, -1, 6, True),    # behind the head: the heavy's tell
@@ -94,8 +94,8 @@ SWORD_S = {
 # traced into the strike, 1 to 2 px wide, in the item's lightest shade. Drawn only where the
 # character is not, so they never cover the body.
 SMEAR_E = {
-    "strike": [(2, -10), (3, -10), (3, -9), (4, -9), (5, -8), (6, -7), (6, -6), (7, -6), (7, -5),
-               (7, -4), (8, -4), (8, -3), (8, -2), (8, -1), (8, 0)],
+    "strike": [(1, -10), (2, -10), (2, -9), (3, -9), (4, -8), (5, -7), (5, -6), (6, -6), (6, -5),
+               (6, -4), (7, -4), (7, -3), (7, -2), (7, -1), (7, 0)],
     "slam": [(-1, -12), (0, -12), (1, -11), (2, -11), (2, -10), (3, -9), (3, -8), (3, -7),
              (4, -7), (4, -6), (4, -5), (4, -4), (4, -3), (4, -2), (3, -1)],
 }
@@ -106,13 +106,14 @@ SMEAR_S = {  # down the weapon side, from above the shoulder to the blade
              (-3, -9), (-3, -8), (-3, -7), (-3, -6), (-3, -5), (-3, -4), (-2, -3)],
 }
 # Unarmed (the fist): shorter arcs ending at the fist
-FIST_SMEAR_E = {
-    "strike": [(-1, -6), (0, -6), (1, -5), (2, -5), (2, -4), (3, -3), (3, -2), (3, -1)],
+FIST_SMEAR_E = {  # a crescent bursting in front of the fist
+    "strike": [(0, -3), (1, -3), (1, -2), (2, -2), (2, -1), (2, 0), (2, 1), (2, 2), (1, 2),
+               (1, 3), (0, 3)],
     "slam": [(0, -9), (1, -9), (1, -8), (2, -7), (2, -6), (2, -5), (2, -4), (2, -3), (2, -2)],
 }
 FIST_SMEAR_S = {
     "strike": [(-1, -8), (-2, -8), (-2, -7), (-3, -6), (-3, -5), (-3, -4), (-3, -3), (-3, -2)],
-    "slam": [(-1, -10), (-2, -10), (-2, -9), (-2, -8), (-2, -7), (-2, -6), (-2, -5), (-2, -4)],
+    "slam": [(-2, -10), (-3, -10), (-3, -9), (-3, -8), (-3, -7), (-3, -6), (-3, -5), (-3, -4)],
 }
 
 
@@ -154,8 +155,9 @@ def mace(pose: str, d: str):
     if spec is None:
         return None
     (gx, gy), kind, sx, sy, n, behind = spec
-    pts = [(gx + x, gy + y) for x, y in line(kind, 4, sx, sy)]  # grip and 3 px of shaft
-    ex, ey = line(kind, 5, sx, sy)[4]
+    reach = 5 if n >= 5 and sy < 0 else 4  # raised or cocked, it reaches past the helm
+    pts = [(gx + x, gy + y) for x, y in line(kind, reach, sx, sy)]  # grip and the shaft
+    ex, ey = line(kind, reach + 1, sx, sy)[reach]
     hx, hy = gx + ex, gy + ey  # head centre just past the shaft
     main = [(x, y, 1) for x, y in pts]
     for oy in (-1, 0, 1):
@@ -221,11 +223,11 @@ LANCE_E = {  # pose -> (butt end relative to the hand, kind, sx, sy, shaft lengt
     "high": ((0, 4), "v", 0, -1, 11),
     "tuck": ((-6, 0), "h", 1, 0, 10),
     "dropped": ((2, 1), "h", 1, 0, 8),       # lying on the ground in front
-    "ready": ((-6, 0), "h", 1, 0, 12),
-    "strike": ((-3, 0), "h", 1, 0, 9),
-    "slam": ((-3, 0), "h", 1, 0, 9),
+    "ready": ((-6, 0), "h", 1, 0, 11),
+    "strike": ((-5, 0), "h", 1, 0, 10),
+    "slam": ((-5, 0), "h", 1, 0, 10),
     "ground": ((-3, 0), "h", 1, 0, 10),
-    "aim": ((-3, 0), "h", 1, 0, 10),
+    "aim": ((-5, 0), "h", 1, 0, 10),
     "low": ((-5, -1), "shallow", 1, 1, 8),
     "guard": ((-6, 0), "h", 1, 0, 12),
 }
@@ -444,7 +446,7 @@ def check_bounds() -> list[str]:
             if parts.get(slot, "none") == "none":
                 continue
             part = lib.part(slot, parts[slot])
-            hand = "hand_far" if slot == "held_far" else "hand_near"
+            hand = part.attach  # the anchor the item follows (the shield rides the torso)
             for anim in recipe.anims:
                 src = STYLE.raw["animations"][anim].get("source", {}).get("anim", anim)
                 for d in DIRS:
@@ -500,12 +502,16 @@ def fist() -> None:
 
 
 def shield() -> None:
+    """The shield is attached to the torso; its guard pose is drawn where the far hand holds it
+    up in front (combat.py's far "guard" arm), in idle-torso coordinates."""
+    from combat import ARMS
     folder = ROOT / "parts" / "held_far" / "shield"
-    cells = {d: cell(SHIELD_GUARD[d], ORIGIN_FAR[d]) for d in DIRS}
+    guard_hand = {d: tuple(ARMS[(d, "far")]["guard"]["hand"]) for d in DIRS}
+    cells = {d: cell(SHIELD_GUARD[d], guard_hand[d]) for d in DIRS}
     write(folder, "pose_guard", "metal", cells)
     data = {"hitboxes": {}, "points": {"guard": {"shield_front": {}}, "rest": {"shield_front": {}}}}
     for d in DIRS:
-        ox, oy = ORIGIN_FAR[d]
+        ox, oy = guard_hand[d]
         front = {"e": (ox + 4, oy + 1), "s": (ox - 2, oy + 1), "n": (ox + 2, oy + 1)}[d]
         data["points"]["guard"]["shield_front"][d] = list(front)
         data["points"]["rest"]["shield_front"][d] = list({"e": (19, 22), "s": (20, 22),

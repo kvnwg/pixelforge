@@ -273,12 +273,13 @@ class Composer:
         pts = self.rig.points(anim.name, direction, index)
         frame.points = {k: (int(v[0]), int(v[1])) for k, v in pts.items()
                         if isinstance(v, list) and len(v) == 2 and all(isinstance(c, int) for c in v)}
-        body = (frame.sprite[..., 3] == 255) & (frame.owner != SMEAR)
-        body &= ~frame.slot_mask(*HELD_SLOTS)
+        # the hurtbox: the body's bounding box inside its outline (the outlined silhouette inset
+        # by 1 px), without held items or smears
+        body = (frame.owner >= 0) & ~frame.slot_mask(*HELD_SLOTS)
         if body.any():
             ys, xs = np.nonzero(body)
-            x0, y0, x1, y1 = int(xs.min()) + 1, int(ys.min()) + 1, int(xs.max()) - 1, int(ys.max()) - 1
-            frame.hurtbox = (x0, y0, max(x1 - x0 + 1, 1), max(y1 - y0 + 1, 1))
+            x0, y0, x1, y1 = int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())
+            frame.hurtbox = (x0, y0, x1 - x0 + 1, y1 - y0 + 1)
         for slot in ("held_near", "held_far"):
             part = self.parts.get(slot)
             if part is None:

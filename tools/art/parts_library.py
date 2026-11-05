@@ -346,7 +346,9 @@ def main() -> None:
                                                            "e": [[19, 18], [19, 28]],
                                                            "n": [[20, 18], [20, 28]]}),
                cells(**BOW))
-    write_part("held_far", "shield", rigid("metal", "hand_far", "Heater shield on the far arm."),
+    # The shield rides the far forearm but is attached to the torso: drawn in front of the body
+    # (facing e the far hand is hidden behind it), it must not swing off when that arm moves.
+    write_part("held_far", "shield", rigid("metal", "torso", "Heater shield on the far arm."),
                cells(**SHIELD))
     hides_hair = ["hair_front", "hair_locks", "hair_back"]
     write_part("headwear", "sallet", rigid("metal", "head", "Sallet with the visor raised.",

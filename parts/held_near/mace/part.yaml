@@ -32,13 +32,13 @@ pose_singletons:
   pose_raised:
     s:
     - - 8
-      - 18
+      - 17
     n:
     - - 22
-      - 18
+      - 17
   pose_raised_behind:
     e:
-    - - 11
+    - - 10
       - 20
   pose_strike:
     s:
@@ -75,23 +75,23 @@ pose_singletons:
   pose_overhead:
     s:
     - - 8
-      - 18
+      - 17
     e:
     - - 17
-      - 19
+      - 18
     n:
     - - 22
-      - 18
+      - 17
   pose_back:
     s:
     - - 10
-      - 18
+      - 17
     n:
     - - 20
-      - 18
+      - 17
   pose_back_behind:
     e:
-    - - 11
+    - - 10
       - 21
   pose_slam:
     s:
@@ -134,13 +134,13 @@ pose_singletons:
   pose_guard:
     s:
     - - 9
-      - 19
+      - 18
     e:
     - - 18
-      - 19
+      - 18
     n:
     - - 21
-      - 19
+      - 18
   pose_tuck:
     s:
     - - 6
@@ -154,13 +154,13 @@ pose_singletons:
   pose_high:
     s:
     - - 10
-      - 18
+      - 17
     e:
     - - 18
-      - 19
+      - 18
     n:
     - - 20
-      - 18
+      - 17
   pose_dropped:
     s:
     - - 5

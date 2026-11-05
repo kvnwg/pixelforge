@@ -409,6 +409,30 @@ class Validator:
         return out
 
     # ------------------------------------------------------------------ recipe and parts
+    def size_class(self) -> list[Finding]:
+        """E18: every part is drawn on its rig's size class canvas, and the anchors keep inside
+        that class's safe bounds (a bigger class is redrawn, never upscaled)."""
+        out = []
+        rig = self.c.rig
+        canvas = rig.size.canvas
+        for part in self.c.parts.values():
+            if self.c.lib.cell_size(part) != canvas:
+                out.append(Finding("error", "E18", f"{self.c.recipe.name} {part.id}",
+                                   f"cells are {self.c.lib.cell_size(part)} px; rig {rig.name} is "
+                                   f"{rig.size.name} ({canvas} px)",
+                                   hint="draw the part for this size class; never upscale"))
+        x0, y0, x1, y1 = rig.size.safe_bounds
+        for anim, per_dir in rig.anchors.items():
+            for d, frames in per_dir.items():
+                for i, pts in enumerate(frames):
+                    for name, p in pts.items():
+                        if isinstance(p, list) and len(p) == 2 and all(isinstance(c, int) for c in p) \
+                                and not (x0 <= p[0] <= x1 and y0 <= p[1] <= y1):
+                            out.append(Finding("error", "E18", f"{rig.name} {anim} {d} {i}",
+                                               f"anchor {name} {tuple(p)} is outside the "
+                                               f"{rig.size.name} safe bounds"))
+        return out
+
     def completeness(self, anims: Iterable[str]) -> list[Finding]:
         out = []
         for part in self.c.parts.values():

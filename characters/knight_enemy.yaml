@@ -1,0 +1,28 @@
+# An enemy knight: the knight's kit on the enemy timing profile (hold frames x 1.7, at least
+# 300 ms from windup to hit), in dark iron and plum with glowing eyes under a raised sallet so it
+# reads as a threat at a glance (COMBAT.md sections 2 and 8). Used for the Phase 5 telegraph check.
+name: knight_enemy
+rig: humanoid
+timing_profile: enemy
+seed: 1
+parts:
+  eyes: dots
+  headwear: sallet
+  headwear_trim: plume
+  torso_wear: plate
+  over_torso: tabard
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  skin: light (anchor)
+  metal: iron
+  cloth: plum
+  leather: dark
+  accent: silver
+  eyes: glow red
+anims: [idle, blink, walk, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, dodge, hurt, stun, death, victory]

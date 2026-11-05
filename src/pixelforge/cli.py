@@ -144,6 +144,7 @@ def review(
     direction: Optional[list[str]] = typer.Option(None, "--dir", help="Only these directions."),
     recolors: bool = typer.Option(False, "--recolors",
                                   help="Also render the recolor grid from style/recolor_test.json."),
+    combat: bool = typer.Option(False, "--combat", help="Also render combat timelines."),
 ) -> None:
     """Render review images into review/<name>/ (then open them)."""
     import json
@@ -153,7 +154,7 @@ def review(
     style = _style()
     b = build(style.root, recipe, style=style)
     out = style.root / "review" / b.recipe.name
-    written = render_all(b, out, anim, direction)
+    written = render_all(b, out, anim, direction, combat=combat)
     if recolors:
         spec = json.loads((style.root / "style" / "recolor_test.json").read_text())
         path = out / "recolor_grid.png"
@@ -161,6 +162,39 @@ def review(
         written.append(path)
     _report(b.findings)
     typer.echo(f"{len(written)} review images in {out}")
+
+
+@app.command()
+def battle(
+    attacker: str = typer.Argument(..., help="Attacking recipe."),
+    defender: str = typer.Argument(..., help="Defending recipe (reacts with hurt)."),
+    anim: str = typer.Option("attack_slash", "--anim", help="The attack to play."),
+    direction: Optional[list[str]] = typer.Option(None, "--dir", help="Facing (default: e)."),
+    profile: Optional[str] = typer.Option(None, "--profile",
+                                          help="Timing profile for the attacker (player, enemy...)."),
+) -> None:
+    """Render battle_<a>_vs_<b>.png: the attack against a reacting defender, k x and 1 x."""
+    from dataclasses import replace as _replace
+
+    from .build import build
+    from .recipe import find_recipe, load_recipe
+    from .review import battle_image
+    style = _style()
+    a_recipe = load_recipe(find_recipe(style.root, attacker), style)
+    if profile:
+        a_recipe = _replace(a_recipe, timing_profile=profile)
+    if anim not in a_recipe.anims:
+        a_recipe = _replace(a_recipe, anims=tuple(a_recipe.anims) + (anim,))
+    a = build(style.root, a_recipe, style=style, validate=False)
+    dfn = build(style.root, defender, style=style, validate=False)
+    out_dir = style.root / "review" / "battle"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for d in direction or ["e"]:
+        suffix = "" if d == "e" else f"_{d}"
+        tag = f"_{profile}" if profile else ""
+        path = out_dir / f"battle_{a.recipe.name}_vs_{dfn.recipe.name}_{anim}{suffix}{tag}.png"
+        battle_image(a, dfn, anim, d).save(path)
+        typer.echo(f"battle: {path}")
 
 
 @app.command()

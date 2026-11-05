@@ -2,7 +2,7 @@ slot: held_far
 variant: shield
 material: metal
 kind: rigid
-attach: hand_far
+attach: torso
 origin: auto
 lags: false
 rigs:
