@@ -47,7 +47,7 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
     cell = b.composer.size
     rows = sheet_layout(b)
     frames, tags = [], []
-    loops, events, phases, root_motion, durations = {}, {}, {}, {}, {}
+    loops, events, phases, root_motion, durations, stride_px = {}, {}, {}, {}, {}, {}
     i = 0
     for r, (anim, d, n) in enumerate(rows):
         adef = b.composer.anims[anim]
@@ -71,12 +71,17 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
             phases[tag] = list(adef.phases)
         if adef.root_motion:
             root_motion[tag] = list(adef.root_motion)
+        strides = adef.raw.get("stride_px", {})
+        source = d if d in strides else b.style.mirrors.get(d)
+        if source in strides:
+            stride_px[tag] = list(strides[source])
         durations[tag] = [f.duration for f in b.frames[(anim, d)]]
     size = b.composer.rig.size
     meta_pf: dict[str, Any] = {
         "pivot": list(size.pivot), "size_class": size.name, "rig": b.composer.rig.name,
         "timing_profile": b.recipe.timing_profile, "loop": loops, "events": events,
         "phases": phases, "hitboxes": {}, "hurtboxes": {}, "root_motion": root_motion,
+        "stride_px": stride_px,
     }
     if extra:
         meta_pf.update(extra)

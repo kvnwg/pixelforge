@@ -155,7 +155,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     <label><input type="checkbox" id="walk-marks" checked> Ground marks</label>
   </div>
   <canvas id="walkstrip" class="walkstrip" width="320" height="128" aria-label="Walk test"></canvas>
-  <p class="meta">Whole-pixel steps at the speed above. Planted feet should stay on the ground marks; if they slide, shorten frame durations or slow the walk. ANIMATION_SPEC.md section 5 targets about 19 px per second.</p>
+  <p class="meta">Whole-pixel steps at the speed above. At the walk's natural speed (its stride over its duration) a planted foot stays on its ground mark; faster or slower and it slides. If the game moves faster, shorten frame durations rather than adding frames (ANIMATION_SPEC.md section 5).</p>
 </section>
 
 <p class="note" id="empty" hidden></p>
@@ -409,11 +409,20 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
 
   // ---------------------------------------------------------------- walk test view
   const walk = { x: 0, dir: 1, actor: null, ch: null };
+  function naturalSpeed(ch) {
+    // The walk's own speed: ground travel per cycle (stride_px) over the cycle's duration.
+    const stride = (ch.pf.stride_px || {}).walk_e, tag = ch.tags.walk_e;
+    if (!stride || !tag) return null;
+    let ms = 0; for (let i = tag.from; i <= tag.to; i++) ms += ch.json.frames[i].duration;
+    return Math.round(stride.reduce((a, b) => a + b, 0) / ms * 1000);
+  }
   function setupWalk(name) {
     const ch = state.byName[name] || state.chars[0];
     walk.ch = ch; walk.x = 0; walk.dir = 1;
     walk.actor = ch.tags.walk_e ? new Actor(ch, "walk_e") : null;
     $("walk-char").value = ch.name;
+    const natural = naturalSpeed(ch);
+    if (natural) { $("walk-speed").value = natural; $("walk-speed-out").textContent = natural + " px/s (natural)"; }
   }
   function drawWalk(dt) {
     const c = $("walkstrip"), ch = walk.ch;
@@ -477,7 +486,10 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     $("prev").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(-1)); });
     $("next").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(1)); });
     $("walk-char").addEventListener("change", (e) => setupWalk(e.target.value));
-    $("walk-speed").addEventListener("input", (e) => { $("walk-speed-out").textContent = e.target.value + " px/s"; });
+    $("walk-speed").addEventListener("input", (e) => {
+      const natural = walk.ch ? naturalSpeed(walk.ch) : null;
+      $("walk-speed-out").textContent = e.target.value + " px/s" + (Number(e.target.value) === natural ? " (natural)" : "");
+    });
     document.addEventListener("keydown", (e) => {
       if (state.view !== "player" || e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
       if (e.key === " ") { e.preventDefault(); state.playing = !state.playing; syncPlay(); }

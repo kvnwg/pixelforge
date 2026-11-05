@@ -149,19 +149,158 @@ def idle() -> tuple[dict, dict, dict, dict]:
     return body, near, far, anchors
 
 
+# ---------------------------------------------------------------------------------------------
+# Walk (ANIMATION_SPEC.md section 5): contact, passing, contact, passing at 130 ms.
+# Legs are drawn per frame as leather shades with 'O' for a lifted foot in shadow; the skin legs
+# under the leggings use the same footprint, so bare legs and leggings line up.
+WALK_UPPER_DY = [0, -1, 0, -1]  # the body rises on passing frames; legs extend a row to meet it
+WALK_HIP = [25, 24, 25, 24]
+
+LEGS_S = [
+    g(["..............."] * 15 + [  # 0 contact A: the anchor stance
+        "....211..11....",  # y25
+        "....220..OO....",  # y26 viewer-right foot back and lifted, in shadow
+        "....220........",  # y27 viewer-left foot planted
+    ]),
+    g(["..............."] * 14 + [  # 1 passing: legs together, the right foot passes lifted
+        "....21101......",  # y24
+        "....21101......",  # y25
+        "....220OO......",  # y26
+        "....220........",  # y27 the same planted foot
+    ]),
+    g(["..............."] * 15 + [  # 2 contact B: mirror of contact A
+        "....11..112....",  # y25
+        "....OO..022....",  # y26
+        "........022....",  # y27
+    ]),
+    g(["..............."] * 14 + [  # 3 passing: mirror of frame 1
+        "......10112....",  # y24
+        "......10112....",  # y25
+        "......OO022....",  # y26
+        "........022....",  # y27
+    ]),
+]
+# Facing e: near leg light leather (2, 1), far leg dark (1, 0), so they never twin. The supporting
+# foot moves back 3 then 2 px (the ground's travel at the walk's natural speed), so it looks
+# planted in the game; the swinging foot passes lifted on row 26.
+LEGS_E = [
+    g(["..............."] * 15 + [  # 0 contact A: near foot 3 px ahead, far foot 2 px behind
+        ".....1021......",  # y25
+        "....10..21.....",  # y26
+        "....110..221...",  # y27
+    ]),
+    g(["..............."] * 14 + [  # 1 passing: near leg under the pivot, far leg lifted behind it
+        "......210......",  # y24
+        "......210......",  # y25
+        "......2110.....",  # y26
+        "......221......",  # y27
+    ]),
+    g(["..............."] * 15 + [  # 2 contact B: far foot ahead, near foot behind
+        ".....2110......",  # y25
+        "....21..10.....",  # y26
+        "....221..110...",  # y27
+    ]),
+    g(["..............."] * 14 + [  # 3 passing: far leg under the pivot, near leg lifted in front
+        "......121......",  # y24
+        "......121......",  # y25
+        "......1021.....",  # y26
+        "......110......",  # y27
+    ]),
+]
+WALK_STRIDE_E = [3, 2, 3, 2]  # px the ground moves back between frames i and i + 1
+
+# Arms swing by reaching 1 px lower (forward) or pulling 1 px shorter (back), so the sleeve
+# never detaches. Facing s and n the swing is vertical; facing e the hands swing along x.
+ARM_LONG_RIGHT = g(["..............."] * 11 + [   # viewer-right arm reaching 1 px down
+    "..........22...", "..........12...", "..........12...", "..........11...", "............O.."])
+ARM_SHORT_RIGHT = g(["..............."] * 11 + [  # viewer-right arm 1 px shorter
+    "..........22...", "..........11...", "............O.."])
+ARM_LONG_LEFT = g(["..............."] * 12 + [    # viewer-left arm reaching 1 px down
+    "...0...........", "...1...........", "...1...........", "..O............"])
+ARM_SHORT_LEFT = g(["..............."] * 12 + [   # viewer-left arm 1 px shorter
+    "...1...........", "..O............"])
+ARM_NEAR_E_BACK = g(["..............."] * 12 + [".......2.......", "......1........"])
+ARM_NEAR_E_FWD = g(["..............."] * 12 + [".......2.......", "........1......"])
+ARM_FAR_E_FWD = g(["..............."] * 12 + ["........1......", ".........10...."])
+ARM_FAR_E_BACK = g(["..............."] * 12 + [".....1.........", "...01.........."])
+
+
+def skin_legs(legs: "np.ndarray") -> "np.ndarray":
+    """The bare legs under the leggings: the same footprint and shades, in skin."""
+    return legs.copy()
+
+
+def leather_legs(legs: "np.ndarray") -> "np.ndarray":
+    """The leggings for a legs grid: every shade, without the lifted-foot outline pixels."""
+    out = legs.copy()
+    out[out == grid.INK] = grid.CLEAR
+    return out
+
+
+def walk() -> tuple[dict, dict, dict, dict]:
+    body, near, far, anchors = {}, {}, {}, {}
+    # facing s and n the legs and swings are drawn in screen space (the n stance matches s)
+    right_left = {"s": ("arm_far", "arm_near"), "n": ("arm_near", "arm_far")}
+    for d in ("s", "n"):
+        anchors[d] = []
+        for i, dy in enumerate(WALK_UPPER_DY):
+            upper = BODY0[d].copy()
+            upper[HIP:] = grid.CLEAR
+            body[(d, i)] = grid.overlay(skin_legs(LEGS_S[i]), grid.translate(upper, 0, dy))
+            r_slot, l_slot = right_left[d]
+            right = {0: ARM_LONG_RIGHT, 2: ARM_SHORT_RIGHT}.get(i, grid.translate(ARM_FAR_S, 0, dy))
+            left = {0: ARM_SHORT_LEFT, 2: ARM_LONG_LEFT}.get(i, grid.translate(ARM_NEAR_S, 0, dy))
+            (near if r_slot == "arm_near" else far)[(d, i)] = right
+            (near if l_slot == "arm_near" else far)[(d, i)] = left
+            hand_r = [19, {0: 24, 2: 22}.get(i, 22)]
+            hand_l = [11, {0: 22, 2: 24}.get(i, 22)]
+            a = shift_anchors(ANCHORS0[d], 0, dy)
+            a["hip"] = [15, WALK_HIP[i]]
+            a["hand_near"], a["hand_far"] = (hand_l, hand_r) if d == "s" else (hand_r, hand_l)
+            left_foot = [[13, 27], [13, 27], [12, 26], [14, 26]][i]
+            right_foot = [[17, 26], [15, 26], [17, 27], [17, 27]][i]
+            a["foot_near"], a["foot_far"] = (left_foot, right_foot) if d == "s" else (right_foot, left_foot)
+            planted_left = i in (0, 1)
+            if d == "s":
+                a["planted"] = ["foot_near"] if planted_left else ["foot_far"]
+            else:
+                a["planted"] = ["foot_far"] if planted_left else ["foot_near"]
+            anchors[d].append(a)
+    anchors["e"] = []
+    near_e = [ARM_NEAR_E_BACK, None, ARM_NEAR_E_FWD, None]
+    far_e = [ARM_FAR_E_FWD, None, ARM_FAR_E_BACK, None]
+    hands_e = [([14, 23], [18, 23]), ([15, 22], [13, 22]), ([16, 23], [11, 23]), ([15, 22], [13, 22])]
+    feet_e = [([18, 27], [13, 27]), ([15, 27], [16, 26]), ([13, 27], [18, 27]), ([16, 26], [15, 27])]
+    planted_e = [["foot_near", "foot_far"], ["foot_near"], ["foot_near", "foot_far"], ["foot_far"]]
+    for i, dy in enumerate(WALK_UPPER_DY):
+        upper = BODY_E.copy()
+        upper[HIP:] = grid.CLEAR
+        body[("e", i)] = grid.overlay(skin_legs(LEGS_E[i]), grid.translate(upper, 0, dy))
+        near[("e", i)] = near_e[i] if near_e[i] is not None else grid.translate(ARM_NEAR_E, 0, dy)
+        far[("e", i)] = far_e[i] if far_e[i] is not None else grid.translate(ARM_FAR_E, 0, dy)
+        a = shift_anchors(ANCHORS_E0, 0, dy)
+        a["hip"] = [15, WALK_HIP[i]]
+        a["hand_near"], a["hand_far"] = hands_e[i]
+        a["foot_near"], a["foot_far"] = feet_e[i]
+        a["planted"] = planted_e[i]
+        anchors["e"].append(a)
+    return body, near, far, anchors
+
+
 def main() -> None:
     body, near, far, anchors = idle()
+    wbody, wnear, wfar, wanchors = walk()
     meta = {"material": "skin", "kind": "animated", "lags": False, "rigs": ["humanoid"]}
     write_part("body", "humanoid", {**meta, "notes": "Skin-only mannequin: bald head, bare "
                                                       "torso, legs. Arms are separate slots."},
-               {"idle": body})
+               {"idle": body, "walk": wbody})
     write_part("arm_near", "humanoid", {**meta, "notes": "The near arm (the character's right; "
                                                           "viewer-left facing s). Holds held_near."},
-               {"idle": near})
+               {"idle": near, "walk": wnear})
     write_part("arm_far", "humanoid", {**meta, "notes": "The far arm (the character's left; "
                                                          "viewer-right facing s). Holds held_far."},
-               {"idle": far})
-    write_anchors("humanoid", {"idle": anchors})
+               {"idle": far, "walk": wfar})
+    write_anchors("humanoid", {"idle": anchors, "walk": wanchors})
     print("wrote the humanoid base body")
 
 

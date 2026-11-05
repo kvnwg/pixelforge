@@ -14,6 +14,7 @@ Run: .venv/bin/python tools/art/anchor_girl.py
 from __future__ import annotations
 
 from artlib import FRAMES, empty, g, write_part, write_recipe
+from humanoid import LEGS_E, LEGS_S, leather_legs
 
 BLANK = ["..............."]
 #                x: 890123456789012
@@ -136,7 +137,7 @@ RECIPE = {
         "accent": "gold (anchor)",
         "eyes": "navy (anchor)",
     },
-    "anims": ["idle", "blink"],
+    "anims": ["idle", "blink", "walk"],
 }
 
 
@@ -168,7 +169,9 @@ def main() -> None:
         "material": "leather", "kind": "animated", "lags": False, "rigs": ["humanoid"],
         "notes": "Leather leggings and shoes, redrawn per frame with the legs.",
     }, {"idle": {(d, i): legs for d, legs in (("s", LEGGINGS_S), ("e", LEGGINGS_E),
-                                              ("n", LEGGINGS_N)) for i in range(FRAMES["idle"])}})
+                                              ("n", LEGGINGS_N)) for i in range(FRAMES["idle"])},
+        "walk": {(d, i): leather_legs(legs[i]) for d, legs in (("s", LEGS_S), ("e", LEGS_E),
+                                                                ("n", LEGS_S)) for i in range(4)}})
     write_recipe("anchor_girl.yaml", RECIPE)
     print("wrote anchor_girl's parts and recipe")
 

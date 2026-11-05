@@ -20,3 +20,4 @@ colors:
 anims:
 - idle
 - blink
+- walk

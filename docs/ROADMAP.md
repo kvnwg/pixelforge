@@ -79,7 +79,7 @@ Commit: `Phase 2: four-direction turnaround`
 
 ## Phase 3a: Idle (CHECKPOINT)
 
-Status: done (see git log: Phase 3a)
+Status: done (commit a13814a)
 
 Tasks:
 1. Base body and all parts for idle frames 0 to 3, all directions, per ANIMATION_SPEC.md section 3.
@@ -98,7 +98,7 @@ Commit: `Phase 3a: idle and blink`
 
 ## Phase 3b: Walk (CHECKPOINT)
 
-Status: not started
+Status: done (see git log: Phase 3b)
 
 Tasks:
 1. Base body and all parts for walk frames 0 to 3, all directions, per ANIMATION_SPEC.md section 5.

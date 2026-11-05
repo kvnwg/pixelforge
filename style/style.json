@@ -706,7 +706,16 @@
         130,
         130,
         130
-      ]
+      ],
+      "stride_px": {
+        "e": [
+          3,
+          2,
+          3,
+          2
+        ]
+      },
+      "stride_note": "Pixels the ground moves back (against the facing) between frame i and i + 1. A planted foot moves exactly this much in the sprite, so it stays put while the game moves the character: 10 px per cycle at 4 x 130 ms is about 19 px/s, the walk's natural speed. Facing s and n the stride is 0 (planted feet are identical); w mirrors e."
     },
     "hurt": {
       "loop": false,

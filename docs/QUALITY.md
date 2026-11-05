@@ -42,8 +42,8 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 
 | ID | Rule |
 |---|---|
-| W1 | Jitter: a region that the animation spec says is static (legs in idle, a planted foot in walk) changed between consecutive frames. Checked on each planted foot's bottom row (x - 1 to x + 1 around the `foot_*` anchor) in the lower-body layers, so a belt swinging in front of a foot is not jitter. |
-| W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk, after undoing the planned motion (the upper body above the `hip` anchor moved by the head anchor's delta). Usually means boiling or a misaligned layer. A plain pixel count would flag the spec's own 1 px breathing, which moves about half the pixels. |
+| W1 | Jitter: a region that the animation spec says is static (legs in idle, a planted foot in walk) changed between consecutive frames. Checked on each planted foot's bottom row (x - 1 to x + 1 around the `foot_*` anchor) in the lower-body layers, so a belt swinging in front of a foot is not jitter. A planted foot may move only by the animation's `stride_px` (the ground's travel in a side-view walk). |
+| W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk, after undoing the planned motion (the upper body above the `hip` anchor moved by the head anchor's delta). Usually means boiling or a misaligned layer. A plain pixel count would flag the spec's own 1 px breathing, which moves about half the pixels. Pixels of lagging rigid parts (loose hair) are left out, since they move one frame late by design. |
 | W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one frame, not counting eyes and pixels listed in a part's `allow_singletons`. |
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
 | W5 | A material uses a single shade over more than 22 connected pixels (flat, unshaded area). The doc first said 12, but the anchor's own hair light covers 22, and the anchor wins. |

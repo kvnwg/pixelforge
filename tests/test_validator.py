@@ -100,9 +100,9 @@ def test_wrong_color_in_a_part_file_is_E13(root, style, tmp_path):
 
 
 def test_missing_sheet_is_E14(root, style, girl):
-    recipe = replace(girl.recipe, anims=("idle", "walk"))
+    recipe = replace(girl.recipe, anims=("idle", "attack_slash"))
     b = build(root, recipe, style=style)
-    assert any(f.rule == "E14" and "walk" in f.message for f in b.findings)
+    assert any(f.rule == "E14" and "attack_slash" in f.message for f in b.findings)
 
 
 def test_part_yaml_problems_are_reported(style, tmp_path):

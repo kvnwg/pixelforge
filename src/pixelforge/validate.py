@@ -193,8 +193,14 @@ class Validator:
                 x2, y2 = x + layer.offset[0], y + layer.offset[1]
                 if 0 <= x2 < img.shape[1] and 0 <= y2 < img.shape[0]:
                     allowed[y2, x2] = True
-        key = img[..., 0].astype(np.int32) << 16 | img[..., 1].astype(np.int32) << 8 | img[..., 2]
-        key = np.where(sil, key, -1)
+        # A shade belongs to a material: leather light and hair mid share a hex in the anchor, so
+        # pixels are keyed by (material, color) through the layer that drew them.
+        material = np.full(f.owner.shape, -1, np.int64)
+        names = sorted({l.part.material for l in f.layers})
+        for i, layer in enumerate(f.layers):
+            material[f.owner == i] = names.index(layer.part.material)
+        rgb = img[..., 0].astype(np.int64) << 16 | img[..., 1].astype(np.int64) << 8 | img[..., 2]
+        key = np.where(sil & (material >= 0), material << 24 | rgb, -1)
         up, down, left, right = (np.pad(key, 1, constant_values=-2)[s] for s in (
             (slice(None, -2), slice(1, -1)), (slice(2, None), slice(1, -1)),
             (slice(1, -1), slice(None, -2)), (slice(1, -1), slice(2, None))))
@@ -203,10 +209,11 @@ class Validator:
         for value in np.unique(key[lonely]):
             pts = lonely & (key == value)
             if pts.sum() > self.singletons_max:
+                name = names[int(value) >> 24]
                 out.append(Finding("warning", "W3", where,
-                                   f"{int(pts.sum())} isolated pixels of #{int(value):06x} "
-                                   f"(more than {self.singletons_max})", _px(pts),
-                                   "noisy one-pixel clusters; merge them into neighbors"))
+                                   f"{int(pts.sum())} isolated {name} pixels of "
+                                   f"#{int(value) & 0xFFFFFF:06x} (more than {self.singletons_max})",
+                                   _px(pts), "noisy one-pixel clusters; merge them into neighbors"))
         return out
 
     def _flat_areas(self, f: Frame, where: str) -> list[Finding]:
@@ -317,20 +324,39 @@ class Validator:
             expected = np.where(moved[..., 3:] == 255, moved, legs)
         both = (expected[..., 3] == 255) | (b.sprite[..., 3] == 255)
         changed = both & np.any(expected != b.sprite, axis=-1)
-        return int(changed.sum()), base
+        # Lagging rigid parts (loose hair) move by the previous frame's offset by design.
+        lagging = np.zeros_like(changed)
+        for f in (a, b):
+            for i, layer in enumerate(f.layers):
+                if layer.part.lags and not layer.part.drawn(f.source[0]):
+                    lagging |= f.owner == i
+        changed &= ~lagging
+        return int(changed.sum()), max(base - int((lagging & (a.sprite[..., 3] == 255)).sum()), 1)
+
+    def _stride(self, a: Frame) -> int:
+        """Screen-space x shift of a planted foot from frame a to the next (0 = stays put)."""
+        anim = self.c.anims.get(a.source[0])
+        strides = (anim.raw.get("stride_px", {}) if anim else {}).get(a.mirrored_from or a.direction)
+        if not strides:
+            return 0
+        step = int(strides[a.source[1] % len(strides)])
+        return step if a.mirrored_from else -step
 
     def _jitter(self, a: Frame, b: Frame, tag: str) -> list[Finding]:
         """A planted foot must not move or change: compare its bottom row (x - 1 to x + 1) in the
         lower-body layers, so a belt or skirt swinging in front of it is not jitter."""
         out = []
         pa, pb = self._points(a), self._points(b)
+        stride = self._stride(a)
         for foot in sorted(set(pa.get("planted", [])) & set(pb.get("planted", []))):
             xa, ya = self._x(a, pa[foot][0]), pa[foot][1]
             xb, yb = self._x(b, pb[foot][0]), pb[foot][1]
-            if (xa, ya) != (xb, yb):
+            if (xb - xa, yb - ya) != (stride, 0):
                 out.append(Finding("warning", "W1", tag, f"planted {foot} moved from ({xa},{ya}) "
-                                                         f"to ({xb},{yb})",
-                                   hint="planted feet must not slide"))
+                                                         f"to ({xb},{yb}); the ground moves "
+                                                         f"{stride:+d} px here",
+                                   hint="planted feet must stay on the ground: move them only by "
+                                        "the walk's stride_px"))
                 continue
             lower = ("body", "legs_wear", "feet")
             la = {l.slot: l.image for l in a.layers if l.slot in lower}
@@ -338,7 +364,7 @@ class Validator:
             changed = set()
             for slot in set(la) | set(lb):
                 ia = la.get(slot, np.zeros_like(a.image))[ya, xa - 1:xa + 2]
-                ib = lb.get(slot, np.zeros_like(b.image))[ya, xa - 1:xa + 2]
+                ib = lb.get(slot, np.zeros_like(b.image))[yb, xb - 1:xb + 2]
                 for i in np.flatnonzero(np.any(ia != ib, axis=-1)):
                     changed.add((int(xa - 1 + i), int(ya)))
             if changed:
