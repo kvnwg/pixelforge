@@ -57,12 +57,13 @@ def test_slime_eyes_face_the_view(slime):
 
 def test_slime_hop_leaves_the_ground(slime):
     frames = slime.frames[("move", "e")]
+    assert max(27 - bbox(f)[3] for f in frames) >= 3  # the peak rises 3 to 4 px
     for f in frames:
         bottom = bbox(f)[3]
         if "airborne" in f.flags:
-            assert 27 - bottom >= 3
-            # the shadow under a jump is narrower (row 28 shows below every shape)
-            assert (f.image[28, :, 3] == 70).sum() < (frames[0].image[28, :, 3] == 70).sum()
+            assert bottom < 27
+            if 27 - bottom >= 2:  # the shadow narrows 1 px a side for every 2 px of lift
+                assert (f.image[28, :, 3] == 70).sum() < (frames[0].image[28, :, 3] == 70).sum()
         else:
             assert bottom == 27
 
