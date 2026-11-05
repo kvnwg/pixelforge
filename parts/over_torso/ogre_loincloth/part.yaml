@@ -1,0 +1,10 @@
+slot: over_torso
+variant: ogre_loincloth
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid_large
+notes: A wrap with a front flap.

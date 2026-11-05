@@ -146,6 +146,8 @@
     "flat_share_max": 0.5,
     "change_budget": 0.35,
     "area_change_max": 0.15,
+    "busy_singletons_share": 0.005,
+    "busy_cluster_min_px": 3,
     "pivot_drift_px": {
       "s": 1,
       "n": 1,
@@ -1524,7 +1526,203 @@
       "size_class": "medium",
       "height_rows": 28,
       "head_rows": 12,
-      "examples": "ogre, troll"
+      "examples": "ogre, troll",
+      "footprint": 19,
+      "note": "Ogres and trolls: about 28 rows (a 12-row head) on the 48 px medium canvas, drawn by tools/art/ogre.py. The ground shadow follows the footprint (MONSTERS.md section 3): 19 px of feet cast a 21 x 7 shadow.",
+      "z_order": {
+        "s": [
+          "shadow",
+          "body",
+          "over_torso",
+          "hair_front",
+          "tusks",
+          "eyes",
+          "held_near"
+        ],
+        "e": [
+          "shadow",
+          "body",
+          "over_torso",
+          "hair_front",
+          "tusks",
+          "eyes",
+          "held_near"
+        ],
+        "n": [
+          "shadow",
+          "body",
+          "over_torso",
+          "hair_front",
+          "held_near"
+        ]
+      },
+      "close_eyes": {
+        "material": "skin",
+        "shade": 0
+      },
+      "validator": {
+        "motion_checked_anims": [],
+        "head_slots": [
+          "hair_front"
+        ],
+        "note": "every pose is drawn per frame, arms and club moving with the bobbing body; the body layer holds raised arms too, so E10 measures the head from the topknot, which moves with it"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            500,
+            160,
+            500,
+            160
+          ]
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "walk": {
+          "loop": true,
+          "frames_ms": [
+            160,
+            160,
+            160,
+            160
+          ],
+          "note": "a heavy stomp (MONSTERS.md section 5.4)"
+        },
+        "attack_heavy": {
+          "loop": false,
+          "frames_ms": [
+            160,
+            160,
+            100,
+            60,
+            80,
+            220,
+            240
+          ],
+          "hold_frames": [
+            1,
+            2
+          ],
+          "active_frames": [
+            3,
+            4
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 3,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "vfx",
+              "fx": "impact_big",
+              "point": "weapon_tip"
+            },
+            {
+              "frame": 6,
+              "type": "recover"
+            }
+          ],
+          "note": "the overhead club slam: lift, lean back (the tell), squash, slam, club on the ground, stuck, heave back; heavier than the humanoid's"
+        },
+        "roar": {
+          "loop": false,
+          "frames_ms": [
+            160,
+            480,
+            220
+          ],
+          "hold_frames": [
+            1
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1
+          ],
+          "events": [
+            {
+              "frame": 1,
+              "type": "vfx",
+              "fx": "sound_rings",
+              "point": "mouth"
+            }
+          ],
+          "note": "a buff: chin up, roar with both arms up, lower"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            140,
+            160
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1
+          ],
+          "displaced_frames": [
+            0,
+            1
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            160,
+            160,
+            220,
+            600
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "combat": true,
+          "events": [
+            {
+              "frame": 4,
+              "type": "vfx",
+              "fx": "poof_smoke",
+              "point": "torso"
+            }
+          ],
+          "note": "flash, stagger and drop the club, knees, slump; poof_smoke as the game removes it"
+        }
+      }
     },
     "blob": {
       "size_class": "small",

@@ -35,6 +35,29 @@ def dissolve(sprite: np.ndarray, step: int) -> np.ndarray:
     return out
 
 
+def footprint_shadow(footprint: int, pivot: tuple[int, int], bottom: int | None = None
+                     ) -> dict[int, tuple[int, int]]:
+    """The ground shadow for a footprint (MONSTERS.md section 3): width = footprint + 2 (odd),
+    height = width / 3 rounded up, centered half a row below the baseline, rows rounded off
+    like a cubic superellipse. A 9 px footprint gives the anchor's own shadow (rows 26..29 at
+    9, 11, 11, 9 px); a 17 px ogre gets 19 x 7. A shadow taller than the rows under the
+    baseline allow is lifted so its last row is `bottom` (the size class's safe y1): a boss's
+    shadow reaches further behind its feet instead of off the canvas."""
+    width = footprint + 2 + (footprint + 1) % 2
+    height = -(-width // 3)
+    px, py = pivot
+    top = int(np.floor(py + 0.5 - (height - 1) / 2))
+    if bottom is not None:
+        top = min(top, bottom - height + 1)
+    half = (width - 1) / 2
+    rows = {}
+    for i in range(height):
+        t = abs((i + 0.5 - height / 2) / (height / 2))
+        reach = int(np.floor(half * (1 - t ** 3) ** (1 / 3) + 0.5))
+        rows[top + i] = (px - reach, px + reach)
+    return rows
+
+
 def shadow_layer(spec: ShadowSpec, rgb: RGB, size: int, *, rows: dict[int, tuple[int, int]] | None = None
                  ) -> np.ndarray:
     """The translucent ground shadow: outline color at the shadow alpha, never outlined."""

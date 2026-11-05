@@ -67,3 +67,4 @@ def test_preview_bundle_is_self_contained(root, tmp_path):
     assert "window.PIXELFORGE_BUNDLE" in text and "<title>" in text
     assert "<!doctype" not in text.lower() and "<html" not in text.lower() and "<body" not in text.lower()
     assert "../../out/" in text  # the local fallback stays, unused when the bundle is present
+    assert text.startswith('<meta charset="utf-8">')  # reads right opened straight from disk

@@ -86,3 +86,89 @@ def test_w7_spares_a_family_but_not_strangers(builds):
 
 def test_the_humanoid_roster_has_no_lookalikes(builds):
     assert roster_findings(list(builds.values())) == []
+
+
+# ------------------------------------------------------------------ the ogre and the medium class
+@pytest.fixture(scope="module")
+def ogre(root, style):
+    return build(root, "ogre", style=style)
+
+
+def test_ogre_validates(ogre):
+    assert [str(f) for f in ogre.findings] == []
+
+
+def test_medium_size_class_canvas_pivot_and_mirror(ogre, tmp_path):
+    from pixelforge.export import export
+    from pixelforge.sheet import mirror
+    size = ogre.composer.rig.size
+    assert (size.name, size.canvas, size.pivot, size.mirror_axis_x) == ("medium", 48, (23, 43), 23)
+    for (anim, d), frames in ogre.frames.items():
+        for f in frames:
+            assert f.image.shape == (48, 48, 4)
+    for anim in ("idle", "attack_heavy", "death"):
+        for e, w in zip(ogre.frames[(anim, "e")], ogre.frames[(anim, "w")]):
+            assert np.array_equal(mirror(e.image, 23)[0], w.image)  # x' = 46 - x, never a flip
+    for d in ("s", "e", "n"):  # the feet stand on the baseline, row 43
+        assert bbox(ogre.frames[("idle", d)][0].sprite)[3] == 43
+    import json
+    export(ogre, tmp_path, gifs=False)
+    meta = json.loads(next(tmp_path.rglob("ogre.json")).read_text())["meta"]["pixelforge"]
+    assert meta["pivot"] == [23, 43] and meta["size_class"] == "medium"
+
+
+def test_shadow_scales_with_the_footprint(style, ogre):
+    from pixelforge.effects import footprint_shadow
+    assert footprint_shadow(9, (15, 27)) == dict(style.shadow.rows)  # the rule gives the anchor's
+    img = ogre.frames[("idle", "s")][0].image
+    shadow = (img[..., 3] == 70)
+    rows = np.flatnonzero(shadow.any(axis=1))
+    widths = [int(np.ptp(np.flatnonzero(shadow[y]))) + 1 for y in rows]
+    full = footprint_shadow(19, (23, 43), 46)  # 19 px of feet: 21 wide, 7 rows
+    assert len(full) == 7 and max(x1 - x0 + 1 for x0, x1 in full.values()) == 21
+    assert rows.min() >= min(full) and rows.max() == max(full) <= 46  # inside the safe area
+    assert max(widths) == 21
+    assert footprint_shadow(41, (31, 59), 62)[62]  # a boss's tall shadow is lifted, not cut
+
+
+def test_w10_flags_a_busy_big_sprite(ogre, style):
+    from dataclasses import replace as dc_replace
+    from pixelforge.validate import Validator
+    v = Validator(ogre.composer)
+    f = ogre.frames[("idle", "s")][0]
+    assert not [x for x in v.frame(f) if x.rule == "W10"]
+    skin = [tuple(int(c) for c in parse_hex(h)) for h in style.materials["skin"].presets["ogre"]]
+    noisy = f.sprite.copy()
+    body = f.owner == next(i for i, l in enumerate(f.layers) if l.slot == "body")
+    for y, x in np.argwhere(body):
+        if 30 <= y <= 36 and (x + y) % 2:  # dither the belly
+            noisy[y, x, :3] = skin[0] if tuple(noisy[y, x, :3]) != skin[0] else skin[2]
+    busy = dc_replace(f, sprite=noisy, image=noisy)
+    assert any(x.rule == "W10" for x in v.frame(busy))
+
+
+def test_drawn_weapons_carry_their_own_smear(ogre):
+    from pixelforge.compose import SMEAR
+    frames = ogre.frames[("attack_heavy", "e")]
+    assert (frames[3].owner == SMEAR).sum() > 20  # the slam traces its arc
+    assert not (frames[2].owner == SMEAR).any()
+
+
+def test_roster_compares_sizes_on_their_pivots(builds, ogre):
+    from pixelforge.validate import _on_pivot
+    small = np.zeros((32, 32), bool)
+    small[20:28, 12:19] = True  # a block standing on the small pivot (15, 27)
+    big = np.zeros((48, 48), bool)
+    big[36:44, 20:27] = True    # the same block on the medium pivot (23, 43)
+    a, b = _on_pivot(small, (15, 27), big, (23, 43))
+    assert np.array_equal(a, b)
+    assert roster_findings([builds["goblin"], builds["orc"], ogre]) == []
+
+
+def test_ogre_tell_meets_the_elite_profile(ogre, style):
+    adef = ogre.composer.anims["attack_heavy"]
+    profile = style.raw["combat"]["timing_profiles"]["elite"]
+    durations = [f.duration for f in ogre.frames[("attack_heavy", "e")]]
+    assert ogre.recipe.timing_profile == "elite"
+    assert sum(durations[:3]) >= profile["telegraph_min_ms"]
+    assert set(adef.flags["active"]) == {3, 4}

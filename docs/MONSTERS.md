@@ -47,7 +47,7 @@ Later candidates: `serpent` (snakes, worms), `arachnid` (spiders, crabs), `float
 Rule: pivot = (canvas / 2 - 1, canvas - 5). West mirrors use `x_new = 2 * axis - x`.
 
 - Same pixel scale everywhere. Never upscale a small sprite to make a big one; that doubles the outline and breaks the style instantly.
-- Ground shadow scales with the footprint: width = footprint width + 2 (odd), height = width / 3 rounded up, same color and alpha.
+- Ground shadow scales with the footprint: width = footprint width + 2 (odd), height = width / 3 rounded up, same color and alpha. As built (Phase 8): `effects.footprint_shadow` draws it centered half a row under the baseline with rows rounded off like a cubic superellipse; a 9 px footprint gives exactly the anchor's shadow, so the small class and the rule agree. A rig on a bigger class declares `footprint` in `style.json` (the ogre: 19, so 21 x 7); a shadow taller than the rows under the baseline allow is lifted to end on the class's safe row instead of being cut.
 - Proportions relax as size grows: the head is about 55% of height for small creatures, 40 to 45% for medium, 30 to 40% for large and huge. Still rounder and cuter than "realistic".
 
 ---
@@ -128,6 +128,12 @@ Body about 7 x 6 px with 1 px ears; wings span up to 17 px. The pivot stays on t
 - **Goblin / imp / kobold:** `humanoid_small`. Ears or horns as headwear-like rigid parts. Same animation tables as humanoid; offsets stay 1 px.
 - **Ogre / troll:** `humanoid_large`, medium canvas. Walk at 160 ms per frame; attacks use `attack_heavy`; add `roar` (3 frames, buff). Timing profile `elite` or `boss`.
 
+As built (Phase 8):
+- **Skeleton** (`tools/art/monsters_humanoid.py`): `body/skeleton`, `arm_near/skeleton` and `arm_far/skeleton` are the humanoid sheets converted to bone (skin shadow, mid, light to bone 1, 2, 3), with sockets, a nose hole and ribs carved from each frame's own anchors, then despeckled. Every humanoid animation comes for free; the recipe adds a sword, a shield, ghost-blue glow eyes and `death_crumble` (the humanoid death's first frames, then `bone_crumble`).
+- **Orc:** the `green (orc)` skin preset, `tusks/orc` (two 1 px horn tusks at the jaw corners), plate, greaves, gauntlets, a mace and a horned helm (`headwear/horned_helm` plus `headwear_trim/horns`): the horns rise above any human head, which is what keeps the orc apart from the knight and the skeleton in the roster.
+- **Goblin and goblin chief** (`tools/art/goblin.py`): their own 14-row `humanoid_small` body (an 8-row head, a 4-row pot-bellied body, 2-row legs) drawn per pose from a head, torso, legs, arms and a club; wide pointed ears (`ears/goblin`) are the signature. The humanoid's parts do not fit a body this size, so the goblin carries its own loincloth, club, eyes and crown. Its animations are its own short set (quick 110 ms steps, a club swing as `attack_slash`, a kneel-and-poof death).
+- **Ogre** (`tools/art/ogre.py`): 48 x 48, pivot (23, 43), 28 rows to the soles plus a topknot. Heads, torsos and legs are hand-drawn grids (the s view a left half mirrored around x = 23, the n view the same silhouette shaded as a back); arms and the club are shaded tubes through three joints per pose, despeckled against what is actually visible. An arm in front of the body gets a 1 px outline-colored contour where it crosses the torso; a club behind the body stops 1 px short of it so the generated outline separates them. The club rests on the shoulder at idle and stays 13 to 16 px long in every pose (foreshortened facing s and n). `attack_heavy` (lift, lean back, squash, slam with a drawn smear, club on the ground with `impact_big`, stuck, heave) has a 628 ms tell on the `elite` profile; `roar` drops the jaw (tusks follow a `jaw` anchor) and raises both arms under `sound_rings`; death kneels, drops the club and slumps before `poof_smoke`.
+
 ### 5.5 Bosses
 
 Each boss gets a written spec here before any drawing: concept in two sentences, signature feature, silhouette sketch as a character grid, size class, rig breakdown (which pieces animate separately, for example arms or a tail as separate layers so they can move independently), full animation list with frame tables, phases and telegraph times (boss profile: 500 ms minimum, 600+ for heavy attacks), and FX needs.
@@ -146,9 +152,31 @@ The slime, bat and wolf are drawn by `tools/art/slime.py`, `bat.py` and `wolf.py
 - **Monster hitboxes are authored on the rig** (`"hitboxes"` in anchors.json on active frames: the slime's landing, the bat's dive, the wolf's jaws), clipped so the mirrored west box stays on the canvas.
 - **Validator motion checks are off for these rigs** (`rigs.<rig>.validator.motion_checked_anims: []`): squash and stretch, wing beats and gaits reshape the silhouette by design, so W2, W4 and E7 would only flag the intended motion. Review the strips instead.
 
+### 5.7 As built (Phase 8)
+
+Recipes in `characters/monsters/`: `skeleton`, `orc`, `goblin`, `goblin_chief` (elite), `frost_wolf` (family variant), `ogre` (elite, medium). All validate with 0 errors and 0 warnings; `tests/test_humanoid_monsters.py` covers them, the medium size class (canvas, pivot, mirror, export, shadow scale), W10, drawn smears and W7 across sizes and families.
+
+Rubric (skeleton / orc / goblin / goblin chief / frost wolf / ogre):
+1. Style match 4 / 4 / 4 / 4 / 4 / 4: generated outline, open soles, the locked palette; the ogre keeps the 32 px pixel scale on its 48 px canvas.
+2. 1x readability 4 / 4 / 4 / 4 / 4 / 4: each reads on beige, light and dark; the ogre's slam and smear read at 1x.
+3. Silhouette 4 / 5 / 5 / 5 / 4 / 5: ribs and sockets; horns; ears; ears plus crown; the wolf's shape (a family); bulk, topknot and club.
+4. Motion 4 / 4 / 4 / 4 / 4 / 4: the skeleton and orc inherit the humanoid set; the goblin and ogre are drawn per pose.
+5. Consistency 4 / 4 / 4 / 4 / 5 / 4: one light and one pixel scale throughout.
+6. Cleanliness 4 / 4 / 4 / 4 / 4 / 4: W3, W5 and (for the ogre) W10 clean after despeckle passes.
+7. Part fit 4 / 4 / 4 / 4 / 5 / 4: horns, tusks, ears, crown, topknot and loincloth follow their anchors in every frame.
+8. Appeal 4 / 4 / 5 / 5 / 4 / 4: chibi brutes with glow eyes; the goblins are the cutest.
+9. Combat readability 4 / 4 / 4 / 4 / 4 / 5: whole-body tells at or over the profile minimum; the ogre's lean-back and lifted club are a 628 ms tell.
+
+Elites differ from their base in grayscale: the goblin chief's bog hide is darker (68% of the shared pixels change by more than 8 gray levels) and its crown changes the silhouette; the frost wolf's fur is lighter (64%).
+
+Known limits: the ogre's arms are tubes, simpler than its hand-drawn torso; its s and n swings land on the weapon side, as the humanoid's do, so the club stays visible.
+
+---
+
 ## 6. Variants: elites and families
 
 - **Family variant** (frost wolf, fire slime): new material presets plus matching FX element. Change value pattern, not just hue, so it reads differently in grayscale.
+- A recipe names its family with `family: <name>` (the wolf and frost wolf are `wolf`; the goblin and goblin chief are `goblin`). W7 does not compare members of one family: an elite keeps its base's shape on purpose and is told apart by its added trait and value pattern instead.
 - **Elite:** family colors plus one added trait (a helmet, a crown, a scar, bigger horns) and glow eyes. Uses the `elite` timing profile.
 - **Champion:** elite plus a looping aura FX under the feet.
 
@@ -159,7 +187,7 @@ A variant that is only a hue shift is not enough; players need to tell a stronge
 ## 7. Roster readability
 
 - `pf roster` renders `review/roster_lineup.png`: every monster and the player's anchor side by side at 1x and 2x, sorted by size, plus a row of solid silhouettes.
-- The validator warns (W7) when two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Fix it by changing the shape, not the color. Recolored variants of one monster (same rig and parts) are a family and are not compared. `pf validate` (everything) and `pf roster` both run it.
+- The validator warns (W7) when two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Fix it by changing the shape, not the color. Recolored variants of one monster (same rig and parts) and monsters of one recipe `family` are not compared. Sprites of different size classes are compared standing on the same pivot. `pf validate` (everything) and `pf roster` both run it.
 - Size tells danger: within a region, bigger means stronger. Keep that consistent.
 
 ---

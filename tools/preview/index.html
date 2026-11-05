@@ -683,14 +683,18 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     seg("arena-speed", [1, 0.5, 0.25], "speed", (v) => v + "x");
   }
   function arenaLayout() {
+    // The dummy is a 32 px prop (pivot 15, 27). A bigger fighter (a medium ogre, pivot 23, 43)
+    // stands on the same ground row, and faces it along its own pivot column.
     const d = arena.dir, g = arena.gap, size = arena.ch.cell;
+    const [px, py] = arena.ch.pf.pivot || [15, 27];
     if (d === "e" || d === "w") {
-      const W = Math.max(112, size + g + 40), H = size + 4;
-      return d === "e" ? { W, H, fx: 16, fy: 0, dx: 16 + g, dy: 0 }
-                       : { W, H, fx: W - 16 - size, fy: 0, dx: W - 16 - size - g, dy: 0 };
+      const fy = Math.max(0, 27 - py), dy = Math.max(0, py - 27);
+      const W = Math.max(112, size + g + 40), H = Math.max(size + fy, 32 + dy) + 4;
+      return d === "e" ? { W, H, fx: 16, fy, dx: 16 + g, dy }
+                       : { W, H, fx: W - 16 - size, fy, dx: W - 16 - size - g, dy };
     }
-    const W = 72, H = size + g + 4;
-    return d === "s" ? { W, H, fx: 20, fy: 0, dx: 20, dy: g } : { W, H, fx: 20, fy: g, dx: 20, dy: 0 };
+    const W = Math.max(72, size + 40), H = size + g + 4, fx = 20, dx = fx + px - 15;
+    return d === "s" ? { W, H, fx, fy: 0, dx, dy: g } : { W, H, fx, fy: g, dx, dy: 0 };
   }
   function dummyCentre(L) { return [L.dx + 15, L.dy + 18]; }
   function struck() { arena.flash = 90; arena.knock = 160; }

@@ -1,0 +1,8 @@
+slot: held_near
+variant: ogre_club
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid_large
+notes: A big club, drawn per frame; smear_attack_heavy.png is the slam's smear.

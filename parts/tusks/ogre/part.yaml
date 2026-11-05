@@ -1,0 +1,10 @@
+slot: tusks
+variant: ogre
+material: bone
+kind: rigid
+attach: jaw
+origin: auto
+lags: false
+rigs:
+- humanoid_large
+notes: Two tusks from the underbite.

@@ -313,7 +313,7 @@ Known limits: the wolf's s and n views are simpler than its profile, as MONSTERS
 
 ## Phase 8: Monster rigs II: humanoid monsters and the medium size class (CHECKPOINT)
 
-Status: not started
+Status: done (commits "Phase 8 (part 1): orc, skeleton, frost wolf", "Phase 8 (part 2): goblin and goblin chief", "Phase 8: humanoid monsters, ogre, variants"; see the notes below)
 
 Tasks:
 1. **Skeleton:** `body/skeleton` variant for the humanoid rig, bone material, glow eyes, `bone_crumble` death.
@@ -329,6 +329,23 @@ Acceptance:
 **CHECKPOINT:** the roster lineup plus each new monster's combat animations in the preview.
 
 Commit: `Phase 8: humanoid monsters, ogre, variants`
+
+### Phase 8 notes and self-review (checkpoints waived, see the top of this file)
+
+Built: the skeleton, orc, goblin, goblin chief, frost wolf and ogre (MONSTERS.md sections 5.4 and 5.7); the `humanoid_small` and `humanoid_large` rigs; the medium size class end to end (48 px canvas, pivot (23, 43), west mirrored around x = 23, export, reviews, roster, battle strips and the preview's arena placing sprites by pivot); the footprint shadow rule (`effects.footprint_shadow`, which reproduces the anchor's own shadow from a 9 px footprint); W10; smears for weapons drawn per frame (`smear_<anim>.png`); recipe `family` for W7; rig `validator.head_slots` for E10. Every recipe validates with 0 errors and 0 warnings (68 parts, 30 recipes). `tests/test_humanoid_monsters.py` covers the new monsters, the medium class (canvas, pivot, mirror, baseline, export, shadow scale), W10 on a deliberately dithered sprite, drawn smears, W7 across families and sizes, and the ogre's tell. The preview bundle also gained a charset line so it reads right opened from disk.
+
+What the review images show:
+- Skeleton: a bone skull with ghost-blue eyes, dark sockets and rib lines over the humanoid body, sword and shield; every humanoid animation, crumbling into `bone_crumble` at death.
+- Orc: green skin, red eyes, an iron cap with two horns rising above any human head, plate, greaves and a mace.
+- Goblin: a tiny green body with wide pointed ears (the signature), yellow eyes, a mustard loincloth and a stubby club; quick steps, a raised-and-coiled club swing, a kneel and a poof at death. The chief adds a gold crown, a darker bog hide and red eyes.
+- Frost wolf: the wolf's shape in pale frost fur with ghost-blue eyes.
+- Ogre: a hunched brute twice the anchor's bulk, the head sunk between round shoulders, a topknot, tusks from an underbite, long arms and a club on the shoulder. The slam lifts the club, leans back with it behind the head, squashes, then brings it down in front under a drawn smear arc and leaves it on the ground with `impact_big`; facing s and n it swings down on the weapon side. The roar drops the jaw and raises both fists; death kneels, drops the club and slumps.
+- Roster: nine monsters and the anchor in a size-sorted lineup; every silhouette is different (dome, wings, quadruped, ears, ears and crown, person, bald skull and shield, horns, the ogre's mass). The goblin chief differs from the goblin in grayscale (68% of shared pixels change by more than 8 levels) and in silhouette (the crown); the frost wolf by value (64%).
+- Battle strips: ogre vs knight and knight vs ogre stand on one ground row; the club lands on the knight's hurtbox with a flash and `impact_big`.
+
+Rubric: per monster in MONSTERS.md section 5.7; every score is 4 or higher.
+
+Known limits: the ogre's arms are shaded tubes, simpler than its hand-drawn torso and head; elites so far are recolor-plus-trait (no champion aura yet); the goblin's parts are its own (the humanoid's do not resize).
 
 ---
 

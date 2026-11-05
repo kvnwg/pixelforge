@@ -1,0 +1,10 @@
+slot: eyes
+variant: ogre
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- humanoid_large
+notes: Small eyes deep under the brow.

@@ -22,7 +22,7 @@ import numpy as np
 
 from .anim import AnimDef, load_anims
 from .color import parse_hex
-from .effects import close_eyes, flash, over_shadow, shadow_layer
+from .effects import close_eyes, flash, footprint_shadow, over_shadow, shadow_layer
 from .outline import outline
 from .parts import RIGID_SHEET, Library, Part, PartError
 from .recipe import Recipe, RecipeError
@@ -192,9 +192,10 @@ class Composer:
     # ------------------------------------------------------------------ frames
     def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str],
                     direction: str = "s") -> dict[int, tuple[int, int]]:
-        """The ground shadow: the style's ellipse, or the rig's own (`rigs.<rig>.shadow_rows`,
-        a hovering flyer's small shadow that never bobs); airborne jumps shrink it."""
-        rows = dict(self.style.shadow.rows)
+        """The ground shadow: the style's ellipse (scaled to the rig's `footprint` on a bigger
+        size class), or the rig's own (`rigs.<rig>.shadow_rows`, a hovering flyer's small shadow
+        that never bobs); airborne jumps shrink it."""
+        rows = self.ground_shadow()
         own = self.rig_spec.get("shadow_rows")
         if own and direction in own:  # per direction: a long side view casts a long shadow
             own = own[direction]
@@ -206,6 +207,15 @@ class Composer:
                 return self._shrink(rows, sprite, flags)
             return rows
         return self._shrink(rows, sprite, flags)
+
+    def ground_shadow(self) -> dict[int, tuple[int, int]]:
+        """The style's shadow on the small class; bigger classes scale it with the rig's
+        footprint (MONSTERS.md section 3), never by resampling the small one."""
+        if self.size == self.style.canvas:
+            return dict(self.style.shadow.rows)
+        default = self.size * 9 // 32 | 1  # the anchor's 9 px footprint, in proportion
+        return footprint_shadow(int(self.rig_spec.get("footprint", default)), self.rig.size.pivot,
+                                bottom=self.rig.size.safe_bounds[3])
 
     def _shrink(self, rows, sprite, flags):
         """An airborne jump shrinks the shadow 1 px a side per 2 px of lift."""
@@ -268,16 +278,23 @@ class Composer:
         # Smears trace a strike: drawn after the outline, in the weapon's own material, only on
         # empty pixels (behind the character), never outlined.
         held = self.parts.get("held_near")
-        if held is not None and not held.drawn(src.name):
+        cell = None
+        if held is not None and held.drawn(src.name):
+            # a weapon drawn per frame (a monster's club) has smear_<anim>.png, a cell per frame
+            sheet = self.lib.sheet(held, f"smear_{src.name}")
+            if sheet is not None and src_index < sheet.frames:
+                cell = sheet.get(direction, src_index)
+        elif held is not None:
             pose = self.pose(held, src, direction, src_index)
             sheet = self.lib.sheet(held, f"smear_{pose}") if pose else None
             cell = sheet.get(direction, 0) if sheet else None
-            if cell is not None and cell[..., 3].any():
+            if cell is not None:
                 cell, _ = shift(cell, *self.offset(held, src, direction, src_index))
-                cell = recolor(cell, self.maps[held.material])
-                mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0)
-                sprite[mask] = cell[mask]
-                owner[mask] = SMEAR
+        if held is not None and cell is not None and cell[..., 3].any():
+            cell = recolor(cell, self.maps[held.material])
+            mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0)
+            sprite[mask] = cell[mask]
+            owner[mask] = SMEAR
         if "flash" in flags:
             sprite = flash(sprite, o.rgb, self.flash_rgb)
         shadow = shadow_layer(self.style.shadow, o.rgb, self.size,

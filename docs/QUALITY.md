@@ -26,7 +26,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette, without held items, stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
 | E8 | Bounds: no opaque pixel outside x 2..29, y 2..30. |
 | E9 | Mirror: every `w` frame equals its `e` frame mirrored around x = 15. |
-| E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. |
+| E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. A rig whose body layer also holds raised arms names the layers to measure instead (`validator.head_slots`; the ogre uses its topknot). |
 | E11 | At most 16 distinct colors per frame. |
 | E12 | Export integrity: JSON frame rects match the sheet, every duration is positive, tags cover all frames with no overlap, events point at valid frames. |
 | E13 | Part material: every pixel in a part file is from that part's declared material base ramp or the outline color. |
@@ -48,10 +48,10 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
 | W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. Frames flagged `flash` are skipped: they are one color on purpose. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
-| W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Recolored variants of one monster (same rig and parts) are a family and are not compared. |
+| W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Recolored variants of one monster (same rig and parts) and monsters of one recipe `family` (an elite and its base) are not compared. Sprites of different size classes are compared standing on the same pivot. |
 | W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. The strongest pose of the windup phase counts (a heavy attack lifts first, then cocks back). |
 | W9 | Hidden tell: an FX played during the windup phase (a `vfx` or `spawn` event) covers more than 15% of the attacker's silhouette. A charge glow at the hand is fine; a burst over the body is not. |
-| W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. |
+| W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. As built (Phase 8): singletons are counted as for W3 (eyes and `allow_singletons` excepted) against the whole silhouette with its outline; clusters are 4-connected pixels of one material and color inside it. Thresholds `busy_singletons_share` and `busy_cluster_min_px` in `style.json`. A small sprite's few singletons are W3's business; on a 48 px sprite four stray pixels already read as noise. |
 | W11 | FX timing (Phase 6): a one-shot FX has more than 8 frames, a frame outside 40 to 120 ms, or an empty frame before its last. COMBAT.md asks for 40 to 80 ms; death poofs and wisps linger up to 110 ms on purpose. |
 
 Validator output must say which character, animation, direction, frame and pixel coordinates failed, and suggest the likely cause.

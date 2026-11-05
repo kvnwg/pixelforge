@@ -547,23 +547,41 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fx
     sign = 1 if d in ("e", "s") else -1
     rm = list(adef.root_motion or [0] * len(frames))
     travel = [int(round(sum(rm[:i + 1]))) for i in range(len(frames))]  # px along the facing
+    # Place the two by their pivots (a medium ogre and a small knight share one ground row, or
+    # one pivot column facing s and n): D is the pivot distance along the facing, so that the
+    # defender's near hurtbox edge sits 2 px inside the attacker's reach at the hit.
+    dsize = dfn.composer.size
+    apiv, dpiv = att.composer.rig.size.pivot, dfn.composer.rig.size.pivot
+    hb = idle[0].hurtbox or (11, 11, 9, 16)
     if ranged:
-        gap = 30
+        D = 30 + (size - 32) // 2 + (dsize - 32) // 2
     else:
         active = [f for f in frames if f.hitboxes] or frames
-        reach = max((bx + bw if sign > 0 else size - bx) if axis == 0 else
-                    (by + bh if sign > 0 else size - by)
-                    for f in active for bx, by, bw, bh in (f.hitboxes or [(15, 15, 1, 1)]))
-        hb = idle[0].hurtbox or (11, 11, 9, 16)
-        near_edge = (hb[0] if sign > 0 else size - hb[0] - hb[2]) if axis == 0 else \
-            (hb[1] if sign > 0 else size - hb[1] - hb[3])
+        boxes = [b for f in active for b in (f.hitboxes or [(15, 15, 1, 1)])]
+        p = apiv[axis]
+        if axis == 0:
+            reach = max(bx + bw - 1 - p for bx, _, bw, _ in boxes) if sign > 0 else \
+                max(p - bx for bx, _, _, _ in boxes)
+            near = dpiv[0] - hb[0] if sign > 0 else hb[0] + hb[2] - 1 - dpiv[0]
+        else:
+            reach = max(by + bh - 1 - p for _, by, _, bh in boxes) if sign > 0 else \
+                max(p - by for _, by, _, _ in boxes)
+            near = dpiv[1] - hb[1] if sign > 0 else hb[1] + hb[3] - 1 - dpiv[1]
         hit_travel = travel[hit_i] if hit_i is not None else 0
-        gap = max(reach + hit_travel - near_edge - 2, 6)
-    W = size + gap if axis == 0 else size
-    H = size if axis == 0 else size + gap
-    ax, ay = (0, 0) if sign > 0 else ((gap, 0) if axis == 0 else (0, gap))
-    dx, dy = ((gap, 0) if axis == 0 else (0, gap)) if sign > 0 else (0, 0)
-    hb = idle[0].hurtbox or (11, 11, 9, 16)
+        D = max(reach + hit_travel - 1 + near, 6)
+    a_at, d_at = [0, 0], [0, 0]  # canvas origins in the scene
+    if sign > 0:
+        d_at[axis] = apiv[axis] + D - dpiv[axis]
+    else:
+        a_at[axis] = dpiv[axis] + D - apiv[axis]
+    across = 1 - axis  # line the pivots up on the other axis
+    line = max(apiv[across], dpiv[across])
+    a_at[across], d_at[across] = line - apiv[across], line - dpiv[across]
+    shift = [min(a_at[i], d_at[i], 0) for i in (0, 1)]
+    ax, ay = a_at[0] - shift[0], a_at[1] - shift[1]
+    dx, dy = d_at[0] - shift[0], d_at[1] - shift[1]
+    W = max(ax + size, dx + dsize)
+    H = max(ay + size, dy + dsize)
     target = (dx + hb[0] + hb[2] // 2, dy + hb[1] + hb[3] // 2)
 
     # FX instances: (name, anim, first strip frame, position or a function of the frame, travel)

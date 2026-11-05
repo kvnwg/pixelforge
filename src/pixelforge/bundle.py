@@ -24,7 +24,7 @@ def data_uri(path: Path) -> str:
 
 def write_bundle(root: Path, out: Path) -> Path:
     root = Path(root)
-    page = (root / "tools" / "preview" / "index.html").read_text()
+    page = (root / "tools" / "preview" / "index.html").read_text(encoding="utf-8")
     head = _between(page, "<!-- pf:head -->", "<!-- /pf:head -->")
     body = _between(page, "<!-- pf:body -->", "<!-- /pf:body -->")
     index = json.loads((root / "out" / "index.json").read_text())
@@ -50,5 +50,8 @@ def write_bundle(root: Path, out: Path) -> Path:
     body = body.replace("<!-- pf:data -->", script)
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(re.sub(r"\n{3,}", "\n\n", head.strip() + "\n" + body.strip() + "\n"))
+    # the charset comes first so the file also reads right opened straight from disk; inside a
+    # published page's own skeleton it is a harmless repeat
+    text = '<meta charset="utf-8">\n' + head.strip() + "\n" + body.strip() + "\n"
+    out.write_text(re.sub(r"\n{3,}", "\n\n", text), encoding="utf-8")
     return out

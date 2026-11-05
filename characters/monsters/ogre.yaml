@@ -1,0 +1,25 @@
+name: ogre
+rig: humanoid_large
+timing_profile: elite
+seed: 1
+parts:
+  eyes: ogre
+  tusks: ogre
+  hair_front: topknot
+  over_torso: ogre_loincloth
+  held_near: ogre_club
+colors:
+  skin: ogre
+  cloth: teal
+  hair: black
+  bone: ivory
+  leather: dark
+  eyes: glow yellow
+anims:
+- idle
+- walk
+- combat_idle
+- attack_heavy
+- roar
+- hurt
+- death

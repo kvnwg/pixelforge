@@ -45,6 +45,26 @@ def _px(mask: np.ndarray) -> tuple[tuple[int, int], ...]:
     return tuple((int(x), int(y)) for y, x in np.argwhere(mask))
 
 
+def _count_components(key: np.ndarray) -> int:
+    """4-connected regions of equal key (keys below 0 are empty)."""
+    h, w = key.shape
+    seen = key < 0
+    count = 0
+    for y0, x0 in np.argwhere(~seen):
+        if seen[y0, x0]:
+            continue
+        count += 1
+        value, stack = key[y0, x0], [(y0, x0)]
+        seen[y0, x0] = True
+        while stack:
+            y, x = stack.pop()
+            for ny, nx in ((y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)):
+                if 0 <= ny < h and 0 <= nx < w and not seen[ny, nx] and key[ny, nx] == value:
+                    seen[ny, nx] = True
+                    stack.append((ny, nx))
+    return count
+
+
 def _neighbors4(mask: np.ndarray, fill: bool = False) -> tuple[np.ndarray, ...]:
     """(up, down, left, right): the value at (x, y-1), (x, y+1), (x-1, y), (x+1, y)."""
     p = np.pad(mask, 1, constant_values=fill)
@@ -61,10 +81,15 @@ class Validator:
         self.flat_share_max = float(v.get("flat_share_max", 1.0))
         self.change_budget = float(v.get("change_budget", 0.35))
         self.area_change_max = float(v.get("area_change_max", 0.15))
+        self.busy_singletons = float(v.get("busy_singletons_share", 0.005))
+        self.busy_cluster_min = float(v.get("busy_cluster_min_px", 3))
         self.drift = v.get("pivot_drift_px", {"s": 1, "n": 1, "e": 2, "w": 2})
         rig_v = composer.rig_spec.get("validator", {})
         self.motion_anims = set(rig_v.get("motion_checked_anims",
                                           v.get("motion_checked_anims", ["idle", "walk"])))
+        # E10 measures the head from these layers; a rig whose body layer also holds raised arms
+        # names the layers that move with the head alone (the ogre's topknot)
+        self.head_slots = tuple(rig_v.get("head_slots", HEAD_SLOTS))
         size = composer.rig.size
         self.pivot = size.pivot
         self.bounds = size.safe_bounds
@@ -182,7 +207,8 @@ class Validator:
         if outside.any():
             out.append(Finding("error", "E8", where, f"pixels outside the safe area x {x0}..{x1}, "
                                                      f"y {y0}..{y1}", _px(outside),
-                               "art too close to the canvas edge (west mirroring moves x to 30 - x)"))
+                               "art too close to the canvas edge (west mirroring moves x to "
+                               f"{2 * self.c.rig.size.mirror_axis_x} - x)"))
         # E11 color count
         n_colors = len({tuple(c) for c in img[opaque][:, :3]})
         limit = self.style.constraints.max_colors_per_frame
@@ -190,6 +216,8 @@ class Validator:
             out.append(Finding("error", "E11", where, f"{n_colors} colors, more than {limit}"))
         if f.mirrored_from is None:
             out += self._singletons(f, sil, where)
+            if self.c.size > self.style.canvas:  # medium, large and huge
+                out += self._busy(f, sil, opaque, where)
             if "flash" not in f.flags:  # a flash frame is one flat color on purpose
                 out += self._flat_areas(f, where)
         for layer in f.layers:
@@ -202,7 +230,9 @@ class Validator:
     def _base_anim(self, f: Frame) -> str:
         return f.source[0]
 
-    def _singletons(self, f: Frame, sil: np.ndarray, where: str) -> list[Finding]:
+    def _lonely(self, f: Frame, sil: np.ndarray) -> tuple[np.ndarray, np.ndarray, list[str]]:
+        """Isolated pixels (no 4-neighbor of the same material and color), not counting eyes and
+        allowed singletons; with the (material, color) key of every pixel and the material names."""
         img = f.sprite
         allowed = np.zeros_like(sil)
         for i, layer in enumerate(f.layers):
@@ -227,6 +257,10 @@ class Validator:
             (slice(None, -2), slice(1, -1)), (slice(2, None), slice(1, -1)),
             (slice(1, -1), slice(None, -2)), (slice(1, -1), slice(2, None))))
         lonely = sil & ~allowed & (up != key) & (down != key) & (left != key) & (right != key)
+        return lonely, key, names
+
+    def _singletons(self, f: Frame, sil: np.ndarray, where: str) -> list[Finding]:
+        lonely, key, names = self._lonely(f, sil)
         out = []
         for value in np.unique(key[lonely]):
             pts = lonely & (key == value)
@@ -236,6 +270,27 @@ class Validator:
                                    f"{int(pts.sum())} isolated {name} pixels of "
                                    f"#{int(value) & 0xFFFFFF:06x} (more than {self.singletons_max})",
                                    _px(pts), "noisy one-pixel clusters; merge them into neighbors"))
+        return out
+
+    def _busy(self, f: Frame, sil: np.ndarray, opaque: np.ndarray, where: str) -> list[Finding]:
+        """W10: a medium, large or huge sprite whose singletons exceed 0.5% of its silhouette, or
+        whose shade clusters average under 3 px, is noisy at its size (QUALITY.md)."""
+        lonely, key, _ = self._lonely(f, sil)
+        area = int(opaque.sum())
+        out = []
+        if area and lonely.sum() > self.busy_singletons * area:
+            out.append(Finding("warning", "W10", where,
+                               f"{int(lonely.sum())} isolated pixels, {lonely.sum() / area:.1%} of "
+                               f"the silhouette (over {self.busy_singletons:.1%})", _px(lonely),
+                               "a big sprite needs bigger shapes: merge single pixels into their "
+                               "neighbors"))
+        inside = key >= 0
+        clusters = _count_components(key)
+        if clusters and inside.sum() / clusters < self.busy_cluster_min:
+            out.append(Finding("warning", "W10", where,
+                               f"shade clusters average {inside.sum() / clusters:.1f} px (under "
+                               f"{self.busy_cluster_min:g})",
+                               hint="dithered or speckled shading; use bigger, simpler shade areas"))
         return out
 
     def _flat_areas(self, f: Frame, where: str) -> list[Finding]:
@@ -283,7 +338,7 @@ class Validator:
         except Exception:
             return None
         tops = [int(np.flatnonzero(l.image[..., 3].any(axis=1)).min())
-                for l in f.layers if l.slot in HEAD_SLOTS and l.image[..., 3].any()]
+                for l in f.layers if l.slot in self.head_slots and l.image[..., 3].any()]
         if not tops:
             return None
         return chin - min(tops) + 2  # rows from the outline above the head to the chin
@@ -630,6 +685,22 @@ def is_monster(recipe) -> bool:
     return recipe.path is not None and "monsters" in Path(recipe.path).parts
 
 
+def _on_pivot(a: np.ndarray, pa: tuple[int, int], b: np.ndarray, pb: tuple[int, int]
+              ) -> tuple[np.ndarray, np.ndarray]:
+    """Two silhouettes on one canvas, their pivots on the same pixel (a medium ogre beside a
+    small goblin stand on the same ground point)."""
+    left, top = max(pa[0], pb[0]), max(pa[1], pb[1])
+    w = left + max(a.shape[1] - pa[0], b.shape[1] - pb[0])
+    h = top + max(a.shape[0] - pa[1], b.shape[0] - pb[1])
+    out = []
+    for m, (px, py) in ((a, pa), (b, pb)):
+        c = np.zeros((h, w), bool)
+        x0, y0 = left - px, top - py
+        c[y0:y0 + m.shape[0], x0:x0 + m.shape[1]] = m
+        out.append(c)
+    return out[0], out[1]
+
+
 def roster_findings(builds: list, threshold: float = 0.85) -> list[Finding]:
     """W7: two different monsters whose combat_idle frame 0 silhouettes overlap by more than
     85% (intersection over union), facing s and e, are too alike: change the shape."""
@@ -646,7 +717,8 @@ def roster_findings(builds: list, threshold: float = 0.85) -> list[Finding]:
                 fb = b.frames.get(("combat_idle", d)) or b.frames.get(("idle", d))
                 if not fa or not fb:
                     continue
-                sa, sb = fa[0].sprite[..., 3] == 255, fb[0].sprite[..., 3] == 255
+                sa, sb = _on_pivot(fa[0].sprite[..., 3] == 255, a.composer.rig.size.pivot,
+                                   fb[0].sprite[..., 3] == 255, b.composer.rig.size.pivot)
                 iou = (sa & sb).sum() / max((sa | sb).sum(), 1)
                 if iou > threshold:
                     out.append(Finding("warning", "W7", f"{a.recipe.name} vs {b.recipe.name} {d}",
