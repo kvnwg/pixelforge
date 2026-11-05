@@ -36,14 +36,15 @@ Read the relevant doc before starting a task. If a decision changes, update the 
 
 ## Workflow for any art task
 
-1. Read the spec for what you're making (ANIMATION_SPEC.md, STYLE_GUIDE.md, the brief in ROADMAP.md).
-2. Plan: which part files, which frames, which directions.
-3. Draw or edit the PNG cells (write them programmatically pixel by pixel, or edit existing PNGs). Use `pf template` guides to align with the base body.
-4. `pf build` then `pf validate`.
-5. `pf review`, then open: turnaround, vs_anchor, sheet, diff strip, onion skin, silhouettes, 1x strip, exploded view. For combat animations add `--combat` and `pf battle`; for monsters also `pf roster`.
-6. Describe what you see, score the rubric, list problems by priority.
-7. Fix the biggest problem and repeat from step 4 until every rubric score is 4 or higher.
-8. Commit and update the phase status in ROADMAP.md.
+1. Read the spec for what you're making (ANIMATION_SPEC.md, STYLE_GUIDE.md, the brief in ROADMAP.md), and for a game's move, the game's code for what the move does.
+2. Write the target before drawing (MOTION.md rule 9): the key poses in words, the silhouette each must make at 1x, and the read you are aiming for. Put it in the relevant doc. Sketch the key pose in a scratch grid and look at it.
+3. Plan: which part files, which frames, which directions.
+4. Draw or edit the PNG cells (write them programmatically pixel by pixel, or edit existing PNGs). Use `pf template` guides to align with the base body.
+5. `pf build` then `pf validate`.
+6. `pf review`, then open: turnaround, vs_anchor, sheet, diff strip, onion skin, silhouettes, 1x strip, exploded view. For combat animations add `--combat` and `pf battle`; for monsters also `pf roster`.
+7. Describe what you see, compare it with the written target, score the rubric, list problems by priority.
+8. Fix the biggest problem and repeat from step 5 until it matches the target and every rubric score is 4 or higher.
+9. Commit and update the phase status in ROADMAP.md.
 
 Drawing tip: when creating art in code, define each cell as a small character grid (like the pixel map in STYLE_GUIDE.md section 2) with a legend per material, and convert it to PNG. Grids are easy to reason about, diff, and fix one pixel at a time.
 

@@ -2066,7 +2066,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 300
+   "duration": 100
   },
   {
    "filename": "wolf howl_s 2",
@@ -2088,12 +2088,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 510
+   "duration": 300
   },
   {
    "filename": "wolf howl_s 3",
    "frame": {
     "x": 96,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_s 4",
+   "frame": {
+    "x": 128,
     "y": 640,
     "w": 32,
     "h": 32
@@ -2154,7 +2176,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 300
+   "duration": 100
   },
   {
    "filename": "wolf howl_e 2",
@@ -2176,12 +2198,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 510
+   "duration": 300
   },
   {
    "filename": "wolf howl_e 3",
    "frame": {
     "x": 96,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_e 4",
+   "frame": {
+    "x": 128,
     "y": 672,
     "w": 32,
     "h": 32
@@ -2242,7 +2286,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 300
+   "duration": 100
   },
   {
    "filename": "wolf howl_n 2",
@@ -2264,12 +2308,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 510
+   "duration": 300
   },
   {
    "filename": "wolf howl_n 3",
    "frame": {
     "x": 96,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_n 4",
+   "frame": {
+    "x": 128,
     "y": 704,
     "w": 32,
     "h": 32
@@ -2330,7 +2396,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 300
+   "duration": 100
   },
   {
    "filename": "wolf howl_w 2",
@@ -2352,12 +2418,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 510
+   "duration": 300
   },
   {
    "filename": "wolf howl_w 3",
    "frame": {
     "x": 96,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_w 4",
+   "frame": {
+    "x": 128,
     "y": 736,
     "w": 32,
     "h": 32
@@ -3127,73 +3215,73 @@
    {
     "name": "howl_s",
     "from": 92,
-    "to": 95,
+    "to": 96,
     "direction": "forward"
    },
    {
     "name": "howl_e",
-    "from": 96,
-    "to": 99,
+    "from": 97,
+    "to": 101,
     "direction": "forward"
    },
    {
     "name": "howl_n",
-    "from": 100,
-    "to": 103,
+    "from": 102,
+    "to": 106,
     "direction": "forward"
    },
    {
     "name": "howl_w",
-    "from": 104,
-    "to": 107,
+    "from": 107,
+    "to": 111,
     "direction": "forward"
    },
    {
     "name": "hurt_s",
-    "from": 108,
-    "to": 110,
+    "from": 112,
+    "to": 114,
     "direction": "forward"
    },
    {
     "name": "hurt_e",
-    "from": 111,
-    "to": 113,
+    "from": 115,
+    "to": 117,
     "direction": "forward"
    },
    {
     "name": "hurt_n",
-    "from": 114,
-    "to": 116,
+    "from": 118,
+    "to": 120,
     "direction": "forward"
    },
    {
     "name": "hurt_w",
-    "from": 117,
-    "to": 119,
-    "direction": "forward"
-   },
-   {
-    "name": "death_s",
-    "from": 120,
+    "from": 121,
     "to": 123,
     "direction": "forward"
    },
    {
-    "name": "death_e",
+    "name": "death_s",
     "from": 124,
     "to": 127,
     "direction": "forward"
    },
    {
-    "name": "death_n",
+    "name": "death_e",
     "from": 128,
     "to": 131,
     "direction": "forward"
    },
    {
-    "name": "death_w",
+    "name": "death_n",
     "from": 132,
     "to": 135,
+    "direction": "forward"
+   },
+   {
+    "name": "death_w",
+    "from": 136,
+    "to": 139,
     "direction": "forward"
    }
   ],
@@ -3278,88 +3366,88 @@
     ],
     "howl_s": [
      {
-      "frame": 1,
+      "frame": 2,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
        15,
-       17
+       6
       ],
       "point_name": "mouth"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
        15,
-       17
+       5
       ],
       "point_name": "mouth"
      }
     ],
     "howl_e": [
      {
-      "frame": 1,
+      "frame": 2,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
-       23,
-       11
+       16,
+       4
       ],
       "point_name": "mouth"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
-       23,
-       11
+       16,
+       3
       ],
       "point_name": "mouth"
      }
     ],
     "howl_n": [
      {
-      "frame": 1,
+      "frame": 2,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
        15,
-       13
+       8
       ],
       "point_name": "mouth"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
        15,
-       13
+       7
       ],
       "point_name": "mouth"
      }
     ],
     "howl_w": [
      {
-      "frame": 1,
+      "frame": 2,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
-       7,
-       11
+       14,
+       4
       ],
       "point_name": "mouth"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "vfx",
-      "fx": "sound_rings",
+      "fx": "howl_rings",
       "point": [
-       7,
-       11
+       14,
+       3
       ],
       "point_name": "mouth"
      }
@@ -3746,28 +3834,36 @@
      "0": [
       {
        "x": 11,
-       "y": 11,
+       "y": 14,
        "w": 10,
-       "h": 17
+       "h": 14
       }
      ],
      "1": [
       {
        "x": 11,
-       "y": 11,
+       "y": 9,
        "w": 10,
-       "h": 17
+       "h": 19
       }
      ],
      "2": [
       {
        "x": 11,
-       "y": 11,
+       "y": 6,
        "w": 10,
-       "h": 17
+       "h": 22
       }
      ],
      "3": [
+      {
+       "x": 11,
+       "y": 5,
+       "w": 10,
+       "h": 23
+      }
+     ],
+     "4": [
       {
        "x": 11,
        "y": 12,
@@ -3780,33 +3876,41 @@
      "0": [
       {
        "x": 3,
-       "y": 11,
+       "y": 14,
        "w": 21,
-       "h": 17
+       "h": 14
       }
      ],
      "1": [
       {
        "x": 3,
-       "y": 11,
-       "w": 21,
-       "h": 17
+       "y": 6,
+       "w": 20,
+       "h": 22
       }
      ],
      "2": [
       {
        "x": 3,
-       "y": 11,
-       "w": 21,
-       "h": 17
+       "y": 4,
+       "w": 19,
+       "h": 24
       }
      ],
      "3": [
       {
        "x": 3,
-       "y": 12,
+       "y": 3,
+       "w": 19,
+       "h": 25
+      }
+     ],
+     "4": [
+      {
+       "x": 3,
+       "y": 9,
        "w": 22,
-       "h": 16
+       "h": 19
       }
      ]
     },
@@ -3814,33 +3918,41 @@
      "0": [
       {
        "x": 10,
-       "y": 10,
+       "y": 12,
        "w": 11,
-       "h": 18
+       "h": 16
       }
      ],
      "1": [
       {
        "x": 10,
-       "y": 10,
+       "y": 11,
        "w": 11,
-       "h": 18
+       "h": 17
       }
      ],
      "2": [
       {
        "x": 10,
-       "y": 10,
+       "y": 8,
        "w": 11,
-       "h": 18
+       "h": 20
       }
      ],
      "3": [
       {
        "x": 10,
-       "y": 10,
+       "y": 7,
        "w": 11,
-       "h": 18
+       "h": 21
+      }
+     ],
+     "4": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 11,
+       "h": 16
       }
      ]
     },
@@ -3848,33 +3960,41 @@
      "0": [
       {
        "x": 7,
-       "y": 11,
+       "y": 14,
        "w": 21,
-       "h": 17
+       "h": 14
       }
      ],
      "1": [
       {
-       "x": 7,
-       "y": 11,
-       "w": 21,
-       "h": 17
+       "x": 8,
+       "y": 6,
+       "w": 20,
+       "h": 22
       }
      ],
      "2": [
       {
-       "x": 7,
-       "y": 11,
-       "w": 21,
-       "h": 17
+       "x": 9,
+       "y": 4,
+       "w": 19,
+       "h": 24
       }
      ],
      "3": [
       {
+       "x": 9,
+       "y": 3,
+       "w": 19,
+       "h": 25
+      }
+     ],
+     "4": [
+      {
        "x": 6,
-       "y": 12,
+       "y": 9,
        "w": 22,
-       "h": 16
+       "h": 19
       }
      ]
     },
@@ -4168,16 +4288,16 @@
      1
     ],
     "howl_s": [
-     2
+     3
     ],
     "howl_e": [
-     2
+     3
     ],
     "howl_n": [
-     2
+     3
     ],
     "howl_w": [
-     2
+     3
     ]
    },
    "base_durations": {
@@ -4315,24 +4435,28 @@
     ],
     "howl_s": [
      120,
+     100,
      300,
      300,
      150
     ],
     "howl_e": [
      120,
+     100,
      300,
      300,
      150
     ],
     "howl_n": [
      120,
+     100,
      300,
      300,
      150
     ],
     "howl_w": [
      120,
+     100,
      300,
      300,
      150
@@ -5339,7 +5463,7 @@
      {
       "eyes": [
        15,
-       14
+       17
       ],
       "ground": [
        15,
@@ -5347,71 +5471,19 @@
       ],
       "head": [
        15,
-       11
-      ],
-      "mouth": [
-       15,
-       17
-      ],
-      "tail": [
-       19,
-       19
-      ],
-      "torso": [
-       15,
-       19
-      ]
-     },
-     {
-      "eyes": [
-       15,
        14
       ],
-      "ground": [
-       15,
-       27
-      ],
-      "head": [
-       15,
-       11
-      ],
       "mouth": [
        15,
-       17
+       20
       ],
       "tail": [
        19,
-       19
+       21
       ],
       "torso": [
        15,
-       19
-      ]
-     },
-     {
-      "eyes": [
-       15,
-       14
-      ],
-      "ground": [
-       15,
-       27
-      ],
-      "head": [
-       15,
-       11
-      ],
-      "mouth": [
-       15,
-       17
-      ],
-      "tail": [
-       19,
-       19
-      ],
-      "torso": [
-       15,
-       19
+       20
       ]
      },
      {
@@ -5434,6 +5506,84 @@
       "tail": [
        19,
        19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       10
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       7
+      ],
+      "mouth": [
+       15,
+       6
+      ],
+      "tail": [
+       19,
+       20
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       9
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       6
+      ],
+      "mouth": [
+       15,
+       5
+      ],
+      "tail": [
+       19,
+       20
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       21
+      ],
+      "tail": [
+       19,
+       20
       ],
       "torso": [
        15,
@@ -5445,23 +5595,49 @@
      {
       "eyes": [
        20,
-       15
+       18
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       20,
-       11
+       19,
+       14
       ],
       "mouth": [
        23,
-       11
+       19
       ],
       "tail": [
        8,
-       18
+       20
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       17,
+       10
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       16,
+       6
+      ],
+      "mouth": [
+       20,
+       6
+      ],
+      "tail": [
+       8,
+       19
       ],
       "torso": [
        13,
@@ -5470,24 +5646,24 @@
      },
      {
       "eyes": [
-       20,
-       15
+       16,
+       9
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       20,
-       11
+       16,
+       6
       ],
       "mouth": [
-       23,
-       11
+       16,
+       4
       ],
       "tail": [
        8,
-       18
+       20
       ],
       "torso": [
        13,
@@ -5496,24 +5672,24 @@
      },
      {
       "eyes": [
-       20,
-       15
+       16,
+       8
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       20,
-       11
+       16,
+       5
       ],
       "mouth": [
-       23,
-       11
+       16,
+       3
       ],
       "tail": [
        8,
-       18
+       20
       ],
       "torso": [
        13,
@@ -5522,24 +5698,24 @@
      },
      {
       "eyes": [
-       21,
-       16
+       19,
+       13
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       20,
-       12
+       18,
+       9
       ],
       "mouth": [
-       24,
-       17
+       22,
+       9
       ],
       "tail": [
        8,
-       18
+       19
       ],
       "torso": [
        13,
@@ -5551,7 +5727,7 @@
      {
       "eyes": [
        15,
-       15
+       16
       ],
       "ground": [
        15,
@@ -5559,15 +5735,41 @@
       ],
       "head": [
        15,
-       15
+       16
       ],
       "mouth": [
        15,
-       13
+       14
       ],
       "tail": [
        15,
-       15
+       17
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       14
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       11
+      ],
+      "tail": [
+       15,
+       19
       ],
       "torso": [
        15,
@@ -5577,7 +5779,7 @@
      {
       "eyes": [
        15,
-       15
+       11
       ],
       "ground": [
        15,
@@ -5585,15 +5787,15 @@
       ],
       "head": [
        15,
-       15
+       9
       ],
       "mouth": [
        15,
-       13
+       8
       ],
       "tail": [
        15,
-       15
+       23
       ],
       "torso": [
        15,
@@ -5603,7 +5805,7 @@
      {
       "eyes": [
        15,
-       15
+       10
       ],
       "ground": [
        15,
@@ -5611,15 +5813,15 @@
       ],
       "head": [
        15,
-       15
+       8
       ],
       "mouth": [
        15,
-       13
+       7
       ],
       "tail": [
        15,
-       15
+       23
       ],
       "torso": [
        15,
@@ -5629,7 +5831,7 @@
      {
       "eyes": [
        15,
-       15
+       17
       ],
       "ground": [
        15,
@@ -5641,11 +5843,11 @@
       ],
       "mouth": [
        15,
-       13
+       14
       ],
       "tail": [
        15,
-       15
+       16
       ],
       "torso": [
        15,
@@ -5657,23 +5859,49 @@
      {
       "eyes": [
        10,
-       15
+       18
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       10,
-       11
+       11,
+       14
       ],
       "mouth": [
        7,
-       11
+       19
       ],
       "tail": [
        22,
-       18
+       20
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       13,
+       10
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       14,
+       6
+      ],
+      "mouth": [
+       10,
+       6
+      ],
+      "tail": [
+       22,
+       19
       ],
       "torso": [
        17,
@@ -5682,24 +5910,24 @@
      },
      {
       "eyes": [
-       10,
-       15
+       14,
+       9
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       10,
-       11
+       14,
+       6
       ],
       "mouth": [
-       7,
-       11
+       14,
+       4
       ],
       "tail": [
        22,
-       18
+       20
       ],
       "torso": [
        17,
@@ -5708,24 +5936,24 @@
      },
      {
       "eyes": [
-       10,
-       15
+       14,
+       8
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       10,
-       11
+       14,
+       5
       ],
       "mouth": [
-       7,
-       11
+       14,
+       3
       ],
       "tail": [
        22,
-       18
+       20
       ],
       "torso": [
        17,
@@ -5734,24 +5962,24 @@
      },
      {
       "eyes": [
-       9,
-       16
+       11,
+       13
       ],
       "ground": [
        15,
        27
       ],
       "head": [
-       10,
-       12
+       12,
+       9
       ],
       "mouth": [
-       6,
-       17
+       8,
+       9
       ],
       "tail": [
        22,
-       18
+       19
       ],
       "torso": [
        17,

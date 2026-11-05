@@ -19,7 +19,7 @@ PICKS = [  # (name, why it is here, the GIF to keep)
     ("rk_ranger", "a Rolling Knight class: bow, backflip", "shoot_bow_e"),
     ("slime", "blob rig: squash and stretch, hop, spit", "attack_spit_e"),
     ("bat", "flyer rig: hovers over a grounded pivot", "attack_swoop_e"),
-    ("wolf", "quadruped rig: bite, howl", "attack_bite_e"),
+    ("wolf", "quadruped rig: bite, a howl with the snout to the sky", "howl_e"),
     ("goblin_archer", "humanoid_small rig: a goblin archer on the enemy profile", "shoot_bow_e"),
     ("ogre", "humanoid_large rig on the medium 48 px canvas: overhead slam, roar", "attack_heavy_e"),
     ("stone_warden", "golem rig on the large 64 px canvas: the first boss, six moves", "attack_slam_e"),

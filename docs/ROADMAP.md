@@ -502,3 +502,19 @@ What the review images show: a dark armored figure twice a hero's height with a 
 
 Rubric: style match 4 (longer limbs than the chibi cast, by design for a tall monster), 1x readability 4, silhouette 4 (the glaive and cape carry it), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4. Known limit: facing s the lunge's thrust at the camera is foreshortened (the point drops in front of the body).
 
+
+---
+
+## Target-first pass: the howl, the heavy attack and the slash
+
+Status: done (commits "Wolf howl: arch the head back until the snout points at the sky", "Heavy attack is the Whirlwind: a spin through every view" and "The slash is the Cleave: a coil, a blur and a wide arc")
+
+Asked for: "attack heavy just slams his sword on the ground bruh. wtf is this", "even the slash itself isn't dramtic enough" and "wolf howl is terrible, it should arch his head up to the sky to howl. how are u prompting these? are u understanding first what ur aiming for before u generate?". The honest answer was no: poses were typed, rendered and judged on being clean, not against a written picture of the move. MOTION.md rule 9 (target first) and section 6 record the change, and the art workflow in CLAUDE.md and the pixelforge skill now start with the target.
+
+- **Wolf howl** (MONSTERS.md section 5.2): draw breath, throw the head back, howl with the snout at the sky, keep stretching through the hold, lower; a stretched neck filled between the raised head and the chest; `howl_rings` rise above the muzzle.
+- **Heavy attack** (COMBAT.md): Rolling Knight's Whirlwind. A coil that turns the whole body away, four spin frames through s, e, n and w inside a looping comet ring (`loop_frames`), a last sweep and the settle. The engine gained frames drawn from another view (ARCHITECTURE.md section 21) and per-frame trails for posed weapons ranked by absolute shade.
+- **Slash** (ANIMATION_SPEC.md section 6): Rolling Knight's Cleave. A coil with the blade cocked far back, a swing frame with the blade a blur, a strike with a lunge, 3 px of root motion and a crescent wider than the body (a horizontal cleave across the front facing e), the follow-through and a settle bob. W8 now judges only the frames before the first active one.
+
+What the review images show. The wolf stands braced with its chest up and its snout pointing straight up, and at 1x it is plainly howling; facing s the head lifts and tips back, facing n it rises over the shoulders. The whirlwind's coil turns the knight away with the blade trailing, then a white ring circles the body while the facing changes every frame, brightest just behind the blade. The Cleave pulls the sword level behind the shoulders, then a thick white arc cuts across the front of the body from behind the hero to the blade's tip. On the fists, mace, lance (a thrust) and the skeleton the same moves read with their own reach.
+
+Rubric (each of the three): style match 4, 1x readability 4 (the whirlwind's ring 5), silhouette 4, motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4 (the whirlwind 5: a whole-body tell and a hitbox around the ring). Known limits: facing s the whirlwind's blade pointing at the camera is a short stub mostly under the ring, and facing n it is behind the body; the Cleave's north arc goes over the head for readability, not along the true path of a level cut seen from behind.

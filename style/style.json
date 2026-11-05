@@ -1237,9 +1237,10 @@
     "attack_slash": {
       "loop": false,
       "frames_ms": [
-        120,
-        80,
-        60,
+        100,
+        140,
+        40,
+        50,
         140,
         160
       ],
@@ -1248,7 +1249,16 @@
         1
       ],
       "active_frames": [
-        2
+        2,
+        3
+      ],
+      "root_motion_px": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0
       ],
       "events": [
         {
@@ -1256,12 +1266,12 @@
           "type": "windup"
         },
         {
-          "frame": 2,
+          "frame": 3,
           "type": "hit",
           "fx": "spark_small"
         },
         {
-          "frame": 4,
+          "frame": 5,
           "type": "recover"
         }
       ],
@@ -1270,8 +1280,10 @@
         0,
         1,
         2,
-        3
-      ]
+        3,
+        4
+      ],
+      "note": "the Cleave (Rolling Knight's Blade auto attack, a wide arc): lean back, coil with the blade cocked far back (the tell), swing with the blade a blur, strike with a lunge and a thick crescent wider than the body, follow-through low on the far side, settle"
     },
     "attack_heavy": {
       "loop": false,

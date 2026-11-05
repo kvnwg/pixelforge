@@ -31,10 +31,11 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 ## When something doesn't exist yet
 
 1. Tell the user what is missing (a part, an animation for a rig, an FX) and ask before creating it, since new art takes real effort.
-2. Draw it the way the repo does: character grids in a script under `<repo>/tools/art/` (see `goblin.py` for a weapon and an attack added to a small rig, `fx_art.py` for FX), or `pf template <slot> <variant> <anim>` for a PNG drawn against the guides.
-3. Follow the review protocol in `<repo>/docs/QUALITY.md` until every rubric score is 4 or higher, show the user the review images, and wait for approval.
-4. A new monster type that needs a new rig, or any boss, gets a written spec in `docs/MONSTERS.md` first.
-5. Commit the new art to the pixelforge repo (not the game repo) so every game can use it.
+2. Write the target first (`<repo>/docs/MOTION.md` rule 9): the key poses in words, the silhouette each must make at 1x, and what the move does in the game (read the game's code). Sketch the key pose and look at it before building frames.
+3. Draw it the way the repo does: character grids in a script under `<repo>/tools/art/` (see `goblin.py` for a weapon and an attack added to a small rig, `fx_art.py` for FX), or `pf template <slot> <variant> <anim>` for a PNG drawn against the guides.
+4. Follow the review protocol in `<repo>/docs/QUALITY.md`, judging against the written target, until every rubric score is 4 or higher; show the user the review images and wait for approval.
+5. A new monster type that needs a new rig, or any boss, gets a written spec in `docs/MONSTERS.md` first.
+6. Commit the new art to the pixelforge repo (not the game repo) so every game can use it.
 
 ## Using exports in a game
 

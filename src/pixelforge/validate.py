@@ -631,6 +631,9 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
             # the tell is the strongest pose of the windup phase (a heavy lifts, then cocks back)
             ref = frames[("combat_idle", d)][0].sprite[..., 3] == 255
             hit = adef.event_frame("hit", "spawn") or len(fs)
+            active = sorted(adef.flags.get("active", ()))
+            if active:  # a swing frame before the hit is the strike, not the tell
+                hit = min(hit, active[0])
             best, change = None, -1.0
             for f in fs[adef.event_frame("windup"):hit]:
                 sil = f.sprite[..., 3] == 255

@@ -130,6 +130,7 @@ ARMS = {
         "after": _arm([(11, 22, 1), (12, 22, 1), (12, 23, 1), (13, 23, 1), (14, 23, 1),
                        (15, 23, 1), (15, 24, 1), (16, 24, 1)], (17, 24)),  # follow-through, far side low
         "coil": _arm([(11, 22, 1), (10, 22, 1)], (10, 22)),  # out and back: the blade cocked behind
+        "out": _arm([(11, 21, 1), (10, 21, 1), (10, 22, 1), (9, 22, 1)], (9, 22)),  # flung out wide
     },
     ("s", "far"): {  # viewer-right, lit, two columns like the idle arm
         "rest": _arm([(18, 21, 2), (19, 21, 2), (18, 22, 1), (19, 22, 2), (18, 23, 1),
@@ -201,18 +202,25 @@ FRAMES: dict[str, list[dict]] = {
     "combat_idle": [
         F((0, 0)), F((0, 1)), F((0, 1)), F((0, 0)),
     ],
-    # windup (lean back, coil), strike with a smear, follow-through, return
+    # The Cleave (Rolling Knight's Blade auto attack, "a wide arc"; COMBAT.md), planned as key
+    # poses first after the human found the old slash undramatic: lean back; coil, the blade
+    # cocked far back (horizontal behind the shoulders facing e, tall behind the shoulder facing s
+    # and n) and the body crouched (the tell); swing, the blade a blur (only the hilt in the
+    # hand) over the first half of the arc; strike, a lunge with the blade at full reach and a
+    # thick white crescent wider than the body (facing e a horizontal cleave across the front of
+    # the body, facing s down the weapon side and across the legs, facing n over the head);
+    # follow-through low on the far side as the trail fades; settle with the head bobbing a pixel.
     "attack_slash": [
         F((-1, 0), (0, -1), (0, 1), near="up_back", far="fwd", held="raised"),
-        F((-1, 1), (0, 0), (0, 1), near="up_back", far="fwd", held="raised"),
-        # the strike sweeps across the front of the body to the far side (the human's request,
-        # 2026-11-05: "they should go across body and leave an arc"); the follow-through ends low
-        # on the far side
+        F((-1, 1), (0, 0), (0, 1), near="up_back", far="fwd", held="cocked", legs="crouch",
+          head={"e": (-1, 0)}),
+        F((0, 0), (0, 0), (0, 0), near={"e": "ready", "s": "out", "n": "up"}, far="back",
+          held="swing", legs="lunge"),
         F((1, 0), (0, 1), (0, -1), near={"e": "fwd", "s": "across", "n": "across"}, far="back",
           held="sweep", legs="lunge", head={"e": (1, 0)}),
-        F((1, 0), (0, 1), (0, -1), near={"e": "low", "s": "after", "n": "after"}, far="back",
+        F((1, 1), (0, 1), (0, 0), near={"e": "low", "s": "after", "n": "after"}, far="back",
           held="across", legs="lunge"),
-        F((0, 0), near="ready", held="ready"),
+        F((0, 0), near="ready", held="ready", head=(0, 1)),
     ],
     # The whirlwind (Rolling Knight's Blade special, COMBAT.md): coil, turning the whole body a
     # quarter away from the spin with the blade cocked low behind (the tell), then spin like a

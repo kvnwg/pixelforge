@@ -26,6 +26,7 @@ Why this exists: the v1 animations were correct but stiff. Every pose was a rigi
 6. **Attacks: anticipation, smear, follow-through, settle.** The windup holds (stretched further for enemies by the timing profiles); the strike crosses in 2 to 3 short frames with smears only on those frames; the follow-through reaches 1 px further than the strike and holds; the recover settles with a 1 px overshoot. Same frames and timing in s, e and n. Every swing's smear is a white trail (`fx_ramps.swing`) that lingers a shade dimmer on the follow-through, so even a 50 ms strike frame is seen.
 7. **Sub-pixel where it pays.** On medium and larger sprites, breathing and slow drift can move shading runs instead of outlines. On the 32 px humanoid, prefer 1 px part offsets; a shading shift is allowed only when it keeps clusters clean (W3, W10).
 8. **Exaggerate a little.** Elongate an arm or weapon by a pixel at full extent; push the anticipation pose further than real life.
+9. **Target first.** Before drawing an animation, write down what it is meant to look like: the key poses (anticipation, action, hold, recovery) in words, the silhouette each must make at 1x, and what the move is in the game it serves (read the game's code). Sketch the key pose in a scratch grid and look at it before building the frames, then judge the build against the written target, not against "does it render" (section 6).
 
 ## 3. Diagnosis of v1
 
@@ -59,5 +60,15 @@ Why this exists: the v1 animations were correct but stiff. Every pose was a rigi
 | Humanoid walk: 8 frames, triangle bob, arms in phase with three reach states | done (Motion pass 1) |
 | Humanoid run: 8 frames with flight frames, lean and arm pump, tuned to Rolling Knight's speed; in every humanoid player and monster recipe (orc, skeleton) | done (Motion pass 1) |
 | Preview walk test: walk or run at each gait's natural speed | done (Motion pass 1) |
-| attack_slash and attack_heavy: two-frame strike, follow-through reach, settle bounce | next |
+| attack_slash and attack_heavy: two-frame strike, follow-through reach, settle bounce | done (target-first pass: the Cleave and the Whirlwind) |
+| The wolf's howl: the head arched back to the sky | done (target-first pass) |
 | combat_idle, monsters' idles (goblin, ogre; the orc and skeleton inherit the humanoid's) | next |
+
+## 6. Target-first pass (2026-11-05)
+
+The human found three animations wrong: "attack heavy just slams his sword on the ground", "even the slash itself isn't dramatic enough" and "wolf howl is terrible, it should arch his head up to the sky", and asked whether the target was understood before anything was generated. It was not. Poses were typed as grids and offsets, rendered, and judged by whether they validated and looked clean, never against a written picture of the move. A howl that only lifts the head a pixel validates fine. Rule 9 came out of this.
+
+How each one was redone:
+- **Wolf howl** (MONSTERS.md section 5.2). Target: the head arches back until the snout points at the sky. The first sketch, a sitting howl, read as a bear at 1x because the legs vanished into the body. The standing version (chest lifted over braced front legs, the neck stretched, the snout straight up) kept the wolf readable and was chosen. Scratch sketches came before the art script.
+- **Heavy attack** (COMBAT.md). Reading Rolling Knight's code showed the Blade's special is Whirlwind, a 2 s channelled spin, so the heavy became that spin. The target named what must read at 1x (the ring and the turning body), and the engine gained frames drawn from another view to make it possible (ARCHITECTURE.md section 21).
+- **Slash** (ANIMATION_SPEC.md section 6). Target: a coil you can't miss, a two-frame strike with the blade a blur on the first, a crescent wider than the body and a step into it. It also matches the game's Cleave ("a wide arc").

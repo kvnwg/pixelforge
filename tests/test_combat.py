@@ -60,7 +60,9 @@ def test_enemy_profile_scales_holds_and_meets_the_telegraph(style):
 def test_short_tell_is_extended_on_the_last_hold(style):
     slash = load_anims(style)["attack_slash"]
     out = retime(slash, list(slash.frames_ms), {"hold_scale": 1.0, "telegraph_min_ms": 500})
-    assert out[0] == slash.frames_ms[0] and out[1] == 500 - slash.frames_ms[0]
+    hit = next(e["frame"] for e in slash.events if e["type"] == "hit")  # the tell runs to the hit
+    others = sum(ms for i, ms in enumerate(slash.frames_ms[:hit]) if i != 1)
+    assert out[0] == slash.frames_ms[0] and out[1] == 500 - others
     assert tell_ms(slash, out) == 500
 
 
@@ -200,13 +202,14 @@ def test_export_carries_combat_data(knight):
     data = aseprite_json(knight, "knight.png")
     pf = data["meta"]["pixelforge"]
     assert pf["hitboxes"]["attack_slash_e"]["2"]
-    assert set(pf["hurtboxes"]["attack_slash_e"]) == {"0", "1", "2", "3", "4"}
+    assert set(pf["hurtboxes"]["attack_slash_e"]) == {"0", "1", "2", "3", "4", "5"}
     heavy = [e for e in pf["events"]["attack_heavy_e"] if e["type"] == "vfx"]
     assert [e["point_name"] for e in heavy] == ["foot_far", "foot_near"]  # dust off the feet
     assert all(len(e["point"]) == 2 for e in heavy)
     assert pf["loop_frames"]["attack_heavy_e"] == [2, 3, 4, 5]  # the whirlwind's channel
     assert pf["holds"]["attack_slash_e"] == [0, 1]
-    assert pf["base_durations"]["attack_slash_e"] == [120, 80, 60, 140, 160]
+    assert pf["base_durations"]["attack_slash_e"] == [100, 140, 40, 50, 140, 160]
+    assert pf["root_motion"]["attack_slash_e"] == [0, 0, 1, 2, 0, 0]  # the Cleave steps in
     assert pf["timing_profiles"]["enemy"]["telegraph_min_ms"] == 300
     assert pf["root_motion"]["roll_e"] == [4, 14, 16, 14, 6]
 

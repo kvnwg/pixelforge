@@ -135,23 +135,28 @@ The walk's keys with a flight: **contact**, **down** (the deepest frame), **push
 
 ---
 
-## 6. attack_slash (one shot, 5 frames)
+## 6. attack_slash (one shot, 6 frames): the Cleave
 
 Specced for E with a one-handed weapon in the near hand. Held items need drawn frames for this animation (never rotate a sprite). Phases, events, hitboxes and enemy timing for this attack are in COMBAT.md section 3.
 
+Redone on 2026-11-05 after the human found the slash undramatic, and planned as key poses before drawing. The target: a coil the eye can't miss (the blade cocked far back, the body down and back), a strike that crosses in two frames with the blade a blur on the first, a crescent wider than the body, a step into it (root motion), and a follow-through that goes past the target. It is Rolling Knight's Blade auto attack, Cleave (a wide arc in front).
+
 | Frame | ms | Upper offset | Weapon | Legs | Notes |
 |---|---|---|---|---|---|
-| 0 anticipation | 120 | (-1, 0) | raised up and back behind the head | back foot planted, front foot planted | lean away from the target |
-| 1 wind-up hold | 80 | (-1, +1) | 1 px further back | same | small squash, the coil before the strike |
-| 2 strike | 60 | (+1, 0) | extended forward and down, plus a smear | front foot slides forward 1 px | event `hit` fires here |
-| 3 follow-through | 140 | (+1, 0) | low and in front, past the target | same as frame 2 | the trail lingers a shade dimmer |
-| 4 recover | 160 | (0, 0) | returning toward the idle hold | back to idle stance | |
+| 0 anticipation | 100 | (-1, 0) | raised up and back behind the head | ready | lean away from the target |
+| 1 coil (hold) | 140 | (-1, +1), head 1 px further back | cocked level behind the shoulders, pointing away from the target | crouch | the tell: the whole body down and back, the blade at its farthest |
+| 2 swing | 40 | (0, 0) | a blur: only the hilt in the hand; the first half of the arc as a trail | lunge | the body springs forward; root motion +1 |
+| 3 strike | 50 | (+1, 0), head (+1, 0) | level at full reach in front; the whole arc as a crescent up to 4 px thick toward the blade | lunge | event `hit`; root motion +2 |
+| 4 follow-through | 140 | (+1, +1) | low in front, past the target | lunge | the trail lingers a shade dimmer |
+| 5 settle | 160 | (0, 0), head (0, +1) | returning to the ready hold | ready | the head bobs a pixel as the body stops |
 
-**Swing trail (frame 2, fading on frame 3):** a white crescent tracing the weapon's path from high-back to low-front: the leading edge is the near-white core, the trail thickens toward the weapon (up to 3 px, 2 for a fist) on the inside of the curve in the mid shade with a grey-blue rim, and the tail thins to the rim. On the follow-through frame it lingers one shade dimmer (the rim drops), then is gone. It is an FX color (`fx_ramps.swing`, decided 2026-11-05 at the human's request: every swing leaves a white trail), drawn only on empty pixels and never outlined, so it never covers the body. A thrust (the lance) leaves straight streaks beside the shaft instead.
+**Swing trail (frames 2 and 3, fading on frame 4):** a white crescent tracing the blade's path: the leading edge is the near-white core, the trail thickens toward the blade (up to 4 px on the strike, 3 on the swing; fists 3 and 2) on the inside of the curve in the mid shade with a grey-blue rim, and the tail thins to the rim. On the follow-through it lingers one shade dimmer (the rim drops), then is gone. It is an FX color (`fx_ramps.swing`), never outlined. The Cleave's arcs are too wide to store per pose, so they are drawn per frame (`smear_attack_slash.png` and `_front`, ARCHITECTURE.md section 21). A thrust (the lance) leaves straight streaks beside the shaft instead: its coil is its raised pose and its swing its ready pose.
 
-**S (attacking toward the camera):** lunge offset is (0, +1) instead of (+1, 0). The weapon is raised beside the head on the weapon side (viewer-left), then sweeps across the front of the body to the far side (the human's request, 2026-11-05: "they should go across body and leave an arc"): on the strike frame the arm reaches over the chest (`across`, 2 px thick so the cloth under it never tears into single pixels), the blade lies level out past the far hip (`sweep`), and the trail is an arc from the windup side down across the hips to the blade, drawn over the body (`smear_sweep_front`). The follow-through ends low on the far side (`after` arm, `across` blade). **N:** the same sweep from behind; its arc arches over the head. **E:** the arc rises behind the head, comes over the top and down in front to the level blade. The lance keeps its thrust (its `sweep` pose points at the target) and an unarmed character draws a smaller arc across its belly (s) or over its head (n).
+**E:** a horizontal cleave: from the blade cocked behind the shoulders, the tip comes round in front of the body (between the body and the camera, so the trail is drawn over the hips) to the level blade ahead. The human's earlier request (2026-11-05, "they should go across body and leave an arc") holds in every view now.
 
-**N (attacking away):** lunge offset is (0, -1). As drawn, the s swing mirrored: up beside the head on the viewer-right, down past the body on that side. Across the front it would be hidden behind the body.
+**S (attacking toward the camera):** lunge offset is (0, +1). The coil holds the blade tall behind the weapon shoulder (viewer-left); the swing flings the arm out wide on that side; the strike reaches over the chest (`across`, 2 px thick so the cloth under it never tears) with the blade level past the far hip (`sweep`), and the trail runs from above the shoulder down the weapon side and across the front of the legs, drawn over the body. The follow-through ends low on the far side (`after` arm, `across` blade).
+
+**N (attacking away):** lunge offset is (0, -1). The s poses mirrored; the arc arches high over the head (drawn behind the body, so it is sized to clear the helmet) and down the far side.
 
 ---
 

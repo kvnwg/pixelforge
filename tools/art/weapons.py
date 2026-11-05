@@ -33,7 +33,7 @@ from pixelforge.sheet import write_sheet
 DIRS = ("s", "e", "n")
 ORIGIN = {"s": (11, 23), "e": (15, 23), "n": (19, 23)}  # idle frame 0 hand_near
 ORIGIN_FAR = {"s": (19, 23), "e": (13, 23), "n": (11, 23)}  # idle frame 0 hand_far
-ACTIVE_POSES = ("strike", "sweep", "slam", "ground")  # poses held on active frames: need hitboxes
+ACTIVE_POSES = ("strike", "swing", "sweep", "slam", "ground")  # held on active frames: hitboxes
 
 
 def line(kind: str, n: int, sx: int = 0, sy: int = 0) -> list[tuple[int, int]]:
@@ -64,6 +64,8 @@ SWORD_E = {
     "raised": ((0, -1), "shallow", -1, -1, 6, True),  # cocked back behind the head
     "strike": ((1, 0), "shallow", 1, 1, 4, False),   # extended forward and down
     "low": ((1, 0), "shallow", 1, 1, 4, False),      # follow-through, low in front
+    "cocked": ((-1, 0), "h", -1, 0, 6, True),        # the slash's coil: level behind the shoulders
+    "swing": ((1, 0), "h", 1, 0, 0, False),          # mid-swing: the blade a blur, the hilt in hand
     "sweep": ((1, 0), "h", 1, 0, 5, False),          # the slash's strike: level, sweeping across
     "across": ((1, 0), "shallow", 1, 1, 4, False),   # its follow-through, low in front
     "overhead": ((2, 0), "v", 0, -1, 6, False),      # lifted straight up, clear of the face
@@ -83,6 +85,8 @@ SWORD_S = {
     "raised": ((-1, -1), "steep", -1, -1, 6, False),  # up and out, clear of the head
     "strike": ((-1, 0), "steep", -1, 1, 4, False),
     "low": ((-1, 0), "shallow", -1, 1, 4, False),
+    "cocked": ((-1, -1), "v", 0, -1, 7, True),       # the coil: tall behind the weapon shoulder
+    "swing": ((-1, 0), "h", -1, 0, 0, False),        # flung out wide, the blade a blur
     "sweep": ((1, 0), "h", 1, 0, 5, False),          # across the front, out to the far side
     "across": ((1, 0), "shallow", 1, 1, 4, False),   # follow-through: low on the far side
     "overhead": ((-1, -1), "steep", -1, -1, 6, False),
@@ -160,27 +164,61 @@ def ellipse_arc(center, rx, ry, a0, a1):
     return pts
 
 
-# The slash sweeps across the body (2026-11-05): the arc each view's blade traces from the windup
-# to the strike, in strike-frame coordinates; the strike frame's hand is where the points are
-# measured from. Facing s it passes in front of the legs, low across the body, from the weapon
-# side to the far side, and is drawn over the body; facing n it arches over the head; facing e
-# it rises behind the head, comes over the top and down in front.
-SWEEP_HAND = {"s": (15, 24), "e": (20, 21), "n": (15, 22)}
-SWEEP_ARCS = {
-    "s": ellipse_arc((15, 19), 9, 6, 215, 20),
-    "e": ellipse_arc((17, 17), 8, 9, 220, 375),
-    "n": ellipse_arc((15, 17), 9, 9, -25, -175),
+# The Cleave (2026-11-05, planned as key poses first, COMBAT.md): the slash strikes over two
+# frames. The swing frame shows the first half of the arc with the blade a blur; the strike shows
+# the whole arc, up to 4 px thick toward the blade. Facing e it is a horizontal cleave whose tip
+# passes in front of the body (drawn over it); facing s it comes down the weapon side and across
+# the front of the legs (over the body); facing n it arches over the head (behind). The arcs are
+# too wide to store per pose (relative to the idle hand they run off the cell), so they are drawn
+# per frame (smear_attack_slash.png and _front, frame coordinates, like the whirlwind's ring);
+# relative to each frame's hand they also make the poses' reach (hitboxes).
+CLEAVE = {  # center, rx, ry, angles (y down) of the cocked tip, the swing frame's end, the strike's
+    "e": ((15, 21), 12, 4, 180, 110, 0),
+    "s": ((15, 18), 9, 8, 230, 165, 40),
+    "n": ((15, 15), 10, 9, -40, -115, -215),
 }
-for _d, _arc in SWEEP_ARCS.items():
-    _hx, _hy = SWEEP_HAND[_d]
-    SMEARS[_d]["sweep"] = [(x - _hx, y - _hy) for x, y in _arc]
-FIST_SMEARS["e"]["sweep"] = FIST_SMEARS["e"]["strike"]
-FIST_SMEARS["s"]["sweep"] = FIST_SMEARS["s"]["strike"]
-FIST_SMEARS["n"]["sweep"] = FIST_SMEARS["n"]["strike"]
+FIST_CLEAVE = {"e": ((16, 21), 7, 3, 180, 110, 0), "s": ((15, 20), 6, 5, 230, 165, 40),
+               "n": ((15, 15), 9, 8, -40, -115, -215)}  # unarmed: ends at the fist; facing n
+# it still clears the head (a trail behind the body shows only where the body is not)
+SWING_HAND = {"s": (9, 22), "e": (17, 22), "n": (20, 19)}   # the swing frame's hand
+SWEEP_HAND = {"s": (15, 24), "e": (20, 21), "n": (15, 22)}  # the strike frame's hand
+CLEAVE_FRONT = ("e", "s")  # views whose cleave passes in front of the body
+
+
+def cleave_arcs(table) -> dict:
+    """{d: {"swing": points, "sweep": points}} relative to each frame's hand."""
+    out = {}
+    for d, (c, rx, ry, a0, am, a1) in table.items():
+        out[d] = {}
+        for pose, end, hand in (("swing", am, SWING_HAND[d]), ("sweep", a1, SWEEP_HAND[d])):
+            out[d][pose] = [(x - hand[0], y - hand[1]) for x, y in ellipse_arc(c, rx, ry, a0, end)]
+    return out
+
+
+REACH = cleave_arcs(CLEAVE)  # the Cleave's reach per pose, relative to the hand: hitboxes
 TRAILS = {d: {pose: crescent(arc) for pose, arc in SMEARS[d].items()} for d in SMEARS}
-FRONT_TRAILS = {"s": {"sweep": TRAILS["s"].pop("sweep")}}  # over the body: the blade passes in front
+FRONT_TRAILS: dict = {}  # no pose's trail is drawn in front any more: the Cleave's are per frame
 FIST_TRAILS = {d: {pose: crescent(arc, 2) for pose, arc in FIST_SMEARS[d].items()}
                for d in FIST_SMEARS}
+for _d, _arcs in cleave_arcs(FIST_CLEAVE).items():
+    FIST_SMEARS[_d].update(_arcs)  # the fist's reach (its trails are per frame too)
+
+
+def cleave_trails(kind: str) -> dict:
+    """(direction, frame) -> (behind points, front points) for attack_slash, in frame
+    coordinates: the swing frame draws the arc to its midpoint, the strike the whole arc."""
+    from combat import FRAMES
+    table = CLEAVE if kind == "blade" else FIST_CLEAVE
+    out = {}
+    for i, spec in enumerate(FRAMES["attack_slash"]):
+        if spec["held"] not in ("swing", "sweep"):
+            continue
+        for d, (c, rx, ry, a0, am, a1) in table.items():
+            sweep = spec["held"] == "sweep"
+            pts = crescent(ellipse_arc(c, rx, ry, a0, a1 if sweep else am),
+                           (4 if sweep else 3) if kind == "blade" else (3 if sweep else 2))
+            out[(d, i)] = ([], pts) if d in CLEAVE_FRONT else (pts, [])
+    return out
 # A thrust leaves straight streaks beside the shaft instead of an arc (the lance's strike):
 # relative to the hand, from the butt's end past the hand, brightest nearest the head.
 THRUST_E = {"strike": [(x, y, 2 if x >= -2 else 1 if x >= -6 else 0)
@@ -190,10 +228,7 @@ THRUST_S = {"strike": [(x, y, 2 if y >= 2 else 1 if y >= -1 else 0)
 THRUST_E["sweep"] = THRUST_E["strike"]
 THRUST_S["sweep"] = [(x, y, 2 if y >= 2 else 1 if y >= -1 else 0) for x in (-2, 2) for y in range(-4, 5)]
 THRUSTS = {"e": THRUST_E, "s": THRUST_S, "n": {k: mirror_rel(v) for k, v in THRUST_S.items()}}
-# an unarmed sweep: a smaller arc over the body that ends at the fist
-FIST_FRONT = {"s": {"sweep": crescent([(x - 15, y - 24) for x, y in ellipse_arc((15, 21), 6, 4, 215, 30)], 2)}}
-FIST_TRAILS["s"].pop("sweep", None)
-FIST_TRAILS["n"]["sweep"] = crescent([(x - 15, y - 22) for x, y in ellipse_arc((15, 17), 7, 7, -25, -175)], 2)
+FIST_FRONT: dict = {}  # an unarmed cleave's trails are per frame (FIST_CLEAVE)
 
 
 # The whirlwind's ring (COMBAT.md, attack_heavy): the blade's tip runs round the body at the
@@ -250,12 +285,13 @@ def spin_trails(kind: str) -> dict:
     return out
 
 
-def write_spin_trails(folder, material: str, kind: str) -> None:
+def write_anim_trails(folder, material: str, anim: str, trails: dict) -> None:
+    """smear_<anim>.png (behind the body) and smear_<anim>_front.png (over it): a cell per frame
+    and direction, in frame coordinates; shades by rank (weapons.trail_shade)."""
     from combat import FRAMES
-    n = len(FRAMES["attack_heavy"])
-    trails = spin_trails(kind)
+    n = len(FRAMES[anim])
     ramp = STYLE.materials[material].base
-    for k, name in ((0, "smear_attack_heavy"), (1, "smear_attack_heavy_front")):
+    for k, name in ((0, f"smear_{anim}"), (1, f"smear_{anim}_front")):
         cells = {}
         for d in DIRS:
             for i in range(n):
@@ -288,6 +324,8 @@ def mace(pose: str, d: str):
     (gx, gy), kind, sx, sy, n, behind = spec
     reach = 5 if n >= 5 and sy < 0 else 4  # raised or cocked, it reaches past the helm
     reach = min(reach, n + 1)  # a foreshortened pose (the spin at the camera) stays short
+    if n == 0:  # mid-swing: the head is a blur with the blade's trail, only the grip shows
+        return {"main": [(gx, gy, 1)], "trim": [], "tip": (gx, gy), "behind": behind}
     pts = [(gx + x, gy + y) for x, y in line(kind, reach, sx, sy)]  # grip and the shaft
     ex, ey = line(kind, reach + 1, sx, sy)[reach]
     hx, hy = gx + ex, gy + ey  # head centre just past the shaft
@@ -380,6 +418,8 @@ LANCE_S = {
     "low": ((4, -2), "shallow", -1, 1, 8),
     "guard": ((2, -5), "steep", -1, 1, 8),
 }
+for _t in (LANCE_E, LANCE_S):  # the Cleave's coil and swing, for a lance: pulled back, then level
+    _t["cocked"], _t["swing"] = _t["raised"], _t["ready"]
 LANCE = {"e": LANCE_E, "s": LANCE_S,
          "n": {k: ((-g[0], g[1]), kind, -sx, sy, n) for k, (g, kind, sx, sy, n) in LANCE_S.items()}}
 
@@ -490,10 +530,12 @@ def write(folder, name: str, material: str, cells: dict) -> None:
 
 
 def bbox(points, origin, pad=1):
+    """In idle-hand coordinates, unclipped: the compositor moves a box with the hand and clips
+    it to the canvas there (a wide arc may start left of the idle cell's edge)."""
     xs = [origin[0] + p[0] for p in points]
     ys = [origin[1] + p[1] for p in points]
-    x0, y0 = max(min(xs) - pad, 0), max(min(ys) - pad, 0)
-    x1, y1 = min(max(xs) + pad, SIZE - 1), min(max(ys) + pad, SIZE - 1)
+    x0, y0 = min(xs) - pad, min(ys) - pad
+    x1, y1 = max(xs) + pad, max(ys) + pad
     return [x0, y0, x1 - x0 + 1, y1 - y0 + 1]
 
 
@@ -511,7 +553,7 @@ def _union(a, b):
 
 
 def build_item(slot: str, variant: str, material: str, draw, poses, *, trim=None, smears=None,
-               fist_points=False, smear_hits=True, front_smears=None) -> None:
+               fist_points=False, smear_hits=True, front_smears=None, reach=None) -> None:
     """smear_hits: a swing's trail is the area it swept, so it is part of the hitbox; a thrust's
     streaks trail behind the point and are not."""
     folder = ROOT / "parts" / slot / variant
@@ -539,6 +581,8 @@ def build_item(slot: str, variant: str, material: str, draw, poses, *, trim=None
                     pts += [p[:2] for p in smears[d][pose]]
                 if smear_hits and pose in (front_smears or {}).get(d, {}):
                     pts += [p[:2] for p in front_smears[d][pose]]
+                if pose in (reach or {}).get(d, {}):  # an arc drawn per frame (the Cleave)
+                    pts += list(reach[d][pose])
                 data["hitboxes"].setdefault(pose, {})[d] = [FRONT[d](bbox(pts, o))]
         if front:
             write(folder, f"pose_{pose}", material, front)
@@ -650,7 +694,7 @@ def fist() -> None:
             if pose in ACTIVE_POSES:
                 pts = [(0, 0)] + FIST_SMEARS[d].get(pose, [])
                 data["hitboxes"].setdefault(pose, {})[d] = [FRONT[d](bbox(pts, o))]
-    for pose in ("strike", "sweep", "slam"):
+    for pose in ("strike", "slam"):
         cells = {d: cell([(x, y, trail_shade("accent", v)) for x, y, v in FIST_TRAILS[d][pose]],
                          ORIGIN[d]) for d in DIRS if pose in FIST_TRAILS[d]}
         write(folder, f"smear_{pose}", "accent", cells)
@@ -684,10 +728,14 @@ BLADE_POSES = tuple(SWORD_E)
 
 def main() -> None:
     build_item("held_near", "sword", "metal", sword, BLADE_POSES,
-               trim=("held_near_trim", "hilt", "accent"), smears=TRAILS, front_smears=FRONT_TRAILS)
-    build_item("held_near", "mace", "metal", mace, BLADE_POSES, smears=TRAILS, front_smears=FRONT_TRAILS)
+               trim=("held_near_trim", "hilt", "accent"), smears=TRAILS, front_smears=FRONT_TRAILS,
+               reach=REACH)
+    build_item("held_near", "mace", "metal", mace, BLADE_POSES, smears=TRAILS, front_smears=FRONT_TRAILS,
+               reach=REACH)
     for item in ("sword", "mace"):
-        write_spin_trails(ROOT / "parts" / "held_near" / item, "metal", "blade")
+        folder = ROOT / "parts" / "held_near" / item
+        write_anim_trails(folder, "metal", "attack_heavy", spin_trails("blade"))
+        write_anim_trails(folder, "metal", "attack_slash", cleave_trails("blade"))
     build_item("held_near", "staff", "leather", staff, tuple(STAFF_E),
                trim=("held_near_trim", "orb", "accent"))
     build_item("held_near", "lance", "leather", lance, tuple(LANCE_E),
@@ -695,7 +743,9 @@ def main() -> None:
     build_item("held_near", "bow", "leather", bow, ("aim", "draw", "release", "low", "ground",
                                                      "dropped", "tuck", "high"))
     fist()
-    write_spin_trails(ROOT / "parts" / "held_near" / "fist", "accent", "fist")
+    folder = ROOT / "parts" / "held_near" / "fist"
+    write_anim_trails(folder, "accent", "attack_heavy", spin_trails("fist"))
+    write_anim_trails(folder, "accent", "attack_slash", cleave_trails("fist"))
     shield()
     import yaml
     for folder in sorted({f for f in (ROOT / "parts").glob("held*/*") if f.is_dir()}):

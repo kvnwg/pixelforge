@@ -146,6 +146,15 @@
    ]
   },
   {
+   "name": "howl_rings",
+   "image": "fx/howl_rings/howl_rings.png",
+   "json": "fx/howl_rings/howl_rings.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
    "name": "ice_shard",
    "image": "fx/ice_shard/ice_shard.png",
    "json": "fx/ice_shard/ice_shard.json",

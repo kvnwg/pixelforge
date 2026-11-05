@@ -75,19 +75,20 @@ Required for v1: `combat_idle`, `attack_slash`, `shoot_bow` or `cast` (per class
 
 Distinct from the relaxed idle: wider stance, lower center, weapon up. At 1x, "ready to fight" should read immediately.
 
-### attack_slash
+### attack_slash (the Cleave)
 
-This is the attack from ANIMATION_SPEC.md section 6.
+This is the attack from ANIMATION_SPEC.md section 6, and Rolling Knight's Blade auto attack, Cleave ("a wide arc", `src/world/skills.ts`: everything in front and to the sides). Redone on 2026-11-05 because the old one was a 1 px lean and a one-frame chop with a thin trail.
 
 | Frame | ms | Phase | Notes |
 |---|---|---|---|
-| 0 | 120 | windup (hold) | lean back (-1, 0), weapon up and back |
-| 1 | 80 | windup (hold) | coil (-1, +1), weapon 1 px further back |
-| 2 | 60 | active | lunge (+1, 0), weapon extended, smear; `hit` |
-| 3 | 140 | recovery | follow-through, weapon low and forward |
-| 4 | 160 | recovery | return toward combat_idle; `recover` |
+| 0 | 100 | windup (hold) | lean back (-1, 0), blade raised behind the head |
+| 1 | 140 | windup (hold) | the coil: crouch (-1, +1), blade cocked as far back as it goes (level behind the shoulders facing e, tall behind the shoulder facing s and n): the tell |
+| 2 | 40 | active | the swing: the blade a blur (hilt only), the first half of the arc; root motion +1 |
+| 3 | 50 | active | the strike: lunge (+1, 0), blade at full reach, the whole crescent (up to 4 px thick); `hit`; root motion +2 |
+| 4 | 140 | recovery | follow-through low past the target; the trail fades a shade |
+| 5 | 160 | recovery | settle, the head bobs a pixel; `recover` |
 
-Hitbox on frame 2: covers the smear and blade, roughly 10 x 12 px in front of the body.
+Hitboxes on frames 2 and 3 cover the arc each frame draws (they reach the sides as well as the front, like the game's cleave). Tells: 280 ms to the hit on `player` (the 40 ms swing included), 448 on `enemy`, 472 on `elite`.
 
 ### attack_heavy (the whirlwind)
 
@@ -295,7 +296,7 @@ FX are their own assets in `fx/<name>/`, reused by every character: `fx.yaml` pl
 
 | Category | Effects | Notes |
 |---|---|---|
-| Smears | `smear_arc` (slash), `smear_vertical` (overhead), `smear_thrust` | 1 frame each, matched to attack_slash, attack_heavy, thrust; white, in the `swing` ramp like every drawn trail |
+| Smears | `smear_arc` (slash), `smear_vertical` (overhead), `smear_thrust` | 1 frame each, for attacks that draw no trail of their own (the humanoid's Cleave and Whirlwind draw theirs per frame); white, in the `swing` ramp like every drawn trail |
 | Impacts | `spark_small` (4 frames, about 9 px), `impact_big` (6 frames, about 17 px, with a 2 to 3 px dust ring), and one elemental impact per element | neutral impacts use the `impact` ramp |
 | Projectiles | `arrow`, `fireball`, `ice_shard`, `poison_glob`, `arcane_orb` | each has `travel` (loop, 2 to 4 frames) and `impact` (4 to 6 frames) |
 | Casting | `gather_glow` (loop, 3 frames, at the hand), one tint per element | |

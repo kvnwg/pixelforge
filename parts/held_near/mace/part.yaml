@@ -72,6 +72,26 @@ pose_singletons:
       - 24
     - - 24
       - 25
+  pose_cocked_behind:
+    s:
+    - - 10
+      - 17
+    e:
+    - - 10
+      - 23
+    n:
+    - - 20
+      - 17
+  pose_swing:
+    s:
+    - - 10
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 20
+      - 23
   pose_sweep:
     s:
     - - 16

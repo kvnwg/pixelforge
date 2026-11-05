@@ -2374,7 +2374,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 100
   },
   {
    "filename": "knight attack_slash_s 1",
@@ -2396,7 +2396,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 140
   },
   {
    "filename": "knight attack_slash_s 2",
@@ -2418,7 +2418,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 60
+   "duration": 40
   },
   {
    "filename": "knight attack_slash_s 3",
@@ -2440,12 +2440,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 50
   },
   {
    "filename": "knight attack_slash_s 4",
    "frame": {
     "x": 128,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "knight attack_slash_s 5",
+   "frame": {
+    "x": 160,
     "y": 608,
     "w": 32,
     "h": 32
@@ -2484,7 +2506,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 100
   },
   {
    "filename": "knight attack_slash_e 1",
@@ -2506,7 +2528,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 140
   },
   {
    "filename": "knight attack_slash_e 2",
@@ -2528,7 +2550,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 60
+   "duration": 40
   },
   {
    "filename": "knight attack_slash_e 3",
@@ -2550,12 +2572,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 50
   },
   {
    "filename": "knight attack_slash_e 4",
    "frame": {
     "x": 128,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "knight attack_slash_e 5",
+   "frame": {
+    "x": 160,
     "y": 640,
     "w": 32,
     "h": 32
@@ -2594,7 +2638,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 100
   },
   {
    "filename": "knight attack_slash_n 1",
@@ -2616,7 +2660,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 140
   },
   {
    "filename": "knight attack_slash_n 2",
@@ -2638,7 +2682,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 60
+   "duration": 40
   },
   {
    "filename": "knight attack_slash_n 3",
@@ -2660,12 +2704,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 50
   },
   {
    "filename": "knight attack_slash_n 4",
    "frame": {
     "x": 128,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "knight attack_slash_n 5",
+   "frame": {
+    "x": 160,
     "y": 672,
     "w": 32,
     "h": 32
@@ -2704,7 +2770,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 100
   },
   {
    "filename": "knight attack_slash_w 1",
@@ -2726,7 +2792,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 140
   },
   {
    "filename": "knight attack_slash_w 2",
@@ -2748,7 +2814,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 60
+   "duration": 40
   },
   {
    "filename": "knight attack_slash_w 3",
@@ -2770,12 +2836,34 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 50
   },
   {
    "filename": "knight attack_slash_w 4",
    "frame": {
     "x": 128,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "knight attack_slash_w 5",
+   "frame": {
+    "x": 160,
     "y": 704,
     "w": 32,
     "h": 32
@@ -2814,7 +2902,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 120
   },
   {
    "filename": "knight attack_heavy_s 1",
@@ -2836,7 +2924,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 200
   },
   {
    "filename": "knight attack_heavy_s 2",
@@ -2858,7 +2946,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_s 3",
@@ -2880,7 +2968,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 50
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_s 4",
@@ -2924,12 +3012,56 @@
     "w": 32,
     "h": 32
    },
-   "duration": 160
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_s 6",
    "frame": {
     "x": 192,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "knight attack_heavy_s 7",
+   "frame": {
+    "x": 224,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "knight attack_heavy_s 8",
+   "frame": {
+    "x": 256,
     "y": 736,
     "w": 32,
     "h": 32
@@ -2968,7 +3100,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 120
   },
   {
    "filename": "knight attack_heavy_e 1",
@@ -2990,7 +3122,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 200
   },
   {
    "filename": "knight attack_heavy_e 2",
@@ -3012,7 +3144,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_e 3",
@@ -3034,7 +3166,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 50
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_e 4",
@@ -3078,12 +3210,56 @@
     "w": 32,
     "h": 32
    },
-   "duration": 160
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_e 6",
    "frame": {
     "x": 192,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "knight attack_heavy_e 7",
+   "frame": {
+    "x": 224,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "knight attack_heavy_e 8",
+   "frame": {
+    "x": 256,
     "y": 768,
     "w": 32,
     "h": 32
@@ -3122,7 +3298,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 120
   },
   {
    "filename": "knight attack_heavy_n 1",
@@ -3144,7 +3320,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 200
   },
   {
    "filename": "knight attack_heavy_n 2",
@@ -3166,7 +3342,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_n 3",
@@ -3188,7 +3364,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 50
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_n 4",
@@ -3232,12 +3408,56 @@
     "w": 32,
     "h": 32
    },
-   "duration": 160
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_n 6",
    "frame": {
     "x": 192,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "knight attack_heavy_n 7",
+   "frame": {
+    "x": 224,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "knight attack_heavy_n 8",
+   "frame": {
+    "x": 256,
     "y": 800,
     "w": 32,
     "h": 32
@@ -3276,7 +3496,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 140
+   "duration": 120
   },
   {
    "filename": "knight attack_heavy_w 1",
@@ -3298,7 +3518,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 120
+   "duration": 200
   },
   {
    "filename": "knight attack_heavy_w 2",
@@ -3320,7 +3540,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 80
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_w 3",
@@ -3342,7 +3562,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 50
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_w 4",
@@ -3386,12 +3606,56 @@
     "w": 32,
     "h": 32
    },
-   "duration": 160
+   "duration": 60
   },
   {
    "filename": "knight attack_heavy_w 6",
    "frame": {
     "x": 192,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "knight attack_heavy_w 7",
+   "frame": {
+    "x": 224,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "knight attack_heavy_w 8",
+   "frame": {
+    "x": 256,
     "y": 832,
     "w": 32,
     "h": 32
@@ -7465,7 +7729,7 @@
   "image": "knight.png",
   "format": "RGBA8888",
   "size": {
-   "w": 256,
+   "w": 288,
    "h": 2400
   },
   "scale": "1",
@@ -7587,337 +7851,337 @@
    {
     "name": "attack_slash_s",
     "from": 107,
-    "to": 111,
+    "to": 112,
     "direction": "forward"
    },
    {
     "name": "attack_slash_e",
-    "from": 112,
-    "to": 116,
+    "from": 113,
+    "to": 118,
     "direction": "forward"
    },
    {
     "name": "attack_slash_n",
-    "from": 117,
-    "to": 121,
+    "from": 119,
+    "to": 124,
     "direction": "forward"
    },
    {
     "name": "attack_slash_w",
-    "from": 122,
-    "to": 126,
+    "from": 125,
+    "to": 130,
     "direction": "forward"
    },
    {
     "name": "attack_heavy_s",
-    "from": 127,
-    "to": 133,
+    "from": 131,
+    "to": 139,
     "direction": "forward"
    },
    {
     "name": "attack_heavy_e",
-    "from": 134,
-    "to": 140,
+    "from": 140,
+    "to": 148,
     "direction": "forward"
    },
    {
     "name": "attack_heavy_n",
-    "from": 141,
-    "to": 147,
+    "from": 149,
+    "to": 157,
     "direction": "forward"
    },
    {
     "name": "attack_heavy_w",
-    "from": 148,
-    "to": 154,
-    "direction": "forward"
-   },
-   {
-    "name": "cast_s",
-    "from": 155,
-    "to": 160,
-    "direction": "forward"
-   },
-   {
-    "name": "cast_e",
-    "from": 161,
+    "from": 158,
     "to": 166,
     "direction": "forward"
    },
    {
-    "name": "cast_n",
+    "name": "cast_s",
     "from": 167,
     "to": 172,
     "direction": "forward"
    },
    {
-    "name": "cast_w",
+    "name": "cast_e",
     "from": 173,
     "to": 178,
     "direction": "forward"
    },
    {
-    "name": "block_enter_s",
+    "name": "cast_n",
     "from": 179,
-    "to": 180,
-    "direction": "forward"
-   },
-   {
-    "name": "block_enter_e",
-    "from": 181,
-    "to": 182,
-    "direction": "forward"
-   },
-   {
-    "name": "block_enter_n",
-    "from": 183,
     "to": 184,
     "direction": "forward"
    },
    {
-    "name": "block_enter_w",
+    "name": "cast_w",
     "from": 185,
-    "to": 186,
-    "direction": "forward"
-   },
-   {
-    "name": "block_hold_s",
-    "from": 187,
-    "to": 188,
-    "direction": "forward"
-   },
-   {
-    "name": "block_hold_e",
-    "from": 189,
     "to": 190,
     "direction": "forward"
    },
    {
-    "name": "block_hold_n",
+    "name": "block_enter_s",
     "from": 191,
     "to": 192,
     "direction": "forward"
    },
    {
-    "name": "block_hold_w",
+    "name": "block_enter_e",
     "from": 193,
     "to": 194,
     "direction": "forward"
    },
    {
-    "name": "block_impact_s",
+    "name": "block_enter_n",
     "from": 195,
     "to": 196,
     "direction": "forward"
    },
    {
-    "name": "block_impact_e",
+    "name": "block_enter_w",
     "from": 197,
     "to": 198,
     "direction": "forward"
    },
    {
-    "name": "block_impact_n",
+    "name": "block_hold_s",
     "from": 199,
     "to": 200,
     "direction": "forward"
    },
    {
-    "name": "block_impact_w",
+    "name": "block_hold_e",
     "from": 201,
     "to": 202,
     "direction": "forward"
    },
    {
-    "name": "dodge_s",
+    "name": "block_hold_n",
     "from": 203,
+    "to": 204,
+    "direction": "forward"
+   },
+   {
+    "name": "block_hold_w",
+    "from": 205,
     "to": 206,
     "direction": "forward"
    },
    {
-    "name": "dodge_e",
+    "name": "block_impact_s",
     "from": 207,
+    "to": 208,
+    "direction": "forward"
+   },
+   {
+    "name": "block_impact_e",
+    "from": 209,
     "to": 210,
     "direction": "forward"
    },
    {
-    "name": "dodge_n",
+    "name": "block_impact_n",
     "from": 211,
+    "to": 212,
+    "direction": "forward"
+   },
+   {
+    "name": "block_impact_w",
+    "from": 213,
     "to": 214,
     "direction": "forward"
    },
    {
-    "name": "dodge_w",
+    "name": "dodge_s",
     "from": 215,
     "to": 218,
     "direction": "forward"
    },
    {
-    "name": "hurt_s",
+    "name": "dodge_e",
     "from": 219,
-    "to": 221,
+    "to": 222,
     "direction": "forward"
    },
    {
-    "name": "hurt_e",
-    "from": 222,
-    "to": 224,
+    "name": "dodge_n",
+    "from": 223,
+    "to": 226,
     "direction": "forward"
    },
    {
-    "name": "hurt_n",
-    "from": 225,
-    "to": 227,
-    "direction": "forward"
-   },
-   {
-    "name": "hurt_w",
-    "from": 228,
+    "name": "dodge_w",
+    "from": 227,
     "to": 230,
     "direction": "forward"
    },
    {
-    "name": "stun_s",
+    "name": "hurt_s",
     "from": 231,
-    "to": 234,
+    "to": 233,
     "direction": "forward"
    },
    {
-    "name": "stun_e",
-    "from": 235,
-    "to": 238,
+    "name": "hurt_e",
+    "from": 234,
+    "to": 236,
     "direction": "forward"
    },
    {
-    "name": "stun_n",
-    "from": 239,
+    "name": "hurt_n",
+    "from": 237,
+    "to": 239,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_w",
+    "from": 240,
     "to": 242,
     "direction": "forward"
    },
    {
-    "name": "stun_w",
+    "name": "stun_s",
     "from": 243,
     "to": 246,
     "direction": "forward"
    },
    {
-    "name": "death_s",
+    "name": "stun_e",
     "from": 247,
-    "to": 251,
+    "to": 250,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_n",
+    "from": 251,
+    "to": 254,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_w",
+    "from": 255,
+    "to": 258,
+    "direction": "forward"
+   },
+   {
+    "name": "death_s",
+    "from": 259,
+    "to": 263,
     "direction": "forward"
    },
    {
     "name": "death_e",
-    "from": 252,
-    "to": 256,
+    "from": 264,
+    "to": 268,
     "direction": "forward"
    },
    {
     "name": "death_n",
-    "from": 257,
-    "to": 261,
+    "from": 269,
+    "to": 273,
     "direction": "forward"
    },
    {
     "name": "death_w",
-    "from": 262,
-    "to": 266,
-    "direction": "forward"
-   },
-   {
-    "name": "victory_s",
-    "from": 267,
-    "to": 270,
-    "direction": "forward"
-   },
-   {
-    "name": "victory_e",
-    "from": 271,
-    "to": 274,
-    "direction": "forward"
-   },
-   {
-    "name": "victory_n",
-    "from": 275,
+    "from": 274,
     "to": 278,
     "direction": "forward"
    },
    {
-    "name": "victory_w",
+    "name": "victory_s",
     "from": 279,
     "to": 282,
     "direction": "forward"
    },
    {
-    "name": "roll_s",
+    "name": "victory_e",
     "from": 283,
-    "to": 287,
+    "to": 286,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_n",
+    "from": 287,
+    "to": 290,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_w",
+    "from": 291,
+    "to": 294,
+    "direction": "forward"
+   },
+   {
+    "name": "roll_s",
+    "from": 295,
+    "to": 299,
     "direction": "forward"
    },
    {
     "name": "roll_e",
-    "from": 288,
-    "to": 292,
+    "from": 300,
+    "to": 304,
     "direction": "forward"
    },
    {
     "name": "roll_n",
-    "from": 293,
-    "to": 297,
+    "from": 305,
+    "to": 309,
     "direction": "forward"
    },
    {
     "name": "roll_w",
-    "from": 298,
-    "to": 302,
+    "from": 310,
+    "to": 314,
     "direction": "forward"
    },
    {
     "name": "backflip_s",
-    "from": 303,
-    "to": 307,
+    "from": 315,
+    "to": 319,
     "direction": "forward"
    },
    {
     "name": "backflip_e",
-    "from": 308,
-    "to": 312,
+    "from": 320,
+    "to": 324,
     "direction": "forward"
    },
    {
     "name": "backflip_n",
-    "from": 313,
-    "to": 317,
+    "from": 325,
+    "to": 329,
     "direction": "forward"
    },
    {
     "name": "backflip_w",
-    "from": 318,
-    "to": 322,
-    "direction": "forward"
-   },
-   {
-    "name": "vault_s",
-    "from": 323,
-    "to": 326,
-    "direction": "forward"
-   },
-   {
-    "name": "vault_e",
-    "from": 327,
-    "to": 330,
-    "direction": "forward"
-   },
-   {
-    "name": "vault_n",
-    "from": 331,
+    "from": 330,
     "to": 334,
     "direction": "forward"
    },
    {
-    "name": "vault_w",
+    "name": "vault_s",
     "from": 335,
     "to": 338,
+    "direction": "forward"
+   },
+   {
+    "name": "vault_e",
+    "from": 339,
+    "to": 342,
+    "direction": "forward"
+   },
+   {
+    "name": "vault_n",
+    "from": 343,
+    "to": 346,
+    "direction": "forward"
+   },
+   {
+    "name": "vault_w",
+    "from": 347,
+    "to": 350,
     "direction": "forward"
    }
   ],
@@ -7957,12 +8221,12 @@
       "type": "windup"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 5,
       "type": "recover"
      }
     ],
@@ -7972,12 +8236,12 @@
       "type": "windup"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 5,
       "type": "recover"
      }
     ],
@@ -7987,12 +8251,12 @@
       "type": "windup"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 5,
       "type": "recover"
      }
     ],
@@ -8002,12 +8266,12 @@
       "type": "windup"
      },
      {
-      "frame": 2,
+      "frame": 3,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 5,
       "type": "recover"
      }
     ],
@@ -8017,22 +8281,32 @@
       "type": "windup"
      },
      {
-      "frame": 3,
+      "frame": 1,
+      "type": "vfx",
+      "fx": "dust_puff",
+      "point": [
+       18,
+       27
+      ],
+      "point_name": "foot_far"
+     },
+     {
+      "frame": 2,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 6,
       "type": "vfx",
-      "fx": "impact_big",
+      "fx": "dust_puff",
       "point": [
-       4,
-       29
+       12,
+       27
       ],
-      "point_name": "weapon_tip"
+      "point_name": "foot_near"
      },
      {
-      "frame": 6,
+      "frame": 8,
       "type": "recover"
      }
     ],
@@ -8042,22 +8316,32 @@
       "type": "windup"
      },
      {
-      "frame": 3,
+      "frame": 1,
+      "type": "vfx",
+      "fx": "dust_puff",
+      "point": [
+       18,
+       27
+      ],
+      "point_name": "foot_far"
+     },
+     {
+      "frame": 2,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 6,
       "type": "vfx",
-      "fx": "impact_big",
+      "fx": "dust_puff",
       "point": [
-       25,
-       26
+       18,
+       27
       ],
-      "point_name": "weapon_tip"
+      "point_name": "foot_near"
      },
      {
-      "frame": 6,
+      "frame": 8,
       "type": "recover"
      }
     ],
@@ -8067,22 +8351,32 @@
       "type": "windup"
      },
      {
-      "frame": 3,
+      "frame": 1,
+      "type": "vfx",
+      "fx": "dust_puff",
+      "point": [
+       12,
+       27
+      ],
+      "point_name": "foot_far"
+     },
+     {
+      "frame": 2,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 6,
       "type": "vfx",
-      "fx": "impact_big",
+      "fx": "dust_puff",
       "point": [
-       26,
-       28
+       12,
+       27
       ],
-      "point_name": "weapon_tip"
+      "point_name": "foot_near"
      },
      {
-      "frame": 6,
+      "frame": 8,
       "type": "recover"
      }
     ],
@@ -8092,22 +8386,32 @@
       "type": "windup"
      },
      {
-      "frame": 3,
+      "frame": 1,
+      "type": "vfx",
+      "fx": "dust_puff",
+      "point": [
+       12,
+       27
+      ],
+      "point_name": "foot_far"
+     },
+     {
+      "frame": 2,
       "type": "hit",
       "fx": "spark_small"
      },
      {
-      "frame": 4,
+      "frame": 6,
       "type": "vfx",
-      "fx": "impact_big",
+      "fx": "dust_puff",
       "point": [
-       5,
-       26
+       12,
+       27
       ],
-      "point_name": "weapon_tip"
+      "point_name": "foot_near"
      },
      {
-      "frame": 6,
+      "frame": 8,
       "type": "recover"
      }
     ],
@@ -8329,12 +8633,14 @@
      "windup",
      "windup",
      "active",
+     "active",
      "recovery",
      "recovery"
     ],
     "attack_slash_e": [
      "windup",
      "windup",
+     "active",
      "active",
      "recovery",
      "recovery"
@@ -8343,6 +8649,7 @@
      "windup",
      "windup",
      "active",
+     "active",
      "recovery",
      "recovery"
     ],
@@ -8350,13 +8657,16 @@
      "windup",
      "windup",
      "active",
+     "active",
      "recovery",
      "recovery"
     ],
     "attack_heavy_s": [
      "windup",
      "windup",
-     "windup",
+     "active",
+     "active",
+     "active",
      "active",
      "active",
      "recovery",
@@ -8365,7 +8675,9 @@
     "attack_heavy_e": [
      "windup",
      "windup",
-     "windup",
+     "active",
+     "active",
+     "active",
      "active",
      "active",
      "recovery",
@@ -8374,7 +8686,9 @@
     "attack_heavy_n": [
      "windup",
      "windup",
-     "windup",
+     "active",
+     "active",
+     "active",
      "active",
      "active",
      "recovery",
@@ -8383,7 +8697,9 @@
     "attack_heavy_w": [
      "windup",
      "windup",
-     "windup",
+     "active",
+     "active",
+     "active",
      "active",
      "active",
      "recovery",
@@ -8427,28 +8743,52 @@
      "2": [
       {
        "x": 5,
-       "y": 15,
+       "y": 11,
+       "w": 15,
+       "h": 20
+      }
+     ],
+     "3": [
+      {
+       "x": 5,
+       "y": 11,
        "w": 21,
-       "h": 17
+       "h": 21
       }
      ]
     },
     "attack_slash_e": {
      "2": [
       {
-       "x": 10,
-       "y": 7,
+       "x": 2,
+       "y": 20,
        "w": 19,
-       "h": 17
+       "h": 7
+      }
+     ],
+     "3": [
+      {
+       "x": 2,
+       "y": 19,
+       "w": 27,
+       "h": 8
       }
      ]
     },
     "attack_slash_n": {
      "2": [
       {
-       "x": 5,
+       "x": 10,
+       "y": 0,
+       "w": 15,
+       "h": 22
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
        "y": 2,
-       "w": 20,
+       "w": 21,
        "h": 23
       }
      ]
@@ -8456,82 +8796,210 @@
     "attack_slash_w": {
      "2": [
       {
-       "x": 2,
-       "y": 7,
+       "x": 10,
+       "y": 20,
        "w": 19,
-       "h": 17
+       "h": 7
+      }
+     ],
+     "3": [
+      {
+       "x": 2,
+       "y": 19,
+       "w": 27,
+       "h": 8
       }
      ]
     },
     "attack_heavy_s": {
+     "2": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
      "3": [
       {
-       "x": 8,
-       "y": 9,
-       "w": 15,
-       "h": 23
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
       }
      ],
      "4": [
       {
        "x": 3,
-       "y": 24,
-       "w": 20,
-       "h": 8
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "6": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      },
+      {
+       "x": 5,
+       "y": 11,
+       "w": 21,
+       "h": 21
       }
      ]
     },
     "attack_heavy_e": {
+     "2": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
      "3": [
       {
-       "x": 18,
-       "y": 9,
-       "w": 8,
-       "h": 21
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
       }
      ],
      "4": [
       {
-       "x": 18,
-       "y": 24,
-       "w": 9,
-       "h": 5
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "6": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      },
+      {
+       "x": 2,
+       "y": 19,
+       "w": 27,
+       "h": 8
       }
      ]
     },
     "attack_heavy_n": {
+     "2": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
      "3": [
       {
-       "x": 8,
-       "y": 3,
-       "w": 15,
-       "h": 26
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
       }
      ],
      "4": [
       {
-       "x": 8,
-       "y": 5,
-       "w": 20,
-       "h": 25
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "6": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      },
+      {
+       "x": 4,
+       "y": 2,
+       "w": 21,
+       "h": 23
       }
      ]
     },
     "attack_heavy_w": {
+     "2": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
      "3": [
       {
-       "x": 5,
-       "y": 9,
-       "w": 8,
-       "h": 21
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
       }
      ],
      "4": [
       {
-       "x": 4,
-       "y": 24,
-       "w": 9,
-       "h": 5
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      }
+     ],
+     "6": [
+      {
+       "x": 3,
+       "y": 15,
+       "w": 25,
+       "h": 14
+      },
+      {
+       "x": 2,
+       "y": 19,
+       "w": 27,
+       "h": 8
       }
      ]
     }
@@ -8692,10 +9160,10 @@
      ],
      "2": [
       {
-       "x": 10,
-       "y": 9,
-       "w": 11,
-       "h": 19
+       "x": 9,
+       "y": 8,
+       "w": 12,
+       "h": 20
       }
      ],
      "3": [
@@ -8709,9 +9177,17 @@
      "4": [
       {
        "x": 10,
-       "y": 8,
+       "y": 9,
        "w": 11,
-       "h": 20
+       "h": 19
+      }
+     ],
+     "5": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 11,
+       "h": 19
       }
      ]
     },
@@ -8734,7 +9210,7 @@
      ],
      "2": [
       {
-       "x": 8,
+       "x": 7,
        "y": 8,
        "w": 13,
        "h": 20
@@ -8742,18 +9218,26 @@
      ],
      "3": [
       {
-       "x": 9,
+       "x": 8,
        "y": 8,
-       "w": 11,
+       "w": 13,
        "h": 20
       }
      ],
      "4": [
       {
        "x": 9,
-       "y": 8,
+       "y": 9,
+       "w": 11,
+       "h": 19
+      }
+     ],
+     "5": [
+      {
+       "x": 9,
+       "y": 9,
        "w": 10,
-       "h": 20
+       "h": 19
       }
      ]
     },
@@ -8777,9 +9261,9 @@
      "2": [
       {
        "x": 10,
-       "y": 7,
+       "y": 8,
        "w": 11,
-       "h": 21
+       "h": 20
       }
      ],
      "3": [
@@ -8796,6 +9280,14 @@
        "y": 8,
        "w": 11,
        "h": 20
+      }
+     ],
+     "5": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 11,
+       "h": 19
       }
      ]
     },
@@ -8818,7 +9310,7 @@
      ],
      "2": [
       {
-       "x": 10,
+       "x": 11,
        "y": 8,
        "w": 13,
        "h": 20
@@ -8826,18 +9318,26 @@
      ],
      "3": [
       {
-       "x": 11,
+       "x": 10,
        "y": 8,
-       "w": 11,
+       "w": 13,
        "h": 20
       }
      ],
      "4": [
       {
+       "x": 11,
+       "y": 9,
+       "w": 11,
+       "h": 19
+      }
+     ],
+     "5": [
+      {
        "x": 12,
-       "y": 8,
+       "y": 9,
        "w": 10,
-       "h": 20
+       "h": 19
       }
      ]
     },
@@ -8845,22 +9345,22 @@
      "0": [
       {
        "x": 10,
-       "y": 7,
+       "y": 9,
        "w": 11,
-       "h": 21
+       "h": 19
       }
      ],
      "1": [
       {
-       "x": 10,
-       "y": 7,
+       "x": 12,
+       "y": 10,
        "w": 11,
-       "h": 21
+       "h": 18
       }
      ],
      "2": [
       {
-       "x": 10,
+       "x": 11,
        "y": 9,
        "w": 11,
        "h": 19
@@ -8868,29 +9368,45 @@
      ],
      "3": [
       {
-       "x": 10,
+       "x": 8,
        "y": 9,
-       "w": 11,
+       "w": 12,
        "h": 19
       }
      ],
      "4": [
       {
-       "x": 10,
-       "y": 10,
+       "x": 9,
+       "y": 9,
        "w": 11,
        "h": 18
       }
      ],
      "5": [
       {
-       "x": 10,
+       "x": 11,
        "y": 9,
-       "w": 11,
+       "w": 12,
        "h": 19
       }
      ],
      "6": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "7": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "8": [
       {
        "x": 10,
        "y": 8,
@@ -8902,37 +9418,13 @@
     "attack_heavy_e": {
      "0": [
       {
-       "x": 8,
-       "y": 7,
-       "w": 11,
-       "h": 21
-      }
-     ],
-     "1": [
-      {
-       "x": 8,
-       "y": 7,
-       "w": 11,
-       "h": 21
-      }
-     ],
-     "2": [
-      {
        "x": 7,
        "y": 9,
        "w": 12,
        "h": 19
       }
      ],
-     "3": [
-      {
-       "x": 8,
-       "y": 9,
-       "w": 13,
-       "h": 19
-      }
-     ],
-     "4": [
+     "1": [
       {
        "x": 9,
        "y": 10,
@@ -8940,15 +9432,55 @@
        "h": 18
       }
      ],
+     "2": [
+      {
+       "x": 8,
+       "y": 9,
+       "w": 12,
+       "h": 19
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 12,
+       "h": 18
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 9,
+       "w": 12,
+       "h": 19
+      }
+     ],
      "5": [
       {
        "x": 10,
        "y": 9,
-       "w": 10,
+       "w": 11,
        "h": 19
       }
      ],
      "6": [
+      {
+       "x": 8,
+       "y": 8,
+       "w": 13,
+       "h": 20
+      }
+     ],
+     "7": [
+      {
+       "x": 9,
+       "y": 9,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "8": [
       {
        "x": 9,
        "y": 8,
@@ -8961,22 +9493,22 @@
      "0": [
       {
        "x": 10,
-       "y": 7,
+       "y": 9,
        "w": 11,
-       "h": 21
+       "h": 19
       }
      ],
      "1": [
       {
-       "x": 10,
-       "y": 7,
+       "x": 8,
+       "y": 10,
        "w": 11,
-       "h": 21
+       "h": 18
       }
      ],
      "2": [
       {
-       "x": 10,
+       "x": 9,
        "y": 9,
        "w": 11,
        "h": 19
@@ -8984,15 +9516,15 @@
      ],
      "3": [
       {
-       "x": 10,
-       "y": 8,
-       "w": 11,
-       "h": 20
+       "x": 11,
+       "y": 9,
+       "w": 12,
+       "h": 19
       }
      ],
      "4": [
       {
-       "x": 10,
+       "x": 11,
        "y": 9,
        "w": 11,
        "h": 19
@@ -9000,13 +9532,29 @@
      ],
      "5": [
       {
-       "x": 10,
+       "x": 8,
        "y": 9,
-       "w": 11,
+       "w": 12,
        "h": 19
       }
      ],
      "6": [
+      {
+       "x": 10,
+       "y": 7,
+       "w": 11,
+       "h": 20
+      }
+     ],
+     "7": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 11,
+       "h": 20
+      }
+     ],
+     "8": [
       {
        "x": 10,
        "y": 8,
@@ -9019,36 +9567,12 @@
      "0": [
       {
        "x": 12,
-       "y": 7,
-       "w": 11,
-       "h": 21
-      }
-     ],
-     "1": [
-      {
-       "x": 12,
-       "y": 7,
-       "w": 11,
-       "h": 21
-      }
-     ],
-     "2": [
-      {
-       "x": 12,
        "y": 9,
        "w": 12,
        "h": 19
       }
      ],
-     "3": [
-      {
-       "x": 10,
-       "y": 9,
-       "w": 13,
-       "h": 19
-      }
-     ],
-     "4": [
+     "1": [
       {
        "x": 11,
        "y": 10,
@@ -9056,15 +9580,55 @@
        "h": 18
       }
      ],
-     "5": [
+     "2": [
       {
        "x": 11,
        "y": 9,
-       "w": 10,
+       "w": 12,
+       "h": 19
+      }
+     ],
+     "3": [
+      {
+       "x": 9,
+       "y": 9,
+       "w": 12,
+       "h": 18
+      }
+     ],
+     "4": [
+      {
+       "x": 8,
+       "y": 9,
+       "w": 12,
+       "h": 19
+      }
+     ],
+     "5": [
+      {
+       "x": 10,
+       "y": 9,
+       "w": 11,
        "h": 19
       }
      ],
      "6": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 13,
+       "h": 20
+      }
+     ],
+     "7": [
+      {
+       "x": 11,
+       "y": 9,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "8": [
       {
        "x": 12,
        "y": 8,
@@ -10643,6 +11207,38 @@
     }
    },
    "root_motion": {
+    "attack_slash_s": [
+     0,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "attack_slash_e": [
+     0,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "attack_slash_n": [
+     0,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
+    "attack_slash_w": [
+     0,
+     0,
+     1,
+     2,
+     0,
+     0
+    ],
     "dodge_s": [
      0,
      -4,
@@ -10808,20 +11404,16 @@
      1
     ],
     "attack_heavy_s": [
-     1,
-     2
+     1
     ],
     "attack_heavy_e": [
-     1,
-     2
+     1
     ],
     "attack_heavy_n": [
-     1,
-     2
+     1
     ],
     "attack_heavy_w": [
-     1,
-     2
+     1
     ],
     "cast_s": [
      2
@@ -10983,66 +11575,78 @@
      150
     ],
     "attack_slash_s": [
-     120,
-     80,
-     60,
+     100,
+     140,
+     40,
+     50,
      140,
      160
     ],
     "attack_slash_e": [
-     120,
-     80,
-     60,
+     100,
+     140,
+     40,
+     50,
      140,
      160
     ],
     "attack_slash_n": [
-     120,
-     80,
-     60,
+     100,
+     140,
+     40,
+     50,
      140,
      160
     ],
     "attack_slash_w": [
-     120,
-     80,
-     60,
+     100,
+     140,
+     40,
+     50,
      140,
      160
     ],
     "attack_heavy_s": [
-     140,
      120,
-     80,
-     50,
+     200,
      60,
+     60,
+     60,
+     60,
+     70,
      160,
      200
     ],
     "attack_heavy_e": [
-     140,
      120,
-     80,
-     50,
+     200,
      60,
+     60,
+     60,
+     60,
+     70,
      160,
      200
     ],
     "attack_heavy_n": [
-     140,
      120,
-     80,
-     50,
+     200,
      60,
+     60,
+     60,
+     60,
+     70,
      160,
      200
     ],
     "attack_heavy_w": [
-     140,
      120,
-     80,
-     50,
+     200,
      60,
+     60,
+     60,
+     60,
+     70,
      160,
      200
     ],
@@ -12161,8 +12765,1304 @@
        20
       ],
       "weapon_tip": [
-       6,
+       9,
+       11
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       23
+      ],
+      "hand_near": [
+       9,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       7,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       15,
+       24
+      ],
+      "head": [
+       15,
        12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       22,
+       24
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       17,
+       25
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       23,
+       27
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       17
+      ]
+     }
+    ],
+    "attack_slash_e": [
+     {
+      "back": [
+       11,
+       21
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       17,
+       22
+      ],
+      "hand_near": [
+       12,
+       19
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       18,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       5,
+       15
+      ]
+     },
+     {
+      "back": [
+       11,
+       22
+      ],
+      "chin": [
+       13,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       12,
+       20
+      ],
+      "head": [
+       13,
+       12
+      ],
+      "hip": [
+       14,
+       26
+      ],
+      "shield_front": [
+       18,
+       22
+      ],
+      "torso": [
+       14,
+       21
+      ],
+      "weapon_tip": [
+       4,
+       20
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       19,
+       22
+      ]
+     },
+     {
+      "back": [
+       13,
+       21
+      ],
+      "chin": [
+       17,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       12,
+       23
+      ],
+      "hand_near": [
+       20,
+       21
+      ],
+      "head": [
+       17,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       20,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       27,
+       21
+      ]
+     },
+     {
+      "back": [
+       13,
+       22
+      ],
+      "chin": [
+       16,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       12,
+       24
+      ],
+      "hand_near": [
+       18,
+       25
+      ],
+      "head": [
+       16,
+       12
+      ],
+      "hip": [
+       16,
+       26
+      ],
+      "shield_front": [
+       20,
+       22
+      ],
+      "torso": [
+       16,
+       21
+      ],
+      "weapon_tip": [
+       24,
+       27
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       20,
+       17
+      ]
+     }
+    ],
+    "attack_slash_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       20,
+       21
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       24,
+       13
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       20,
+       21
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       21,
+       12
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       23
+      ],
+      "hand_near": [
+       20,
+       19
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       19
+      ]
+     },
+     {
+      "back": [
+       15,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       22
+      ],
+      "hand_near": [
+       15,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       18
+      ],
+      "torso": [
+       15,
+       19
+      ],
+      "weapon_tip": [
+       8,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       23
+      ],
+      "hand_near": [
+       13,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       7,
+       26
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       17
+      ]
+     }
+    ],
+    "attack_slash_w": [
+     {
+      "back": [
+       19,
+       21
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       13,
+       22
+      ],
+      "hand_near": [
+       18,
+       19
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       12,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       25,
+       15
+      ]
+     },
+     {
+      "back": [
+       19,
+       22
+      ],
+      "chin": [
+       17,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       18,
+       20
+      ],
+      "head": [
+       17,
+       12
+      ],
+      "hip": [
+       16,
+       26
+      ],
+      "shield_front": [
+       12,
+       22
+      ],
+      "torso": [
+       16,
+       21
+      ],
+      "weapon_tip": [
+       26,
+       20
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       11,
+       22
+      ]
+     },
+     {
+      "back": [
+       17,
+       21
+      ],
+      "chin": [
+       13,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       18,
+       23
+      ],
+      "hand_near": [
+       10,
+       21
+      ],
+      "head": [
+       13,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       10,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       3,
+       21
+      ]
+     },
+     {
+      "back": [
+       17,
+       22
+      ],
+      "chin": [
+       14,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       18,
+       24
+      ],
+      "hand_near": [
+       12,
+       25
+      ],
+      "head": [
+       14,
+       12
+      ],
+      "hip": [
+       14,
+       26
+      ],
+      "shield_front": [
+       10,
+       22
+      ],
+      "torso": [
+       14,
+       21
+      ],
+      "weapon_tip": [
+       6,
+       27
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       10,
+       17
+      ]
+     }
+    ],
+    "attack_heavy_s": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       10,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       6,
+       17
+      ]
+     },
+     {
+      "back": [
+       19,
+       23
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       25
+      ],
+      "head": [
+       16,
+       13
+      ],
+      "hip": [
+       16,
+       27
+      ],
+      "shield_front": [
+       12,
+       23
+      ],
+      "torso": [
+       16,
+       22
+      ],
+      "weapon_tip": [
+       24,
+       28
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       11,
+       27
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       26,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       19,
+       16
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       4,
+       22
       ]
      },
      {
@@ -12304,53 +14204,7 @@
       ]
      }
     ],
-    "attack_slash_e": [
-     {
-      "back": [
-       11,
-       21
-      ],
-      "chin": [
-       14,
-       19
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       17,
-       22
-      ],
-      "hand_near": [
-       12,
-       19
-      ],
-      "head": [
-       14,
-       11
-      ],
-      "hip": [
-       14,
-       25
-      ],
-      "shield_front": [
-       18,
-       21
-      ],
-      "torso": [
-       14,
-       20
-      ],
-      "weapon_tip": [
-       5,
-       15
-      ]
-     },
+    "attack_heavy_e": [
      {
       "back": [
        11,
@@ -12373,8 +14227,8 @@
        23
       ],
       "hand_near": [
-       12,
-       20
+       13,
+       24
       ],
       "head": [
        14,
@@ -12393,8 +14247,238 @@
        21
       ],
       "weapon_tip": [
-       5,
+       6,
+       27
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       10,
+       24
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       26
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       6,
+       18
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       26,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       19,
        16
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       4,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       11,
+       27
       ]
      },
      {
@@ -12446,11 +14530,11 @@
      {
       "back": [
        13,
-       21
+       22
       ],
       "chin": [
        16,
-       19
+       20
       ],
       "foot_far": [
        12,
@@ -12462,1143 +14546,31 @@
       ],
       "hand_far": [
        12,
-       23
-      ],
-      "hand_near": [
-       18,
        24
       ],
-      "head": [
-       16,
-       11
-      ],
-      "hip": [
-       16,
-       25
-      ],
-      "shield_front": [
-       20,
-       21
-      ],
-      "torso": [
-       16,
-       20
-      ],
-      "weapon_tip": [
-       24,
-       26
-      ]
-     },
-     {
-      "back": [
-       12,
-       21
-      ],
-      "chin": [
-       15,
-       19
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       13,
-       23
-      ],
       "hand_near": [
-       17,
-       22
-      ],
-      "head": [
-       15,
-       11
-      ],
-      "hip": [
-       15,
-       25
-      ],
-      "shield_front": [
-       19,
-       21
-      ],
-      "torso": [
-       15,
-       20
-      ],
-      "weapon_tip": [
-       20,
-       17
-      ]
-     }
-    ],
-    "attack_slash_n": [
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
        18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       11,
-       23
-      ],
-      "hand_near": [
-       20,
-       21
+       25
       ],
       "head": [
-       15,
+       16,
        12
       ],
       "hip": [
-       15,
+       16,
        26
       ],
       "shield_front": [
-       15,
-       20
+       20,
+       22
       ],
       "torso": [
-       15,
+       16,
        21
       ],
       "weapon_tip": [
        24,
-       13
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
        27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       11,
-       23
-      ],
-      "hand_near": [
-       20,
-       21
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
-       26
-      ],
-      "shield_front": [
-       15,
-       20
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       24,
-       13
-      ]
-     },
-     {
-      "back": [
-       15,
-       20
-      ],
-      "chin": [
-       15,
-       18
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       10,
-       22
-      ],
-      "hand_near": [
-       15,
-       22
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
-       24
-      ],
-      "shield_front": [
-       15,
-       18
-      ],
-      "torso": [
-       15,
-       19
-      ],
-      "weapon_tip": [
-       8,
-       22
-      ]
-     },
-     {
-      "back": [
-       15,
-       20
-      ],
-      "chin": [
-       15,
-       18
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       10,
-       22
-      ],
-      "hand_near": [
-       13,
-       23
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
-       24
-      ],
-      "shield_front": [
-       15,
-       18
-      ],
-      "torso": [
-       15,
-       19
-      ],
-      "weapon_tip": [
-       7,
-       25
-      ]
-     },
-     {
-      "back": [
-       15,
-       21
-      ],
-      "chin": [
-       15,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       11,
-       23
-      ],
-      "hand_near": [
-       19,
-       22
-      ],
-      "head": [
-       15,
-       11
-      ],
-      "hip": [
-       15,
-       25
-      ],
-      "shield_front": [
-       15,
-       19
-      ],
-      "torso": [
-       15,
-       20
-      ],
-      "weapon_tip": [
-       22,
-       17
-      ]
-     }
-    ],
-    "attack_slash_w": [
-     {
-      "back": [
-       19,
-       21
-      ],
-      "chin": [
-       16,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       13,
-       27
-      ],
-      "hand_far": [
-       13,
-       22
-      ],
-      "hand_near": [
-       18,
-       19
-      ],
-      "head": [
-       16,
-       11
-      ],
-      "hip": [
-       16,
-       25
-      ],
-      "shield_front": [
-       12,
-       21
-      ],
-      "torso": [
-       16,
-       20
-      ],
-      "weapon_tip": [
-       25,
-       15
-      ]
-     },
-     {
-      "back": [
-       19,
-       22
-      ],
-      "chin": [
-       16,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       13,
-       27
-      ],
-      "hand_far": [
-       13,
-       23
-      ],
-      "hand_near": [
-       18,
-       20
-      ],
-      "head": [
-       16,
-       12
-      ],
-      "hip": [
-       16,
-       26
-      ],
-      "shield_front": [
-       12,
-       22
-      ],
-      "torso": [
-       16,
-       21
-      ],
-      "weapon_tip": [
-       25,
-       16
-      ]
-     },
-     {
-      "back": [
-       17,
-       21
-      ],
-      "chin": [
-       13,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       18,
-       23
-      ],
-      "hand_near": [
-       10,
-       21
-      ],
-      "head": [
-       13,
-       11
-      ],
-      "hip": [
-       14,
-       25
-      ],
-      "shield_front": [
-       10,
-       21
-      ],
-      "torso": [
-       14,
-       20
-      ],
-      "weapon_tip": [
-       3,
-       21
-      ]
-     },
-     {
-      "back": [
-       17,
-       21
-      ],
-      "chin": [
-       14,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       18,
-       23
-      ],
-      "hand_near": [
-       12,
-       24
-      ],
-      "head": [
-       14,
-       11
-      ],
-      "hip": [
-       14,
-       25
-      ],
-      "shield_front": [
-       10,
-       21
-      ],
-      "torso": [
-       14,
-       20
-      ],
-      "weapon_tip": [
-       6,
-       26
-      ]
-     },
-     {
-      "back": [
-       18,
-       21
-      ],
-      "chin": [
-       15,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       13,
-       27
-      ],
-      "hand_far": [
-       17,
-       23
-      ],
-      "hand_near": [
-       13,
-       22
-      ],
-      "head": [
-       15,
-       11
-      ],
-      "hip": [
-       15,
-       25
-      ],
-      "shield_front": [
-       11,
-       21
-      ],
-      "torso": [
-       15,
-       20
-      ],
-      "weapon_tip": [
-       10,
-       17
-      ]
-     }
-    ],
-    "attack_heavy_s": [
-     {
-      "back": [
-       15,
-       20
-      ],
-      "chin": [
-       15,
-       18
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       18
-      ],
-      "hand_near": [
-       10,
-       18
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
-       24
-      ],
-      "shield_front": [
-       15,
-       23
-      ],
-      "torso": [
-       15,
-       19
-      ],
-      "weapon_tip": [
-       6,
-       10
-      ]
-     },
-     {
-      "back": [
-       15,
-       20
-      ],
-      "chin": [
-       15,
-       18
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       18
-      ],
-      "hand_near": [
-       10,
-       19
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
-       24
-      ],
-      "shield_front": [
-       15,
-       23
-      ],
-      "torso": [
-       15,
-       19
-      ],
-      "weapon_tip": [
-       9,
-       10
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       20
-      ],
-      "hand_near": [
-       10,
-       21
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
-       26
-      ],
-      "shield_front": [
-       15,
-       25
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       9,
-       12
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       24
-      ],
-      "hand_near": [
-       12,
-       24
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
-       26
-      ],
-      "shield_front": [
-       15,
-       25
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       11,
-       28
-      ]
-     },
-     {
-      "back": [
-       15,
-       23
-      ],
-      "chin": [
-       15,
-       21
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       25
-      ],
-      "hand_near": [
-       12,
-       26
-      ],
-      "head": [
-       15,
-       13
-      ],
-      "hip": [
-       15,
-       27
-      ],
-      "shield_front": [
-       15,
-       26
-      ],
-      "torso": [
-       15,
-       22
-      ],
-      "weapon_tip": [
-       4,
-       29
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       20,
-       24
-      ],
-      "hand_near": [
-       12,
-       25
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
-       26
-      ],
-      "shield_front": [
-       15,
-       25
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       4,
-       28
-      ]
-     },
-     {
-      "back": [
-       15,
-       21
-      ],
-      "chin": [
-       15,
-       19
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       19,
-       23
-      ],
-      "hand_near": [
-       11,
-       22
-      ],
-      "head": [
-       15,
-       11
-      ],
-      "hip": [
-       15,
-       25
-      ],
-      "shield_front": [
-       15,
-       24
-      ],
-      "torso": [
-       15,
-       20
-      ],
-      "weapon_tip": [
-       8,
-       17
-      ]
-     }
-    ],
-    "attack_heavy_e": [
-     {
-      "back": [
-       12,
-       20
-      ],
-      "chin": [
-       15,
-       18
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       14,
-       18
-      ],
-      "hand_near": [
-       18,
-       18
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
-       24
-      ],
-      "shield_front": [
-       19,
-       20
-      ],
-      "torso": [
-       15,
-       19
-      ],
-      "weapon_tip": [
-       20,
-       11
-      ]
-     },
-     {
-      "back": [
-       11,
-       20
-      ],
-      "chin": [
-       13,
-       18
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       13,
-       18
-      ],
-      "hand_near": [
-       13,
-       11
-      ],
-      "head": [
-       13,
-       10
-      ],
-      "hip": [
-       14,
-       24
-      ],
-      "shield_front": [
-       18,
-       20
-      ],
-      "torso": [
-       14,
-       19
-      ],
-      "weapon_tip": [
-       6,
-       8
-      ]
-     },
-     {
-      "back": [
-       11,
-       22
-      ],
-      "chin": [
-       14,
-       20
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       13,
-       20
-      ],
-      "hand_near": [
-       13,
-       13
-      ],
-      "head": [
-       14,
-       12
-      ],
-      "hip": [
-       14,
-       26
-      ],
-      "shield_front": [
-       18,
-       22
-      ],
-      "torso": [
-       14,
-       21
-      ],
-      "weapon_tip": [
-       6,
-       10
-      ]
-     },
-     {
-      "back": [
-       13,
-       22
-      ],
-      "chin": [
-       16,
-       20
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       18,
-       27
-      ],
-      "hand_far": [
-       12,
-       24
-      ],
-      "hand_near": [
-       20,
-       22
-      ],
-      "head": [
-       16,
-       12
-      ],
-      "hip": [
-       16,
-       26
-      ],
-      "shield_front": [
-       20,
-       22
-      ],
-      "torso": [
-       16,
-       21
-      ],
-      "weapon_tip": [
-       21,
-       28
-      ]
-     },
-     {
-      "back": [
-       13,
-       23
-      ],
-      "chin": [
-       16,
-       21
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       12,
-       25
-      ],
-      "hand_near": [
-       18,
-       26
-      ],
-      "head": [
-       16,
-       13
-      ],
-      "hip": [
-       16,
-       27
-      ],
-      "shield_front": [
-       20,
-       23
-      ],
-      "torso": [
-       16,
-       22
-      ],
-      "weapon_tip": [
-       25,
-       26
-      ]
-     },
-     {
-      "back": [
-       13,
-       22
-      ],
-      "chin": [
-       16,
-       20
-      ],
-      "foot_far": [
-       12,
-       27
-      ],
-      "foot_near": [
-       17,
-       27
-      ],
-      "hand_far": [
-       12,
-       24
-      ],
-      "hand_near": [
-       18,
-       25
-      ],
-      "head": [
-       16,
-       12
-      ],
-      "hip": [
-       16,
-       26
-      ],
-      "shield_front": [
-       20,
-       22
-      ],
-      "torso": [
-       16,
-       21
-      ],
-      "weapon_tip": [
-       25,
-       25
       ]
      },
      {
@@ -13652,11 +14624,11 @@
      {
       "back": [
        15,
-       20
+       22
       ],
       "chin": [
        15,
-       18
+       20
       ],
       "foot_far": [
        18,
@@ -13667,78 +14639,78 @@
        27
       ],
       "hand_far": [
-       10,
-       18
+       13,
+       23
       ],
       "hand_near": [
        20,
-       18
+       23
       ],
       "head": [
        15,
-       10
+       12
       ],
       "hip": [
        15,
-       24
+       26
       ],
       "shield_front": [
        15,
-       18
+       20
       ],
       "torso": [
        15,
-       19
+       21
       ],
       "weapon_tip": [
        24,
-       10
+       17
       ]
      },
      {
       "back": [
-       15,
-       20
+       11,
+       23
       ],
       "chin": [
-       15,
-       18
+       14,
+       21
       ],
       "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
        12,
        27
       ],
+      "foot_near": [
+       17,
+       27
+      ],
       "hand_far": [
-       10,
-       18
-      ],
-      "hand_near": [
-       20,
-       19
-      ],
-      "head": [
-       15,
-       10
-      ],
-      "hip": [
-       15,
+       17,
        24
       ],
+      "hand_near": [
+       13,
+       25
+      ],
+      "head": [
+       14,
+       13
+      ],
+      "hip": [
+       14,
+       27
+      ],
       "shield_front": [
-       15,
-       18
+       18,
+       23
       ],
       "torso": [
-       15,
-       19
+       14,
+       22
       ],
       "weapon_tip": [
-       21,
-       10
+       6,
+       28
       ]
      },
      {
@@ -13760,11 +14732,11 @@
       ],
       "hand_far": [
        10,
-       20
+       24
       ],
       "hand_near": [
-       20,
-       21
+       19,
+       23
       ],
       "head": [
        15,
@@ -13783,8 +14755,192 @@
        21
       ],
       "weapon_tip": [
-       21,
+       19,
+       16
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
        12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       4,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       11,
+       27
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       26,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       22
+      ],
+      "hand_near": [
+       15,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       18
+      ],
+      "torso": [
+       15,
+       19
+      ],
+      "weapon_tip": [
+       8,
+       22
       ]
      },
      {
@@ -13809,8 +14965,8 @@
        23
       ],
       "hand_near": [
-       18,
-       23
+       13,
+       24
       ],
       "head": [
        15,
@@ -13829,100 +14985,8 @@
        20
       ],
       "weapon_tip": [
-       19,
-       27
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       10,
-       24
-      ],
-      "hand_near": [
-       18,
-       25
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
+       7,
        26
-      ],
-      "shield_front": [
-       15,
-       20
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       26,
-       28
-      ]
-     },
-     {
-      "back": [
-       15,
-       22
-      ],
-      "chin": [
-       15,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       12,
-       27
-      ],
-      "hand_far": [
-       10,
-       24
-      ],
-      "hand_near": [
-       18,
-       25
-      ],
-      "head": [
-       15,
-       12
-      ],
-      "hip": [
-       15,
-       26
-      ],
-      "shield_front": [
-       15,
-       20
-      ],
-      "torso": [
-       15,
-       21
-      ],
-      "weapon_tip": [
-       26,
-       28
       ]
      },
      {
@@ -13975,12 +15039,12 @@
     "attack_heavy_w": [
      {
       "back": [
-       18,
-       20
+       19,
+       22
       ],
       "chin": [
-       15,
-       18
+       16,
+       20
       ],
       "foot_far": [
        18,
@@ -13991,216 +15055,308 @@
        27
       ],
       "hand_far": [
-       16,
-       18
+       13,
+       23
       ],
       "hand_near": [
+       17,
+       24
+      ],
+      "head": [
+       16,
+       12
+      ],
+      "hip": [
+       16,
+       26
+      ],
+      "shield_front": [
        12,
-       18
+       22
+      ],
+      "torso": [
+       16,
+       21
+      ],
+      "weapon_tip": [
+       24,
+       27
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       20,
+       24
       ],
       "head": [
        15,
-       10
+       13
       ],
       "hip": [
        15,
+       27
+      ],
+      "shield_front": [
+       15,
+       26
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       24,
+       18
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
        24
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
       ],
       "shield_front": [
        11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       4,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
        20
       ],
       "torso": [
        15,
-       19
+       21
       ],
       "weapon_tip": [
-       10,
-       11
+       11,
+       16
       ]
      },
      {
       "back": [
-       19,
-       20
+       12,
+       22
       ],
       "chin": [
-       17,
-       18
+       15,
+       20
       ],
       "foot_far": [
-       18,
+       12,
        27
       ],
       "foot_near": [
-       13,
+       17,
        27
       ],
       "hand_far": [
-       17,
-       18
-      ],
-      "hand_near": [
-       17,
-       11
-      ],
-      "head": [
-       17,
-       10
-      ],
-      "hip": [
-       16,
+       11,
        24
       ],
-      "shield_front": [
-       12,
-       20
-      ],
-      "torso": [
-       16,
-       19
-      ],
-      "weapon_tip": [
-       24,
-       8
-      ]
-     },
-     {
-      "back": [
+      "hand_near": [
        19,
        22
       ],
-      "chin": [
-       16,
-       20
-      ],
-      "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
-       13,
-       27
-      ],
-      "hand_far": [
-       17,
-       20
-      ],
-      "hand_near": [
-       17,
-       13
-      ],
       "head": [
-       16,
+       15,
        12
       ],
       "hip": [
-       16,
+       15,
        26
       ],
       "shield_front": [
-       12,
+       19,
        22
       ],
       "torso": [
-       16,
+       15,
        21
       ],
       "weapon_tip": [
-       24,
-       10
+       26,
+       22
       ]
      },
      {
       "back": [
-       17,
+       15,
        22
       ],
       "chin": [
-       14,
+       15,
        20
       ],
       "foot_far": [
-       18,
-       27
-      ],
-      "foot_near": [
        12,
        27
       ],
-      "hand_far": [
+      "foot_near": [
        18,
+       27
+      ],
+      "hand_far": [
+       10,
        24
       ],
       "hand_near": [
-       10,
-       22
+       19,
+       23
       ],
       "head": [
-       14,
+       15,
        12
       ],
       "hip": [
-       14,
+       15,
        26
       ],
       "shield_front": [
-       10,
-       22
+       15,
+       25
       ],
       "torso": [
-       14,
+       15,
        21
       ],
       "weapon_tip": [
-       9,
-       28
+       19,
+       27
       ]
      },
      {
       "back": [
        17,
-       23
+       21
       ],
       "chin": [
-       14,
-       21
+       13,
+       19
       ],
       "foot_far": [
        18,
        27
       ],
       "foot_near": [
-       13,
+       12,
        27
       ],
       "hand_far": [
        18,
-       25
+       23
       ],
       "hand_near": [
-       12,
-       26
+       10,
+       21
       ],
       "head": [
-       14,
-       13
+       13,
+       11
       ],
       "hip": [
        14,
-       27
+       25
       ],
       "shield_front": [
        10,
-       23
+       21
       ],
       "torso": [
        14,
-       22
+       20
       ],
       "weapon_tip": [
-       5,
-       26
+       3,
+       21
       ]
      },
      {
@@ -14217,7 +15373,7 @@
        27
       ],
       "foot_near": [
-       13,
+       12,
        27
       ],
       "hand_far": [
@@ -14245,8 +15401,8 @@
        21
       ],
       "weapon_tip": [
-       5,
-       25
+       6,
+       27
       ]
      },
      {
@@ -22858,6 +24014,30 @@
     ]
    },
    "loop_frames": {
+    "attack_heavy_s": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "attack_heavy_e": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "attack_heavy_n": [
+     2,
+     3,
+     4,
+     5
+    ],
+    "attack_heavy_w": [
+     2,
+     3,
+     4,
+     5
+    ],
     "cast_s": [
      2
     ],
