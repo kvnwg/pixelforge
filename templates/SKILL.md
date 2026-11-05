@@ -22,11 +22,11 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 
 ## Making a character or monster from existing parts
 
-1. Browse `<repo>/parts/` (slot, then variant), the presets under `materials` in `<repo>/style/style.json`, and the recipes in `<repo>/characters/` (`characters/monsters/` for enemies; `goblin_archer.yaml`, `ogre.yaml`, `stone_warden.yaml` are good models).
-2. Write a recipe. Pick the rig (`humanoid`, `humanoid_small`, `humanoid_large`, `blob`, `flyer`, `quadruped`, `golem`) and the timing profile: `player` for heroes, `enemy` for mobs, `elite` for stronger variants, `boss` for bosses (the same art gets longer tells). A recolor or elite of an existing monster shares its `family:`.
+1. Look for a recipe that already is what the user asked for in `<repo>/characters/` and `<repo>/characters/monsters/` (`ls` both): if one fits, use it as is instead of writing a duplicate. Otherwise browse `<repo>/parts/` (slot, then variant) and the presets under `materials` in `<repo>/style/style.json`; `goblin_archer.yaml`, `ogre.yaml` and `stone_warden.yaml` are good models.
+2. Write a recipe (only when none fits; a variant of an existing one gets a new name and the same `family:`). Pick the rig (`humanoid`, `humanoid_small`, `humanoid_large`, `blob`, `flyer`, `quadruped`, `golem`) and the timing profile: `player` for heroes, `enemy` for mobs, `elite` for stronger variants, `boss` for bosses (the same art gets longer tells). A recolor or elite of an existing monster shares its `family:`.
 3. `pf build <name>`, then `pf validate`.
-4. `pf review <name> --combat` (and `pf battle <name> knight --anim <attack>` for an attack, `pf roster` for a monster) and open `turnaround.png`, `vs_anchor.png` and the 1x strips. Describe what you see before judging it.
-5. Copy `<repo>/out/<name>/<name>.png` and `<name>.json` into the game's asset folder (ask where if unclear). For code, `<repo>/loaders/` has `pixelforge.ts` (any canvas renderer, Rolling Knight), `phaser.js` (Phaser 3) and `godot/pixelforge_sprite.gd` (Godot 4); copy the one the game needs.
+4. `pf review <name> --combat` and open `review/<name>/turnaround.png`, `vs_anchor.png`, `<anim>_strip_1x.png` and, for each attack, `<anim>_<dir>_timeline.png`; `pf battle <name> knight --anim <attack>` writes `review/battle/battle_<name>_vs_knight_<attack>.png`; `pf roster` writes `review/roster_lineup.png` for a monster. Describe what you see before judging it.
+5. Copy `<repo>/out/<name>/<name>.png` and `<name>.json` into the game's asset folder (ask where if unclear), and with them every FX its events name (`"fx"` in `meta.pixelforge.events`: an arrow, sparks, impacts): `<repo>/out/fx/<fx>/` after `pf fx build --all`, or the committed copies in `<repo>/out/examples/fx/`. For code, `<repo>/loaders/` has `pixelforge.ts` (any canvas renderer, Rolling Knight; it plays FX sheets too), `phaser.js` (Phaser 3) and `godot/pixelforge_sprite.gd` (Godot 4); copy the one the game needs. Under Node, build a `Sheet` from the parsed JSON (`loadSheet` is for browsers) and import the loader with its `.ts` extension.
 
 ## When something doesn't exist yet
 
@@ -40,8 +40,8 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 
 - Tags are `<anim>_<dir>` with `dir` in s, e, n, w; w is drawn, never flip at runtime. Choose the view from the aim vector's dominant axis.
 - Place sprites by `meta.pixelforge.pivot` (their ground point), at integer positions and zoom.
-- Events: `windup` (the tell), `hit` (damage and hit stop), `spawn` (a projectile at `point`, bosses add `pattern`, `count`, `spread`), `vfx` (play `fx` at `point`), `summon`, `recover`. FX are in `<repo>/out/fx/`.
-- `hitboxes` exist only on active frames; `root_motion` moves the entity; `loop_frames` repeat while a move lasts.
+- Events: `windup` (the tell), `hit` (damage and hit stop), `spawn` (a projectile from `point`, aimed from there at the target, not from the pivot; bosses add `pattern`, `count`, `spread`), `vfx` (play `fx` at `point`), `summon`, `recover`. FX pivots are per tag (`<anim>_<dir>`).
+- `hitboxes` exist only on active frames; `root_motion` moves the entity; `loop_frames` may repeat while a move lasts (a charge, a held full draw).
 
 ## Rules
 

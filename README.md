@@ -101,7 +101,7 @@ Each export is `<name>.png` plus `<name>.json`:
 
 ### Rolling Knight, or any canvas renderer (TypeScript)
 
-`loaders/pixelforge.ts` has no dependencies: `Sheet` reads an export, `Animator` plays clips, fires events in order, retimes for a profile, gives world-space hitboxes and points, and draws with the pivot on the entity's position.
+`loaders/pixelforge.ts` has no dependencies: `Sheet` reads an export, `Animator` plays clips, fires events in order, retimes for a profile, gives world-space hitboxes and points, and draws with the pivot on the entity's position. FX exports load the same way (their pivot is per tag), so the arrow a `spawn` event names is one more `Sheet`; copy the FX a character's events name along with it (`out/fx/<fx>/`, or `out/examples/fx/`). In Node, build `new Sheet(JSON.parse(text))` and import the file with its `.ts` extension.
 
 ```ts
 import { loadSheet, Animator, facing } from "./pixelforge";
@@ -112,7 +112,7 @@ goblin.play("shoot_bow", facing(target.x - x, target.y - y));
 
 // every tick:
 for (const ev of goblin.update(dtMs)) {
-  if (ev.type === "spawn") fireArrow(goblin.toWorld(ev.point!, x, y, zoom));
+  if (ev.type === "spawn") fireArrow(arrowSheet, goblin.toWorld(ev.point!, x, y, zoom));  // aim from the point
   if (ev.type === "hit") damage(goblin.hitboxes(x, y, zoom));
 }
 goblin.draw(ctx, x, y, zoom);

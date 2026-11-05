@@ -17829,6 +17829,18 @@
     ]
    },
    "loop_frames": {
+    "cast_ring_s": [
+     1
+    ],
+    "cast_ring_e": [
+     1
+    ],
+    "cast_ring_n": [
+     1
+    ],
+    "cast_ring_w": [
+     1
+    ],
     "charge_s": [
      2,
      3

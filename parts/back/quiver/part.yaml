@@ -1,0 +1,10 @@
+slot: back
+variant: quiver
+material: leather
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid_small
+notes: A quiver of arrows on the back, fletchings over the shoulder.

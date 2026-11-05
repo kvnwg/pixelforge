@@ -21508,7 +21508,20 @@
      }
     ]
    },
-   "loop_frames": {},
+   "loop_frames": {
+    "cast_s": [
+     2
+    ],
+    "cast_e": [
+     2
+    ],
+    "cast_n": [
+     2
+    ],
+    "cast_w": [
+     2
+    ]
+   },
    "overlays": {
     "stun": "status_stun"
    },

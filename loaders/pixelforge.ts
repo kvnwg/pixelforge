@@ -8,6 +8,13 @@
  * hurtboxes per frame, named points per frame, root motion, hold frames, base durations and the
  * timing profiles (COMBAT.md sections 2, 4 and 5).
  *
+ * FX exports (out/fx/<name>/) load the same way: their pivot is per tag, and `layer`, `space`
+ * and `attach` say how to play them (an event's `fx` names one; spawn it at the event's point).
+ *
+ * In a browser: `loadSheet(pngUrl, jsonUrl)`. In Node (tests, tools): `new Sheet(JSON.parse(text))`
+ * (no image, so nothing draws), and with Node's type stripping import this file with its `.ts`
+ * extension.
+ *
  * Usage:
  *   const sheet = await loadSheet("assets/knight.png", "assets/knight.json");
  *   const anim = new Animator(sheet);
@@ -62,7 +69,13 @@ function roundHalfEven(v: number): number {
 export class Sheet {
   readonly json: any;
   readonly image: CanvasImageSource | null;
+  /** The ground point of a character (FX: their first tag's pivot; use pivotFor). */
   readonly pivot: [number, number];
+  /** FX only: drawn above or below characters, in world space or following an anchor. */
+  readonly isFx: boolean;
+  readonly layer: string;
+  readonly space: string;
+  readonly attach: string | null;
   readonly cell: number;
   readonly sizeClass: string;
   readonly timingProfile: string;
@@ -73,7 +86,11 @@ export class Sheet {
     this.json = json;
     this.image = image;
     const pf = json.meta.pixelforge;
-    this.pivot = pf.pivot;
+    this.isFx = !Array.isArray(pf.pivot);
+    this.pivot = this.isFx ? pf.pivot[json.meta.frameTags[0].name] : pf.pivot;
+    this.layer = pf.layer ?? "above";
+    this.space = pf.space ?? "world";
+    this.attach = pf.attach ?? null;
     this.sizeClass = pf.size_class ?? "small";
     this.timingProfile = pf.timing_profile ?? "player";
     this.profiles = pf.timing_profiles ?? {};
@@ -102,6 +119,12 @@ export class Sheet {
   }
 
   has(anim: string, dir: Dir): boolean { return this.clips.has(`${anim}_${dir}`); }
+
+  /** The pixel placed on the world position for a tag: one pivot for characters, per tag for FX. */
+  pivotFor(tag: string): [number, number] {
+    const pv = this.json.meta.pixelforge.pivot;
+    return Array.isArray(pv) ? pv : pv[tag];
+  }
 
   clip(anim: string, dir: Dir): Clip {
     const c = this.clips.get(`${anim}_${dir}`);
@@ -196,7 +219,7 @@ export class Animator {
   /** A frame-space point (from an event or the frame's named points) in world space, for an
    *  entity whose ground point (the pivot) is at (x, y), at a given zoom. */
   toWorld(p: [number, number], x: number, y: number, zoom = 1): [number, number] {
-    const [px, py] = this.sheet.pivot;
+    const [px, py] = this.pivotHere();
     return [x + (p[0] - px) * zoom, y + (p[1] - py) * zoom];
   }
 
@@ -205,8 +228,12 @@ export class Animator {
     return p ? this.toWorld(p, x, y, zoom) : null;
   }
 
+  private pivotHere(): [number, number] {
+    return this.clip ? this.sheet.pivotFor(this.clip.tag) : this.sheet.pivot;
+  }
+
   private boxes(list: Box[], x: number, y: number, zoom: number): Box[] {
-    const [px, py] = this.sheet.pivot;
+    const [px, py] = this.pivotHere();
     return list.map((b) => ({ x: x + (b.x - px) * zoom, y: y + (b.y - py) * zoom, w: b.w * zoom, h: b.h * zoom }));
   }
 
@@ -227,7 +254,7 @@ export class Animator {
     const c = this.clip;
     if (!c || !this.sheet.image) return;
     const f = c.frames[this.frame];
-    const [px, py] = this.sheet.pivot;
+    const [px, py] = this.pivotHere();
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(this.sheet.image, f.x, f.y, f.w, f.h,
       Math.round(x - px * zoom), Math.round(y - py * zoom), f.w * zoom, f.h * zoom);

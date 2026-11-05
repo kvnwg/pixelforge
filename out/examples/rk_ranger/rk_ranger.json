@@ -12344,7 +12344,20 @@
      }
     ]
    },
-   "loop_frames": {},
+   "loop_frames": {
+    "shoot_bow_s": [
+     2
+    ],
+    "shoot_bow_e": [
+     2
+    ],
+    "shoot_bow_n": [
+     2
+    ],
+    "shoot_bow_w": [
+     2
+    ]
+   },
    "overlays": {
     "stun": "status_stun"
    },

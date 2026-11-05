@@ -55,3 +55,24 @@ def test_loader_times_events_like_the_exporter(root, style, exported, name, anim
     assert kinds == [e["type"] for e in sorted(adef.events, key=lambda e: e["frame"])]
     assert got["pivot"] == list(b.composer.rig.size.pivot)
     assert got["facings"] == ["e", "w", "s", "n"]
+
+
+def test_loader_places_fx_by_their_own_pivots(root, style, exported, tmp_path):
+    """FX pivots are per tag: the loader plays an event's FX at the event's point."""
+    from pixelforge.fx import export as export_fx, load_fx
+    b, path = exported["goblin_archer"]
+    export_fx(load_fx(root / "fx" / "arrow", style), style, tmp_path)
+    fx_json = next(tmp_path.rglob("arrow.json"))
+    run = subprocess.run([NODE, "--experimental-strip-types", "--no-warnings",
+                          str(root / "loaders" / "selftest.ts"), str(path), "shoot_bow", "e",
+                          "enemy", str(fx_json)], capture_output=True, text=True, timeout=60)
+    assert run.returncode == 0, run.stderr
+    got = json.loads(run.stdout)["fx"]
+    assert got["isFx"] and got["anim"] == "travel" and got["pivot"] == [8, 7]
+    assert got["origin"] == got["at"]  # the arrow's pivot lands on the bow's nock
+
+
+def test_charge_loops_are_exported(exported):
+    b, path = exported["goblin_archer"]
+    pf = json.loads(path.read_text())["meta"]["pixelforge"]
+    assert pf["loop_frames"]["shoot_bow_e"] == [2]  # the held full draw

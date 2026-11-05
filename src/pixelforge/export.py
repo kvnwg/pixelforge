@@ -83,6 +83,8 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
             holds[tag] = sorted(adef.flags["hold"])
         if adef.raw.get("loop_frames"):  # frames a game may repeat while a move lasts (a charge)
             loop_frames[tag] = list(adef.raw["loop_frames"])
+        elif adef.raw.get("charge_loop_frame") is not None:  # a held full draw or a charging spell
+            loop_frames[tag] = [int(adef.raw["charge_loop_frame"])]
         boxes = {str(i): [{"x": x, "y": y, "w": w, "h": h} for x, y, w, h in f.hitboxes]
                  for i, f in enumerate(b.frames[(anim, d)]) if f.hitboxes}
         if boxes:

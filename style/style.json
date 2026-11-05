@@ -1394,6 +1394,7 @@
       "z_order": {
         "s": [
           "shadow",
+          "back",
           "body",
           "over_torso",
           "ears",
@@ -1403,6 +1404,7 @@
         ],
         "e": [
           "shadow",
+          "back",
           "body",
           "over_torso",
           "ears",
@@ -1415,6 +1417,7 @@
           "held_near",
           "body",
           "over_torso",
+          "back",
           "ears",
           "headwear",
           "eyes"

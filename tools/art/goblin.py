@@ -136,9 +136,10 @@ FRAMES = {
     "victory": [(0, 1, 1, "wide", "rest", "rest"), (0, -2, -2, "stand", "up", "up"),
                 (0, 1, 1, "wide", "up", "up"), (0, 0, 0, "stand", "up", "up")],
 }
-FRAMES["shoot_bow"] = [  # the goblin archer: nock, draw, full draw (held), release, recoil, lower
-    (0, 0, 0, "wide", "bow", "rest", "nock"), (-1, 0, 0, "wide", "bow", "rest", "draw"),
-    (-1, 0, 0, "wide", "bow", "rest", "full"), (0, 0, 0, "wide", "bow", "rest", "release"),
+FRAMES["shoot_bow"] = [  # the goblin archer: nock, draw, full draw (held), release, recoil, lower;
+    # it sinks 1 px into the draw, so the tell moves the whole body in every view
+    (0, 0, 0, "wide", "bow", "rest", "nock"), (-1, 1, 1, "wide", "bow", "rest", "draw"),
+    (-1, 1, 1, "wide", "bow", "rest", "full"), (0, 0, 0, "wide", "bow", "rest", "release"),
     (-1, 0, 0, "wide", "bow", "rest", "release"), (0, 0, 0, "stand", "rest", "rest", "rest"),
 ]
 FRAMES["combat_idle"] = None  # an alias of idle (style.json)
@@ -337,10 +338,19 @@ def main() -> None:
                    "eyes": "glow red"},
         "anims": common,
     })
+    quiver = {  # leather, on the back: fletchings over the shoulder set the archer apart
+        "s": ([".2.", "22.", "01.", "01.", "01.", "01.", "01.", "00."], 20, 18),
+        "e": (["2..", "22.", ".01", ".01", ".01", ".01", ".00"], 10, 18),
+        "n": (["..2", ".22", "12.", "01.", "01.", "01.", "01.", "01.", "00."], 16, 17),
+    }
+    write_part("back", "quiver", {"material": "leather", "kind": "rigid", "attach": "torso",
+                                  "origin": "auto", "lags": False, "rigs": [RIG],
+                                  "notes": "A quiver of arrows on the back, fletchings over the shoulder."},
+               {"rigid": {(d, 0): g(*quiver[d]) for d in DIRS}})
     write_recipe("monsters/goblin_archer.yaml", {
         "name": "goblin_archer", "family": "goblin", "rig": RIG, "timing_profile": "enemy", "seed": 1,
         "parts": {"ears": "goblin", "eyes": "goblin", "over_torso": "loincloth",
-                  "held_near": "goblin_bow"},
+                  "held_near": "goblin_bow", "back": "quiver"},
         "colors": {"hide": "goblin", "cloth": "forest", "leather": "tan", "eyes": "glow yellow"},
         "anims": ["idle", "walk", "combat_idle", "shoot_bow", "hurt", "death", "victory"],
     })

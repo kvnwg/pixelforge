@@ -46,7 +46,7 @@ The same art serves player characters and enemies, with different timing. Each r
 | elite | 350 ms | 1.8 |
 | boss | 500 ms (heavy attacks: aim for 600+) | 2.2 |
 
-How it works: frames flagged `hold` in the animation definition are multiplied by `hold_scale`; then, if the time from the first windup frame to the `hit` event is still under the minimum, the last hold frame is extended until it meets it. Player attacks stay snappy; enemy attacks become readable without redrawing anything.
+How it works: frames flagged `hold` in the animation definition are multiplied by `hold_scale`; then, if the time from the first windup frame to the `hit` (or, for ranged attacks and spells, `spawn`) event is still under the minimum, the last hold frame is extended until it meets it. Player attacks stay snappy; enemy attacks become readable without redrawing anything.
 
 Telegraph rules:
 
@@ -242,7 +242,7 @@ The preview shows hitboxes (red) and hurtboxes (blue) as overlays, and `pf revie
 
 Required: every attack has `windup`, `hit` (or `spawn` for ranged), and `recover`. Points must be within 3 px of a hand anchor or a held item's tip, or be a body point: `head`, `torso`, the feet, `ground`, `back`, or one of the rig's `emitters` (the Stone Warden's `core`, `slam` and `summon_point`).
 
-An animation may list `loop_frames` (exported as `meta.pixelforge.loop_frames`): frames the game repeats while the move lasts, like the boss charge's rush (Phase 9).
+An animation may list `loop_frames` (exported as `meta.pixelforge.loop_frames`): frames the game repeats while the move lasts, like the boss charge's rush (Phase 9). A `charge_loop_frame` (a held full draw, a charging spell) is exported there too, as a one-frame loop.
 
 Named points come from the rig's anchors (`hand_near`, `foot_near`, `shield_front`...) and from the held items' poses (`weapon_tip`, `bow_nock`, `shield_front`). The export resolves them per frame: an event with `"point": "weapon_tip"` is written as `"point": [25, 26], "point_name": "weapon_tip"`.
 

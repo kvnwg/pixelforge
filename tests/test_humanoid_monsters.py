@@ -189,3 +189,9 @@ def test_goblin_archer_shoots_from_its_bow(root, style):
         assert abs(nx - xs.mean()) <= 3 and ys.min() <= ny <= ys.max()  # the arrow leaves the bow
     durations = [f.duration for f in archer.frames[("shoot_bow", "e")]]
     assert sum(durations[:spawn["frame"]]) >= style.raw["combat"]["timing_profiles"]["enemy"]["telegraph_min_ms"]
+    for d in ("s", "n"):  # the tell moves the whole body: it sinks into the draw in every view
+        top = lambda f: int(np.flatnonzero(  # noqa: E731
+            next(l for l in f.layers if l.slot == "body").image[..., 3].any(axis=1)).min())
+        frames = archer.frames[("shoot_bow", d)]
+        assert top(frames[2]) == top(frames[0]) + 1
+    assert "back" in {l.slot for l in archer.frames[("idle", "s")][0].layers}  # the quiver

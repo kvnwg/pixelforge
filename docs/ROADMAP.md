@@ -388,7 +388,7 @@ Known limits: stones are procedural rounded boxes with seeded cracks, so they ar
 
 ## Phase 10: Package for reuse
 
-Status: not started
+Status: done (commits "Phase 10 (part 1): ..." and "Phase 10: docs, examples, skill, v1.0", tag `v1.0`; see the notes below)
 
 Tasks:
 1. README.md for humans: what pixelforge is, how to make a character or monster, how to add a part, rig or FX, and how to use the exports (including events, hitboxes and root motion) in Phaser and Godot.
@@ -400,3 +400,15 @@ Acceptance:
 - From a fresh Claude Code session in another project, "make me a pixelforge goblin archer enemy" works end to end using the skill, with the enemy timing profile and a bow.
 
 Commit: `Phase 10: docs, examples, skill, v1.0`
+
+### Phase 10 notes and self-review (checkpoints waived, see the top of this file)
+
+Built: `README.md` rewritten for humans (what pixelforge is, making characters, monsters, parts, rigs and FX, the export format, engine use); `loaders/pixelforge.ts` (framework-free TypeScript for canvas renderers like Rolling Knight: sheets, an animator that fires events in order and retimes for a profile, world-space boxes and points, FX sheets with per-tag pivots), `loaders/phaser.js` and `loaders/godot/pixelforge_sprite.gd`; `tools/make_examples.py` and `out/examples/` (the knight, the ranger, one monster per rig, the boss and the FX set); `templates/SKILL.md` filled in and installed to `~/.claude/skills/pixelforge/SKILL.md`; version 1.0.0. `tests/test_loaders.py` runs the TypeScript loader under Node against fresh exports and checks it against the exporter's timing.
+
+Acceptance run ("make me a pixelforge goblin archer enemy" from a fresh project): goblins had no bow, so, as the skill says for missing art, the goblin got one first: `held_near/goblin_bow` drawn per frame, `shoot_bow` for the `humanoid_small` rig, a quiver, and the `goblin_archer` recipe (enemy profile, family `goblin`). Then a separate agent with no context but the installed skill did the request from a new game folder: found the recipe, built it (0 errors, 0 warnings), validated, opened the reviews, copied the PNG and JSON and the TypeScript loader into the game and played the shot (windup at 0 ms, the arrow spawned at `bow_nock` at 560 ms on the enemy profile, recover at 740 ms) in all four views. Its findings, all fixed before tagging: the skill now says to reuse an existing recipe, to copy the FX a character's events name, how to load under Node, and where the combat review files are; the loader plays FX sheets (per-tag pivots); `charge_loop_frame` is exported as `loop_frames` so a game can hold a full draw; COMBAT.md section 2 says the tell runs to `hit` or `spawn`; and the archer's tell now sinks the whole body into the draw in every view, with a quiver so it no longer looks like the club goblin at idle.
+
+What the review images show: the goblin archer is the goblin with a tan short bow held at its side and a quiver over its shoulder; facing e it raises the bow, sinks into the draw with the string back and an arrow on it, looses (the arrow crosses to the knight, which flashes) and lowers the bow.
+
+Rubric (goblin archer): style match 4, 1x readability 4 (the bow is thin at 1x; the quiver and pose carry it), silhouette 4, motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4.
+
+Known limits: the Phaser and Godot loaders are written against their documented APIs (Phaser's Aseprite loader, Godot 4's `SpriteFrames`) but not run here; the skill is installed in this machine's `~/.claude/skills`, and each machine that uses pixelforge needs the same copy.
