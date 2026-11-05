@@ -166,7 +166,7 @@ Commit: `Phase 4: parts library, randomizer, knight`
 
 ## Phase 5: Humanoid combat (CHECKPOINT)
 
-Status: done (commit recorded in the Phase 5 notes below)
+Status: done (commit cd0f89d)
 
 Tasks:
 1. Read COMBAT.md fully. Add any missing detail to it before drawing.
