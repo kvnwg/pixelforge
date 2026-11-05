@@ -221,7 +221,7 @@ Known limits, recorded in the docs: death ends kneeling rather than lying down (
 
 ## Phase 6: FX library (CHECKPOINT)
 
-Status: done (commit recorded in the Phase 6 notes below)
+Status: done (commit 57251de)
 
 Tasks:
 1. FX pipeline: `fx/<name>/fx.yaml`, sheets, `pf fx build`, `pf fx review`, validation against `fx_ramps`, 90-degree rotation support.
