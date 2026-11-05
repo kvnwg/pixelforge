@@ -50,3 +50,4 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 - Only colors from `style.json`. New presets must pass `pf palette --check`.
 - Never describe art as good without opening the review images first.
 - `pf validate` must pass before copying anything into a game.
+- Never commit, push or open pull requests in the Rolling Knight repository (kvnwg/rolling-knight), ever. Copy exports into its folder only when the user asks, and leave committing them to the user.

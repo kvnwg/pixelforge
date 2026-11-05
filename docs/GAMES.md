@@ -6,7 +6,7 @@ Notes on each game that uses pixelforge: what it needs, and which pixelforge dec
 
 ## Rolling Knight
 
-Repo: https://github.com/kvnwg/rolling-knight (read at commit 72b26ae, 2026-11-05).
+Repo: https://github.com/kvnwg/rolling-knight (read at commit 72b26ae, 2026-11-05). Read-only for pixelforge work: never commit, push or open pull requests there (the human's rule, CLAUDE.md rule 13).
 
 A real-time, top-down (3/4 view) pixel action roguelite with a slot-machine Summoning Altar that rolls knights. You field a squad of three knights in procedural dungeons, control one, and the other two fight by their class's AI. Knights auto-attack whatever is in range. Custom TypeScript canvas renderer (React UI, Vite), not Phaser or Godot.
 

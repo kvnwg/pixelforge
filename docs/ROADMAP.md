@@ -417,7 +417,7 @@ Known limits: the Phaser and Godot loaders are written against their documented 
 
 ## Motion pass 1 (after v1.0)
 
-Status: done (commit "Motion pass 1: breathing idle, 8-frame walk, run, follow-through")
+Status: done (commit 37e3060)
 
 Asked for after v1.0: the animations were "the most basic baseline trudging movements"; research how good pixel art moves and flows, then apply it. The research (Slynyrd's Pixelblogs on idles, walks and attacks; sub-pixel animation; the animation principles at pixel scale), the eight motion rules and every decision made here are in `docs/MOTION.md`.
 
