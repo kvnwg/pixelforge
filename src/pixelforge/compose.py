@@ -252,20 +252,24 @@ class Composer:
             out[y][fill] = source[fill]
         return out
 
-    def smear_cell(self, held: Part | None, src: AnimDef, direction: str, index: int):
+    def smear_cell(self, held: Part | None, src: AnimDef, direction: str, index: int,
+                   front: bool = False):
         """The held item's smear for a frame, placed (or None): a weapon drawn per frame (a
         monster's club) has smear_<anim>.png with a cell per frame; a posed one has
-        smear_<pose>.png, moved with the item."""
+        smear_<pose>.png, moved with the item, and smear_<pose>_front.png for a blade that
+        passes in front of the body (drawn over it)."""
         if held is None:
             return None
         cell = None
         if held.drawn(src.name):
+            if front:
+                return None
             sheet = self.lib.sheet(held, f"smear_{src.name}")
             if sheet is not None and index < sheet.frames:
                 cell = sheet.get(direction, index)
         else:
             pose = self.pose(held, src, direction, index)
-            sheet = self.lib.sheet(held, f"smear_{pose}") if pose else None
+            sheet = self.lib.sheet(held, f"smear_{pose}" + ("_front" if front else "")) if pose else None
             cell = sheet.get(direction, 0) if sheet else None
             if cell is not None:
                 cell, _ = shift(cell, *self.offset(held, src, direction, index))
@@ -378,14 +382,15 @@ class Composer:
         # the white swing ramp, only on empty pixels (behind the character), never outlined; on
         # the next frame it lingers a shade dimmer, then is gone.
         held = self.parts.get("held_near")
-        cell, fade = self.smear_cell(held, src, direction, src_index), False
-        if cell is None and src_index > 0:
-            cell, fade = self.smear_cell(held, src, direction, src_index - 1), True
-        if cell is not None:
-            cell = self.swing(cell, fade)
-            mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0)
-            sprite[mask] = cell[mask]
-            owner[mask] = SMEAR
+        for front in (False, True):  # behind the body, then (a blade passing in front) over it
+            cell, fade = self.smear_cell(held, src, direction, src_index, front), False
+            if cell is None and src_index > 0:
+                cell, fade = self.smear_cell(held, src, direction, src_index - 1, front), True
+            if cell is not None:
+                cell = self.swing(cell, fade)
+                mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0 if not front else True)
+                sprite[mask] = cell[mask]
+                owner[mask] = SMEAR
         if "flash" in flags:
             sprite = flash(sprite, o.rgb, self.flash_rgb)
         shadow = shadow_layer(self.style.shadow, o.rgb, self.size,

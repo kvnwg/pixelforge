@@ -50,6 +50,26 @@ pose_singletons:
     n:
     - - 20
       - 23
+  pose_sweep:
+    s:
+    - - 12
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 18
+      - 23
+  pose_across:
+    s:
+    - - 12
+      - 23
+    e:
+    - - 16
+      - 23
+    n:
+    - - 18
+      - 23
   pose_overhead:
     s:
     - - 10

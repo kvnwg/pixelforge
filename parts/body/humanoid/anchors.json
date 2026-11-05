@@ -3469,7 +3469,7 @@
      26
     ],
     "hand_near": [
-     12,
+     15,
      24
     ],
     "hand_far": [
@@ -3493,7 +3493,7 @@
      25
     ],
     "pose": {
-     "held_near": "strike",
+     "held_near": "sweep",
      "held_far": "rest"
     }
    },
@@ -3519,7 +3519,7 @@
      26
     ],
     "hand_near": [
-     12,
+     17,
      25
     ],
     "hand_far": [
@@ -3543,7 +3543,7 @@
      25
     ],
     "pose": {
-     "held_near": "low",
+     "held_near": "across",
      "held_far": "rest"
     }
    },
@@ -3744,7 +3744,7 @@
      21
     ],
     "pose": {
-     "held_near": "strike",
+     "held_near": "sweep",
      "held_far": "rest"
     }
    },
@@ -3793,7 +3793,7 @@
      21
     ],
     "pose": {
-     "held_near": "low",
+     "held_near": "across",
      "held_far": "rest"
     }
    },
@@ -3971,7 +3971,7 @@
      24
     ],
     "hand_near": [
-     18,
+     15,
      22
     ],
     "hand_far": [
@@ -3995,7 +3995,7 @@
      18
     ],
     "pose": {
-     "held_near": "strike",
+     "held_near": "sweep",
      "held_far": "rest"
     }
    },
@@ -4021,7 +4021,7 @@
      24
     ],
     "hand_near": [
-     18,
+     13,
      23
     ],
     "hand_far": [
@@ -4045,7 +4045,7 @@
      18
     ],
     "pose": {
-     "held_near": "low",
+     "held_near": "across",
      "held_far": "rest"
     }
    },

@@ -482,3 +482,11 @@ Rubric: style match 4, 1x readability 4, silhouette 4 (the wings and horns carry
 
 Next: sword slashes that sweep across the body with an arc (the human's latest request), then the tall, quick humanoid duelist.
 
+---
+
+## Slashes across the body
+
+Status: done (commit "Sword slashes sweep across the body with an arc")
+
+Asked for: "for sword swings, they should go across body and leave an arc". `attack_slash` (every humanoid: knights, the classes, heroes, the orc and skeleton) now sweeps across the front instead of chopping down the weapon side: new held poses `sweep` and `across`, an `across` arm reaching over the chest (2 px thick) and an `after` follow-through on the far side, per-view arcs (over the hips facing s, drawn over the body; over the head facing n; over the top and down in front facing e), and trails that may be drawn in front of the body (`smear_<pose>_front`, composited over the sprite). The validator counts a trail over the body as cover (E4, E5) and ignores what it isolates for a frame (W3). The lance keeps its thrust and fists draw smaller arcs. `tests/test_trails.py` checks that the blade starts on the weapon side, ends on the far side and that its trail crosses the body from one side to the other.
+

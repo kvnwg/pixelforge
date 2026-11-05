@@ -142,9 +142,9 @@ class Validator:
             out.append(Finding("error", "E3", where, "semi-transparent pixels that are not ground "
                                                      "shadow", _px(partial & ~shadow_ok),
                                "antialiasing or a soft brush; alpha must be 0 or 255"))
-        # E4 closed outline
+        # E4 closed outline (a swing trail drawn over the body covers it: not a gap)
         up, down, left, right = _neighbors4(sil)
-        touching = ~opaque & (up | down | left | right)
+        touching = ~opaque & ~smear & (up | down | left | right)
         rows = np.flatnonzero((sil | is_outline).any(axis=1))
         if rows.size:
             base = self.pivot[1]  # grounded frames measure open soles from the baseline
@@ -163,7 +163,7 @@ class Validator:
                                    "an effect or a layer was applied after outlining, or art "
                                    "touches the canvas edge"))
         # E5 floating pixels
-        p = np.pad(opaque, 1)
+        p = np.pad(opaque | smear, 1)
         neigh = sum(np.roll(np.roll(p, dy, 0), dx, 1)[1:-1, 1:-1].astype(int)
                     for dy in (-1, 0, 1) for dx in (-1, 0, 1) if dy or dx)
         floating = opaque & (neigh == 0)
@@ -258,6 +258,10 @@ class Validator:
             (slice(None, -2), slice(1, -1)), (slice(2, None), slice(1, -1)),
             (slice(1, -1), slice(None, -2)), (slice(1, -1), slice(2, None))))
         lonely = sil & ~allowed & (up != key) & (down != key) & (left != key) & (right != key)
+        # a swing trail drawn over the body cuts it for a frame or two: what it isolates is
+        # occlusion by an effect, not noisy art
+        trail = np.pad(f.owner == SMEAR, 1)
+        lonely &= ~(trail[:-2, 1:-1] | trail[2:, 1:-1] | trail[1:-1, :-2] | trail[1:-1, 2:])
         return lonely, key, names
 
     def _singletons(self, f: Frame, sil: np.ndarray, where: str) -> list[Finding]:

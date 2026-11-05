@@ -123,6 +123,11 @@ ARMS = {
         "overhead": _arm([(10, 21, 1), (10, 20, 1)], (10, 20)),
         "limp": _arm([(11, 22, 1), (11, 23, 1), (11, 24, 1)], (11, 24)),
         "tuck": _arm([(11, 22, 1), (12, 22, 1)], (12, 22)),
+        # the slash sweeps across the body: the arm reaches over the chest to the far side
+        "across": _arm([(11, 21, 1), (12, 21, 1), (11, 22, 1), (12, 22, 1), (13, 22, 1),
+                        (14, 22, 1), (13, 23, 1), (14, 23, 1)], (15, 23)),  # 2 px thick: no torn cloth
+        "after": _arm([(11, 22, 1), (12, 22, 1), (12, 23, 1), (13, 23, 1), (14, 23, 1),
+                       (15, 23, 1), (15, 24, 1), (16, 24, 1)], (17, 24)),  # follow-through, far side low
     },
     ("s", "far"): {  # viewer-right, lit, two columns like the idle arm
         "rest": _arm([(18, 21, 2), (19, 21, 2), (18, 22, 1), (19, 22, 2), (18, 23, 1),
@@ -191,9 +196,13 @@ FRAMES: dict[str, list[dict]] = {
     "attack_slash": [
         F((-1, 0), (0, -1), (0, 1), near="up_back", far="fwd", held="raised"),
         F((-1, 1), (0, 0), (0, 1), near="up_back", far="fwd", held="raised"),
-        F((1, 0), (0, 1), (0, -1), near="fwd", far="back", held="strike", legs="lunge",
-          head={"e": (1, 0)}),
-        F((1, 0), (0, 1), (0, -1), near="low", far="back", held="low", legs="lunge"),
+        # the strike sweeps across the front of the body to the far side (the human's request,
+        # 2026-11-05: "they should go across body and leave an arc"); the follow-through ends low
+        # on the far side
+        F((1, 0), (0, 1), (0, -1), near={"e": "fwd", "s": "across", "n": "across"}, far="back",
+          held="sweep", legs="lunge", head={"e": (1, 0)}),
+        F((1, 0), (0, 1), (0, -1), near={"e": "low", "s": "after", "n": "after"}, far="back",
+          held="across", legs="lunge"),
         F((0, 0), near="ready", held="ready"),
     ],
     # overhead smash: lift, lean back (the tell), squash, slam, weapon down, heave back
@@ -337,8 +346,9 @@ def frame_parts(d: str, spec: dict, base_body: np.ndarray, base_anchors: dict) -
     legs = grid.translate(stance["legs"], 0, -lift)
     body = grid.overlay(grid.overlay(legs.copy(), grid.translate(torso, tx, ty)),
                         grid.translate(head, hx, hy))
-    near, hand_near = arm_grid(d, "near", spec["near"], (tx, ty))
-    far, hand_far = arm_grid(d, "far", spec["far"], (tx, ty))
+    pick = lambda v: v[d] if isinstance(v, dict) else v  # noqa: E731  (a pose per direction)
+    near, hand_near = arm_grid(d, "near", pick(spec["near"]), (tx, ty))
+    far, hand_far = arm_grid(d, "far", pick(spec["far"]), (tx, ty))
     a = {}
     for name in ("head", "chin"):
         x, y = base_anchors[name]
@@ -353,7 +363,7 @@ def frame_parts(d: str, spec: dict, base_body: np.ndarray, base_anchors: dict) -
     a["planted"] = list(stance["planted"] if spec["planted"] is None else spec["planted"])
     front = {"e": (19, 21), "s": (15, 24), "n": (15, 19)}[d]
     a["shield_front"] = [front[0] + tx, front[1] + ty]  # where a guard is hit with no shield
-    a["pose"] = {"held_near": spec["held"], "held_far": spec["shield"]}
+    a["pose"] = {"held_near": pick(spec["held"]), "held_far": pick(spec["shield"])}
     return {"body": body, "legs": legs, "near": near, "far": far, "anchors": a,
             "torso_dx": tx}
 
