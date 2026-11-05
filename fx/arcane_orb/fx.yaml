@@ -1,0 +1,17 @@
+name: arcane_orb
+ramp: arcane
+cell: 16
+pivot:
+- 8
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 60
+    - 60
+    - 60
+    loop: true
+notes: An orb with an orbiting mote; impact in arcane_orb_impact.

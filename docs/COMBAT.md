@@ -230,7 +230,7 @@ The preview shows hitboxes (red) and hurtboxes (blue) as overlays, and `pf revie
 |---|---|---|
 | `windup` | the attack has started (the tell begins) | |
 | `active_start` / `active_end` | damage window; derived automatically from the phases | |
-| `hit` | the damage moment, used for hit stop and sounds | |
+| `hit` | the damage moment, used for hit stop and sounds | optional `fx`: the impact the game shows on the target where the strike meets it (`spark_small` for the humanoid attacks) |
 | `spawn` | create a projectile or spell | `fx`, `point` (anchor name or pixel), optional `angle` in multiples of 90 |
 | `vfx` | play an effect that isn't a projectile | `fx`, `point`, `layer` (above or below) |
 | `sfx` | sound cue name, for the game to map | `name` |
@@ -292,6 +292,49 @@ FX are their own assets in `fx/<name>/`, reused by every character: `fx.yaml` pl
 
 `style/examples/battle_mock_6x.png` includes a draft fireball travel frame (10 x 5 px, fire ramp, no outline) next to the anchor and a draft slime.
 
+### As built (Phase 6)
+
+`tools/art/fx_art.py` draws every FX in code facing east; `pf fx build --all` validates and exports them to `out/fx/<name>/` (sheet plus Aseprite JSON with tags `<anim>_<dir>`, the pivot per tag, layer, space, attach and loops) and lists them in `out/fx/index.json`. `pf fx review` renders `review/fx/<name>.png` and `fx_overview.png`.
+
+`fx/<name>/fx.yaml`:
+
+```yaml
+name: fireball
+ramp: fire          # the fx_ramps entry the sheets are painted in
+tints: []           # also export recolored into these ramps, one FX each: <name>_<tint>
+cell: 16            # 16, 24, 32 or 48
+pivot: [9, 7]       # the pixel placed on the event point, or on the anchor it follows
+layer: above        # above | below the characters
+space: world        # world | follow (rides a character's anchor)
+attach: hand_near   # follow FX: the anchor (positions per frame are in meta.pixelforge.points)
+rotate: true        # s and n are the east art turned 90 degrees; otherwise drawn upright
+anims:
+  travel: {frames_ms: [60, 60, 60], loop: true}
+```
+
+| FX | Ramp | Cell | Frames | Notes |
+|---|---|---|---|---|
+| `spark_small` | impact | 16 | 4 at 40 to 60 ms | the hit spark; rotates |
+| `impact_big` | impact | 32 | 6 | 17 px star and ring, a dust ring along the ground; upright |
+| `dust_puff` | impact | 16 | 4 | below the characters; rolls and landings |
+| `smear_arc`, `smear_vertical`, `smear_thrust` | impact | 32 | 1 at 60 ms | in character coordinates (pivot = the character pivot), for attacks without drawn smears (monsters) |
+| `impact_<element>` | arcane art, tinted fire, ice, poison, arcane, holy, shadow | 24 | 5 | one shape, six tints |
+| `arrow` | impact | 16 | travel 2 (loop), impact 4 | spawned at `bow_nock` |
+| `fireball`, `ice_shard`, `poison_glob`, `arcane_orb` | their element | 16 | travel 2 to 3 (loop) | each lands as `<name>_impact` (24 px, 5 frames) |
+| `gather_glow_<element>` | tinted fire, ice, poison, arcane, holy | 16 | 3 (loop) | follows `hand_near` while a spell charges |
+| `status_stun`, `status_sleep` | holy, ice | 24 | 4, 3 (loop) | follow `head`: stars orbit 11 px wide; Z's rise |
+| `status_burn`, `status_poison` | fire, poison | 24 | 3 (loop) | follow `torso` |
+| `status_freeze`, `status_shield` | ice, holy | 32 | 2, 4 (loop) | in character coordinates |
+| `poof_smoke`, `soul_wisp`, `bone_crumble` | impact, ice, impact | 32, 24, 32 | 6, 6, 5 | death |
+| `heal_sparkle`, `buff_up`, `debuff_down` | poison, holy, shadow | 24 | 5, 4, 4 | follow `torso` |
+
+Decisions:
+- **Every FX reads on beige, light and dark ground.** Each frame uses both ends of its ramp where it can: light cores and strokes show on dark and beige ground, dark tips and rims (the ramp's darkest shade, never the outline color) show on light ground. Dust is drawn in the impact ramp's dark end, which is darker than any ground. `tests/test_fx.py` checks the contrast of every frame. Shadow FX are dark magic and only need to read on beige and light ground.
+- **Projectile impacts are their own FX** (`fireball_impact`...): a burst needs a 24 px cell, the travel loop only 16. The arrow keeps its small impact in its own sheet.
+- **One elemental impact shape, six tints**, and one gather glow in five tints: the elements differ in color and in their projectiles, which keeps the set consistent and small.
+- **The spell's element is the game's choice:** `cast` names no FX; the game plays `gather_glow_<element>` at the `gather_glow` event and spawns that element's projectile. Holy has no projectile: the smite (`impact_holy`) lands on the target as the spell is cast.
+- **Rotation:** projectiles, sparks, smears and elemental impacts turn for s and n; ground impacts, dust, status overlays, death and support FX stay upright. West is always mirrored.
+
 ---
 
 ## 7. Feedback the game should add
@@ -324,4 +367,6 @@ In addition to the standard review images:
 - `pf battle <attacker> <defender> --anim <attack>` renders `battle_<a>_vs_<b>.png`: the attacker's frames with the defender reacting on the hit frame and FX at their spawn and impact points, at 1x and 4x. This is the closest a still image gets to how the fight will feel.
 - The human judges actual timing in the preview, which plays the attack against a target dummy with hit stop applied.
 
-Built in Phase 5: the timeline and battle renders, and the preview's Arena view (`#arena`): a fighter attacks a training dummy, `hit` freezes both for 70 ms (90 ms for `attack_heavy`), the dummy flashes and is knocked back 1 px, `spawn` launches a projectile, and a profile toggle (player, enemy, elite, boss) retimes the attack. Sparks and projectiles are placeholders in the `impact` and `arcane` FX ramps until the Phase 6 library; the dummy is a preview prop, not exported art.
+Built in Phase 5: the timeline and battle renders, and the preview's Arena view (`#arena`): a fighter attacks a training dummy, `hit` freezes both for 70 ms (90 ms for `attack_heavy`), the dummy flashes and is knocked back 1 px, `spawn` launches a projectile, and a profile toggle (player, enemy, elite, boss) retimes the attack. The dummy is a preview prop, not exported art.
+
+Since Phase 6 the battle strips and the Arena play the real FX: the hit's impact on the target, `vfx` at their points, the charge glow riding the hand, projectiles by element (an element picker appears for `cast`). The preview's FX view (`#fx`) plays every FX on the chosen ground, and the player view draws status overlays (stun stars over the head) and `vfx` events when its FX toggle is on.

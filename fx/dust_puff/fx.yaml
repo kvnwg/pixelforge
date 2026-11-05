@@ -1,0 +1,18 @@
+name: dust_puff
+ramp: impact
+cell: 16
+pivot:
+- 7
+- 11
+layer: below
+space: world
+rotate: false
+anims:
+  play:
+    frames_ms:
+    - 50
+    - 60
+    - 60
+    - 70
+    loop: false
+notes: 'Dust kicked up at a foot: rolls, landings, skids.'

@@ -1,0 +1,19 @@
+name: bone_crumble
+ramp: impact
+cell: 32
+pivot:
+- 15
+- 27
+layer: above
+space: world
+rotate: false
+anims:
+  play:
+    frames_ms:
+    - 70
+    - 70
+    - 70
+    - 80
+    - 90
+    loop: false
+notes: Bones falling apart and scattering (skeletons).

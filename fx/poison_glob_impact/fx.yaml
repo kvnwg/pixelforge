@@ -1,0 +1,19 @@
+name: poison_glob_impact
+ramp: poison
+cell: 24
+pivot:
+- 11
+- 11
+layer: above
+space: world
+rotate: true
+anims:
+  play:
+    frames_ms:
+    - 40
+    - 50
+    - 50
+    - 60
+    - 70
+    loop: false
+notes: Where a poison_glob lands.

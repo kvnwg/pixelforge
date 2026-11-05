@@ -1,0 +1,23 @@
+name: arrow
+ramp: impact
+cell: 16
+pivot:
+- 8
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 80
+    - 80
+    loop: true
+  impact:
+    frames_ms:
+    - 40
+    - 50
+    - 60
+    - 70
+    loop: false
+notes: Spawned at the bow's nock; travel points east.

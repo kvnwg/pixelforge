@@ -1,0 +1,19 @@
+name: debuff_down
+ramp: shadow
+cell: 24
+pivot:
+- 11
+- 21
+layer: above
+space: follow
+attach: torso
+rotate: false
+anims:
+  play:
+    frames_ms:
+    - 90
+    - 90
+    - 90
+    - 90
+    loop: false
+notes: 'Chevrons sinking: a debuff.'

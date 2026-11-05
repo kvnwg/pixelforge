@@ -1,0 +1,17 @@
+name: poison_glob
+ramp: poison
+cell: 16
+pivot:
+- 9
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 70
+    - 70
+    - 70
+    loop: true
+notes: A wobbling glob with drips; impact in poison_glob_impact.

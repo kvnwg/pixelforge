@@ -59,7 +59,8 @@ pixelforge/
     ...
   fx/
     smear_arc/  fx.yaml + sheets
-    fireball/   fx.yaml + travel.png + impact.png
+    fireball/   fx.yaml + travel.png (its impact is fireball_impact/; tinted families like
+                impact/ export impact_fire, impact_ice...)
     ...
   characters/
     anchor_girl.yaml
@@ -354,9 +355,9 @@ Per character, in `out/<name>/`:
 | `pf preview` | start a local server for `tools/preview` |
 | `pf diff a.png b.png` | pixel diff image + count |
 | `pf review <recipe> --combat` | adds timeline images with phases, events, hitboxes and hurtboxes (Phase 5) |
-| `pf battle <attacker> <defender> --anim A [--dir D] [--profile P]` | attacker vs defender strip with reactions and placeholder FX, 4x and 1x (Phase 5) |
+| `pf battle <attacker> <defender> --anim A [--dir D] [--profile P] [--element E]` | attacker vs defender strip with reactions and the attack's FX, 4x and 1x (Phases 5 and 6) |
 | `pf roster` | every monster and the anchor side by side, plus silhouettes |
-| `pf fx build <name>` / `pf fx review <name>` | build and review FX assets |
+| `pf fx build <name>... / --all` / `pf fx review [name...]` | validate and export FX to `out/fx/`; render FX review images (Phase 6) |
 
 ## 16. Preview tool
 
@@ -371,9 +372,10 @@ Per character, in `out/<name>/`:
 - Movement test: the character walks across a strip at a configurable speed, to judge foot sliding
 - Random blink while idle (the game's behavior: blink_<dir> for 100 ms every 2.5 to 5 s)
 
-- Arena (Phase 5): a fighter attacks a training dummy with hit stop, flash, knockback, placeholder sparks and projectiles, hit and hurt boxes, and a timing profile toggle that retimes the attack from the exported holds (COMBAT.md section 9)
+- Arena (Phase 5): a fighter attacks a training dummy with hit stop, flash, knockback, the attack's FX (Phase 6), hit and hurt boxes, a spell element picker for `cast`, and a timing profile toggle that retimes the attack from the exported holds (COMBAT.md section 9)
+- FX (Phase 6): every FX in the library playing on the chosen ground at 1x, 3x or 6x; the player view also draws status overlays and `vfx` events
 
-Views are routed by the hash: `#player`, `#gallery`, `#walk-test`, `#arena`. `pf preview --bundle out.html` inlines `out/index.json`, every character's JSON and PNG, and the anchor, so the same page works as a single file (and can be published as a page) with no server.
+Views are routed by the hash: `#player`, `#gallery`, `#walk-test`, `#arena`, `#fx`. `pf preview --bundle out.html` inlines `out/index.json`, every character's JSON and PNG, and the anchor, so the same page works as a single file (and can be published as a page) with no server.
 
 ## 17. Review renders
 
@@ -413,5 +415,5 @@ Views are routed by the hash: `#player`, `#gallery`, `#walk-test`, `#arena`. `pf
 
 - **Rigs** are folders under `parts/body/<rig>/` with their own `anchors.json`, z-order (in `style.json` under the rig, falling back to the defaults), and animation list. The compositor, outliner, validator and exporter are rig-agnostic: they read canvas size, pivot and mirror axis from the rig's size class. Specs per rig are in MONSTERS.md.
 - **Combat data** (phases, events, hitboxes, hurtboxes, root motion, timing profiles) is defined per animation in `style.json` and per weapon in held-item parts, and exported in `meta.pixelforge`. Rules and formats are in COMBAT.md.
-- **FX** live in `fx/<name>/` with `fx.yaml` (pivot, cell size, loop, layer above or below, follow or world-space) and sheets. They are built and validated separately from characters, against `fx_ramps` and `fx_constraints`, and exported as their own sheets plus JSON. FX may be rotated in exact 90-degree steps; characters never are.
+- **FX** live in `fx/<name>/` with `fx.yaml` (ramp, tints, pivot, cell size, loops, layer above or below, follow or world-space, the anchor it rides) and one sheet per animation, authored facing east (`src/pixelforge/fx.py`, COMBAT.md section 6). They are built and validated separately from characters, against `fx_ramps` and `fx_constraints`, and exported as their own sheets plus JSON with every direction: west mirrored, south and north turned in exact 90-degree steps when the FX may rotate; characters never are. Character exports carry per-frame named points (`meta.pixelforge.points`) and status overlays (`overlays`) so a game can attach FX to anchors.
 - **Draft examples** in `style/examples/` (slime, battle mockup) were drawn to prove the style extends to monsters and FX. They are references, not ground truth; the anchor is the only ground truth.

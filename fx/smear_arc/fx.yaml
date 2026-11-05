@@ -1,0 +1,15 @@
+name: smear_arc
+ramp: impact
+cell: 32
+pivot:
+- 15
+- 27
+layer: above
+space: follow
+rotate: true
+anims:
+  play:
+    frames_ms:
+    - 60
+    loop: false
+notes: A slash smear in character coordinates (pivot = the character pivot).

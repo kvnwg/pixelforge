@@ -1,0 +1,26 @@
+name: impact
+ramp: arcane
+cell: 24
+pivot:
+- 11
+- 11
+layer: above
+space: world
+rotate: false
+tints:
+- fire
+- ice
+- poison
+- arcane
+- holy
+- shadow
+anims:
+  play:
+    frames_ms:
+    - 40
+    - 50
+    - 50
+    - 60
+    - 70
+    loop: false
+notes: 'One elemental impact per element: impact_fire...'

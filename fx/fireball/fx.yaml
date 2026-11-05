@@ -1,0 +1,17 @@
+name: fireball
+ramp: fire
+cell: 16
+pivot:
+- 9
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 60
+    - 60
+    - 60
+    loop: true
+notes: The draft fireball from style/examples, three flickers; its impact is a separate 24 px cell (fireball_impact).

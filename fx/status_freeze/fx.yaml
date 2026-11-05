@@ -1,0 +1,16 @@
+name: status_freeze
+ramp: ice
+cell: 32
+pivot:
+- 15
+- 27
+layer: above
+space: follow
+rotate: false
+anims:
+  loop:
+    frames_ms:
+    - 200
+    - 200
+    loop: true
+notes: Ice spikes around the feet; a glint.

@@ -34,7 +34,16 @@ def write_bundle(root: Path, out: Path) -> Path:
             "json": json.loads((root / "out" / entry["json"]).read_text()),
             "png": data_uri(root / "out" / entry["image"]),
         }
-    data = {"index": index, "characters": characters,
+    fx_index_path = root / "out" / "fx" / "index.json"
+    fx = {"index": {"fx": []}, "items": {}}
+    if fx_index_path.is_file():
+        fx["index"] = json.loads(fx_index_path.read_text())
+        for entry in fx["index"]["fx"]:
+            fx["items"][entry["name"]] = {
+                "json": json.loads((root / "out" / entry["json"]).read_text()),
+                "png": data_uri(root / "out" / entry["image"]),
+            }
+    data = {"index": index, "characters": characters, "fx": fx,
             "anchor": data_uri(root / "style" / "anchor_with_shadow.png")}
     payload = json.dumps(data, separators=(",", ":")).replace("</", "<\\/")
     script = f"<script>window.PIXELFORGE_BUNDLE = {payload};</script>"

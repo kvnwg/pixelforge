@@ -221,7 +221,7 @@ Known limits, recorded in the docs: death ends kneeling rather than lying down (
 
 ## Phase 6: FX library (CHECKPOINT)
 
-Status: not started
+Status: done (commit recorded in the Phase 6 notes below)
 
 Tasks:
 1. FX pipeline: `fx/<name>/fx.yaml`, sheets, `pf fx build`, `pf fx review`, validation against `fx_ramps`, 90-degree rotation support.
@@ -235,6 +235,35 @@ Acceptance:
 **CHECKPOINT:** the human watches every attack with its real FX in the preview.
 
 Commit: `Phase 6: FX library v1`
+
+### Phase 6 notes and self-review (checkpoint waived, see the top of this file)
+
+What was built:
+- `src/pixelforge/fx.py`: `fx.yaml` loading, validation (E19, E3, E8 margins, W11 timing), tints, exact 90-degree rotation and mirroring, export to `out/fx/` with every direction and an index; `pf fx build`, `pf fx review`.
+- `tools/art/fx_art.py`: the v1 set from COMBAT.md section 6, 29 folders exporting 38 FX (six elemental impacts and five gather glows are tints of one drawing each), plus `dust_puff` for the roll.
+- Events name their FX (`hit` names `spark_small`); E16 checks that every event and overlay FX exists; W9 (hidden tell) is live.
+- `pf battle` plays the real FX (with `--element` for casts); the preview's Arena plays them with an element picker; a new FX view plays the whole library; the player view draws the stun stars and `vfx` events. Character exports now carry per-frame points and overlays so a game can attach FX.
+
+Acceptance: every FX validates with 0 errors and 0 warnings; `tests/test_fx.py` checks that every frame of every FX stands out on beige, light and dark ground (shadow FX on beige and light); battle strips for slash, heavy, bow and each spell element (fire, ice, poison, arcane, holy) were rendered and compared.
+
+What the review images show (fx_overview, per-FX sheets, battle strips, arena screenshots):
+- The fireball matches the kit's draft (bright head, flickering tail); ice shards glint, the poison glob wobbles with drips, the arcane orb carries an orbiting mote; each lands in its element's burst.
+- Hits: a crisp 9 px spark on the target; the heavy slam adds a 17 px star, a breaking ring and dust running along the ground.
+- The first drafts in the cream impact ramp and the pale holy ramp vanished on beige or light ground; giving every FX light cores and dark tips fixed that across the library. `impact_shadow` stays dim on dark ground by nature.
+- Battle strips: the arcanist's charge motes gather at the hand, the projectile crosses, the knight flashes under the burst; the ranger's arrow leaves the nock and sparks on impact. Every element follows the same beats at the same pixel scale.
+
+Rubric (FX):
+1. Style match 4: hard pixels, binary alpha, no outlines, the kit's ramps; brighter than the cast as intended.
+2. 1x readability 4: checked by test on all three grounds; the 1x rows of the battle strips show every hit.
+3. Silhouette 4: stars, rings, crescents and projectiles each have a distinct shape.
+4. Motion 4: bursts expand and thin over 4 to 6 frames, loops cycle cleanly (glows converge, stars orbit); timing is for the human to judge in the arena.
+5. Consistency 4: one burst shape for all elements, one pixel scale, the same beats in every battle strip.
+6. Cleanliness 4: lines in pixel pairs, no soft edges; poison glob redrawn by hand after the first pass came out blocky.
+7. Part fit 4: pivots land on event points: sparks where the strike meets the target, impacts on the ground point, glows on the hand, overlays on the head.
+8. Appeal 4: the fireball and the stun stars carry the cozy look; the poof is soft and round.
+9. Combat readability 4: no FX covers a tell (W9 clean); the hit moment always has an impact.
+
+Known limits: elemental impacts share one shape (elements differ by color and projectile); holy has no projectile; shadow FX are dim on dark ground.
 
 ---
 

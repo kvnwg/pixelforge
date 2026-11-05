@@ -35,7 +35,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E16 | Events: every attack has `windup`, `hit` (or `spawn` for ranged and spells) and `recover`; event frames exist; spawn and vfx points are inside the canvas and within 3 px of a hand anchor or held item tip. |
 | E17 | Telegraph: for enemy, elite and boss timing profiles, the time from the first windup frame to `hit` or `spawn` meets the profile minimum. |
 | E18 | Size class: sprites use their size class's canvas, pivot, safe bounds and mirror axis. Checked as: every part's cells are its rig's canvas size and every anchor lies inside the class's safe bounds (canvas, pivot and mirror axis themselves come from the class, so E1, E6 and E9 hold them). |
-| E19 | FX colors: FX art uses only `fx_ramps` within `fx_constraints`; character art never uses FX ramp colors (glow eye presets are the only exception). Checked from Phase 6 with the FX pipeline; character frames already only pass E2 with their own presets. |
+| E19 | FX colors: FX art uses only `fx_ramps` within `fx_constraints`; character art never uses FX ramp colors (glow eye presets are the only exception). Checked by `pf fx build` (each FX against its own ramp; every character preset against every FX ramp). |
 | E20 | Root motion: animations that declare root motion have one value per frame. |
 
 ### Warnings
@@ -50,8 +50,9 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
 | W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). |
 | W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. The strongest pose of the windup phase counts (a heavy attack lifts first, then cocks back). |
-| W9 | Hidden tell: FX overlap the attacker's silhouette during the windup phase. Checked from Phase 6, when attacks play real FX. |
+| W9 | Hidden tell: an FX played during the windup phase (a `vfx` or `spawn` event) covers more than 15% of the attacker's silhouette. A charge glow at the hand is fine; a burst over the body is not. |
 | W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. |
+| W11 | FX timing (Phase 6): a one-shot FX has more than 8 frames, a frame outside 40 to 120 ms, or an empty frame before its last. COMBAT.md asks for 40 to 80 ms; death poofs and wisps linger up to 110 ms on purpose. |
 
 Validator output must say which character, animation, direction, frame and pixel coordinates failed, and suggest the likely cause.
 
@@ -75,6 +76,7 @@ For each review, write down what you see before judging it:
 8. **Exploded view** (`exploded_<dir>.png`), when parts are involved: Is each layer in the right z-order? Any gaps where a lower layer should show? Any part drawing its own outer outline (forbidden)?
 9. **Combat timeline** (`<anim>_<dir>_timeline.png`, combat animations): Is the windup pose clearly different from combat_idle? Is the active phase 1 to 2 short frames with a smear or impact? Do the hitboxes cover the weapon or body part that's striking, and only on active frames? Do events sit on the right frames?
 10. **Battle strip** (`battle_<a>_vs_<b>.png`): On the hit frame, does the defender visibly react? Do FX land where the weapon or projectile is? Does anything cover the tell?
+10b. **FX** (`review/fx/<name>.png`, `fx_overview.png`): Does every frame read at 1x on beige, light and dark? Is it brighter than the cast without looking soft (no gradients, no alpha)? Does the pivot sit where the effect should touch the event point? Do the turned s and n versions still make sense?
 11. **Roster lineup** (`roster_lineup.png`, monsters): Is every monster identifiable from its silhouette alone? Does size match danger? Does it sit comfortably next to the anchor at 1x?
 
 Then score it with the rubric, list problems in priority order, fix the biggest one, re-render, and look again. Stop when every score is 4 or higher.

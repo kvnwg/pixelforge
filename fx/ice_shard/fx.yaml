@@ -1,0 +1,16 @@
+name: ice_shard
+ramp: ice
+cell: 16
+pivot:
+- 8
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 70
+    - 70
+    loop: true
+notes: A crystal with a running glint; impact in ice_shard_impact.

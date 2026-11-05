@@ -482,6 +482,11 @@ def _near(a: tuple[int, int], b: tuple[int, int], r: int) -> bool:
     return abs(a[0] - b[0]) <= r and abs(a[1] - b[1]) <= r
 
 
+def resolve_fx(lib, name, element: str = "arcane"):
+    from .review import resolve_fx as _resolve
+    return _resolve(lib, name, element)
+
+
 def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
     """E15 hitboxes, E16 events, E17 telegraph, W8 weak tell (COMBAT.md, QUALITY.md)."""
     from .anim import tell_ms
@@ -517,6 +522,10 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
             if not 0 <= i < len(fs):
                 out.append(Finding("error", "E16", where, f"event {e['type']} on frame {i} of {len(fs)}"))
                 continue
+            fxlib = self.fx_library()
+            if fxlib is not None and e.get("fx") and resolve_fx(fxlib, e["fx"]) is None:
+                out.append(Finding("error", "E16", where, f"event {e['type']} names FX "
+                                                          f"{e['fx']!r}, which is not in fx/"))
             point = e.get("point")
             if point is None:
                 continue
@@ -540,6 +549,10 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
             if tell is not None and tell < int(profile["telegraph_min_ms"]):
                 out.append(Finding("error", "E17", where, f"tell is {tell} ms, under the {profile_name} "
                                                           f"minimum {profile['telegraph_min_ms']} ms"))
+        out += self._hidden_tell(adef, fs, where)
+        overlay = adef.raw.get("overlay_fx")
+        if overlay and self.fx_library() is not None and resolve_fx(self.fx_library(), overlay) is None:
+            out.append(Finding("error", "E16", where, f"overlay FX {overlay!r} is not in fx/"))
         rm = adef.root_motion
         if rm is not None and len(rm) != adef.frames:
             out.append(Finding("error", "E20", where, f"{len(rm)} root motion values for {adef.frames} frames"))
@@ -561,4 +574,49 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
     return out
 
 
+def _fx_library(self):
+    """The FX library under <root>/fx, loaded once (None when the repo has no FX yet)."""
+    if not hasattr(self, "_fxlib"):
+        from .fx import FXLibrary, fx_folders
+        self._fxlib = FXLibrary(self.c.root, self.style) if fx_folders(self.c.root) else None
+    return self._fxlib
+
+
+def _hidden_tell(self, adef, fs: list, where: str) -> list[Finding]:
+    """W9: an FX played during the windup covers more than 15% of the attacker's silhouette."""
+    fxlib = self.fx_library()
+    if fxlib is None or not adef.phases:
+        return []
+    out = []
+    for e in adef.events:
+        i = int(e["frame"])
+        if e["type"] not in ("vfx", "spawn") or i >= len(fs) or adef.phases[i] != "windup":
+            continue
+        name = resolve_fx(fxlib, e.get("fx"))
+        point = e.get("point")
+        f = fs[i]
+        xy = f.points.get(point) if isinstance(point, str) else (tuple(point) if point else None)
+        if not name or xy is None:
+            continue
+        cells, pivot, _ = fxlib.cells(name, None, f.mirrored_from and "w" or f.direction)
+        cell = cells[0]
+        sil = (f.sprite[..., 3] == 255)
+        cover = np.zeros_like(sil)
+        x0, y0 = xy[0] - pivot[0], xy[1] - pivot[1]
+        h, w = cell.shape[:2]
+        for yy in range(h):
+            for xx in range(w):
+                X, Y = x0 + xx, y0 + yy
+                if cell[yy, xx, 3] and 0 <= X < sil.shape[1] and 0 <= Y < sil.shape[0]:
+                    cover[Y, X] = True
+        share = (cover & sil).sum() / max(sil.sum(), 1)
+        if share > 0.15:
+            out.append(Finding("warning", "W9", f.label, f"{name} covers {share:.0%} of the "
+                                                         f"attacker during the windup",
+                               hint="move the FX off the body or play it after the tell"))
+    return out
+
+
 Validator.combat = _combat_checks
+Validator.fx_library = _fx_library
+Validator._hidden_tell = _hidden_tell

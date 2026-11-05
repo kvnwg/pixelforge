@@ -1,0 +1,20 @@
+name: poof_smoke
+ramp: impact
+cell: 32
+pivot:
+- 15
+- 27
+layer: above
+space: world
+rotate: false
+anims:
+  play:
+    frames_ms:
+    - 60
+    - 70
+    - 80
+    - 90
+    - 100
+    - 110
+    loop: false
+notes: 'Death poof: a smoke puff where the body was.'

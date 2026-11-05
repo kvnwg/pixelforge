@@ -164,6 +164,54 @@ def review(
     typer.echo(f"{len(written)} review images in {out}")
 
 
+fx_app = typer.Typer(help="FX assets: build, validate and review (COMBAT.md section 6).")
+app.add_typer(fx_app, name="fx")
+
+
+@fx_app.command("build")
+def fx_build(
+    names: Optional[list[str]] = typer.Argument(None, help="FX folder names (fx/<name>)."),
+    all_: bool = typer.Option(False, "--all", help="Build every FX."),
+) -> None:
+    """Validate FX against fx_ramps and export sheets + JSON to out/fx/ (exit 1 on errors)."""
+    from .fx import character_fx_colors, export, find_fx, fx_folders, load_fx, update_fx_index, validate_fx
+    style = _style()
+    folders = fx_folders(style.root) if all_ or not names else [find_fx(style.root, n) for n in names]
+    out_root = style.root / "out" / "fx"
+    findings, entries = list(character_fx_colors(style)), []
+    for folder in folders:
+        fx = load_fx(folder, style)
+        found = validate_fx(fx, style)
+        findings += found
+        if not any(f.level == "error" for f in found):
+            entries += export(fx, style, out_root)
+    update_fx_index(out_root, entries)
+    for f in findings:
+        typer.echo(f"  {f}")
+    errors = sum(f.level == "error" for f in findings)
+    typer.echo(f"fx: {len(entries)} exported from {len(folders)} folders to {out_root}  "
+               f"({errors} errors, {len(findings) - errors} warnings)")
+    if errors:
+        raise typer.Exit(1)
+
+
+@fx_app.command("review")
+def fx_review_cmd(
+    names: Optional[list[str]] = typer.Argument(None, help="FX names (variants like impact_fire)."),
+) -> None:
+    """Render review/fx/<name>.png for each FX (all if none named) and fx_overview.png."""
+    from .fx import FXLibrary
+    from .review import fx_overview, fx_review
+    style = _style()
+    lib = FXLibrary(style.root, style)
+    out = style.root / "review" / "fx"
+    out.mkdir(parents=True, exist_ok=True)
+    for name in names or lib.names():
+        fx_review(lib, name, style).save(out / f"{name}.png")
+    fx_overview(lib, style).save(out / "fx_overview.png")
+    typer.echo(f"fx review: {len(names or lib.names())} images and fx_overview.png in {out}")
+
+
 @app.command()
 def battle(
     attacker: str = typer.Argument(..., help="Attacking recipe."),
@@ -172,14 +220,18 @@ def battle(
     direction: Optional[list[str]] = typer.Option(None, "--dir", help="Facing (default: e)."),
     profile: Optional[str] = typer.Option(None, "--profile",
                                           help="Timing profile for the attacker (player, enemy...)."),
+    element: str = typer.Option("arcane", "--element",
+                                help="Spell element for cast: fire, ice, poison, arcane, holy."),
 ) -> None:
-    """Render battle_<a>_vs_<b>.png: the attack against a reacting defender, k x and 1 x."""
+    """Render battle_<a>_vs_<b>.png: the attack against a reacting defender, with its FX."""
     from dataclasses import replace as _replace
 
     from .build import build
+    from .fx import FXLibrary, fx_folders
     from .recipe import find_recipe, load_recipe
     from .review import battle_image
     style = _style()
+    fxlib = FXLibrary(style.root, style) if fx_folders(style.root) else None
     a_recipe = load_recipe(find_recipe(style.root, attacker), style)
     if profile:
         a_recipe = _replace(a_recipe, timing_profile=profile)
@@ -192,8 +244,9 @@ def battle(
     for d in direction or ["e"]:
         suffix = "" if d == "e" else f"_{d}"
         tag = f"_{profile}" if profile else ""
+        tag += f"_{element}" if anim == "cast" else ""
         path = out_dir / f"battle_{a.recipe.name}_vs_{dfn.recipe.name}_{anim}{suffix}{tag}.png"
-        battle_image(a, dfn, anim, d).save(path)
+        battle_image(a, dfn, anim, d, fxlib=fxlib, element=element).save(path)
         typer.echo(f"battle: {path}")
 
 

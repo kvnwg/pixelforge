@@ -93,6 +93,14 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
 .walk .controls label { display: flex; align-items: center; gap: 8px; }
 .walkstrip { width: 100%; }
 .note { background: var(--surface); border: 1px dashed var(--line); border-radius: 8px; padding: 14px; color: var(--muted); }
+.fxview { display: grid; gap: 14px; }
+.fxbar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.fxbar .group { display: grid; gap: 5px; font-size: 0.82rem; color: var(--muted); }
+.fxbar .caption { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.fxgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.fxcard { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 6px; justify-items: center; }
+.fxcard figcaption { display: grid; gap: 2px; justify-items: center; text-align: center; font-size: 0.78rem; overflow-wrap: anywhere; }
+.fxcard figcaption small { font: 0.68rem var(--mono); color: var(--muted); }
 .timing { display: flex; height: 26px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
 .timing div { display: flex; align-items: center; padding: 0 4px; font: 600 0.68rem var(--mono); color: var(--accent-ink); background: var(--recovery); white-space: nowrap; overflow: hidden; border-right: 1px solid var(--surface); }
 .timing div.windup { background: var(--windup); } .timing div.active { background: var(--hit); }
@@ -114,6 +122,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     <a href="#gallery" data-view="gallery">Gallery</a>
     <a href="#walk-test" data-view="walk-test">Walk test</a>
     <a href="#arena" data-view="arena">Arena</a>
+    <a href="#fx" data-view="fx">FX</a>
   </nav>
 </header>
 
@@ -133,6 +142,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
         <label><input type="checkbox" id="t-anchor"> Anchor beside</label>
         <label><input type="checkbox" id="t-blink" checked> Random blink</label>
         <label><input type="checkbox" id="t-boxes"> Hit and hurt boxes</label>
+        <label><input type="checkbox" id="t-fx" checked> FX</label>
       </div>
     </div>
   </aside>
@@ -169,6 +179,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     <label for="arena-anim">Attack<select id="arena-anim"></select></label>
     <div class="group"><span class="caption">Facing</span><div class="seg" id="arena-dirs"></div></div>
     <div class="group"><span class="caption">Timing profile</span><div class="seg" id="arena-profile"></div></div>
+    <div class="group" id="arena-element-group" hidden><span class="caption">Spell element</span><div class="seg" id="arena-element"></div></div>
     <div class="group"><span class="caption">Zoom</span><div class="seg" id="arena-zoom"></div></div>
     <div class="group"><span class="caption">Speed</span><div class="seg" id="arena-speed"></div></div>
     <div class="group"><span class="caption">Show</span>
@@ -185,6 +196,14 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   </div>
 </section>
 
+<section id="view-fx" class="fxview" hidden>
+  <div class="fxbar">
+    <div class="group"><span class="caption">Zoom</span><div class="seg" id="fx-zoom"></div></div>
+    <p class="meta">Every FX in the library, facing e, on the ground chosen in the player view. One-shot effects replay after a pause; projectiles show their travel loop. FX are the only art brighter than the cast (COMBAT.md section 6).</p>
+  </div>
+  <div class="fxgrid" id="fx-grid"></div>
+</section>
+
 <p class="note" id="empty" hidden></p>
 <!-- pf:data -->
 <script>
@@ -195,7 +214,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   const $ = (id) => document.getElementById(id);
   const prefs = load("pf-preview", { zoom: 4, ground: "beige", speed: 1 });
   const state = { chars: [], byName: {}, char: null, anim: "idle", dir: "s", playing: true,
-                  zoom: prefs.zoom, ground: prefs.ground, speed: prefs.speed, anchorImg: null };
+                  zoom: prefs.zoom, ground: prefs.ground, speed: prefs.speed, anchorImg: null, fx: {} };
 
   function load(key, fallback) {
     try { return Object.assign({}, fallback, JSON.parse(localStorage.getItem(key) || "{}")); }
@@ -228,6 +247,18 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     }
     try { state.anchorImg = await image(BUNDLE ? BUNDLE.anchor : "../../style/anchor_with_shadow.png"); }
     catch (e) { state.anchorImg = null; }
+    // FX (Phase 6): out/fx/index.json, one sheet + JSON per FX, tags <anim>_<dir>
+    let fxIndex = { fx: [] };
+    try { fxIndex = BUNDLE ? (BUNDLE.fx ? BUNDLE.fx.index : fxIndex) : await getJSON("../../out/fx/index.json"); }
+    catch (e) { fxIndex = { fx: [] }; }
+    for (const entry of fxIndex.fx || []) {
+      try {
+        const json = BUNDLE ? BUNDLE.fx.items[entry.name].json : await getJSON("../../out/" + entry.json);
+        const img = await image(BUNDLE ? BUNDLE.fx.items[entry.name].png : "../../out/" + entry.image);
+        const tags = {}; for (const t of json.meta.frameTags) tags[t.name] = t;
+        state.fx[entry.name] = { name: entry.name, json, img, tags, pf: json.meta.pixelforge };
+      } catch (e) { /* skip an FX that failed to load */ }
+    }
   }
 
   // ---------------------------------------------------------------- actors: a tag playing on a clock
@@ -400,7 +431,21 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
         const prev = s.actor.tag.from + ((s.actor.i - 1 + s.actor.count) % s.actor.count);
         drawCell(ctx, ch, prev, 0, 0, z, 0.35);
       }
+      if ($("t-fx").checked) drawFX(ctx, s.fxs || [], "below", z);
       drawCell(ctx, ch, frameFor(s.actor, ch, s.dir), 0, 0, z);
+      if ($("t-fx").checked) {
+        drawFX(ctx, s.fxs || [], "above", z);
+        // a status overlay (stun stars) rides the head anchor while its animation plays
+        const anim = s.actor.name.slice(0, s.actor.name.lastIndexOf("_"));
+        const over = fxName((ch.pf.overlays || {})[anim], "arcane");
+        const pts = ((ch.pf.points || {})[s.actor.name] || [])[s.actor.i];
+        if (over && pts) {
+          const fx = state.fx[over], attach = fx.pf.attach || "head";
+          if (!s.overlay || s.overlay.fx !== fx) s.overlay = fxInstance(over, null, s.dir === "w" ? "w" : "e", 0, 0);
+          s.overlay.x = pts[attach] ? pts[attach][0] : 15; s.overlay.y = pts[attach] ? pts[attach][1] : 11;
+          drawFX(ctx, [s.overlay], s.overlay.layer, z);
+        }
+      }
       overlay(ctx, ch, s.actor, z, opts);
     }
     const lead = stageActors[0];
@@ -410,6 +455,16 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     }
   }
   function syncPlay() { $("playpause").textContent = state.playing ? "Pause" : "Play"; }
+  function playerEvents(s) {
+    // vfx events play at their exported points (hits and spawns need a target: see the Arena)
+    const ch = state.char, events = (ch.pf.events || {})[s.actor.name] || [];
+    for (const e of events) {
+      if (e.frame !== s.actor.i || e.type !== "vfx" || !Array.isArray(e.point)) continue;
+      const name = fxName(e.fx, "arcane"); if (!name) continue;
+      const inst = fxInstance(name, null, s.dir, e.point[0], e.point[1]);
+      if (inst) s.fxs = (s.fxs || []).concat([inst]);
+    }
+  }
 
   // ---------------------------------------------------------------- gallery view
   let galleryActors = [];
@@ -474,13 +529,63 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     drawCell(ctx, ch, walk.actor.index, Math.round(walk.x) * z, 0, z);
   }
 
+  // ---------------------------------------------------------------- FX playback
+  // An FX instance plays one tag of an FX sheet at a world position (sprite pixels), optionally
+  // following a moving point or travelling from one point to another.
+  const SPELLS = { fire: "fireball", ice: "ice_shard", poison: "poison_glob", arcane: "arcane_orb" };
+  function fxName(name, element) {
+    if (!name) return null;
+    if (state.fx[name]) return name;
+    if (state.fx[name + "_" + element]) return name + "_" + element;
+    return Object.keys(state.fx).find((n) => n.startsWith(name + "_")) || null;
+  }
+  function fxInstance(name, anim, dir, x, y, opts) {
+    const fx = state.fx[name]; if (!fx) return null;
+    const animName = anim || Object.keys(fx.pf.loop)[0];
+    const tag = fx.tags[animName + "_" + dir] || fx.tags[animName + "_e"];
+    if (!tag) return null;
+    return Object.assign({ fx, tag, pivot: fx.pf.pivot[tag.name] || [0, 0], loop: !!fx.pf.loop[animName],
+                           t: 0, x, y, layer: fx.pf.layer || "above" }, opts || {});
+  }
+  function fxIndexAt(inst) {
+    const frames = inst.fx.json.frames, d = (k) => frames[k].duration;
+    let total = 0; for (let k = inst.tag.from; k <= inst.tag.to; k++) total += d(k);
+    let t = inst.loop ? inst.t % total : inst.t, k = inst.tag.from;
+    while (k <= inst.tag.to && t >= d(k)) { t -= d(k); k++; }
+    return k > inst.tag.to ? -1 : k;
+  }
+  function stepFX(list, dt) {
+    for (const f of list) {
+      f.t += dt;
+      if (f.travel) {
+        const tr = f.travel, dist = Math.hypot(tr.to[0] - f.x, tr.to[1] - f.y), step = tr.speed * dt / 1000;
+        if (dist <= step) { f.done = true; if (tr.arrive) tr.arrive(); }
+        else { f.x += (tr.to[0] - f.x) / dist * step; f.y += (tr.to[1] - f.y) / dist * step; }
+      }
+      if (f.until && f.until()) f.done = true;
+      if (!f.loop && !f.travel && fxIndexAt(f) < 0) f.done = true;
+    }
+    return list.filter((f) => !f.done);
+  }
+  function drawFX(ctx, list, layer, z, ox = 0, oy = 0) {
+    for (const f of list) {
+      if (f.layer !== layer) continue;
+      const k = fxIndexAt(f); if (k < 0) continue;
+      const fr = f.fx.json.frames[k].frame;
+      const pos = f.follow ? f.follow() : [f.x, f.y];
+      if (!pos) continue;
+      ctx.drawImage(f.fx.img, fr.x, fr.y, fr.w, fr.h, (Math.round(pos[0]) - f.pivot[0] + ox) * z,
+                    (Math.round(pos[1]) - f.pivot[1] + oy) * z, fr.w * z, fr.h * z);
+    }
+  }
+
   // ---------------------------------------------------------------- arena view
   // A fighter attacks a training dummy: hit stop on `hit`, the dummy flashes and is knocked back,
-  // `spawn` launches a projectile, `vfx` shows a spark. Sparks and projectiles are placeholders
-  // until the Phase 6 FX library. Timing profiles retime the attack from the exported holds and
-  // base durations exactly as pf build does (COMBAT.md section 2).
+  // and every event plays its FX from the library: the hit impact on the dummy, `vfx` at its
+  // point, a charge glow riding the hand, `spawn` launching the arrow or the chosen element's
+  // spell. Timing profiles retime the attack from the exported holds and base durations exactly
+  // as pf build does (COMBAT.md section 2).
   const IMPACT = ["#a38f70", "#c7b593", "#e2d7ba", "#ece8d9"];  // style.json fx_ramps.impact
-  const ARCANE = ["#60438d", "#8c60b3", "#b789ce", "#dfbce7"];  // style.json fx_ramps.arcane
   const SPARK = ["...3...", ".3.2.3.", "..212..", "3210123", "..212..", ".3.2.3.", "...3..."];
   // The dummy is a preview prop, not exported art: palette leather, accent and the outline.
   const DUMMY = [
@@ -493,8 +598,8 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   const DUMMY_COLORS = { O: "#3a263a", "0": "#735b51", "1": "#bc8f5f", "2": "#d2ab70" };
   const FLASH = "#efe2c8";
   const arena = { ch: null, anim: "attack_slash", dir: "e", profile: "player", zoom: 3, speed: 1,
-                  t: 0, i: 0, mode: "idle", idleLeft: 700, durations: [], stop: 0, flash: 0,
-                  knock: 0, sparks: [], shots: [], fired: new Set() };
+                  element: "fire", t: 0, i: 0, mode: "idle", idleLeft: 700, durations: [], stop: 0,
+                  flash: 0, knock: 0, fxs: [], fired: new Set() };
 
   function retime(base, holds, events, profile) {
     const out = base.map((ms, i) => holds.includes(i) ? Math.round(ms * profile.hold_scale) : ms);
@@ -521,8 +626,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     const profile = (pf.timing_profiles || {})[arena.profile] || { hold_scale: 1, telegraph_min_ms: 0 };
     arena.durations = retime(base, (pf.holds || {})[tag] || [], (pf.events || {})[tag] || [], profile);
     arena.mode = "idle"; arena.idleLeft = 700; arena.t = 0; arena.i = 0;
-    arena.sparks = []; arena.shots = []; arena.fired = new Set();
-    // the dummy stands just inside the strike's reach, or further off for projectiles
+    arena.fxs = []; arena.fired = new Set();
     const hb = (pf.hitboxes || {})[tag] || {};
     const boxes = Object.values(hb).flat();
     const events = (pf.events || {})[tag] || [];
@@ -533,7 +637,6 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
       reach = Math.max(...boxes.map((b) => d === "e" ? b.x + b.w : d === "w" ? size - b.x : d === "s" ? b.y + b.h : size - b.y));
     }
     arena.gap = ranged ? 64 : Math.max(reach - 3, 18);
-    // the timing bar
     const bar = $("arena-timing"); bar.innerHTML = "";
     const phases = (pf.phases || {})[tag] || [];
     const total = arena.durations.reduce((a, b) => a + b, 0);
@@ -549,6 +652,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     const minimum = ((pf.timing_profiles || {})[arena.profile] || {}).telegraph_min_ms || 0;
     $("arena-meta").innerHTML = `<code>${arena.profile}</code> timing · tell (windup to ${ranged ? "spawn" : "hit"}) <code>${tell} ms</code>` +
       (minimum ? ` · minimum ${minimum} ms` : "") + ` · whole attack <code>${total} ms</code> · hit stop ${arena.anim === "attack_heavy" ? 90 : 70} ms on <code>hit</code>`;
+    $("arena-element-group").hidden = arena.anim !== "cast";
   }
   function arenaChoose(name) {
     const ch = state.byName[name] || state.chars.find((c) => attacks(c).length) || state.chars[0];
@@ -574,11 +678,11 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     if (!dirs.includes(arena.dir)) arena.dir = dirs[0] || "e";
     seg("arena-dirs", dirs, "dir");
     seg("arena-profile", Object.keys((arena.ch && arena.ch.pf.timing_profiles) || { player: 1 }), "profile");
+    seg("arena-element", ["fire", "ice", "poison", "arcane", "holy"], "element");
     seg("arena-zoom", [2, 3, 4, 6], "zoom", (v) => v + "x");
     seg("arena-speed", [1, 0.5, 0.25], "speed", (v) => v + "x");
   }
   function arenaLayout() {
-    // positions (in sprite pixels) of the fighter's and the dummy's 32 x 32 cells
     const d = arena.dir, g = arena.gap, size = arena.ch.cell;
     if (d === "e" || d === "w") {
       const W = Math.max(112, size + g + 40), H = size + 4;
@@ -588,18 +692,14 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     const W = 72, H = size + g + 4;
     return d === "s" ? { W, H, fx: 20, fy: 0, dx: 20, dy: g } : { W, H, fx: 20, fy: g, dx: 20, dy: 0 };
   }
+  function dummyCentre(L) { return [L.dx + 15, L.dy + 18]; }
+  function struck() { arena.flash = 90; arena.knock = 160; }
   function stepArena(dt) {
     const ch = arena.ch; if (!ch) return;
     const tag = arenaTag(), events = (ch.pf.events || {})[tag] || [];
     arena.flash = Math.max(0, arena.flash - dt); arena.knock = Math.max(0, arena.knock - dt);
-    arena.sparks = arena.sparks.filter((s) => (s.left -= dt) > 0);
-    for (const s of arena.shots) {
-      const dx = s.tx - s.x, dy = s.ty - s.y, dist = Math.hypot(dx, dy), step = 0.16 * dt;
-      if (dist <= step) { s.done = true; arena.sparks.push({ x: s.tx, y: s.ty, left: 140 }); arena.flash = 90; arena.knock = 160; }
-      else { s.x += dx / dist * step; s.y += dy / dist * step; }
-    }
-    arena.shots = arena.shots.filter((s) => !s.done);
-    if (arena.stop > 0) { arena.stop -= dt; return; }
+    if (arena.stop > 0) { arena.stop -= dt; return; }  // hit stop freezes fighter and FX
+    arena.fxs = stepFX(arena.fxs, dt);
     if (arena.mode === "idle") {
       arena.idleLeft -= dt; arena.t += dt;
       if (arena.idleLeft <= 0) { arena.mode = "attack"; arena.i = 0; arena.t = 0; arena.fired = new Set(); arenaFire(events); }
@@ -612,25 +712,51 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
       else { arena.mode = "idle"; arena.idleLeft = 900; arena.t = 0; }
     }
   }
+  function framePoint(name) {
+    const pts = ((arena.ch.pf.points || {})[arenaTag()] || [])[arena.i];
+    return pts && pts[name] ? pts[name] : null;
+  }
   function arenaFire(events) {
-    const L = arenaLayout(), ch = arena.ch;
+    const L = arenaLayout(), ch = arena.ch, d = arena.dir, el = arena.element;
+    const spawnFrame = (events.find((e) => e.type === "spawn") || {}).frame;
     for (const e of events) {
       if (e.frame !== arena.i || arena.fired.has(e)) continue;
       arena.fired.add(e);
       if (e.type === "hit") {
         if ($("a-hitstop").checked) arena.stop = arena.anim === "attack_heavy" ? 90 : 70;
-        arena.flash = 90; arena.knock = 160;
-        // the spark lands on the dummy where the strike meets it: the point of its hurtbox
-        // nearest the hitbox's centre
+        struck();
+        // the impact lands on the dummy where the strike meets it
         const box = (((ch.pf.hitboxes || {})[arenaTag()] || {})[String(arena.i)] || [])[0];
         const cx = box ? L.fx + box.x + box.w / 2 : L.fx + 16, cy = box ? L.fy + box.y + box.h / 2 : L.fy + 18;
         const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-        arena.sparks.push({ x: Math.round(clamp(cx, L.dx + 12, L.dx + 19)), y: Math.round(clamp(cy, L.dy + 10, L.dy + 25)), left: 140 });
-      } else if (e.type === "spawn" && Array.isArray(e.point)) {
-        arena.shots.push({ x: L.fx + e.point[0], y: L.fy + e.point[1], tx: L.dx + 15, ty: L.dy + 19,
-                           kind: arena.anim === "shoot_bow" ? "arrow" : "orb" });
+        const name = fxName(e.fx || "spark_small", el);
+        const inst = name && fxInstance(name, null, d, Math.round(clamp(cx, L.dx + 12, L.dx + 19)), Math.round(clamp(cy, L.dy + 10, L.dy + 25)));
+        if (inst) arena.fxs.push(inst);
       } else if (e.type === "vfx" && Array.isArray(e.point)) {
-        arena.sparks.push({ x: L.fx + e.point[0], y: L.fy + e.point[1], left: 120 });
+        const name = fxName(e.fx, el); if (!name) continue;
+        const fx = state.fx[name];
+        if (fx.pf.space === "follow" && Object.values(fx.pf.loop)[0]) {  // a charge glow rides the hand
+          const pname = e.point_name || "hand_near";
+          const inst = fxInstance(name, null, d, 0, 0, {
+            follow: () => { const p = framePoint(pname); return p ? [L.fx + p[0], L.fy + p[1]] : null; },
+            until: () => arena.mode !== "attack" || (spawnFrame !== undefined && arena.i >= spawnFrame),
+          });
+          if (inst) arena.fxs.push(inst);
+        } else {
+          const inst = fxInstance(name, null, d, L.fx + e.point[0], L.fy + e.point[1]);
+          if (inst) arena.fxs.push(inst);
+        }
+      } else if (e.type === "spawn" && Array.isArray(e.point)) {
+        const [tx, ty] = dummyCentre(L);
+        const bow = arena.anim === "shoot_bow" || e.fx === "arrow";
+        const proj = bow ? "arrow" : SPELLS[el];
+        const impact = () => {
+          struck();
+          const inst = bow ? fxInstance("arrow", "impact", d, tx, ty) : fxInstance(fxName(proj ? proj + "_impact" : "impact_" + el, el), null, d, tx, ty);
+          if (inst) arena.fxs.push(inst);
+        };
+        const shot = proj && fxInstance(proj, "travel", d, L.fx + e.point[0], L.fy + e.point[1], { travel: { to: [tx, ty], speed: 170, arrive: impact } });
+        if (shot) arena.fxs.push(shot); else impact();  // holy: the smite lands at once
       }
     }
   }
@@ -641,40 +767,29 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     if (c.width !== L.W * z || c.height !== L.H * z) { c.width = L.W * z; c.height = L.H * z; }
     const ctx = c.getContext("2d"); ctx.imageSmoothingEnabled = false;
     paintGround(ctx, c.width, c.height, state.ground, z);
-    // the dummy: knocked 1 px away from the fighter while recoiling, flashing on the hit
+    drawFX(ctx, arena.fxs, "below", z);
     const away = { e: [1, 0], w: [-1, 0], s: [0, 1], n: [0, -1] }[arena.dir];
     const kx = arena.knock > 0 ? away[0] : 0, ky = arena.knock > 0 ? away[1] : 0;
     ctx.fillStyle = "rgba(58,38,58,0.27)";
     for (const [row, x0, x1] of [[26, 11, 19], [27, 10, 20], [28, 10, 20], [29, 11, 19]]) ctx.fillRect((L.dx + x0) * z, (L.dy + row) * z, (x1 - x0 + 1) * z, z);
     DUMMY.forEach((row, y) => [...row].forEach((v, x) => {
       if (v === ".") return;
-      const color = arena.flash > 0 && v !== "O" ? FLASH : DUMMY_COLORS[v];
-      px(ctx, L.dx + 8 + x + kx, L.dy + 8 + y + ky, z, color);
+      px(ctx, L.dx + 8 + x + kx, L.dy + 8 + y + ky, z, arena.flash > 0 && v !== "O" ? FLASH : DUMMY_COLORS[v]);
     }));
-    // the fighter
     const tag = arenaTag(), idleTag = ch.tags["combat_idle_" + arena.dir] ? "combat_idle_" + arena.dir : "idle_" + arena.dir;
     let index;
     if (arena.mode === "attack") index = ch.tags[tag].from + arena.i;
     else {
-      const t = ch.tags[idleTag]; let ms = arena.t, i = 0;
-      const total = (() => { let s = 0; for (let k = t.from; k <= t.to; k++) s += ch.json.frames[k].duration; return s; })();
+      const t = ch.tags[idleTag]; let ms = arena.t, i = 0, total = 0;
+      for (let k = t.from; k <= t.to; k++) total += ch.json.frames[k].duration;
       ms %= total; while (ms >= ch.json.frames[t.from + i].duration) { ms -= ch.json.frames[t.from + i].duration; i++; }
       index = t.from + i;
     }
     drawCell(ctx, ch, index, L.fx * z, L.fy * z, z);
-    for (const s of arena.shots) {
-      if (s.kind === "arrow") {
-        const horiz = arena.dir === "e" || arena.dir === "w";
-        const sx = Math.sign(s.tx - s.x) || 1, sy = Math.sign(s.ty - s.y) || 1;
-        for (let k = -4; k <= 1; k++) {
-          const ax = Math.round(s.x) + (horiz ? k * sx : 0), ay = Math.round(s.y) + (horiz ? 0 : k * sy);
-          px(ctx, ax, ay, z, k === 1 ? IMPACT[3] : k === -4 ? IMPACT[2] : IMPACT[0]);
-        }
-      } else {
-        for (let yy = -1; yy <= 1; yy++) for (let xx = -1; xx <= 1; xx++) if (xx === 0 || yy === 0) px(ctx, Math.round(s.x) + xx, Math.round(s.y) + yy, z, xx === 0 && yy === 0 ? ARCANE[3] : ARCANE[1]);
-      }
+    drawFX(ctx, arena.fxs, "above", z);
+    if (!Object.keys(state.fx).length) {  // no FX built: the placeholder spark on the dummy
+      if (arena.flash > 0) SPARK.forEach((row, y) => [...row].forEach((v, x) => { if (v !== ".") px(ctx, L.dx + 12 + x, L.dy + 12 + y, z, IMPACT[3 - Number(v)]); }));
     }
-    for (const s of arena.sparks) SPARK.forEach((row, y) => [...row].forEach((v, x) => { if (v !== ".") px(ctx, s.x - 3 + x, s.y - 3 + y, z, IMPACT[3 - Number(v)]); }));
     if ($("a-boxes").checked && arena.mode === "attack") {
       const i = String(arena.i);
       const draw = (boxes, color, ox, oy) => (boxes || []).forEach((b) => { ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.strokeRect((ox + b.x) * z + 1, (oy + b.y) * z + 1, b.w * z - 2, b.h * z - 2); });
@@ -685,8 +800,53 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     [...$("arena-timing").children].forEach((b, i) => b.setAttribute("aria-current", String(arena.mode === "attack" && i === arena.i)));
   }
 
+  // ---------------------------------------------------------------- FX gallery view
+  let fxCards = [];
+  const fxView = { zoom: 3 };
+  function buildFXGallery() {
+    const box = $("fx-grid"); box.innerHTML = "";
+    const segBox = $("fx-zoom"); segBox.innerHTML = "";
+    for (const v of [1, 3, 6]) {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = v + "x"; b.dataset.value = v;
+      b.setAttribute("aria-pressed", String(fxView.zoom === v));
+      b.addEventListener("click", () => { fxView.zoom = v; buildFXGallery(); });
+      segBox.appendChild(b);
+    }
+    fxCards = Object.keys(state.fx).sort().map((name) => {
+      const fx = state.fx[name], cell = fx.pf.cell, z = fxView.zoom;
+      const card = document.createElement("figure"); card.className = "fxcard";
+      const c = document.createElement("canvas"); c.width = c.height = cell * z;
+      const cap = document.createElement("figcaption");
+      const anims = Object.keys(fx.pf.loop);
+      cap.innerHTML = `<b>${name}</b><small>${fx.pf.ramp} · ${cell}px · ${fx.pf.layer}${fx.pf.attach ? " · " + fx.pf.attach : ""}</small>`;
+      card.append(c, cap); box.appendChild(card);
+      // staggered starts, so the grid is never all paused at once
+      const inst = { name, canvas: c, anims, k: 0, wait: Math.random() * 700, inst: fxInstance(name, anims[0], "e", fx.pf.pivot[anims[0] + "_e"][0], fx.pf.pivot[anims[0] + "_e"][1]) };
+      return inst;
+    });
+  }
+  function stepFXGallery(dt) {
+    for (const card of fxCards) {
+      if (!card.inst) continue;
+      if (card.wait > 0) { card.wait -= dt; continue; }
+      card.inst.t += dt;
+      if (!card.inst.loop && fxIndexAt(card.inst) < 0) {  // one-shots: pause, then the next anim
+        card.k = (card.k + 1) % card.anims.length; card.wait = 450;
+        const a = card.anims[card.k], fx = state.fx[card.name];
+        card.inst = fxInstance(card.name, a, "e", fx.pf.pivot[a + "_e"][0], fx.pf.pivot[a + "_e"][1]);
+      }
+    }
+  }
+  function drawFXGallery() {
+    for (const card of fxCards) {
+      const ctx = card.canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+      paintGround(ctx, card.canvas.width, card.canvas.height, state.ground, fxView.zoom);
+      if (card.inst && card.wait <= 0) drawFX(ctx, [card.inst], card.inst.layer, fxView.zoom);
+    }
+  }
+
   // ---------------------------------------------------------------- views and clock
-  const VIEWS = ["player", "gallery", "walk-test", "arena"];
+  const VIEWS = ["player", "gallery", "walk-test", "arena", "fx"];
   function route() {
     const want = location.hash.slice(1);
     const view = VIEWS.includes(want) ? want : "player";
@@ -700,11 +860,18 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   function tick(now) {
     const dt = Math.min(100, now - last) * state.speed; last = now;
     if (state.view === "player") {
-      if (state.playing) stageActors.forEach((s) => s.actor.step(dt)); else stageActors.forEach((s) => { s.actor.blinkAt -= 0; });
+      if (state.playing) stageActors.forEach((s) => {
+        const before = s.actor.i;
+        s.actor.step(dt);
+        if (s.overlay) s.overlay.t += dt;
+        s.fxs = stepFX(s.fxs || [], dt);
+        if (s.actor.i !== before) playerEvents(s);
+      });
       drawStage();
     } else if (state.view === "gallery") { galleryActors.forEach((g) => g.actor.step(dt)); drawGallery(); }
     else if (state.view === "walk-test") { if (walk.actor) walk.actor.step(dt); drawWalk(dt); }
     else if (state.view === "arena") { stepArena(Math.min(100, dt / state.speed) * arena.speed); drawArena(); }
+    else if (state.view === "fx") { stepFXGallery(Math.min(100, dt / state.speed)); drawFXGallery(); }
     requestAnimationFrame(tick);
   }
 
@@ -745,6 +912,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     asel.addEventListener("change", (e) => arenaChoose(e.target.value));
     $("arena-anim").addEventListener("change", (e) => { arena.anim = e.target.value; arenaSegs(); arenaSetup(); });
     if (asel.options.length) arenaChoose(state.byName.knight ? "knight" : asel.options[0].value);
+    buildFXGallery();
     window.addEventListener("hashchange", route);
     route(); syncPlay();
     requestAnimationFrame(tick);

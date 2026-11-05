@@ -1,0 +1,24 @@
+name: gather_glow
+ramp: arcane
+cell: 16
+pivot:
+- 7
+- 7
+layer: above
+space: follow
+attach: hand_near
+rotate: false
+tints:
+- fire
+- ice
+- poison
+- arcane
+- holy
+anims:
+  loop:
+    frames_ms:
+    - 80
+    - 80
+    - 80
+    loop: true
+notes: Motes gathering at the hand while a spell charges; one tint per element.

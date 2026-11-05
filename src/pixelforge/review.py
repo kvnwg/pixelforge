@@ -513,10 +513,26 @@ def timeline_image(b: Build, anim: str, d: str, k: int = 5) -> Image.Image:
     return im
 
 
-def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4) -> Image.Image:
+SPELLS = {"fire": "fireball", "ice": "ice_shard", "poison": "poison_glob", "arcane": "arcane_orb"}
+
+
+def resolve_fx(lib, name: str | None, element: str = "arcane") -> str | None:
+    """An event's FX name in the library: exact, else its tint for the element, else any tint."""
+    if lib is None or not name:
+        return None
+    if lib.has(name):
+        return name
+    if lib.has(f"{name}_{element}"):
+        return f"{name}_{element}"
+    return next((n for n in lib.names() if n.startswith(name + "_")), None)
+
+
+def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4, fxlib=None,
+                 element: str = "arcane") -> Image.Image:
     """The attacker's frames with the defender reacting from the hit (or the projectile's
-    arrival) on: hurt, then back to combat_idle. Placeholder sparks and projectiles mark the
-    hit; rows at k x and 1 x on the three backgrounds (COMBAT.md section 9)."""
+    arrival) on: hurt, then back to combat_idle. Events play their FX from the library (the hit
+    impact on the target, vfx at their points, projectiles travelling to the defender); without
+    an FX library a placeholder spark marks the hit. Rows at k x and 1 x (COMBAT.md section 9)."""
     style = att.style
     frames = att.frames[(anim, d)]
     adef = att.composer.anims[anim]
@@ -527,8 +543,6 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4) ->
     hit_i = adef.event_frame("hit")
     spawn_i = adef.event_frame("spawn")
     ranged = spawn_i is not None and hit_i is None
-    # Distance: melee puts the defender's hurtbox just inside the strike's reach; ranged leaves
-    # room for the projectile to travel.
     axis = 0 if d in ("e", "w") else 1
     sign = 1 if d in ("e", "s") else -1
     if ranged:
@@ -542,24 +556,68 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4) ->
         near_edge = (hb[0] if sign > 0 else size - hb[0] - hb[2]) if axis == 0 else \
             (hb[1] if sign > 0 else size - hb[1] - hb[3])
         gap = max(reach - near_edge - 2, 6)
-    W = size + abs(gap) if axis == 0 else size
-    H = size if axis == 0 else size + abs(gap)
+    W = size + gap if axis == 0 else size
+    H = size if axis == 0 else size + gap
     ax, ay = (0, 0) if sign > 0 else ((gap, 0) if axis == 0 else (0, gap))
     dx, dy = ((gap, 0) if axis == 0 else (0, gap)) if sign > 0 else (0, 0)
-    spark = placeholder_spark(style)
-    proj = placeholder_projectile(style, "arrow" if anim == "shoot_bow" else "orb")
-    if d in ("w",):
-        proj = proj[:, ::-1]
-    if d in ("s", "n"):
-        proj = np.transpose(proj, (1, 0, 2))[::(1 if d == "s" else -1)]
+    hb = idle[0].hurtbox or (11, 11, 9, 16)
+    target = (dx + hb[0] + hb[2] // 2, dy + hb[1] + hb[3] // 2)
+
+    # FX instances: (name, anim, first strip frame, position or a function of the frame, travel)
+    shots: list[dict] = []
+    travel_frames = 2
     impact_i = None
-    if ranged:
-        impact_i = min(spawn_i + 2, len(frames) - 1)
+    if ranged and anim != "shoot_bow" and element not in SPELLS:
+        impact_i = spawn_i  # holy has no projectile: the smite lands as the spell is cast
+    elif ranged:
+        impact_i = min(spawn_i + travel_frames, len(frames) - 1)
     elif hit_i is not None:
         impact_i = hit_i
+    for e in adef.events:
+        i = int(e["frame"])
+        if i >= len(frames):
+            continue
+        f = frames[i]
+        if e["type"] == "hit":
+            bx, by, bw, bh = (f.hitboxes or [(target[0] - ax - 1, target[1] - ay - 1, 2, 2)])[0]
+            cx = min(max(ax + bx + bw // 2, dx + hb[0]), dx + hb[0] + hb[2] - 1)
+            cy = min(max(ay + by + bh // 2, dy + hb[1]), dy + hb[1] + hb[3] - 1)
+            shots.append({"fx": resolve_fx(fxlib, e.get("fx", "spark_small"), element),
+                          "anim": None, "start": i, "pos": (cx, cy)})
+        elif e["type"] == "vfx":
+            pt = f.points.get(e.get("point")) if isinstance(e.get("point"), str) else None
+            name = resolve_fx(fxlib, e.get("fx"), element)
+            if pt and name:
+                fx, _ = fxlib.get(name)
+                if fx.space == "follow" and fx.anims[next(iter(fx.anims))].loop:
+                    end = spawn_i if spawn_i is not None and spawn_i > i else len(frames)
+                    shots.append({"fx": name, "anim": None, "start": i, "until": end,
+                                  "follow": e["point"]})
+                else:
+                    shots.append({"fx": name, "anim": None, "start": i,
+                                  "pos": (ax + pt[0], ay + pt[1])})
+        elif e["type"] == "spawn":
+            pt = f.points.get(e.get("point")) if isinstance(e.get("point"), str) else None
+            sx, sy = (ax + pt[0], ay + pt[1]) if pt else (ax + size // 2, ay + size // 2)
+            if anim == "shoot_bow" or e.get("fx") == "arrow":
+                proj, impact, impact_anim = "arrow", "arrow", "impact"
+            elif element in SPELLS:
+                proj = SPELLS[element]
+                impact, impact_anim = f"{proj}_impact", None
+            else:  # holy: no projectile, the smite lands on the target
+                proj, impact, impact_anim = None, f"impact_{element}", None
+            if proj and fxlib is not None and fxlib.has(proj):
+                shots.append({"fx": proj, "anim": "travel", "start": i, "until": impact_i,
+                              "path": ((sx, sy), target)})
+            shots.append({"fx": impact if fxlib is not None and fxlib.has(impact) else None,
+                          "anim": impact_anim, "start": impact_i, "pos": target})
+
+    spark = placeholder_spark(style)
     cells = []
     for i, f in enumerate(frames):
+        layers_below = np.zeros((H, W, 4), np.uint8)
         scene = np.zeros((H, W, 4), np.uint8)
+        layers_above = np.zeros((H, W, 4), np.uint8)
         if impact_i is not None and i >= impact_i:
             j = i - impact_i
             react = hurt[j] if j < len(hurt) else idle[(j - len(hurt)) % len(idle)]
@@ -567,38 +625,45 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4) ->
             react = idle[i % len(idle)]
         blit(scene, react.image, dx, dy)
         blit(scene, f.image, ax, ay)
-        if impact_i is not None and i == impact_i:
-            if f.hitboxes and not ranged:
-                bx, by, bw, bh = f.hitboxes[0]
-                hb = react.hurtbox or (11, 11, 9, 16)
-                x0 = max(ax + bx, dx + hb[0]); x1 = min(ax + bx + bw, dx + hb[0] + hb[2])
-                y0 = max(ay + by, dy + hb[1]); y1 = min(ay + by + bh, dy + hb[1] + hb[3])
-                cx = (x0 + x1) // 2 if x1 > x0 else dx + hb[0] + hb[2] // 2
-                cy = (y0 + y1) // 2 if y1 > y0 else dy + hb[1] + hb[3] // 2
+        for shot in shots:
+            if shot["start"] is None or i < shot["start"] or i >= shot.get("until", 10 ** 6):
+                continue
+            if shot["fx"] is None:  # no library: the placeholder spark on the hit frame
+                if i == shot["start"]:
+                    x, y = shot["pos"]
+                    blit(layers_above, spark, x - 3, y - 3)
+                continue
+            fx, _ = fxlib.get(shot["fx"])
+            cells_fx, pivot, fanim = fxlib.cells(shot["fx"], shot["anim"], d)
+            n = i - shot["start"]
+            if n >= len(cells_fx):
+                if not fanim.loop:
+                    continue
+                n %= len(cells_fx)
+            if "path" in shot:
+                (x0, y0), (x1, y1) = shot["path"]
+                span = max(shot["until"] - shot["start"], 1)
+                u = (n + 0.5) / span
+                x, y = round(x0 + (x1 - x0) * u), round(y0 + (y1 - y0) * u)
+            elif "follow" in shot:
+                pt = f.points.get(shot["follow"], (size // 2, size // 2))
+                x, y = ax + pt[0], ay + pt[1]
             else:
-                hb = react.hurtbox or (11, 11, 9, 16)
-                cx, cy = dx + hb[0] + hb[2] // 2, dy + hb[1] + hb[3] // 2
-            blit(scene, spark, cx - 3, cy - 3)
-        if ranged and spawn_i is not None and spawn_i <= i < impact_i:
-            sx, sy = f.points.get("bow_nock", f.points.get("hand_near", (size // 2, size // 2)))
-            hb = idle[0].hurtbox or (11, 11, 9, 16)
-            tx, ty = dx + hb[0] + hb[2] // 2, dy + hb[1] + hb[3] // 2
-            u = (i - spawn_i + 0.5) / (impact_i - spawn_i)
-            px = round(ax + sx + (tx - ax - sx) * u)
-            py = round(ay + sy + (ty - ay - sy) * u)
-            blit(scene, proj, px - proj.shape[1] // 2, py - proj.shape[0] // 2)
-        for e in adef.events:
-            if e["type"] == "vfx" and int(e["frame"]) == i and isinstance(e.get("point"), str):
-                pt = f.points.get(e["point"])
-                if pt:
-                    blit(scene, spark, ax + pt[0] - 3, ay + pt[1] - 3)
-        cells.append(scene)
+                x, y = shot["pos"]
+            target_layer = layers_below if fx.layer == "below" else layers_above
+            blit(target_layer, cells_fx[n], x - pivot[0], y - pivot[1])
+        out = layers_below.copy()
+        blit(out, scene, 0, 0)
+        blit(out, layers_above, 0, 0)
+        cells.append(out)
     pad = 10
     grounds = bgs(att)
     cw, ch = W * k, H * k
     im, dr = canvas(pad + len(cells) * (cw + pad), 44 + ch + 30 + 3 * (H + 8) + 20)
-    dr.text((pad, 10), f"{att.recipe.name} {anim} {d} vs {dfn.recipe.name}   placeholder spark and "
-                       f"projectile until the Phase 6 FX", fill=INK, font=font(13))
+    what = "FX from fx/" if fxlib is not None else "placeholder spark (no FX library)"
+    extra = f"  element {element}" if anim == "cast" else ""
+    dr.text((pad, 10), f"{att.recipe.name} {anim} {d} vs {dfn.recipe.name}   {what}{extra}",
+            fill=INK, font=font(13))
     phases = adef.phases or ("",) * len(frames)
     for i, scene in enumerate(cells):
         x = pad + i * (cw + pad)
@@ -609,4 +674,85 @@ def battle_image(att: Build, dfn: Build, anim: str, d: str = "e", k: int = 4) ->
         for r, name in enumerate(("beige", "light", "dark")):
             y = 44 + ch + 30 + r * (H + 8)
             paste(im, flat(scene, grounds[name]), x, y)
+    return im
+
+
+# ------------------------------------------------------------------ FX (Phase 6)
+def fx_review(lib, name: str, style, k: int = 8) -> Image.Image:
+    """One FX: every animation in every direction at k x with the pivot marked, then each
+    animation at 1x on beige, light and dark, and at 4x over the three grounds."""
+    fx, ramp = lib.get(name)
+    grounds = {n: parse_hex(c) for n, c in style.raw["preview_backgrounds"].items()}
+    cell = fx.cell
+    rows = []
+    for anim in fx.anims:
+        for d in ("e", "s", "n", "w"):
+            cells, pivot, adef = lib.cells(name, anim, d)
+            rows.append((anim, d, cells, pivot, adef))
+    maxf = max(len(r[2]) for r in rows)
+    pad = 10
+    w = pad + maxf * (cell * k + pad) + 120
+    h = 40 + len(rows) * (cell * k + 28) + 60 + len(fx.anims) * (cell * 4 + 30)
+    im, dr = canvas(max(w, 600), h)
+    dr.text((pad, 10), f"{name}  ramp {ramp}  cell {cell}  layer {fx.layer}  space {fx.space}"
+                       + (f"  attach {fx.attach}" if fx.attach else "") + ("  rotates" if fx.rotate else ""),
+            fill=INK, font=font(14))
+    y = 40
+    for anim, d, cells, pivot, adef in rows:
+        dr.text((pad, y), f"{anim} {d}  {list(adef.frames_ms)} ms{' loop' if adef.loop else ''}",
+                fill=INK, font=font(11))
+        for i, c in enumerate(cells):
+            x = pad + i * (cell * k + pad)
+            arr = pixel_grid(big(flat(c, grounds["beige"]), k), k, strength=0.08)
+            px, py = pivot
+            arr[py * k + k // 2 - 1:py * k + k // 2 + 1, px * k:(px + 1) * k] = BLUE
+            arr[py * k:(py + 1) * k, px * k + k // 2 - 1:px * k + k // 2 + 1] = BLUE
+            paste(im, arr, x, y + 14)
+        y += cell * k + 28
+    y += 10
+    for anim in fx.anims:
+        cells, pivot, adef = lib.cells(name, anim, "e")
+        dr.text((pad, y), f"{anim} at 1x and 4x on beige, light, dark", fill=INK, font=font(11))
+        x = pad
+        for g in ("beige", "light", "dark"):
+            for c in cells:
+                paste(im, flat(c, grounds[g]), x, y + 16)
+                x += cell + 2
+            x += 8
+        x += 10
+        for g in ("beige", "light", "dark"):
+            for c in cells[:4]:
+                paste(im, big(flat(c, grounds[g]), 4), x, y + 16)
+                x += cell * 4 + 2
+            x += 8
+        y += cell * 4 + 30
+    return im
+
+
+def fx_overview(lib, style, k: int = 3) -> Image.Image:
+    """Every FX variant's frames side by side at k x on beige, light and dark (one row each)."""
+    grounds = {n: parse_hex(c) for n, c in style.raw["preview_backgrounds"].items()}
+    names = lib.names()
+    pad, label = 6, 150
+    rows = []
+    for n in names:
+        fx, _ = lib.get(n)
+        cells = []
+        for anim in fx.anims:
+            cs, _, _ = lib.cells(n, anim, "e")
+            cells += cs
+        rows.append((n, fx.cell, cells))
+    width = label + max(sum(c.shape[1] * k + 2 for c in cells) for _, _, cells in rows) * 3 + 60
+    height = sum(cell * k + pad for _, cell, _ in rows) + 30
+    im, dr = canvas(width, height)
+    y = 20
+    for n, cell, cells in rows:
+        dr.text((pad, y + 4), n, fill=INK, font=font(11))
+        x = label
+        for g in ("beige", "light", "dark"):
+            for c in cells:
+                paste(im, big(flat(c, grounds[g]), k), x, y)
+                x += cell * k + 2
+            x += 16
+        y += cell * k + pad
     return im

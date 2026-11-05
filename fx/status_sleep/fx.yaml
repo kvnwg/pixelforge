@@ -1,0 +1,18 @@
+name: status_sleep
+ramp: ice
+cell: 24
+pivot:
+- 11
+- 17
+layer: above
+space: follow
+attach: head
+rotate: false
+anims:
+  loop:
+    frames_ms:
+    - 220
+    - 220
+    - 220
+    loop: true
+notes: Z's rising from the head.

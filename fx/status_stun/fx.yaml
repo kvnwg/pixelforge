@@ -1,0 +1,19 @@
+name: status_stun
+ramp: holy
+cell: 24
+pivot:
+- 11
+- 15
+layer: above
+space: follow
+attach: head
+rotate: false
+anims:
+  loop:
+    frames_ms:
+    - 120
+    - 120
+    - 120
+    - 120
+    loop: true
+notes: Stars orbiting 11 px wide above the head.
