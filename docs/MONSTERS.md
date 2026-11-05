@@ -134,6 +134,18 @@ Each boss gets a written spec here before any drawing: concept in two sentences,
 
 ---
 
+### 5.6 As built (Phase 7)
+
+The slime, bat and wolf are drawn by `tools/art/slime.py`, `bat.py` and `wolf.py`; recipes are in `characters/monsters/` on the `enemy` timing profile.
+
+- **Every rig keeps its own animation set** in `style.json` (`rigs.<rig>.animations`, over the global ones), with aliases: `combat_idle` is the idle loop for all three, the bat's `move` is its hover.
+- **Directions: s, e and n for all three** (w mirrored), because Rolling Knight moves its mobs in every direction. The slime's body is the same from every side and only its eyes move (forward facing e, none facing n). The bat's body and wings are shared by s and e, with the eyes forward facing e and the furry back with the wings over it facing n. The wolf is drawn in profile first; facing s its head sits over the chest with the front legs below; facing n the rump, tail and hind legs show with the ears peeking over.
+- **The slime** follows the kit's draft exactly (it matched the spec); its squash, stretch, deep squash, swell, melt and puddle shapes are redrawn with thicker dark lower rims than the draft, so the mid shade never covers half the body (W5) and it reads rounder. Eyes and gloss are separate parts on anchors. Dark eyes keep it cute; elites get glow eyes.
+- **The bat** floats with its bottom 7 px above the baseline; its rig sets `hover` (every frame airborne unless flagged `grounded`) and a small shadow (7 x 2) that never bobs. It dies by tumbling and landing, wings flat, the shadow back to full size. Glow red eyes: it is always a threat.
+- **The wolf** is assembled per frame from a torso, a head (rest, flick, ears back, snarl, bite, howl), four legs posed separately (stand, fwd, back, lift, tuck, kneel; far legs one shade darker and 2 px behind their near leg) and a tail that trails by a frame. A despeckle pass merges any lone shading pixel the assembly leaves (W3). Its death is a redrawn lying pose (the tail part is hidden there; the drawing has its own). Glow yellow eyes. The `howl` plays the new `sound_rings` FX.
+- **Monster hitboxes are authored on the rig** (`"hitboxes"` in anchors.json on active frames: the slime's landing, the bat's dive, the wolf's jaws), clipped so the mirrored west box stays on the canvas.
+- **Validator motion checks are off for these rigs** (`rigs.<rig>.validator.motion_checked_anims: []`): squash and stretch, wing beats and gaits reshape the silhouette by design, so W2, W4 and E7 would only flag the intended motion. Review the strips instead.
+
 ## 6. Variants: elites and families
 
 - **Family variant** (frost wolf, fire slime): new material presets plus matching FX element. Change value pattern, not just hue, so it reads differently in grayscale.
@@ -147,7 +159,7 @@ A variant that is only a hue shift is not enough; players need to tell a stronge
 ## 7. Roster readability
 
 - `pf roster` renders `review/roster_lineup.png`: every monster and the player's anchor side by side at 1x and 2x, sorted by size, plus a row of solid silhouettes.
-- The validator warns (W7) when two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). Fix it by changing the shape, not the color.
+- The validator warns (W7) when two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Fix it by changing the shape, not the color. Recolored variants of one monster (same rig and parts) are a family and are not compared. `pf validate` (everything) and `pf roster` both run it.
 - Size tells danger: within a region, bigger means stronger. Keep that consistent.
 
 ---

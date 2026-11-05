@@ -102,3 +102,58 @@ def test_bat_falls_to_the_ground_when_it_dies(bat):
     assert "airborne" not in last.flags and bbox(last)[3] == 27
     full = np.nonzero(last.image[..., 3] == 70)
     assert full[1].min() < 12  # the default (full size) shadow once grounded
+
+
+@pytest.fixture(scope="module")
+def wolf(root, style):
+    return build(root, "wolf", style=style)
+
+
+def test_wolf_validates(wolf):
+    assert [str(f) for f in wolf.findings] == []
+
+
+def test_wolf_near_legs_are_lighter_than_far_legs(wolf, style):
+    from pixelforge.color import parse_hex
+    fur = [parse_hex(c) for c in style.materials["fur"].presets["gray"]]
+    f = wolf.frames[("idle", "e")][0]
+    leg_row = 25  # below the body, above the paws
+    shades = {x: fur.index(tuple(int(v) for v in f.sprite[leg_row, x, :3]))
+              for x in range(32) if f.owner[leg_row, x] >= 0}
+    far = [shades[x] for x in (8, 9, 15, 16) if x in shades]
+    near = [shades[x] for x in (10, 11, 17, 18) if x in shades]
+    assert far and near and max(far) < max(near)
+
+
+def test_wolf_tail_trails_the_body(wolf):
+    c = wolf.composer
+    tail = c.parts["tail"]
+    idle = c.anims["idle"]
+    # frame 1 lowers the body; the lagging tail is still where frame 0 put it
+    assert c.offset(tail, idle, "e", 1)[1] == c.offset(tail, idle, "e", 0)[1]
+    assert c.offset(tail, idle, "e", 2)[1] == c.offset(tail, idle, "e", 1)[1] + 1
+
+
+def test_wolf_bite_reaches_ahead(wolf):
+    f = wolf.frames[("attack_bite", "e")][2]
+    x, y, w, h = f.hitboxes[0]
+    assert x + w > bbox(f)[2] - 2  # in front of the snout
+    w_frame = wolf.frames[("attack_bite", "w")][2]
+    assert all(bx >= 0 for bx, *_ in w_frame.hitboxes)
+
+
+def test_wolf_dies_on_its_side(wolf):
+    last = wolf.frames[("death", "e")][-1]
+    x0, y0, x1, y1 = bbox(last)
+    assert x1 - x0 >= 18 and y1 - y0 <= 7 and y1 == 27  # long and low, on the ground
+
+
+def test_roster_has_no_lookalikes_and_W7_fires_on_one(root, style, slime, bat, wolf):
+    from dataclasses import replace
+    from pathlib import Path
+    from pixelforge.validate import roster_findings
+    assert roster_findings([slime, bat, wolf]) == []
+    twin = replace(slime, recipe=replace(slime.recipe, name="slime_twin", parts={"eyes": "slime"},
+                                         path=Path(slime.recipe.path).with_name("slime_twin.yaml")))
+    found = roster_findings([slime, twin])
+    assert any(f.rule == "W7" for f in found)

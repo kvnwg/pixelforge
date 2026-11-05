@@ -48,7 +48,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
 | W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. Frames flagged `flash` are skipped: they are one color on purpose. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
-| W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). |
+| W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union), facing s or e. Recolored variants of one monster (same rig and parts) are a family and are not compared. |
 | W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. The strongest pose of the windup phase counts (a heavy attack lifts first, then cocks back). |
 | W9 | Hidden tell: an FX played during the windup phase (a `vfx` or `spawn` event) covers more than 15% of the attacker's silhouette. A charge glow at the hand is fine; a burst over the body is not. |
 | W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. |

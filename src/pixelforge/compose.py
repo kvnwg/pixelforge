@@ -187,13 +187,25 @@ class Composer:
                      name)
 
     # ------------------------------------------------------------------ frames
-    def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str]) -> dict[int, tuple[int, int]]:
+    def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str],
+                    direction: str = "s") -> dict[int, tuple[int, int]]:
         """The ground shadow: the style's ellipse, or the rig's own (`rigs.<rig>.shadow_rows`,
         a hovering flyer's small shadow that never bobs); airborne jumps shrink it."""
         rows = dict(self.style.shadow.rows)
         own = self.rig_spec.get("shadow_rows")
+        if own and direction in own:  # per direction: a long side view casts a long shadow
+            own = own[direction]
+        elif own and any(k in own for k in ("s", "e", "n")):
+            own = None
         if own and "grounded" not in flags:
-            return {int(y): (int(x0), int(x1)) for y, (x0, x1) in own.items()}
+            rows = {int(y): (int(x0), int(x1)) for y, (x0, x1) in own.items()}
+            if not self.rig_spec.get("hover"):
+                return self._shrink(rows, sprite, flags)
+            return rows
+        return self._shrink(rows, sprite, flags)
+
+    def _shrink(self, rows, sprite, flags):
+        """An airborne jump shrinks the shadow 1 px a side per 2 px of lift."""
         if "airborne" in flags:
             sil = sprite[..., 3] == 255
             ys = np.flatnonzero(sil.any(axis=1))
@@ -218,9 +230,10 @@ class Composer:
                 layer = self.layer(part, src, direction, src_index, behind=True)
                 if layer is not None:
                     layers.append(layer)
+        hidden_here = set(self.rig.points(src.name, direction, src_index).get("hide", []))
         for slot in self.rig.z_order[direction]:
             part = self.parts.get(slot)
-            if part is not None:
+            if part is not None and slot not in hidden_here:  # a pose may hide a part
                 layer = self.layer(part, src, direction, src_index)
                 if layer is not None:
                     layers.append(layer)
@@ -265,7 +278,7 @@ class Composer:
         if "flash" in flags:
             sprite = flash(sprite, o.rgb, self.flash_rgb)
         shadow = shadow_layer(self.style.shadow, o.rgb, self.size,
-                              rows=self.shadow_rows(sprite, flags))
+                              rows=self.shadow_rows(sprite, flags, direction))
         frame = Frame(
             character=self.recipe.name, anim=anim_name, direction=direction, index=index,
             duration=anim.frames_ms[index], sprite=sprite, image=over_shadow(sprite, shadow),
@@ -283,8 +296,12 @@ class Composer:
     def combat_data(self, frame: Frame, anim: AnimDef, direction: str, index: int) -> None:
         pts = self.rig.points(anim.name, direction, index)
         if "active" in frame.flags:  # monsters (and any rig) author their own hitboxes
-            for box in pts.get("hitboxes", []):
-                frame.hitboxes.append(tuple(int(v) for v in box))
+            right = 2 * self.rig.size.mirror_axis_x  # clipped so the mirrored box stays on canvas
+            for x, y, w, h in pts.get("hitboxes", []):
+                x0, y0 = max(int(x), 0), max(int(y), 0)
+                x1, y1 = min(int(x) + int(w), right + 1), min(int(y) + int(h), self.size)
+                if x1 > x0 and y1 > y0:
+                    frame.hitboxes.append((x0, y0, x1 - x0, y1 - y0))
         frame.points = {k: (int(v[0]), int(v[1])) for k, v in pts.items()
                         if isinstance(v, list) and len(v) == 2 and all(isinstance(c, int) for c in v)}
         # the hurtbox: the body's bounding box inside its outline (the outlined silhouette inset

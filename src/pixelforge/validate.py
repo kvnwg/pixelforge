@@ -7,6 +7,7 @@ Thresholds come from style.json `validator` (calibrated so the anchor itself pas
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable
 
 import numpy as np
@@ -622,3 +623,33 @@ def _hidden_tell(self, adef, fs: list, where: str) -> list[Finding]:
 Validator.combat = _combat_checks
 Validator.fx_library = _fx_library
 Validator._hidden_tell = _hidden_tell
+
+
+# ------------------------------------------------------------------ the roster (MONSTERS.md section 7)
+def is_monster(recipe) -> bool:
+    return recipe.path is not None and "monsters" in Path(recipe.path).parts
+
+
+def roster_findings(builds: list, threshold: float = 0.85) -> list[Finding]:
+    """W7: two different monsters whose combat_idle frame 0 silhouettes overlap by more than
+    85% (intersection over union), facing s and e, are too alike: change the shape."""
+    out = []
+    monsters = [b for b in builds if is_monster(b.recipe)]
+    for i, a in enumerate(monsters):
+        for b in monsters[i + 1:]:
+            if a.recipe.rig == b.recipe.rig and a.recipe.parts == b.recipe.parts:
+                continue  # a recolored variant of the same monster is a family, not a clash
+            for d in ("s", "e"):
+                fa = a.frames.get(("combat_idle", d)) or a.frames.get(("idle", d))
+                fb = b.frames.get(("combat_idle", d)) or b.frames.get(("idle", d))
+                if not fa or not fb:
+                    continue
+                sa, sb = fa[0].sprite[..., 3] == 255, fb[0].sprite[..., 3] == 255
+                iou = (sa & sb).sum() / max((sa | sb).sum(), 1)
+                if iou > threshold:
+                    out.append(Finding("warning", "W7", f"{a.recipe.name} vs {b.recipe.name} {d}",
+                                       f"combat_idle silhouettes overlap {iou:.0%} (over "
+                                       f"{threshold:.0%})",
+                                       hint="change the shape, not the color: a signature "
+                                            "feature, posture or size"))
+    return out

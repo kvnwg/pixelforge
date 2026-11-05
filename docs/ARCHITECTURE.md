@@ -413,7 +413,14 @@ Views are routed by the hash: `#player`, `#gallery`, `#walk-test`, `#arena`, `#f
 
 ## 20. Rigs, size classes, combat data and FX
 
-- **Rigs** are folders under `parts/body/<rig>/` with their own `anchors.json`, z-order (in `style.json` under the rig, falling back to the defaults), and animation list. The compositor, outliner, validator and exporter are rig-agnostic: they read canvas size, pivot and mirror axis from the rig's size class. Specs per rig are in MONSTERS.md.
+- **Rigs** are folders under `parts/body/<rig>/` with their own `anchors.json`, z-order (in `style.json` under the rig, falling back to the defaults), and animation list. The compositor, outliner, validator and exporter are rig-agnostic: they read canvas size, pivot and mirror axis from the rig's size class. Specs per rig are in MONSTERS.md. A rig in `style.json` may also set (Phase 7):
+  - `animations`: its own animation set over the global one; an entry may be an `alias` of another (same timing, same drawn frames), like `combat_idle` = `idle`;
+  - `defaults`: parts every recipe on the rig gets (the humanoid's `fist`);
+  - `close_eyes`: the material and shade closed eyes take (skin for humanoids, the body's own for monsters);
+  - `shadow_rows`: its own ground shadow, flat (`{"27": [12, 18]}`) or per direction (`{"e": {...}}`) for a long side view;
+  - `hover`: every frame is airborne unless the animation flags it `grounded` (flyers);
+  - `validator.motion_checked_anims`: which animations get the idle and walk motion checks.
+  Anchor frames may carry `hitboxes` (rig-authored, on active frames) and `hide` (slots a pose leaves out, like a tail drawn into a lying pose).
 - **Combat data** (phases, events, hitboxes, hurtboxes, root motion, timing profiles) is defined per animation in `style.json` and per weapon in held-item parts, and exported in `meta.pixelforge`. Rules and formats are in COMBAT.md.
 - **FX** live in `fx/<name>/` with `fx.yaml` (ramp, tints, pivot, cell size, loops, layer above or below, follow or world-space, the anchor it rides) and one sheet per animation, authored facing east (`src/pixelforge/fx.py`, COMBAT.md section 6). They are built and validated separately from characters, against `fx_ramps` and `fx_constraints`, and exported as their own sheets plus JSON with every direction: west mirrored, south and north turned in exact 90-degree steps when the FX may rotate; characters never are. Character exports carry per-frame named points (`meta.pixelforge.points`) and status overlays (`overlays`) so a game can attach FX to anchors.
 - **Draft examples** in `style/examples/` (slime, battle mockup) were drawn to prove the style extends to monsters and FX. They are references, not ground truth; the anchor is the only ground truth.

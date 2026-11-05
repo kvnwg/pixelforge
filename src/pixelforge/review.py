@@ -774,3 +774,51 @@ def fx_overview(lib, style, k: int = 3) -> Image.Image:
             x += 16
         y += cell * k + pad
     return im
+
+
+# ------------------------------------------------------------------ roster (Phase 7)
+def roster_image(builds: list, k: int = 2) -> Image.Image:
+    """Every monster and the anchor side by side, sorted by silhouette area (size tells danger):
+    a row at 1x on the three grounds, a row at k x, a row of solid silhouettes, facing s and e."""
+    def frame(b, d):
+        fs = b.frames.get(("combat_idle", d)) or b.frames.get(("idle", d))
+        return fs[0] if fs else None
+
+    def area(b):
+        f = frame(b, "s") or frame(b, "e")
+        return int((f.sprite[..., 3] == 255).sum()) if f else 0
+
+    builds = sorted(builds, key=area)
+    grounds = bgs(builds[0]) if builds else {}
+    size = max(b.composer.size for b in builds)
+    pad, label = 12, 18
+    col = size * k + pad
+    w = pad + len(builds) * col * 2 + 20
+    h = 30 + 3 * (size + 4) + 2 * (size * k + label + 10) + 40
+    im, dr = canvas(w, h)
+    dr.text((pad, 8), "roster: smallest to largest; each monster facing s then e; anchor_girl for scale",
+            fill=INK, font=font(13))
+    y = 30
+    for r, g in enumerate(("beige", "light", "dark")):
+        x = pad
+        for b in builds:
+            for d in ("s", "e"):
+                f = frame(b, d)
+                if f is not None:
+                    paste(im, flat(f.image, grounds[g]), x, y)
+                x += size + 6
+            x += 8
+        y += size + 4
+    y += 10
+    x = pad
+    for b in builds:
+        for d in ("s", "e"):
+            f = frame(b, d)
+            if f is not None:
+                paste(im, big(flat(f.image, grounds["beige"]), k), x, y + label)
+                sil = np.where((f.sprite[..., 3] == 255)[..., None], np.uint8(40), np.uint8(232))
+                sil = np.repeat(sil, 3, axis=-1)
+                paste(im, big(sil, k), x, y + label + size * k + 8)
+            x += col
+        dr.text((x - 2 * col, y), b.recipe.name, fill=INK, font=font(12))
+    return im

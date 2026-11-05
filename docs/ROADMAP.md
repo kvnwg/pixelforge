@@ -269,7 +269,7 @@ Known limits: elemental impacts share one shape (elements differ by color and pr
 
 ## Phase 7: Monster rigs I: blob, flyer, quadruped (CHECKPOINT per rig)
 
-Status: not started
+Status: done (commits "Phase 7: slime", "Phase 7: bat", "Phase 7: wolf"; see the notes below)
 
 Tasks (one rig at a time, in this order, following MONSTERS.md sections 5.1 to 5.3):
 1. **Slime:** blob base body, all its animations, `characters/monsters/slime.yaml` with the enemy profile. Start from `style/examples/slime_draft.png` only if the human liked it.
@@ -285,6 +285,29 @@ Acceptance per monster:
 **CHECKPOINT** after each monster: turnaround (or side view), every animation in the preview, battle strip vs the knight.
 
 Commit per monster: `Phase 7: slime`, `Phase 7: bat`, `Phase 7: wolf`
+
+### Phase 7 notes and self-review (checkpoints waived, see the top of this file)
+
+Built: per-rig animation sets with aliases, rig-level z-order, closed-eye shade, shadow, hover, validator motion checks and rig-authored hitboxes (ARCHITECTURE.md section 20); the slime, bat and wolf in s, e and n on the enemy profile (MONSTERS.md section 5.6); `pf roster` and W7; the `sound_rings` FX; battle strips that apply root motion and fire an event's own projectile. All three validate with 0 errors and 0 warnings; `tests/test_monsters.py` covers squash and stretch, the hop, eyes per view, the hover and its shadow, wing beats, the bat's fall, the wolf's leg shading, tail lag, bite reach and lying death, and W7.
+
+What the review images show:
+- Slime: the draft's dome jiggles (base, squash, base, stretch); the hop squashes, stretches, rises 3 to 4 px with the shadow narrowing and lands; the slam flattens into a deep squash (the tell), leaps on root motion and lands on the knight with `impact_big`; the spit swells twice and fires a green `poison_glob` from the mouth; hurt splats; death melts into a 15 x 4 puddle.
+- Bat: a brown fur ball with glowing red eyes and dark membrane wings beating up, mid, down; the swoop rises with wings wide, dives 4 px with wings swept back and pulls up; it tumbles when hurt and falls to lie with its wings flat.
+- Wolf: a chibi wolf in profile with a big head, a bushy tail that trails a frame, two clear leg pairs (far legs darker); the walk alternates diagonal pairs, the gallop leaves the ground, the bite crouches with ears back, snarls and lunges with jaws wide, the howl lifts the snout under sound rings, death falls onto its side. Facing s a cat-like front view with two eyes; facing n the rump and tail.
+- Roster: slime, bat, wolf and anchor_girl have clearly different silhouettes at 1x (dome, wings, quadruped, person); size grows from slime to wolf.
+
+Rubric (slime / bat / wolf):
+1. Style match 5 / 4 / 4: the slime is the kit's own draft; all use the generated outline, open soles and the monster ramps.
+2. 1x readability 4 / 4 / 4: each reads on beige, light and dark; the bat's dark wings read as a silhouette.
+3. Silhouette 5 / 4 / 4: one signature feature each (the dome, the wings, the tail and ears).
+4. Motion 4 / 4 / 4: squash and stretch, wing beats and gaits are redrawn, never scaled; timing is for the human to judge.
+5. Consistency 4 / 4 / 4: same shading and pixel scale in every frame and view.
+6. Cleanliness 4 / 4 / 4: W3 and W5 clean (the wolf after its despeckle pass).
+7. Part fit 4 / 4 / 4: eyes, gloss and tail follow their anchors; the lying wolf hides its tail part.
+8. Appeal 5 / 4 / 4: the slime is cute; the bat and wolf are chibi but threatening (glow eyes, snarl).
+9. Combat readability 4 / 4 / 4: whole-body tells (deep squash, rise, crouch) last at least 300 ms on the enemy profile; hits have impacts.
+
+Known limits: the wolf's s and n views are simpler than its profile, as MONSTERS.md allows; the bat's e view is its front view with the eyes turned.
 
 ---
 

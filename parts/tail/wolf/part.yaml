@@ -1,0 +1,10 @@
+slot: tail
+variant: wolf
+material: fur
+kind: rigid
+attach: tail
+origin: auto
+lags: true
+rigs:
+- quadruped
+notes: A bushy tail riding the rump; it trails by a frame.

@@ -1,0 +1,10 @@
+slot: eyes
+variant: wolf
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- quadruped
+notes: One eye in profile, two facing s.

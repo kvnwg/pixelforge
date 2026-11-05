@@ -1,0 +1,8 @@
+slot: body
+variant: quadruped
+material: fur
+kind: animated
+lags: false
+rigs:
+- quadruped
+notes: 'The wolf: head, body and legs, assembled per pose.'

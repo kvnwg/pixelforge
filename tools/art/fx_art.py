@@ -493,6 +493,19 @@ def chevrons(up: bool):
     return {"play": out}
 
 
+def sound_rings():
+    """A howl or roar: arcs widening ahead of the mouth (facing e), light with dark ends."""
+    out = []
+    for radii in ((2,), (2, 4), (4, 6), (6,)):
+        c = Cell(16)
+        for r in radii:
+            c.ring(2, 7, r, 3 if r == radii[0] else 2, keep=lambda a: a < 50 or a > 310)
+            x, y = polar(2, 7, r, 55); c.put(x, y, 0)
+            x, y = polar(2, 7, r, 305); c.put(x, y, 0)
+        out.append(c)
+    return {"play": out}
+
+
 # ============================================================================== the library
 def fx(name, ramp, cell, pivot, anims, art, *, layer="above", space="world", attach=None,
        rotate=False, tints=None, notes=""):
@@ -556,6 +569,8 @@ def library():
         fx("bone_crumble", "impact", 32, (15, 27), {"play": {"frames_ms": [70, 70, 70, 80, 90],
                                                              "loop": False}},
            bone_crumble(), notes="Bones falling apart and scattering (skeletons)."),
+        fx("sound_rings", "impact", 16, (2, 7), {"play": {"frames_ms": [80, 80, 80, 80], "loop": False}},
+           sound_rings(), rotate=True, notes="A howl or roar: arcs widening ahead of the mouth."),
         fx("heal_sparkle", "poison", 24, (11, 21), {"play": {"frames_ms": [80, 80, 80, 80, 80],
                                                              "loop": False}},
            heal_sparkle(), space="follow", attach="torso", notes="Green sparkles rising: healing."),

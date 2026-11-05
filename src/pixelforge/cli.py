@@ -126,11 +126,15 @@ def validate(
     if not paths:
         parts = lib.all_parts()
         recipes = all_recipes(style.root, include_random=True)
-    findings = []
+    findings, builds = [], []
     for part in parts:
         findings += validate_part(part, lib, style)
     for path in recipes:
-        findings += build(style.root, load_recipe(path, style), style=style, library=lib).findings
+        b = build(style.root, load_recipe(path, style), style=style, library=lib)
+        findings += b.findings
+        builds.append(b)
+    from .validate import roster_findings
+    findings += roster_findings(builds)
     e, w = _report(findings)
     typer.echo(f"validated {len(parts)} parts and {len(recipes)} recipes: {e} errors, {w} warnings")
     if e:
@@ -248,6 +252,28 @@ def battle(
         path = out_dir / f"battle_{a.recipe.name}_vs_{dfn.recipe.name}_{anim}{suffix}{tag}.png"
         battle_image(a, dfn, anim, d, fxlib=fxlib, element=element).save(path)
         typer.echo(f"battle: {path}")
+
+
+@app.command()
+def roster() -> None:
+    """Render review/roster_lineup.png: every monster beside the anchor, sorted by size, at 1x
+    and 2x, with their silhouettes; report W7 (look-alike silhouettes)."""
+    from .build import build
+    from .recipe import all_recipes, load_recipe
+    from .review import roster_image
+    from .validate import is_monster, roster_findings
+    style = _style()
+    builds = []
+    for path in all_recipes(style.root):
+        recipe = load_recipe(path, style)
+        if is_monster(recipe) or recipe.name == "anchor_girl":
+            builds.append(build(style.root, recipe, style=style, validate=False))
+    out = style.root / "review" / "roster_lineup.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    roster_image(builds).save(out)
+    found = roster_findings(builds)
+    _report(found)
+    typer.echo(f"roster: {out} ({len(builds) - 1} monsters, {len(found)} W7 warnings)")
 
 
 @app.command()

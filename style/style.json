@@ -1550,7 +1550,219 @@
     "quadruped": {
       "size_class": "small",
       "examples": "wolf, boar, fox",
-      "primary_view": "e"
+      "primary_view": "e",
+      "note": "Wolf: side view (e) first; s shows the head over the chest, n the rump and tail (MONSTERS.md section 5.2).",
+      "z_order": {
+        "s": [
+          "shadow",
+          "tail",
+          "body",
+          "eyes"
+        ],
+        "e": [
+          "shadow",
+          "tail",
+          "body",
+          "eyes"
+        ],
+        "n": [
+          "shadow",
+          "body",
+          "tail",
+          "eyes"
+        ]
+      },
+      "close_eyes": {
+        "material": "fur",
+        "shade": 1
+      },
+      "shadow_rows": {
+        "e": {
+          "26": [
+            8,
+            21
+          ],
+          "27": [
+            6,
+            23
+          ],
+          "28": [
+            6,
+            23
+          ],
+          "29": [
+            8,
+            21
+          ]
+        }
+      },
+      "validator": {
+        "motion_checked_anims": [],
+        "note": "breathing, gaits and the head bob reshape the body on purpose; review the strips instead"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            400,
+            150,
+            400,
+            150
+          ],
+          "note": "breathing: body 1 px down, legs fixed; the tail trails; an ear flick on frame 2"
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "walk": {
+          "loop": true,
+          "frames_ms": [
+            120,
+            120,
+            120,
+            120
+          ],
+          "note": "diagonal leg pairs; body bob 1 px; the head bobs a frame late"
+        },
+        "run": {
+          "loop": true,
+          "frames_ms": [
+            80,
+            80,
+            80,
+            80,
+            80,
+            80
+          ],
+          "airborne_frames": [
+            1,
+            2
+          ],
+          "note": "gallop: gather, extend, flight, land front, land back, push"
+        },
+        "attack_bite": {
+          "loop": false,
+          "frames_ms": [
+            160,
+            140,
+            60,
+            120,
+            160
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "root_motion_px": [
+            0,
+            0,
+            4,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "recover"
+            }
+          ],
+          "note": "crouch (ears back, tail up), snarl (jaw open), lunge (stretched, jaws wide), jaws closed, recover"
+        },
+        "howl": {
+          "loop": false,
+          "frames_ms": [
+            120,
+            300,
+            300,
+            150
+          ],
+          "hold_frames": [
+            2
+          ],
+          "combat": true,
+          "events": [
+            {
+              "frame": 1,
+              "type": "vfx",
+              "fx": "sound_rings",
+              "point": "mouth"
+            },
+            {
+              "frame": 2,
+              "type": "vfx",
+              "fx": "sound_rings",
+              "point": "mouth"
+            }
+          ],
+          "note": "a buff: head up, howl, hold, lower"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            120,
+            140
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1
+          ],
+          "displaced_frames": [
+            1
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            140,
+            160,
+            600
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1,
+            2,
+            3
+          ],
+          "lying_frames": [
+            2,
+            3
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3
+          ],
+          "combat": true,
+          "note": "flash, legs buckle, fall onto its side (a redrawn lying pose), hold; enemies may poof_smoke instead"
+        }
+      }
     },
     "flyer": {
       "size_class": "small",
