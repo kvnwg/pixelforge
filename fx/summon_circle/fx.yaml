@@ -1,0 +1,17 @@
+name: summon_circle
+ramp: ice
+cell: 48
+pivot:
+- 23
+- 24
+layer: below
+space: world
+rotate: false
+anims:
+  loop:
+    frames_ms:
+    - 120
+    - 120
+    - 120
+    loop: true
+notes: A rune ring on the ground where minions rise.

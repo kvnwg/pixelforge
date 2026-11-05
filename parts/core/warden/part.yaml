@@ -1,0 +1,10 @@
+slot: core
+variant: warden
+material: eyes
+kind: rigid
+attach: core
+origin: auto
+lags: false
+rigs:
+- golem
+notes: The glowing core gem in the chest (a glow eye preset).

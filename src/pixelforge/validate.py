@@ -598,8 +598,9 @@ def _combat_checks(self, frames: dict, profile_name: str) -> list[Finding]:
             if e["type"] in ("spawn", "vfx"):
                 refs = [f.points[k] for k in ("hand_near", "hand_far", "weapon_tip", "bow_nock",
                                               "shield_front", "mouth") if k in f.points]
-                if refs and not any(_near(xy, r, 3) for r in refs) and point not in (
-                        "foot_near", "foot_far", "head", "torso", "ground", "back"):
+                emitters = ("foot_near", "foot_far", "head", "torso", "ground", "back",
+                            *self.c.rig_spec.get("emitters", ()))  # a boss's core
+                if refs and not any(_near(xy, r, 3) for r in refs) and point not in emitters:
                     out.append(Finding("error", "E16", f.label, f"{e['type']} point {xy} is more than "
                                                                 f"3 px from a hand or weapon tip"))
         if profile_name in ("enemy", "elite", "boss") and len(fs) == adef.frames:

@@ -1,0 +1,8 @@
+slot: body
+variant: golem
+material: stone
+kind: animated
+lags: false
+rigs:
+- golem
+notes: Pelvis, legs, torso (with the core's socket), head (a visor slit) and a crown of stones.

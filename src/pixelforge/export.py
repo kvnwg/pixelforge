@@ -48,7 +48,7 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
     rows = sheet_layout(b)
     frames, tags = [], []
     loops, events, phases, root_motion, durations, stride_px = {}, {}, {}, {}, {}, {}
-    holds, hitboxes, hurtboxes, base_ms, points = {}, {}, {}, {}, {}
+    holds, hitboxes, hurtboxes, base_ms, points, loop_frames = {}, {}, {}, {}, {}, {}
     i = 0
     for r, (anim, d, n) in enumerate(rows):
         adef = b.composer.anims[anim]
@@ -81,6 +81,8 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
             events[tag] = resolved
         if adef.flags.get("hold"):
             holds[tag] = sorted(adef.flags["hold"])
+        if adef.raw.get("loop_frames"):  # frames a game may repeat while a move lasts (a charge)
+            loop_frames[tag] = list(adef.raw["loop_frames"])
         boxes = {str(i): [{"x": x, "y": y, "w": w, "h": h} for x, y, w, h in f.hitboxes]
                  for i, f in enumerate(b.frames[(anim, d)]) if f.hitboxes}
         if boxes:
@@ -106,6 +108,7 @@ def aseprite_json(b: Build, image_name: str, extra: dict[str, Any] | None = None
         "timing_profile": b.recipe.timing_profile, "loop": loops, "events": events,
         "phases": phases, "hitboxes": hitboxes, "hurtboxes": hurtboxes, "root_motion": root_motion,
         "stride_px": stride_px, "holds": holds, "base_durations": base_ms, "points": points,
+        "loop_frames": loop_frames,
         "overlays": {a: b.composer.anims[a].raw["overlay_fx"] for a in b.recipe.anims
                      if b.composer.anims[a].raw.get("overlay_fx")},
         "timing_profiles": b.style.raw["combat"]["timing_profiles"],

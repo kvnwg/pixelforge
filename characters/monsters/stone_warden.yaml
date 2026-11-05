@@ -1,0 +1,26 @@
+name: stone_warden
+family: stone_warden
+rig: golem
+timing_profile: boss
+seed: 1
+parts:
+  moss: warden
+  core: warden
+  eyes: warden
+anims:
+- idle
+- walk
+- combat_idle
+- attack_slam
+- cast_ring
+- attack_fan
+- charge
+- summon
+- stomp
+- enrage
+- hurt
+- death
+colors:
+  stone: granite
+  hide: goblin
+  eyes: glow ghost

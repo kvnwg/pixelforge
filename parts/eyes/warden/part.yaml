@@ -1,0 +1,11 @@
+slot: eyes
+variant: warden
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- golem
+allow_singletons: {}
+notes: Two glowing eyes in the visor slit.

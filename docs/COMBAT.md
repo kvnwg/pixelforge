@@ -231,15 +231,18 @@ The preview shows hitboxes (red) and hurtboxes (blue) as overlays, and `pf revie
 | `windup` | the attack has started (the tell begins) | |
 | `active_start` / `active_end` | damage window; derived automatically from the phases | |
 | `hit` | the damage moment, used for hit stop and sounds | optional `fx`: the impact the game shows on the target where the strike meets it (`spark_small` for the humanoid attacks) |
-| `spawn` | create a projectile or spell | `fx`, `point` (anchor name or pixel), optional `angle` in multiples of 90 |
+| `spawn` | create a projectile or spell | `fx`, `point` (anchor name or pixel), optional `angle` in multiples of 90; optional `pattern` (`ring`, `fan`), `count` and `spread` (radians between shots of a fan) for volleys (Phase 9) |
 | `vfx` | play an effect that isn't a projectile | `fx`, `point`, `layer` (above or below) |
 | `sfx` | sound cue name, for the game to map | `name` |
 | `impact` | a projectile or slam landed | |
 | `footstep` | for sounds and dust puffs | `foot` (near or far) |
 | `recover` | the character can act again | |
 | `cancel` | from this frame the game may cancel into another action | |
+| `summon` | allies appear (a boss wakes minions) | `point` (where they rise) (Phase 9) |
 
-Required: every attack has `windup`, `hit` (or `spawn` for ranged), and `recover`. Points must be within 3 px of a hand anchor or a held item's tip.
+Required: every attack has `windup`, `hit` (or `spawn` for ranged), and `recover`. Points must be within 3 px of a hand anchor or a held item's tip, or be a body point: `head`, `torso`, the feet, `ground`, `back`, or one of the rig's `emitters` (the Stone Warden's `core`, `slam` and `summon_point`).
+
+An animation may list `loop_frames` (exported as `meta.pixelforge.loop_frames`): frames the game repeats while the move lasts, like the boss charge's rush (Phase 9).
 
 Named points come from the rig's anchors (`hand_near`, `foot_near`, `shield_front`...) and from the held items' poses (`weapon_tip`, `bow_nock`, `shield_front`). The export resolves them per frame: an event with `"point": "weapon_tip"` is written as `"point": [25, 26], "point_name": "weapon_tip"`.
 
@@ -327,6 +330,10 @@ anims:
 | `status_freeze`, `status_shield` | ice, holy | 32 | 2, 4 (loop) | in character coordinates |
 | `poof_smoke`, `soul_wisp`, `bone_crumble` | impact, ice, impact | 32, 24, 32 | 6, 6, 5 | death |
 | `heal_sparkle`, `buff_up`, `debuff_down` | poison, holy, shadow | 24 | 5, 4, 4 | follow `torso` |
+| `shockwave` (Phase 9) | impact | 48 | 5 | a slam's dust ring racing out along the ground; below the characters |
+| `rock_shard` (Phase 9) | impact | 16 | travel 2 (loop) | a spinning stone shard, the boss's ring and fan; lands as `rock_shard_impact` (24 px, 5) |
+| `summon_circle` (Phase 9) | ice | 48 | 3 (loop) | a rune ring on the ground where minions rise; below |
+| `falling_rock` (Phase 9) | impact | 32 | 6 | a rock dropping onto its pivot and shattering: a boss's rain, played where the game telegraphs it |
 
 Decisions:
 - **Every FX reads on beige, light and dark ground.** Each frame uses both ends of its ramp where it can: light cores and strokes show on dark and beige ground, dark tips and rims (the ramp's darkest shade, never the outline color) show on light ground. Dust is drawn in the impact ramp's dark end, which is darker than any ground. `tests/test_fx.py` checks the contrast of every frame. Shadow FX are dark magic and only need to read on beige and light ground.

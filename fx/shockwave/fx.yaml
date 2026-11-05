@@ -1,0 +1,19 @@
+name: shockwave
+ramp: impact
+cell: 48
+pivot:
+- 23
+- 24
+layer: below
+space: world
+rotate: false
+anims:
+  play:
+    frames_ms:
+    - 50
+    - 60
+    - 60
+    - 70
+    - 80
+    loop: false
+notes: A slam's dust ring racing out along the ground (bosses).

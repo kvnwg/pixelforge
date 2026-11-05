@@ -351,7 +351,7 @@ Known limits: the ogre's arms are shaded tubes, simpler than its hand-drawn tors
 
 ## Phase 9: First boss (CHECKPOINT)
 
-Status: not started
+Status: done (commit "Phase 9: first boss"; see the notes below)
 
 Tasks:
 1. Write the boss spec in MONSTERS.md section 5.5 first and get the human's approval on the concept and silhouette grid before drawing.
@@ -364,6 +364,25 @@ Acceptance:
 **CHECKPOINT:** the human fights it (watches every attack against the knight) in the preview.
 
 Commit: `Phase 9: first boss`
+
+### Phase 9 notes and self-review (checkpoints waived, see the top of this file)
+
+Built: the spec first (MONSTERS.md section 5.5: the Stone Warden, written before any drawing and approved under the waiver); the `stone` material (granite, basalt, sandstone, frost); the `golem` rig on the large 64 px class with separate arm layers and `emitters`; `tools/art/stone_warden.py`, which draws every frame from shaded boulders (contours where stones overlap, each layer flattened to what it shows); twelve animations covering Rolling Knight's six boss moves plus enrage, hurt and death; `stone_warden` and `stone_warden_enraged` (red core and eyes) on the `boss` profile; four FX (`shockwave`, `rock_shard` with its impact, `summon_circle`, `falling_rock`); `spawn` volleys (`pattern`, `count`, `spread`), the `summon` event and exported `loop_frames`. Both recipes validate with 0 errors and 0 warnings (W10 included); `tests/test_boss.py` covers the large class, every move's tell, the exported move data, non-overlapping layers, the core going dark and the enraged recolor.
+
+What the review images show: a guardian of mossy granite boulders, each parted from the next by an outline, a crown of three stones, a visor slit with two cyan eyes and a cyan core in a socket in the chest; fists as big as its head resting on the ground. Facing e its far arm hangs behind, the near arm in front of the chest, with a sliver of the core showing; facing n the back with moss on the shoulders. The slam raises both fists into a ring over the head (behind it facing e, so the face stays seen) and hammers the ground in front with `impact_big` and a dust ring; the ring spreads both arms into a Y while the core gathers light, then a shard flies; the fan cocks a fist and punches a shard out; the charge lowers the head like a ram, rushes on root motion and skids; summon lifts both fists over a rune circle; the stomp lifts a leg high and slams it down; death cracks it apart into a rubble pile with the core dark. Against the knight every tell is a whole-body pose held 732 to 908 ms on the boss profile, and the knight stands on the warden's ground row.
+
+Rubric:
+1. Style match 4: the 1 px outline, open soles and the anchor's flat, few-shade look on bigger shapes; contours separate stones like the anchor's hand-placed lines.
+2. 1x readability 4: the silhouette and its glow read on beige, light and dark.
+3. Silhouette 5: floating stones, a crown and huge fists; nothing else in the roster looks like it.
+4. Motion 4: stones move independently, arms trail the body a frame, death tumbles.
+5. Consistency 4: one light from the upper left on every stone in every view.
+6. Cleanliness 4: W3, W5 and W10 clean (contours and despeckle passes against what is visible).
+7. Part fit 4: core, eyes and moss follow their stones; the core is hidden once dark.
+8. Appeal 4: a dignified old guardian rather than a monster: moss, a glowing core, a crown.
+9. Combat readability 5: six distinct, long whole-body tells; FX never cover them (W9 clean).
+
+Known limits: stones are procedural rounded boxes with seeded cracks, so they are tidier than hand-placed rock; the enraged form changes only the glow (the game's speed-up does the rest).
 
 ---
 

@@ -506,6 +506,93 @@ def sound_rings():
     return {"play": out}
 
 
+# ============================================================================== boss (Phase 9)
+def ground_ellipse(c: Cell, cx, cy, rx, ry, s, keep=lambda a: True) -> None:
+    """A 1 px ellipse along the ground (rx wide, ry deep), with gaps where keep(angle) is false."""
+    for k in range(int(8 * rx) + 8):
+        a = 360 * k / (8 * rx + 8)
+        if keep(a):
+            x, y = cx + rx * math.cos(math.radians(a)), cy - ry * math.sin(math.radians(a))
+            c.put(x, y, s, over=False)
+
+
+def shockwave():
+    """A slam's ring of dust racing out along the ground, thinning as it spreads."""
+    cx, cy = 23, 24
+    out = []
+    for i, (rx, s, gap) in enumerate(((5, 3, 0), (9, 3, 0), (13, 2, 18), (17, 1, 28), (20, 0, 40))):
+        c = Cell(48)
+        ground_ellipse(c, cx, cy, rx, rx / 3, s, keep=lambda a, g=gap: g == 0 or int(a) % 60 > g)
+        ground_ellipse(c, cx, cy, rx - 1, (rx - 1) / 3, 0 if i < 2 else max(s - 1, 0),  # dark dust
+                       keep=lambda a, g=gap: int(a) % 45 > 20 + g // 2)       # reads on light ground
+        for a in range(10 + i * 7, 360, 40):  # dust thrown up off the ring
+            x, y = cx + (rx + 1) * math.cos(math.radians(a)), cy - (rx + 1) / 3 * math.sin(math.radians(a)) - 2
+            c.put(x, y, 0, over=False)
+        out.append(c)
+    return {"play": out}
+
+
+def rock_shard():
+    """A spinning shard of stone (facing e), a dust trail behind it; impact: rock_shard_impact."""
+    a = [".23.", "2332", "1221", ".11."]
+    b = [".12..", "12332", ".1221", "..1.."]
+    out = []
+    for rows in (a, b):
+        c = Cell(16); c.grid(rows, 7, 5); c.put(4, 7, 0); c.put(3, 8, 0); c.put(5, 6, 1)
+        out.append(c)
+    impact = []
+    for i, r in enumerate((1.5, 3, 5, 6)):
+        c = Cell(24)
+        for k, ang in enumerate(range(0, 360, 60)):
+            x, y = polar(11, 11, r + (k % 2), ang + i * 15)
+            c.put(x, y, (0 if k % 2 else 3) if i < 2 else (1 if k % 2 else 0))  # dark chips read on light ground
+        if i < 2:
+            c.disk(11, 11, 1.2 - 0.6 * i, 3)
+        impact.append(c)
+    c = Cell(24)  # the last motes settle
+    for ang in range(30, 360, 120):
+        x, y = polar(11, 12, 7, ang); c.put(x, y, 0)
+    impact.append(c)
+    return {"travel": out, "impact": impact}
+
+
+def summon_circle():
+    """A rune ring on the ground where minions rise: two ellipses and four marks that turn."""
+    cx, cy = 23, 24
+    out = []
+    for i in range(3):
+        c = Cell(48)
+        ground_ellipse(c, cx, cy, 15, 5, 2, keep=lambda a: int(a) % 30 > 4)
+        ground_ellipse(c, cx, cy, 10, 3.3, 1)
+        for k in range(4):
+            ang = math.radians(k * 90 + i * 30)
+            x, y = cx + 12.5 * math.cos(ang), cy - 4.2 * math.sin(ang)
+            c.put(x, y, 3); c.put(x, y - 1, 3); c.put(x + 1, y - 1, 2)
+        c.put(cx, cy - 2 - i, 3); c.put(cx, cy - 3 - i, 2)
+        out.append(c)
+    return {"loop": out}
+
+
+def falling_rock():
+    """A rock that drops onto its landing point (the pivot) and shatters into dust."""
+    rock = [".122.", "12332", "12221", ".111."]
+    out = []
+    for y, shadow in ((3, 2), (10, 3), (18, 4)):
+        c = Cell(32); c.grid(rock, 13, y)
+        ground_ellipse(c, 15, 27, shadow, 1, 0)
+        out.append(c)
+    for i, r in enumerate((3, 6, 8)):
+        c = Cell(32)
+        for k, ang in enumerate(range(15, 180, 30)):
+            x, y = polar(15, 26, r + (k % 2), ang)
+            c.put(x, y, 3 if i == 0 else (1 if k % 2 else 0))
+        ground_ellipse(c, 15, 27, r + 2, 1.2, 2 if i < 2 else 0, keep=lambda a: int(a) % 40 > 12)
+        if i == 0:
+            c.grid(["232", "121"], 14, 24)
+        out.append(c)
+    return {"play": out}
+
+
 # ============================================================================== the library
 def fx(name, ramp, cell, pivot, anims, art, *, layer="above", space="world", attach=None,
        rotate=False, tints=None, notes=""):
@@ -578,6 +665,16 @@ def library():
            chevrons(True), space="follow", attach="torso", notes="Chevrons rising: a buff."),
         fx("debuff_down", "shadow", 24, (11, 21), {"play": {"frames_ms": [90, 90, 90, 90], "loop": False}},
            chevrons(False), space="follow", attach="torso", notes="Chevrons sinking: a debuff."),
+        fx("shockwave", "impact", 48, (23, 24), {"play": {"frames_ms": [50, 60, 60, 70, 80], "loop": False}},
+           shockwave(), layer="below", notes="A slam's dust ring racing out along the ground (bosses)."),
+        fx("rock_shard", "impact", 16, (8, 7), {"travel": {"frames_ms": [70, 70], "loop": True}},
+           rock_shard(), rotate=True, notes="A spinning stone shard; the Stone Warden's ring and fan. "
+                                            "Impact in rock_shard_impact."),
+        fx("summon_circle", "ice", 48, (23, 24), {"loop": {"frames_ms": [120, 120, 120], "loop": True}},
+           summon_circle(), layer="below", notes="A rune ring on the ground where minions rise."),
+        fx("falling_rock", "impact", 32, (15, 27), {"play": {"frames_ms": [60, 60, 60, 60, 70, 80],
+                                                             "loop": False}},
+           falling_rock(), notes="A rock falling onto its pivot and shattering (a boss's rain)."),
     ]
 
 
@@ -586,7 +683,7 @@ def projectile_impacts(entries):
     out = []
     for e in entries:
         art = e["_art"]
-        if e["name"] in ("fireball", "ice_shard", "poison_glob", "arcane_orb"):
+        if e["name"] in ("fireball", "ice_shard", "poison_glob", "arcane_orb", "rock_shard"):
             out.append(fx(f"{e['name']}_impact", e["ramp"], 24, (11, 11),
                           {"play": {"frames_ms": [40, 50, 50, 60, 70], "loop": False}},
                           {"play": art["impact"]}, rotate=True,

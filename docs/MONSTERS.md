@@ -138,6 +138,60 @@ As built (Phase 8):
 
 Each boss gets a written spec here before any drawing: concept in two sentences, signature feature, silhouette sketch as a character grid, size class, rig breakdown (which pieces animate separately, for example arms or a tail as separate layers so they can move independently), full animation list with frame tables, phases and telegraph times (boss profile: 500 ms minimum, 600+ for heavy attacks), and FX needs.
 
+#### The Stone Warden (first boss, Phase 9)
+
+Spec written before drawing (the human waived approval checkpoints on 2026-11-05; see ROADMAP.md).
+
+**Concept.** An old guardian of mossy boulders held together by a glowing core: it lumbers, pounds the ground, hurls shards and wakes the stones around it. At half health its core and eyes burn red and it fights faster.
+
+**Signature.** Floating stones: every boulder is parted from the next by a 1 px outline, so the pieces read (and move) separately around a glowing chest core; fists as big as its head resting on the ground; a crown of three stones.
+
+**Silhouette** (facing s; one character is 4 x 4 px of the 64 px canvas):
+
+```
+................
+................
+.......###......
+......#####.....
+..##..#####..##.
+.####.######.###
+.###.########.##
+.###.###@@###.##
+..##.########.##
+..##..######..##
+.###..##..##..###
+.###..##..##..###
+.####.###.###.###
+................
+```
+
+**Size class.** Large: 64 x 64, pivot (31, 59), mirror axis 31; about 51 rows from the crown to the soles and 51 px wide; a 23 px footprint, so a 25 x 9 shadow.
+
+**Rig `golem`.** Layers, back to front: `arm_far` (shoulder, upper arm, forearm, fist), `body` (pelvis, legs, torso, head, crown), `arm_near` (the same four stones), then `moss` (hide material on the tops of stones), `core` and `eyes` (eyes material, glow presets: rigid, riding the `core` and `eyes` anchors). Arms are separate layers so they move independently of the body; every stone is a shaded rounded box drawn per frame, and any stone over another gets a 1 px outline-colored contour where they overlap, so pieces never merge. New material `stone`: 4 shades, presets granite, basalt, sandstone, frost. Points: `core` (spawns the ring of shards), `hand_near`, `fist_far`, `slam` (the ground between the fists), `foot_near`, `foot_far`, `head`, `torso`.
+
+**Animations** (base ms; the `boss` profile scales hold frames x 2.2, so tells are the totals shown). Every attack has a whole-body tell.
+
+| Animation | Frames (ms, phase) | What happens | Tell on `boss` |
+|---|---|---|---|
+| idle (loop) | 600, 200, 600, 200 | the body settles 1 px; the arms' stones follow a frame later | |
+| combat_idle | alias of idle | | |
+| walk (loop) | 220 x 4 | step, pass (body up 1), step, pass; `footstep` dust at the planted foot | |
+| attack_slam (Rolling Knight's `slam`) | 160 windup, 200 hold, 120 hold, 60 active (`hit`), 80 active (`vfx impact_big`, `vfx shockwave` at `slam`), 280, 260 (`recover`) | fists rise, go overhead with the body stretched (the tell), lean back, slam down in front, rest on the ground, heave up | 864 ms |
+| cast_ring (`ring`) | 160 windup, 200 hold (charge loop, `vfx gather_glow` ice at `core`), 140 hold, 80 active (`spawn rock_shard` at `core`, pattern ring, count 14), 200, 220 (`recover`) | arms spread wide, the core flares, arms pull back, a burst | 908 ms |
+| attack_fan (`fan`) | 160 windup, 200 hold, 100 hold, 60 active (`spawn rock_shard` at `hand_near`, pattern fan, count 5, spread 0.22 rad), 160, 220 (`recover`) | the near fist draws back, crouch, punch forward | 820 ms |
+| charge (`charge`) | 200 windup, 300 hold (`vfx dust_puff` at the back foot), 100 active (`hit`), 100 active, 200 (`vfx dust_puff`), 200 (`recover`); root motion 0, 0, 8, 8, 2, 0 | head down and crouch, a foot scrapes, the rush (frames 2 and 3 loop while the game's charge lasts: `loop_frames`), skid | 860 ms |
+| summon (`summon`) | 160 windup, 260 hold (`vfx summon_circle` at `summon_point`), 100 (`summon`), 260 (`recover`) | both arms rise, the core flares, the arms sweep down and the stones wake | 732 ms |
+| stomp (`rain`) | 160 windup, 300 hold, 60 (`vfx impact_big` and `vfx shockwave` at `foot_near`), 240, 200 (`recover`) | the near leg lifts high (the tell) and stomps; the game then drops rocks (`falling_rock`) | 820 ms |
+| enrage (half health) | 160, 520 hold (`vfx sound_rings` at `head`, `vfx gather_glow` fire at `core`), 240 | rears back and roars with arms spread; the recipe `stone_warden_enraged` (red core and eyes) takes over | |
+| hurt | 80 flash, 140, 180 | the stones jolt back and settle | |
+| death | 80 flash, 200, 200, 280 (`vfx poof_smoke` at `torso`), 700 | cracks apart, head and arms drop, the torso falls, a rubble pile with the core dark | |
+
+**Rolling Knight.** Its bosses pick three moves from ring, fan, charge, slam, summon and rain (ring always) with a 0.7 to 0.8 s wind, and enrage at half health (`src/world/ai.ts`, `mobgen.ts`): each move has its animation above, the wind is the windup phase, and `spawn` events carry `pattern`, `count` and `spread` for the game's projectiles.
+
+**FX.** New: `shockwave` (48 px dust ring along the ground, below the characters), `rock_shard` (16 px spinning shard, rotates) and `rock_shard_impact` (24 px), `summon_circle` (48 px rune ring on the ground, loops, below), `falling_rock` (32 px rock that falls and shatters). Reused: `impact_big`, `dust_puff`, `gather_glow` (ice and fire tints), `sound_rings`, `poof_smoke`.
+
+**As built (Phase 9).** `tools/art/stone_warden.py`; recipes `characters/monsters/stone_warden.yaml` and `stone_warden_enraged.yaml` (family `stone_warden`). Built to the spec, with these changes found while drawing: facing e the warden is laid out in three columns (far arm behind, a 16 px deep torso, the near arm hanging forward of the chest) because an arm over the chest turned the profile into a pile; raised arms there pass behind the head so the face stays seen; arms are lowered 3 px from the first sketch so raised fists stay inside the safe area; the stones' cracks are 4-connected staircases and moss is shaded by rows of the stone's box, so neither leaves single pixels. Rubric and review notes are in ROADMAP.md, Phase 9.
+
 ---
 
 ### 5.6 As built (Phase 7)

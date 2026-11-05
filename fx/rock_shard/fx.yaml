@@ -1,0 +1,16 @@
+name: rock_shard
+ramp: impact
+cell: 16
+pivot:
+- 8
+- 7
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 70
+    - 70
+    loop: true
+notes: A spinning stone shard; the Stone Warden's ring and fan. Impact in rock_shard_impact.
