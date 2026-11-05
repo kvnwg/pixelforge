@@ -1,5 +1,9 @@
 """The Stone Warden: the first boss, on the golem rig and the large 64 px canvas
-(MONSTERS.md section 5.5).
+(MONSTERS.md section 5.5). Redesigned on 2026-11-05 after the human's reference as a forest
+guardian: a pale bone skull with branching antlers instead of a stone head and crown, a body of
+dark charcoal boulders, a jagged leafy mane over the shoulders, leaf sleeves on the forearms and
+shins with orange berries, brass bands on the upper arms and legs, bone claws on the fists and
+feet, and green glowing eyes and core. Enraged, the leaves turn autumn red and the glow red.
 
 A guardian of separate boulders around a glowing core. Every stone is a rounded box shaded by
 one light from the upper left (`stone_codes`), drawn per frame at its pose position. Stones
@@ -7,9 +11,11 @@ parted by a 1 px gap are outlined by the compositor; a stone drawn over another 
 outline-colored contour where they overlap (an outline-colored detail in the part that is in
 front), so the pieces never merge however they move.
 
-Layers: arm_far, body (pelvis, legs, torso, head, crown), arm_near, then moss (hide material,
-on the visible tops of mossy stones), core and eyes (eyes material, glow presets; rigid, riding
-the `core` and `eyes` anchors). Seen from behind (n) both arms are past the body.
+Layers: arm_far, body (pelvis, legs, torso), arm_near (stone); skull (bone: the skull, antlers
+and claws), leaves (leaf), berries (fruit) and bands (metal); core and eyes (eyes material, glow
+presets; rigid, riding the `core` and `eyes` anchors). Every frame is painted back to front
+(far arm, body, mane, skull, near arm, each with its leaves, bands and claws) and each layer
+keeps only what it shows. Seen from behind (n) both arms are past the body.
 
 Stone shades: 0 darkest .. 3 lightest (the `stone` material); 'O' = an outline-colored detail.
 
@@ -22,7 +28,7 @@ import math
 
 import numpy as np
 
-from artlib import STYLE, empty, grid, write_anchors, write_part, write_recipe
+from artlib import ROOT as ROOT_DIR, STYLE, arc_path, crescent, empty, grid, write_anchors, write_part, write_recipe
 from pixelforge.anim import load_anims
 
 RIG = "golem"
@@ -118,6 +124,104 @@ def paste(layer: np.ndarray, canvas: np.ndarray, codes: np.ndarray, x0: int, y0:
     return mask | ring
 
 
+# ============================================================================== the forest guardian's pieces
+# Skull grids: bone shades 0..3, 'O' an outline-colored detail, 'E' a socket (outline-colored;
+# the eyes part glows in its lower row), '.' clear. s and n are centered on the head; e faces right.
+SKULL = {
+    "s": ["....33333....", "..233333332..", ".12333333321.", ".1EE23332EE1.", ".1EE23332EE1.",
+          "..112333211..", "...1223221...", "...1123211...", "....12321....", "....12221....",
+          "....1O2O1....", ".....111.....", ".....000....."],
+    "e": ["...23332.........", "..2333333........", ".233333333332....", "1233EE33333333...",
+          "1223EE333333332..", "11222233333333332", ".1112222223333O32", "..11111112222221.",
+          "....0000.1111110.", "..........0000..."],
+    "n": ["...33333...", ".233333332.", "12333333321", "12233333221", "11222322211", ".112222211.",
+          "..1122211..", "...11111...", "....000...."],
+}
+SKULL_ORIGIN = {"s": (-6, -6), "e": (-7, -6), "n": (-5, -5)}  # top-left from the head's center
+# Antlers from the skull's top (dx, dy from its top-left): a 2 px beam through the points, 1 px
+# tines from a beam point up to a tip. s and n carry both antlers (mirrored); e the near one and
+# a darker far one behind it.
+BEAM_S = [(3, 1), (0, -1), (-4, -2), (-8, -3), (-11, -5)]
+TINES_S = [((0, -1), (0, -5)), ((-4, -2), (-5, -6)), ((-8, -3), (-9, -7)), ((-11, -5), (-13, -7))]
+BEAM_E = [(3, 0), (0, -2), (-4, -3), (-8, -4), (-11, -6)]
+TINES_E = [((0, -2), (1, -6)), ((-4, -3), (-4, -7)), ((-8, -4), (-9, -7))]
+
+
+def _line(a, b):
+    """4-connected integer points from a to b."""
+    (x0, y0), (x1, y1) = a, b
+    pts = [(x0, y0)]
+    n = max(abs(x1 - x0), abs(y1 - y0))
+    for k in range(1, n + 1):
+        x = int(round(x0 + (x1 - x0) * k / n))
+        y = int(round(y0 + (y1 - y0) * k / n))
+        px, py = pts[-1]
+        if x != px and y != py:
+            pts.append((x, py))
+        pts.append((x, y))
+    return pts
+
+
+def antler_points(d: str) -> list[tuple[int, int, int]]:
+    """(dx, dy, shade) from the skull's top-left: beams 2 px thick (lit top, shaded underside),
+    tines 1 px with light tips."""
+    w = len(SKULL[d][0])
+    out: dict[tuple[int, int], int] = {}
+
+    def put(x, y, v):
+        out[(x, y)] = max(out.get((x, y), -1), v)
+
+    sides = [(1, 0)] if d == "e" else [(1, 0), (-1, w - 1)]
+    beam, tines = (BEAM_E, TINES_E) if d == "e" else (BEAM_S, TINES_S)
+    for sign, base in sides:
+        X = (lambda x: base + x) if sign == 1 else (lambda x: base - x)
+        for a, b in zip(beam, beam[1:]):
+            for x, y in _line(a, b):
+                put(X(x), y, 2)
+                put(X(x), y + 1, 1)
+        for root_pt, tip in tines:  # one light shade, so a tine is one connected run
+            for x, y in _line(root_pt, tip)[1:]:
+                put(X(x), y, 3)
+    pts = [(x, y, v) for (x, y), v in out.items()]
+    if d == "e":  # the far antler: the same shape 3 px back and up, a shade darker, behind
+        far = [(x + 3, y - 1, max(0, v - 1)) for x, y, v in pts]
+        return far, pts
+    return [], pts
+
+
+def leaf_codes(w: int, h: int, teeth: int = 0, seed: int = 0) -> np.ndarray:
+    """A clump of leaves: an ellipse w x h whose edge is cut into pointed leaves (a sawtooth of
+    the radius around the angle), shaded 0..3 by the same light as the stones."""
+    pad = 3
+    c = np.full((h + 2 * pad, w + 2 * pad), CLEAR, np.int8)
+    cy, cx = (h + 2 * pad - 1) / 2, (w + 2 * pad - 1) / 2
+    k = teeth or max(6, (w + h) // 3)
+    for y in range(c.shape[0]):
+        for x in range(c.shape[1]):
+            nx, ny = (x - cx) / (w / 2), (y - cy) / (h / 2)
+            ang = math.atan2(ny, nx)
+            saw = abs(((ang / (2 * math.pi)) * k + seed * 0.37) % 1.0 - 0.5) * 2  # 1 at a tip
+            reach = 0.86 + 0.34 * saw
+            r = math.hypot(nx, ny)
+            if r > reach:
+                continue
+            kk = min(1.0, r) ** 2
+            n = np.array([nx * kk, ny * kk, max(0.05, 1 - kk)])
+            n = n / np.linalg.norm(n)
+            i = float(n @ LIGHT)
+            c[y, x] = 3 if i >= 0.84 else 2 if i >= 0.6 else 1 if i >= 0.3 else 0
+    for _ in range(3):  # a leaf tip touching the clump only at a corner would float alone
+        solid = c != CLEAR
+        p = np.pad(solid, 1)
+        linked = p[:-2, 1:-1] | p[2:, 1:-1] | p[1:-1, :-2] | p[1:-1, 2:]
+        c[solid & ~linked] = CLEAR
+    return c
+
+
+CLAW_S = [(0, 0, 2), (1, 0, 1), (0, 1, 2), (1, 1, 1), (1, 2, 1)]  # down, 2 px at the root
+CLAW_E = [(0, 0, 2), (0, 1, 1), (1, 0, 2), (1, 1, 1), (2, 1, 1)]  # forward
+
+
 # ============================================================================== layout (idle frame 0)
 def mx(p):
     """Mirror a center around the axis: x' = 2 * axis - x."""
@@ -126,14 +230,12 @@ def mx(p):
 
 ARM_STONES = (("shoulder", 11, 10), ("upper", 8, 7), ("fore", 10, 6), ("fist", 13, 9))
 
-BODY_S = {  # piece: (w, h, center); the crown rides the head
-    "pelvis": (15, 5, (31, 45)), "torso": (23, 16, (31, 33.5)), "head": (15, 11, (31, 19)),
-    "crown_l": (5, 5, (27, 13)), "crown_m": (5, 6, (31, 11.5)), "crown_r": (5, 5, (35, 13)),
+BODY_S = {  # piece: (w, h, center); the skull and antlers ride the head
+    "pelvis": (15, 5, (31, 45)), "torso": (23, 16, (31, 33.5)), "head": (13, 13, (31, 20)),
 }
 LEGS_S = {"leg_near": (9, 11, (25, 54)), "leg_far": (9, 11, (37, 54))}
 BODY_E = {  # profile: the far arm behind, a deep torso, the near arm hanging in front
-    "pelvis": (12, 5, (27.5, 45)), "torso": (16, 16, (27.5, 33.5)), "head": (13, 11, (31, 19)),
-    "crown_l": (5, 5, (27, 13)), "crown_m": (5, 6, (31, 11.5)), "crown_r": (4, 5, (34.5, 13)),
+    "pelvis": (12, 5, (27.5, 45)), "torso": (16, 16, (27.5, 33.5)), "head": (14, 8, (31, 21)),
 }
 LEGS_E = {"leg_near": (9, 11, (32, 54)), "leg_far": (9, 11, (23, 54))}
 
@@ -338,45 +440,159 @@ def frame(d: str, spec) -> dict:
 
     canvas = E()
     owner = np.full((SIZE, SIZE), "", object)
-    layers = {"arm_far": E(), "body": E(), "arm_near": E()}
-    boxes = {}
-    body_order = ["leg_far", "leg_near", "pelvis", "torso", "head", "crown_l", "crown_r", "crown_m"]
-    arm = [f"{{}}_{n}" for n, _, _ in ARM_STONES]
-    order = {
-        "s": [("arm_far", [a.format("far") for a in arm]), ("body", body_order),
-              ("arm_near", [a.format("near") for a in arm])],
-        "e": [("arm_far", [a.format("far") for a in arm]), ("body", body_order),
-              ("arm_near", [a.format("near") for a in arm])],
-        "n": [("arm_far", [a.format("far") for a in arm]), ("arm_near", [a.format("near") for a in arm]),
-              ("body", body_order)],
-    }[d]
-    if spec["behind"] and d == "e":
-        order = [order[0], order[2], order[1]]  # arms, then the body over them
-    if spec["fall"] >= 0.8:  # in the pile the body's big stones lie under the arms' small ones
-        order = [("body", body_order), ("arm_far", [a.format("far") for a in arm]),
-                 ("arm_near", [a.format("near") for a in arm])]
-    face = {}
     on_top = np.full((SIZE, SIZE), "", object)  # the layer that drew each final pixel
-    for layer_name, names in order:
-        for name in names:
-            st = stones[name]
-            codes, x0, y0 = st.at(*centers[name])
-            m = paste(layers[layer_name], canvas, codes, x0, y0, bottom=59)
+    layers = {k: E() for k in ("arm_far", "body", "arm_near", "skull", "leaves", "berries", "bands")}
+    boxes: dict[str, tuple[int, int, int, int]] = {}
+    face: dict[str, list[int]] = {}
+    seed = {"near": 1, "far": 2}
+
+    def put(layer, name, codes, x0, y0, clip=False, ring=True):
+        if clip:  # extras stay where their outline still mirrors inside the safe area (x 2..60)
+            ys, xs = np.mgrid[0:codes.shape[0], 0:codes.shape[1]]
+            codes = codes.copy()
+            codes[(xs + x0 < 3) | (xs + x0 > SIZE - 5) | (ys + y0 < 3)] = CLEAR
+        if not ring:  # drawn straight on (claws on a fist): no contour cutting them up
+            m = np.zeros((SIZE, SIZE), bool)
+            for (cy, cx), v in np.ndenumerate(codes):
+                X, Y = x0 + cx, y0 + cy
+                if v != CLEAR and 0 <= X < SIZE and 0 <= Y <= 59:
+                    layers[layer][Y, X] = v
+                    canvas[Y, X] = v
+                    m[Y, X] = True
             owner[m] = name
-            on_top[m] = layer_name
-            boxes[name] = (x0, y0, st.w, st.h)
-            if name == "torso" and d != "n" and spec["core"]:
-                face["core"] = draw_socket(layers[layer_name], canvas, d, x0, y0, st)
-            if name == "head" and d != "n":
-                face["eyes"] = draw_visor(layers[layer_name], canvas, d, x0, y0, st, spec)
+            on_top[m] = layer
+            return m
+        m = paste(layers[layer], canvas, codes, x0, y0, bottom=59)
+        owner[m] = name
+        on_top[m] = layer
+        return m
+
+    def stone(layer, name):
+        st = stones[name]
+        codes, x0, y0 = st.at(*centers[name])
+        put(layer, name, codes, x0, y0)
+        boxes[name] = (x0, y0, st.w, st.h)
+        if name == "torso" and d != "n" and spec["core"]:
+            face["core"] = draw_socket(layers[layer], canvas, d, x0, y0, st)
+
+    def leaves(at, w, h, dx=0, dy=0, k=0, berries=()):
+        cx, cy = centers[at]
+        codes = leaf_codes(w, h, seed=k)
+        x0 = int(round(cx + dx - (codes.shape[1] - 1) / 2))
+        y0 = int(round(cy + dy - (codes.shape[0] - 1) / 2))
+        put("leaves", f"{at}_leaves", codes, x0, y0, clip=True)
+        for bx, by in berries:  # 2 x 2: a lit row over a dark one
+            put("berries", f"{at}_berry", np.array([[1, 1], [0, 0]], np.int8),
+                int(round(cx + dx + bx)), int(round(cy + dy + by)), clip=True)
+
+    def band(name, row):
+        x0, y0, w, h = boxes[name]
+        codes = np.full((2, w - 2), 3, np.int8)
+        codes[1, :] = 1
+        put("bands", f"{name}_band", codes, x0 + 1, y0 + row)
+
+    def claws(name, foot=False):
+        x0, y0, w, h = boxes[name]
+        if d == "e":
+            spots = [(x0 + w - 1, y0 + h - 3)] if foot else \
+                [(x0 + w - 1, y0 + 1), (x0 + w - 1, y0 + h // 2), (x0 + w - 2, y0 + h - 2)]
+            pattern = CLAW_E
+        else:
+            spots = [(x0 + 1, y0 + h - 4), (x0 + w - 3, y0 + h - 4)] if foot else \
+                [(x0 + 2, min(y0 + h - 3, 56)), (x0 + w - 4, min(y0 + h - 3, 56))]  # a fist on
+            # the ground keeps its claws whole, above the ground row
+            pattern = CLAW_S
+        for X, Y in spots:
+            codes = np.full((3, 3), CLEAR, np.int8)
+            for cx, cy, v in pattern:
+                codes[cy, cx] = v + 1  # bone: a shade lighter than the pattern's index
+            put("skull", f"{name}_claw", codes, X, Y, clip=True, ring=False)
+
+    def arm(side):
+        names = [f"{side}_{n}" for n, _, _ in ARM_STONES]
+        for n in names:
+            stone(f"arm_{side}", n)
+        band(f"{side}_upper", 2)
+        leaves(f"{side}_fore", 12, 7, k=seed[side] + 3, berries=[(1, -1)])
+        leaves(f"{side}_shoulder", 13, 8, dy=-2, k=seed[side] + 5, berries=[(-3, -1)])
+        claws(f"{side}_fist")
+
+    def skull():
+        cx, cy = centers["head"]
+        ox, oy = SKULL_ORIGIN[d]
+        X0, Y0 = int(round(cx)) + ox, int(round(cy)) + oy
+        far, near = antler_points(d)
+
+        def stamp(pts, name):
+            if not pts:
+                return
+            mx0 = min(p[0] for p in pts)
+            my0 = min(p[1] for p in pts)
+            codes = np.full((max(p[1] for p in pts) - my0 + 1, max(p[0] for p in pts) - mx0 + 1),
+                            CLEAR, np.int8)
+            for x, y, v in pts:
+                codes[y - my0, x - mx0] = v
+            put("skull", name, codes, X0 + mx0, Y0 + my0)
+
+        rows = SKULL[d]
+        codes = np.full((len(rows), len(rows[0])), CLEAR, np.int8)
+        sockets = []
+        for y, row in enumerate(rows):
+            for x, ch in enumerate(row):
+                if ch.isdigit():
+                    codes[y, x] = int(ch)
+                elif ch in "OE":
+                    codes[y, x] = INK
+                    if ch == "E":
+                        sockets.append((x, y))
+        stamp(far, "antler_far")
+        if d != "e":
+            stamp(near, "antlers")
+        put("skull", "head", codes, X0, Y0)
+        boxes["head"] = (X0, Y0, codes.shape[1], codes.shape[0])
+        if d == "e":
+            stamp(near, "antlers")
+        if sockets:
+            low = max(y for _, y in sockets)
+            xs = sorted(x for x, y in sockets if y == low)
+            face["eyes"] = [X0 + (xs[0] + xs[-1] + 1) // 2 if d == "s" else X0 + xs[0], Y0 + low]
+
+    def body_part():
+        for n in ("leg_far", "leg_near"):
+            stone("body", n)
+            band(n, 3)
+            leaves(n, 11, 6, dy=-1, k=7 if n == "leg_far" else 9, berries=[(1, -1)])
+            claws(n, foot=True)
+        stone("body", "pelvis")
+        stone("body", "torso")
+        tx, ty = centers["torso"]
+        mane = {"s": (31, 12, 0, -6), "e": (22, 12, -6, -4), "n": (33, 16, 0, -4)}[d]
+        leaves("torso", mane[0], mane[1], dx=mane[2], dy=mane[3], k=11,
+               berries=[(-10, -1), (-4, 2), (5, -2), (11, 1)] if d != "e" else [(-6, 0), (2, -2)])
+        skull()
+
+    if d == "n":
+        order = [lambda: arm("far"), lambda: arm("near"), body_part]
+    else:
+        order = [lambda: arm("far"), body_part, lambda: arm("near")]
+    if spec["behind"] and d == "e":  # arms raised behind the head: the body over them
+        order = [lambda: arm("far"), lambda: arm("near"), body_part]
+    if spec["fall"] >= 0.8:  # in the pile the body lies under the arms
+        order = [body_part, lambda: arm("far"), lambda: arm("near")]
+    for step in order:
+        step()
     # flatten: each layer keeps only what shows, so the engine's fixed z-order gives this frame
     # whatever the per-frame order was (arms behind the head, a pile of stones)
     for k in layers:
         layers[k][on_top != k] = CLEAR
-    moss = draw_moss(canvas, owner, stones, boxes, d)
     for k in layers:
         layers[k] = despeckle_stone(layers[k], canvas)
-    tidy_visible(layers, moss)
+    tidy_visible({k: layers[k] for k in ("arm_far", "body", "arm_near")}, E())
+    for k, layer in layers.items():  # a pixel cut off from its own layer becomes a dark detail
+        solid = layer >= 0
+        p = np.pad(solid, 1)
+        alone = solid & ~(p[:-2, 1:-1] | p[2:, 1:-1] | p[1:-1, :-2] | p[1:-1, 2:])
+        layer[alone] = INK
 
     def center(name):
         x0, y0, w, h = boxes[name]
@@ -397,7 +613,8 @@ def frame(d: str, spec) -> dict:
         "foot_near": bottom("leg_near"), "foot_far": bottom("leg_far"),
         "summon_point": summon, "planted": [],
     }
-    return {"layers": layers, "moss": moss, "points": pts, "boxes": boxes, "canvas": canvas}
+    stones_only = {k: v for k, v in boxes.items() if k in stones}
+    return {"layers": layers, "points": pts, "boxes": stones_only, "canvas": canvas}
 
 
 def draw_socket(layer, canvas, d, x0, y0, st) -> list[int]:
@@ -544,8 +761,10 @@ HITBOXES = {"attack_slam": (3, 4), "charge": (2, 3)}
 
 # ============================================================================== writing
 def main() -> None:
+    import shutil
     anims = load_anims(STYLE, RIG)
-    layers = {k: {} for k in ("body", "arm_near", "arm_far", "moss")}
+    slots = ("body", "arm_near", "arm_far", "skull", "leaves", "berries", "bands")
+    layers = {k: {} for k in slots}
     anchors = {}
     for anim, frames in FRAMES.items():
         if frames is None:
@@ -557,9 +776,8 @@ def main() -> None:
         for i, spec in enumerate(frames):
             for d in DIRS:
                 f = frame(d, spec)
-                for k in ("body", "arm_near", "arm_far"):
+                for k in slots:
                     layers[k][anim][(d, i)] = f["layers"][k]
-                layers["moss"][anim][(d, i)] = f["moss"]
                 pts = f["points"]
                 if i in HITBOXES.get(anim, ()):
                     pts["hitboxes"] = [fist_box(f["boxes"]) if anim == "attack_slam" else
@@ -568,17 +786,48 @@ def main() -> None:
                     pts["hide"] = ["core"]
                 anchors[anim][d].append(pts)
     counts = {a: len(f) for a, f in FRAMES.items() if f is not None}
-    notes = {
-        "body": "Pelvis, legs, torso (with the core's socket), head (a visor slit) and a crown of stones.",
-        "arm_near": "Shoulder, upper arm, forearm and fist: separate stones, in front.",
-        "arm_far": "The same four stones on the far side (darker facing e, where it is behind).",
+    # swing trails: the fists carry no art, only the white arc each strike traces (the
+    # compositor's smear_<anim> for a drawn held item): the slam brings both fists down from
+    # overhead, the fan's punch drives the near fist forward
+    fists = {a: {(d, i): E() for d in DIRS for i in range(n)} for a, n in counts.items()}
+    trails = {}
+    for anim, sides in (("attack_slam", ("near", "far")), ("attack_fan", ("near",))):
+        cells = {(d, i): E() for d in DIRS for i in range(counts[anim])}
+        for i in sorted(anims[anim].flags.get("active", ()))[:1]:
+            for d in DIRS:
+                before, now = frame(d, FRAMES[anim][i - 1]), frame(d, FRAMES[anim][i])
+                for side in sides:
+                    fist = "hand_near" if side == "near" else "fist_far"
+                    x0, y0, w, h = now["boxes"][f"{side}_shoulder"]
+                    pivot = (x0 + w / 2, y0 + h / 2)
+                    path = arc_path(tuple(before["points"][fist]), tuple(now["points"][fist]), pivot)
+                    for x, y, rank in crescent(path, 4):
+                        if 3 <= x <= SIZE - 5 and 3 <= y <= 59 and cells[(d, i)][y, x] == CLEAR:
+                            cells[(d, i)][y, x] = rank + 1  # metal shades 1..3: rim, mid, core
+        trails[f"smear_{anim}"] = cells
+    write_part("held_near", "warden_fists", {
+        "material": "metal", "kind": "animated", "lags": False, "rigs": [RIG],
+        "notes": "No art: the white swing trails of the slam and the punch (smear_<anim>)."},
+        {**fists, **trails}, {**counts, **{k: counts[k[6:]] for k in trails}}, size=SIZE)
+    parts = {
+        "body": ("stone", "Pelvis, legs and torso (with the core's socket): charcoal boulders."),
+        "arm_near": ("stone", "Shoulder, upper arm, forearm and fist: separate boulders, in front."),
+        "arm_far": ("stone", "The same four boulders on the far side (darker facing e, where it is behind)."),
+        "skull": ("bone", "The skull with its branching antlers, and the claws on the fists and feet."),
+        "leaves": ("leaf", "A jagged mane over the shoulders and back, leaf sleeves on the forearms "
+                           "and shins."),
+        "berries": ("fruit", "Berries in the leaves."),
+        "bands": ("metal", "Brass bands round the upper arms and legs."),
     }
-    for slot in ("body", "arm_near", "arm_far"):
-        write_part(slot, RIG, {"material": "stone", "kind": "animated", "lags": False, "rigs": [RIG],
-                               "notes": notes[slot]}, layers[slot], counts, size=SIZE)
-    write_part("moss", "warden", {"material": "hide", "kind": "animated", "lags": False, "rigs": [RIG],
-                                  "notes": "Moss on the visible tops of the head, torso and shoulders."},
-               layers["moss"], counts, size=SIZE)
+    for slot, (material, notes) in parts.items():
+        variant = RIG if slot in ("body", "arm_near", "arm_far") else "warden"
+        write_part(slot, variant, {"material": material, "kind": "animated", "lags": False,
+                                   "rigs": [RIG], "notes": notes}, layers[slot], counts, size=SIZE)
+    old_moss = ROOT_DIR / "parts" / "moss" / "warden"
+    if old_moss.is_dir():
+        shutil.rmtree(old_moss)
+        if not any(old_moss.parent.iterdir()):
+            old_moss.parent.rmdir()
     # rigid glow: the core gem and the eyes, at idle frame 0
     f0 = {d: frame(d, F()) for d in DIRS}
     core, eyes = {}, {}
@@ -590,31 +839,34 @@ def main() -> None:
                 for x in (range(cx - 1, cx + 2) if d == "s" else range(cx, cx + 2)):
                     c[y, x] = 0
             ex, ey = f0[d]["points"]["eyes"]
-            for ox in ((-3, -2, 2, 3) if d == "s" else (0, 1)):
+            for ox in ((-4, -3, 3, 4) if d == "s" else (0, 1)):
                 e[ey, ex + ox] = 0
         core[(d, 0)], eyes[(d, 0)] = c, e
     write_part("core", "warden", {"material": "eyes", "kind": "rigid", "attach": "core", "origin": "auto",
                                   "lags": False, "rigs": [RIG],
-                                  "notes": "The glowing core gem in the chest (a glow eye preset)."},
+                                  "notes": "The glowing heart in the chest (a glow eye preset)."},
                {"rigid": core}, size=SIZE)
     write_part("eyes", "warden", {"material": "eyes", "kind": "rigid", "attach": "eyes", "origin": "auto",
                                   "lags": False, "rigs": [RIG],
                                   "allow_singletons": {},
-                                  "notes": "Two glowing eyes in the visor slit."},
+                                  "notes": "Two eyes glowing in the skull's sockets."},
                {"rigid": eyes}, size=SIZE)
     write_anchors(RIG, anchors)
     base = {
         "rig": RIG, "timing_profile": "boss", "seed": 1,
-        "parts": {"moss": "warden", "core": "warden", "eyes": "warden"},
+        "parts": {"skull": "warden", "leaves": "warden", "berries": "warden", "bands": "warden",
+                  "core": "warden", "eyes": "warden", "held_near": "warden_fists"},
         "anims": ["idle", "walk", "combat_idle", "attack_slam", "cast_ring", "attack_fan", "charge",
                   "summon", "stomp", "enrage", "hurt", "death"],
     }
     write_recipe("monsters/stone_warden.yaml", {
         "name": "stone_warden", "family": "stone_warden", **base,
-        "colors": {"stone": "granite", "hide": "goblin", "eyes": "glow ghost"}})
+        "colors": {"stone": "charcoal", "bone": "antler", "leaf": "spring", "fruit": "berry",
+                   "metal": "gold", "eyes": "glow leaf"}})
     write_recipe("monsters/stone_warden_enraged.yaml", {
         "name": "stone_warden_enraged", "family": "stone_warden", **base,
-        "colors": {"stone": "granite", "hide": "bog", "eyes": "glow red"}})
+        "colors": {"stone": "charcoal", "bone": "antler", "leaf": "autumn", "fruit": "blood",
+                   "metal": "gold", "eyes": "glow red"}})
     print("wrote the stone warden")
 
 

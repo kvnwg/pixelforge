@@ -1,0 +1,8 @@
+slot: skull
+variant: warden
+material: bone
+kind: animated
+lags: false
+rigs:
+- golem
+notes: The skull with its branching antlers, and the claws on the fists and feet.

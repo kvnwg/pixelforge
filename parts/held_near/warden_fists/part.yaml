@@ -1,0 +1,8 @@
+slot: held_near
+variant: warden_fists
+material: metal
+kind: animated
+lags: false
+rigs:
+- golem
+notes: 'No art: the white swing trails of the slam and the punch (smear_<anim>).'

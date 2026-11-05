@@ -1,0 +1,8 @@
+slot: berries
+variant: warden
+material: fruit
+kind: animated
+lags: false
+rigs:
+- golem
+notes: Berries in the leaves.

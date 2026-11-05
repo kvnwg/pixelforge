@@ -1,0 +1,8 @@
+slot: bands
+variant: warden
+material: metal
+kind: animated
+lags: false
+rigs:
+- golem
+notes: Brass bands round the upper arms and legs.

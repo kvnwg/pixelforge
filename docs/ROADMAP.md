@@ -456,3 +456,15 @@ Rubric (the redesigned cast): style match 4 (same body, outline and shading; the
 
 Next: the Stone Warden as a forest guardian (the human's reference), and new monsters: big, slow ones (a dragon) and a tall, quick humanoid duelist.
 
+---
+
+## Stone Warden redesign: a forest guardian
+
+Status: done (commit "Stone Warden as a forest guardian")
+
+Asked for: "stone warden should look more like this", with a reference of a leshen-like forest spirit (an antlered bone skull over a leafy, berry-dotted mane, a dark hulking body, claws, brass bands). Built as an original design in the Warden's own rig (MONSTERS.md section 5.5): the bone skull with branching antlers and green-glowing sockets, charcoal boulders, a jagged leafy mane with berries, leaf sleeves and shins, brass bands, bone claws, a green heart; enraged, autumn leaves and a red glow. The slam and the punch now leave white swing trails. All twelve moves kept their timing and combat data; the warden and its enraged form validate with 0 errors and 0 warnings, and `tests/test_boss.py` checks the design (skull, antlers wider than 30 px, a mane of 300+ leaf pixels, spring against autumn, the slam's trail).
+
+What the review images show: facing s, a pale skull under antlers spreading across most of the canvas, eyes glowing green in the sockets, over a green mane studded with orange berries; dark boulder arms with brass bands, leafy forearms and white claws on fists that rest on the ground. Facing e the long skull rides above the mane, antlers sweeping back. The overhead slam raises the clawed fists past the antlers and brings them down through a white crescent; enraged, the whole mane turns red-orange.
+
+Rubric: style match 4, 1x readability 4 (skull, antlers and mane read at 1x; the berries are small), silhouette 5 (the antlers make it unmistakable), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 5, combat readability 4 (the tells are unchanged and the trails mark the hits).
+

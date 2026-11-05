@@ -20,7 +20,7 @@ def test_real_style_loads(style):
     assert style.drawn_directions == ("s", "e", "n")
     assert {"skin", "hair", "cloth", "leather", "accent", "eyes", "metal", "fur", "slime"} <= set(
         style.materials)
-    assert style.materials["eyes"].glow_presets == {"glow red", "glow yellow", "glow ghost"}
+    assert style.materials["eyes"].glow_presets == {"glow red", "glow yellow", "glow ghost", "glow leaf"}
     assert set(style.size_classes) == {"small", "medium", "large", "huge"}
     assert style.size_classes["medium"].pivot == (23, 43)
 

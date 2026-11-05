@@ -137,6 +137,12 @@
           "hue_shift"
         ],
         "reason": "Shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide; the ramp reads correctly in style/monster_fx_swatches.png."
+      },
+      "leaf/spring": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Leaves yellow toward their light shades (hue 146 down to 125), as sunlit foliage does in the human's reference; the guide's rising hue would turn them blue."
       }
     },
     "bold_note": "Raised on 2026-11-05 from C 0.09 and L 0.80 at the human's request: characters should be as varied and colorful as a chibi roster, each with a signature color. The anchor's own colors stay at C 0.03 to 0.09; bold presets go up to 0.13. FX and glow eyes keep the brighter range.",
@@ -540,12 +546,16 @@
         ],
         "teal": [
           "#157171"
+        ],
+        "glow leaf": [
+          "#a2d060"
         ]
       },
       "glow_presets": [
         "glow red",
         "glow yellow",
-        "glow ghost"
+        "glow ghost",
+        "glow leaf"
       ],
       "anchor_use": "the two 1px eyes; same hex as cloth mid in the anchor but a separate material",
       "glow_exception": "Glow presets may use C up to 0.14 and L up to 0.85. They are the only character pixels allowed past the normal limits, used for monster and elite eyes so threats read instantly."
@@ -690,6 +700,12 @@
           "#958b78",
           "#aca490",
           "#c1baa5"
+        ],
+        "antler": [
+          "#867f74",
+          "#9a9589",
+          "#aeaba0",
+          "#c3c1b7"
         ]
       },
       "anchor_use": "skeletons, skulls"
@@ -825,9 +841,57 @@
           "#5a737f",
           "#768d9a",
           "#94a8b6"
+        ],
+        "charcoal": [
+          "#2a3139",
+          "#3a4049",
+          "#4b5059",
+          "#5d606a"
         ]
       },
       "anchor_use": "golems, statues, rock monsters: rounded boulders lit from the upper left"
+    },
+    "leaf": {
+      "shades": 4,
+      "base": [
+        "#1b5524",
+        "#397028",
+        "#5c8a30",
+        "#83a342"
+      ],
+      "presets": {
+        "spring": [
+          "#1b5524",
+          "#397028",
+          "#5c8a30",
+          "#83a342"
+        ],
+        "autumn": [
+          "#822d22",
+          "#a24628",
+          "#be6436",
+          "#d98346"
+        ]
+      },
+      "anchor_use": "leaves and foliage on monsters (the Stone Warden's mane, sleeves and shins)"
+    },
+    "fruit": {
+      "shades": 2,
+      "base": [
+        "#bf623d",
+        "#d77e49"
+      ],
+      "presets": {
+        "berry": [
+          "#bf623d",
+          "#d77e49"
+        ],
+        "blood": [
+          "#933235",
+          "#ad4c42"
+        ]
+      },
+      "anchor_use": "berries and small fruit on foliage"
     }
   },
   "palette_anchor": {
@@ -2723,36 +2787,48 @@
     },
     "golem": {
       "size_class": "large",
-      "examples": "golems, statues: the Stone Warden",
+      "examples": "golems, statues, forest guardians: the Stone Warden",
       "footprint": 23,
-      "note": "The Stone Warden (MONSTERS.md section 5.5), drawn by tools/art/stone_warden.py: separate boulders per frame. Arms are their own layers; each frame keeps only the pixels each layer shows, so per-frame overlaps (arms raised behind the head, the death pile) need no z-order change.",
+      "note": "The Stone Warden (MONSTERS.md section 5.5), drawn by tools/art/stone_warden.py: a forest guardian of separate charcoal boulders under a bone skull with antlers and a leafy mane, painted per frame. Every layer keeps only the pixels it shows, so per-frame overlaps (arms raised behind the head, the death pile) need no z-order change; only the rigid glow (core, eyes) relies on being last.",
       "z_order": {
         "s": [
           "shadow",
           "arm_far",
           "body",
+          "bands",
+          "arm_near",
+          "skull",
+          "leaves",
+          "berries",
           "core",
           "eyes",
-          "arm_near",
-          "moss"
+          "held_near"
         ],
         "e": [
           "shadow",
           "arm_far",
           "body",
+          "bands",
+          "arm_near",
+          "skull",
+          "leaves",
+          "berries",
           "core",
           "eyes",
-          "arm_near",
-          "moss"
+          "held_near"
         ],
         "n": [
           "shadow",
           "arm_far",
           "body",
+          "bands",
+          "arm_near",
+          "skull",
+          "leaves",
+          "berries",
           "core",
           "eyes",
-          "arm_near",
-          "moss"
+          "held_near"
         ]
       },
       "close_eyes": {

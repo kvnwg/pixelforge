@@ -1,4 +1,5 @@
-"""Phase 9: the first boss, the Stone Warden (MONSTERS.md section 5.5) on the large size class."""
+"""Phase 9: the first boss, the Stone Warden (MONSTERS.md section 5.5) on the large size class,
+redesigned as a forest guardian on 2026-11-05 (antlered skull, leafy mane, claws)."""
 
 from __future__ import annotations
 
@@ -73,7 +74,7 @@ def test_layers_never_overlap(warden):
         for f in frames:
             seen = np.zeros(f.owner.shape, int)
             for layer in f.layers:
-                if layer.slot in ("body", "arm_near", "arm_far"):
+                if layer.slot in ("body", "arm_near", "arm_far", "skull", "leaves", "berries", "bands"):
                     seen += layer.image[..., 3] == 255
             assert seen.max() <= 1, (anim, d, f.index)
 
@@ -87,7 +88,7 @@ def test_the_core_goes_dark_in_death(warden):
 def test_enraged_form_burns_red(warden, enraged, style):
     from pixelforge.color import parse_hex
     red = parse_hex(style.materials["eyes"].presets["glow red"][0])
-    calm = parse_hex(style.materials["eyes"].presets["glow ghost"][0])
+    calm = parse_hex(style.materials["eyes"].presets["glow leaf"][0])
     a = enraged.frames[("idle", "s")][0].sprite
     b = warden.frames[("idle", "s")][0].sprite
     px = lambda img, c: int(np.all(img[..., :3] == np.asarray(c, np.uint8), axis=-1).sum())  # noqa: E731
@@ -98,3 +99,38 @@ def test_enraged_form_burns_red(warden, enraged, style):
 def test_boss_fx_are_in_the_library(root):
     for name in ("shockwave", "rock_shard", "rock_shard_impact", "summon_circle", "falling_rock"):
         assert (root / "fx" / name / "fx.yaml").is_file()
+
+
+def test_the_warden_is_a_forest_guardian(warden, enraged, style):
+    """The human's reference: a bone skull with antlers over a leafy mane, berries, brass bands,
+    claws; enraged, the leaves turn autumn."""
+    from pixelforge.color import parse_hex
+    f = warden.frames[("idle", "s")][0]
+    slots = {l.slot: l for l in f.layers}
+    for slot in ("skull", "leaves", "berries", "bands", "eyes", "core"):
+        assert slot in slots and slots[slot].image[..., 3].any(), slot
+    skull = slots["skull"].image[..., 3] == 255
+    ys, xs = np.nonzero(skull)
+    assert xs.max() - xs.min() >= 30  # the antlers spread far past the head
+    head = warden.composer.rig.anchor("idle", "s", 0, "head")
+    assert ys.min() < head[1]  # and rise above the skull
+    leaves = slots["leaves"].image[..., 3] == 255
+    assert leaves.sum() > 300  # a mane, sleeves and shins, not a trim
+    spring = {parse_hex(c) for c in style.materials["leaf"].presets["spring"]}
+    autumn = {parse_hex(c) for c in style.materials["leaf"].presets["autumn"]}
+    colors = lambda b: {tuple(int(v) for v in px[:3]) for px in  # noqa: E731
+                        b.frames[("idle", "s")][0].sprite.reshape(-1, 4) if px[3] == 255}
+    assert colors(warden) & spring and not colors(warden) & autumn
+    assert colors(enraged) & autumn and not colors(enraged) & spring
+
+
+def test_the_slam_leaves_a_white_trail(warden, style):
+    from pixelforge.color import parse_hex
+    from pixelforge.compose import SMEAR
+    core = parse_hex(style.raw["fx_ramps"]["swing"][-1])
+    for d in ("s", "e", "n"):
+        frames = warden.frames[("attack_slam", d)]
+        trail = frames[3].sprite[frames[3].owner == SMEAR]
+        assert len(trail) > 20 and any(tuple(px[:3]) == core for px in trail), d
+        assert (frames[4].owner == SMEAR).any() and not (frames[2].owner == SMEAR).any(), d
+

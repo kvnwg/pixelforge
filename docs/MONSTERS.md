@@ -139,7 +139,10 @@ As built (Phase 8):
 
 Each boss gets a written spec here before any drawing: concept in two sentences, signature feature, silhouette sketch as a character grid, size class, rig breakdown (which pieces animate separately, for example arms or a tail as separate layers so they can move independently), full animation list with frame tables, phases and telegraph times (boss profile: 500 ms minimum, 600+ for heavy attacks), and FX needs.
 
-#### The Stone Warden (first boss, Phase 9)
+#### The Stone Warden (first boss, Phase 9; redesigned 2026-11-05)
+
+**Redesign (2026-11-05), after the human's reference ("stone warden should look more like this": a leshen-like forest spirit, not copied).** The Warden is now a forest guardian: a pale bone animal skull with wide branching antlers in place of the stone head and crown (green-glowing eyes in its sockets), a body of charcoal boulders (new `stone` preset `charcoal`), a jagged leafy mane over the shoulders and back with orange berries, leaf sleeves on the forearms and shins, brass bands round the upper arms and legs, bone claws on the fists and toes, and a green-glowing heart. Enraged, the leaves turn autumn (`leaf: autumn`, `fruit: blood`) and the glow red. Every frame is painted back to front from the same boulder positions (far arm, body with the mane, skull and antlers, near arm, each with its leaves, bands and claws) and each layer keeps only what it shows, so the twelve moves, their tells, events, hitboxes and points are unchanged. New layers: `skull` (bone: skull, antlers, claws), `leaves` (new material `leaf`: spring, autumn), `berries` (new material `fruit`: berry, blood), `bands` (metal, gold); `moss` is gone. The slam and the fan's punch leave white swing trails (`held_near: warden_fists`, no art, only `smear_<anim>`). The original spec follows; where it says moss, crown or visor, read leaves, antlers and skull.
+
 
 Spec written before drawing (the human waived approval checkpoints on 2026-11-05; see ROADMAP.md).
 

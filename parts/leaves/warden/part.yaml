@@ -1,0 +1,8 @@
+slot: leaves
+variant: warden
+material: leaf
+kind: animated
+lags: false
+rigs:
+- golem
+notes: A jagged mane over the shoulders and back, leaf sleeves on the forearms and shins.

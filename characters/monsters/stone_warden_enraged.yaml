@@ -4,9 +4,13 @@ rig: golem
 timing_profile: boss
 seed: 1
 parts:
-  moss: warden
+  skull: warden
+  leaves: warden
+  berries: warden
+  bands: warden
   core: warden
   eyes: warden
+  held_near: warden_fists
 anims:
 - idle
 - walk
@@ -21,6 +25,9 @@ anims:
 - hurt
 - death
 colors:
-  stone: granite
-  hide: bog
+  stone: charcoal
+  bone: antler
+  leaf: autumn
+  fruit: blood
+  metal: gold
   eyes: glow red
