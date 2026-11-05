@@ -1336,6 +1336,11 @@
       "#c7b593",
       "#e2d7ba",
       "#ece8d9"
+    ],
+    "swing": [
+      "#a3abbc",
+      "#c6cbd4",
+      "#e8e7e2"
     ]
   },
   "fx_constraints": {
@@ -3029,5 +3034,6 @@
       "hit": "#ff3b3b",
       "hurt": "#3b8bff"
     }
-  }
+  },
+  "fx_swing_note": "Swing trails: every smear (the arc a swung weapon, club or fist traces on its strike frame) is painted in fx_ramps.swing by rank, brightest at the leading edge, the grey-blue rim on the inside and the tail so the trail reads on light ground too. On the frame after a strike the trail lingers one shade dimmer (rim pixels drop), then is gone. Drawn only on empty pixels, never outlined."
 }

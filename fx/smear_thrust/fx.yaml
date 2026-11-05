@@ -1,5 +1,5 @@
 name: smear_thrust
-ramp: impact
+ramp: swing
 cell: 32
 pivot:
 - 15

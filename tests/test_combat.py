@@ -96,9 +96,11 @@ def test_hitboxes_cover_the_weapon_on_active_frames_only(knight):
 def test_strike_frames_have_a_smear_behind_the_body(knight, girl):
     for b in (knight, girl):
         for d in ("s", "e", "n"):
-            for f in b.frames[("attack_slash", d)]:
+            frames = b.frames[("attack_slash", d)]
+            for i, f in enumerate(frames):  # the strike, and its trail lingering one frame after
                 smear = f.owner == SMEAR
-                assert smear.any() == ("active" in f.flags), f.label
+                lingers = i > 0 and "active" in frames[i - 1].flags
+                assert smear.any() == ("active" in f.flags or lingers), f.label
             heavy = b.frames[("attack_heavy", d)][3]
             assert (heavy.owner == SMEAR).any(), heavy.label
 

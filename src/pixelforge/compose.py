@@ -114,6 +114,7 @@ class Composer:
         self.lid = parse_hex(preset_ramp(style, lid["material"], recipe.colors.get(lid["material"]))
                              [lid["shade"]])
         self.flash_rgb = parse_hex(style.flash)
+        self.swing_rgb = [parse_hex(c) for c in style.fx_ramps["swing"]]  # rim, mid, core
 
     # ------------------------------------------------------------------ parts
     def _resolve(self) -> dict[str, Part]:
@@ -240,6 +241,42 @@ class Composer:
             out[y][fill] = source[fill]
         return out
 
+    def smear_cell(self, held: Part | None, src: AnimDef, direction: str, index: int):
+        """The held item's smear for a frame, placed (or None): a weapon drawn per frame (a
+        monster's club) has smear_<anim>.png with a cell per frame; a posed one has
+        smear_<pose>.png, moved with the item."""
+        if held is None:
+            return None
+        cell = None
+        if held.drawn(src.name):
+            sheet = self.lib.sheet(held, f"smear_{src.name}")
+            if sheet is not None and index < sheet.frames:
+                cell = sheet.get(direction, index)
+        else:
+            pose = self.pose(held, src, direction, index)
+            sheet = self.lib.sheet(held, f"smear_{pose}") if pose else None
+            cell = sheet.get(direction, 0) if sheet else None
+            if cell is not None:
+                cell, _ = shift(cell, *self.offset(held, src, direction, index))
+        return cell if cell is not None and cell[..., 3].any() else None
+
+    def swing(self, cell: np.ndarray, fade: bool = False) -> np.ndarray:
+        """Paint a smear in fx_ramps.swing by rank: the smear's lightest color becomes the white
+        core, the next the mid shade, the rest the grey-blue rim. A fading trail (the frame after
+        the strike) drops its darkest rank and steps the rest one shade down."""
+        out = np.zeros_like(cell)
+        solid = cell[..., 3] == 255
+        colors = sorted({tuple(int(v) for v in px[:3]) for px in cell[solid]},
+                        key=lambda c: -(0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]))
+        for rank, color in enumerate(colors):
+            if fade and len(colors) > 1 and rank == len(colors) - 1:
+                continue
+            shade = max(2 - min(rank, 2) - (1 if fade else 0), 0)
+            mask = solid & np.all(cell[..., :3] == np.asarray(color, np.uint8), axis=-1)
+            out[mask, :3] = self.swing_rgb[shade]
+            out[mask, 3] = 255
+        return out
+
     # ------------------------------------------------------------------ frames
     def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str],
                     direction: str = "s") -> dict[int, tuple[int, int]]:
@@ -326,23 +363,15 @@ class Composer:
         if anim.effect == "close_eyes" or "eyes_closed" in flags:
             eyes = np.isin(owner, [i for i, l in enumerate(layers) if l.slot == "eyes"])
             sprite = close_eyes(sprite, eyes, self.lid)
-        # Smears trace a strike: drawn after the outline, in the weapon's own material, only on
-        # empty pixels (behind the character), never outlined.
+        # Swing trails: a strike's smear (the arc the weapon traced) is drawn after the outline in
+        # the white swing ramp, only on empty pixels (behind the character), never outlined; on
+        # the next frame it lingers a shade dimmer, then is gone.
         held = self.parts.get("held_near")
-        cell = None
-        if held is not None and held.drawn(src.name):
-            # a weapon drawn per frame (a monster's club) has smear_<anim>.png, a cell per frame
-            sheet = self.lib.sheet(held, f"smear_{src.name}")
-            if sheet is not None and src_index < sheet.frames:
-                cell = sheet.get(direction, src_index)
-        elif held is not None:
-            pose = self.pose(held, src, direction, src_index)
-            sheet = self.lib.sheet(held, f"smear_{pose}") if pose else None
-            cell = sheet.get(direction, 0) if sheet else None
-            if cell is not None:
-                cell, _ = shift(cell, *self.offset(held, src, direction, src_index))
-        if held is not None and cell is not None and cell[..., 3].any():
-            cell = recolor(cell, self.maps[held.material])
+        cell, fade = self.smear_cell(held, src, direction, src_index), False
+        if cell is None and src_index > 0:
+            cell, fade = self.smear_cell(held, src, direction, src_index - 1), True
+        if cell is not None:
+            cell = self.swing(cell, fade)
             mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0)
             sprite[mask] = cell[mask]
             owner[mask] = SMEAR

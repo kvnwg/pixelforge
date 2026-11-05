@@ -187,7 +187,7 @@ def impact_elemental():
 
 
 # ============================================================================== smears
-def crescent(c: Cell, outer, inner, ok, shade_out=3, shade_in=2):
+def crescent(c: Cell, outer, inner, ok, shade_out=2, shade_in=1):
     """Pixels inside the outer circle but outside the inner one, where ok(x, y)."""
     (ox, oy, orad), (ix, iy, irad) = outer, inner
     for y in range(c.size):
@@ -203,13 +203,14 @@ def crescent(c: Cell, outer, inner, ok, shade_out=3, shade_in=2):
 
 
 def smears():
-    """One-frame smears in character coordinates (pivot = the character pivot, facing e)."""
+    """One-frame swing trails in character coordinates (pivot = the character pivot, facing e),
+    in the white swing ramp like the trails weapons draw: core on the leading edge, rim inside."""
     arc = Cell(32)  # a slash: high in front of the head down to the ground in front
     crescent(arc, (16, 17, 11), (14, 17, 10), lambda x, y: x >= 18 and 7 <= y <= 26)
     vertical = Cell(32)  # an overhead: from above the head down to the ground
     crescent(vertical, (15, 18, 12), (13, 19, 11), lambda x, y: x >= 15 and 4 <= y <= 27)
     thrust = Cell(32)  # a thrust: three streaks ahead of the body
-    thrust.grid(["...0022223", "0002222233", "....00223"], 18, 19)
+    thrust.grid(["...0011112", "0001111122", "....00112"], 18, 19)
     return {"smear_arc": {"play": [arc]}, "smear_vertical": {"play": [vertical]},
             "smear_thrust": {"play": [thrust]}}
 
@@ -613,11 +614,11 @@ def library():
            impact_big(), notes="A heavy slam on the ground: 17 px star, ring, dust along the ground."),
         fx("dust_puff", "impact", 16, (7, 11), {"play": {"frames_ms": [50, 60, 60, 70], "loop": False}},
            dust_puff(), layer="below", notes="Dust kicked up at a foot: rolls, landings, skids."),
-        fx("smear_arc", "impact", 32, (15, 27), one, sm["smear_arc"], space="follow", rotate=True,
+        fx("smear_arc", "swing", 32, (15, 27), one, sm["smear_arc"], space="follow", rotate=True,
            notes="A slash smear in character coordinates (pivot = the character pivot)."),
-        fx("smear_vertical", "impact", 32, (15, 27), one, sm["smear_vertical"], space="follow",
+        fx("smear_vertical", "swing", 32, (15, 27), one, sm["smear_vertical"], space="follow",
            rotate=True, notes="An overhead smear in character coordinates."),
-        fx("smear_thrust", "impact", 32, (15, 27), one, sm["smear_thrust"], space="follow",
+        fx("smear_thrust", "swing", 32, (15, 27), one, sm["smear_thrust"], space="follow",
            rotate=True, notes="Thrust streaks in character coordinates."),
         fx("impact", "arcane", 24, (11, 11), {"play": {"frames_ms": [40, 50, 50, 60, 70], "loop": False}},
            impact_elemental(), tints=ELEMENTS, notes="One elemental impact per element: impact_fire..."),

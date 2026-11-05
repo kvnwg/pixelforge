@@ -27,7 +27,7 @@ import json
 
 import numpy as np
 
-from artlib import OUTLINE, ROOT, SIZE, STYLE, grid
+from artlib import crescent, OUTLINE, ROOT, SIZE, STYLE, grid
 from pixelforge.sheet import write_sheet
 
 DIRS = ("s", "e", "n")
@@ -132,6 +132,18 @@ SWORD = {"e": SWORD_E, "s": SWORD_S, "n": mirror_table(SWORD_S)}
 SMEARS = {"e": SMEAR_E, "s": SMEAR_S, "n": {k: mirror_rel(v) for k, v in SMEAR_S.items()}}
 FIST_SMEARS = {"e": FIST_SMEAR_E, "s": FIST_SMEAR_S,
                "n": {k: mirror_rel(v) for k, v in FIST_SMEAR_S.items()}}
+
+
+TRAILS = {d: {pose: crescent(arc) for pose, arc in SMEARS[d].items()} for d in SMEARS}
+FIST_TRAILS = {d: {pose: crescent(arc, 2) for pose, arc in FIST_SMEARS[d].items()}
+               for d in FIST_SMEARS}
+# A thrust leaves straight streaks beside the shaft instead of an arc (the lance's strike):
+# relative to the hand, from the butt's end past the hand, brightest nearest the head.
+THRUST_E = {"strike": [(x, y, 2 if x >= -2 else 1 if x >= -6 else 0)
+                       for y in (-2, 2) for x in range(-9, 3)] + [(x, 0, 0) for x in range(-12, -9)]}
+THRUST_S = {"strike": [(x, y, 2 if y >= 2 else 1 if y >= -1 else 0)
+                       for x in (-3, 1) for y in range(-4, 5)]}
+THRUSTS = {"e": THRUST_E, "s": THRUST_S, "n": {k: mirror_rel(v) for k, v in THRUST_S.items()}}
 
 
 # ============================================================================== item drawings
@@ -375,7 +387,9 @@ def _union(a, b):
 
 
 def build_item(slot: str, variant: str, material: str, draw, poses, *, trim=None, smears=None,
-               fist_points=False) -> None:
+               fist_points=False, smear_hits=True) -> None:
+    """smear_hits: a swing's trail is the area it swept, so it is part of the hitbox; a thrust's
+    streaks trail behind the point and are not."""
     folder = ROOT / "parts" / slot / variant
     data = {"hitboxes": {}, "points": {}}
     for pose in poses:
@@ -397,8 +411,8 @@ def build_item(slot: str, variant: str, material: str, draw, poses, *, trim=None
                 data["points"][pose].setdefault("bow_nock", {})[d] = [o[0] + n[0], o[1] + n[1]]
             if pose in ACTIVE_POSES:
                 pts = [p[:2] for p in res["main"] + res["trim"]]
-                if smears and pose in smears[d]:
-                    pts += smears[d][pose]
+                if smears and smear_hits and pose in smears[d]:
+                    pts += [p[:2] for p in smears[d][pose]]
                 data["hitboxes"].setdefault(pose, {})[d] = [FRONT[d](bbox(pts, o))]
         if front:
             write(folder, f"pose_{pose}", material, front)
@@ -410,10 +424,10 @@ def build_item(slot: str, variant: str, material: str, draw, poses, *, trim=None
                 write(tfolder, f"pose_{pose}", trim[2], tfront)
             if tback:
                 write(tfolder, f"pose_{pose}_behind", trim[2], tback)
-    if smears:
+    if smears:  # swing trails, written in the item's material (shade = rank in the trail)
         for pose in ACTIVE_POSES:
-            cells = {d: cell([(x, y, top_shade(material)) for x, y in smears[d][pose]], ORIGIN[d])
-                     for d in DIRS if pose in smears[d]}
+            cells = {d: cell([(x, y, trail_shade(material, v)) for x, y, v in smears[d][pose]],
+                             ORIGIN[d]) for d in DIRS if pose in smears[d]}
             if cells:
                 write(folder, f"smear_{pose}", material, cells)
     # hitboxes for active poses the item has no drawing for: the fist's reach
@@ -480,6 +494,13 @@ def top_shade(material: str) -> int:
     return len(STYLE.materials[material].base) - 1
 
 
+def trail_shade(material: str, rank: int) -> int:
+    """A trail's rank (2 core, 1 mid, 0 rim) as distinct shades of the item's material, lightest
+    for the core: the compositor repaints them by rank in fx_ramps.swing."""
+    top = top_shade(material)
+    return max(0, top - (2 - rank))
+
+
 def fist() -> None:
     """The unarmed default for held_near: no art, only strike smears (accent light), the reach of
     a punch as hitboxes and the fist as weapon_tip."""
@@ -500,7 +521,8 @@ def fist() -> None:
                 pts = [(0, 0)] + FIST_SMEARS[d].get(pose, [])
                 data["hitboxes"].setdefault(pose, {})[d] = [FRONT[d](bbox(pts, o))]
     for pose in ("strike", "slam"):
-        cells = {d: cell([(x, y, 1) for x, y in FIST_SMEARS[d][pose]], ORIGIN[d]) for d in DIRS}
+        cells = {d: cell([(x, y, trail_shade("accent", v)) for x, y, v in FIST_TRAILS[d][pose]],
+                         ORIGIN[d]) for d in DIRS}
         write(folder, f"smear_{pose}", "accent", cells)
     (folder / "hitboxes.json").write_text(json.dumps(data, indent=1))
 
@@ -528,12 +550,12 @@ BLADE_POSES = tuple(SWORD_E)
 
 def main() -> None:
     build_item("held_near", "sword", "metal", sword, BLADE_POSES,
-               trim=("held_near_trim", "hilt", "accent"), smears=SMEARS)
-    build_item("held_near", "mace", "metal", mace, BLADE_POSES, smears=SMEARS)
+               trim=("held_near_trim", "hilt", "accent"), smears=TRAILS)
+    build_item("held_near", "mace", "metal", mace, BLADE_POSES, smears=TRAILS)
     build_item("held_near", "staff", "leather", staff, tuple(STAFF_E),
                trim=("held_near_trim", "orb", "accent"))
     build_item("held_near", "lance", "leather", lance, tuple(LANCE_E),
-               trim=("held_near_trim", "spearhead", "metal"))
+               trim=("held_near_trim", "spearhead", "metal"), smears=THRUSTS, smear_hits=False)
     build_item("held_near", "bow", "leather", bow, ("aim", "draw", "release", "low", "ground",
                                                      "dropped", "tuck", "high"))
     fist()

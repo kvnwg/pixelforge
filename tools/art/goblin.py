@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from artlib import STYLE, empty, g, grid, write_anchors, write_part, write_recipe
+from artlib import STYLE, arc_path, crescent, empty, g, grid, write_anchors, write_part, write_recipe
 from pixelforge.anim import load_anims
 
 RIG = "humanoid_small"
@@ -277,6 +277,23 @@ def main() -> None:
                                         "n": [8, 9, 14, 8]}[d]]
                 anchors[anim][d].append(pts)
     counts = {a: len(f) for a, f in FRAMES.items() if f is not None}
+    # the club's swing trail: on the strike frame, the arc the club's knob traced from the frame
+    # before, around the shoulder (white in the compositor's swing ramp)
+    trail = {(d, i): empty() for d in DIRS for i in range(counts["attack_slash"])}
+    for i in anims["attack_slash"].flags.get("active", ()):
+        for d in DIRS:
+            ends = []
+            for k in (i - 1, i):
+                cells, hand = club["attack_slash"][(d, k)], anchors["attack_slash"][d][k]["hand_near"]
+                ys, xs = np.nonzero(cells != grid.CLEAR)
+                far = int(np.argmax((xs - hand[0]) ** 2 + (ys - hand[1]) ** 2))
+                ends.append((int(xs[far]), int(ys[far])))
+            tx, ty = anchors["attack_slash"][d][i]["torso"]
+            for x, y, rank in crescent(arc_path(ends[0], ends[1], (tx, ty - 1)), 2):
+                if 0 <= x < 32 and 0 <= y < 32:
+                    trail[(d, i)][y, x] = rank  # leather shades 0..2 = rim, mid, core
+    club["smear_attack_slash"] = trail
+    counts["smear_attack_slash"] = counts["attack_slash"]
     write_part("body", RIG, {"material": "hide", "kind": "animated", "lags": False, "rigs": [RIG],
                              "notes": "The goblin: head, pot-bellied body, arms and legs, per pose."},
                body, counts)

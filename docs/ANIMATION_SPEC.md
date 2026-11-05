@@ -144,10 +144,10 @@ Specced for E with a one-handed weapon in the near hand. Held items need drawn f
 | 0 anticipation | 120 | (-1, 0) | raised up and back behind the head | back foot planted, front foot planted | lean away from the target |
 | 1 wind-up hold | 80 | (-1, +1) | 1 px further back | same | small squash, the coil before the strike |
 | 2 strike | 60 | (+1, 0) | extended forward and down, plus a smear | front foot slides forward 1 px | event `hit` fires here |
-| 3 follow-through | 140 | (+1, 0) | low and in front, past the target | same as frame 2 | no smear |
+| 3 follow-through | 140 | (+1, 0) | low and in front, past the target | same as frame 2 | the trail lingers a shade dimmer |
 | 4 recover | 160 | (0, 0) | returning toward the idle hold | back to idle stance | |
 
-**Smear (frame 2 only):** a 1 px wide arc tracing the weapon's path from high-back to low-front, 5 to 8 px long, in the weapon's lightest shade (or accent light for unarmed). It reads as speed. Never use white.
+**Swing trail (frame 2, fading on frame 3):** a white crescent tracing the weapon's path from high-back to low-front: the leading edge is the near-white core, the trail thickens toward the weapon (up to 3 px, 2 for a fist) on the inside of the curve in the mid shade with a grey-blue rim, and the tail thins to the rim. On the follow-through frame it lingers one shade dimmer (the rim drops), then is gone. It is an FX color (`fx_ramps.swing`, decided 2026-11-05 at the human's request: every swing leaves a white trail), drawn only on empty pixels and never outlined, so it never covers the body. A thrust (the lance) leaves straight streaks beside the shaft instead.
 
 **S (attacking toward the camera):** lunge offset is (0, +1) instead of (+1, 0). As drawn (Phase 5) the weapon is raised beside the head on the weapon side (viewer-left) and chops down past the body on that side, with the smear running down it; a swing across the front would cover the body.
 

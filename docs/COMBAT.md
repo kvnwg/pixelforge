@@ -197,7 +197,8 @@ The Arcanist's blink is FX plus a fade in the game; it uses `dodge` as its drawn
 - **combat_idle bobs between 0 and +1**, like idle, instead of +1 and +2: the humanoid's legs are 3 rows, and +2 leaves one row, which reads as a squat at 1x. The wide stance and the raised weapon carry "ready".
 - **Facing s and n, swings happen on the weapon side.** The weapon arm is on the viewer's left facing s and the right facing n, so the windup raises the weapon beside the head and the strike chops down past the body on that side, with the smear running down that side. A swing across the front would be hidden by the body facing n and would cover it facing s.
 - **Weapon poses are drawn per item** (`ready`, `raised`, `strike`, `low`, `overhead`, `back`, `slam`, `ground`, `aim`, `draw`, `release`, `guard`, `tuck`, `high`, `dropped`); the base body's frames name the pose each held item takes (anchors.json `pose`). An item with no drawing for a pose falls back to its rest cell. Swords and maces share one geometry; staffs, lances and bows have their own. A weapon cocked behind the head is drawn behind the character (a `_behind` cell) so only the part sticking out shows.
-- **Unarmed** characters hold the `fist` (the humanoid rig's default `held_near`): no art, only accent-light smears (a crescent burst in front of a punch, an arc over a hammer fist), reach hitboxes and the fist as `weapon_tip`.
+- **Unarmed** characters hold the `fist` (the humanoid rig's default `held_near`): no art, only swing trails (a crescent burst in front of a punch, an arc over a hammer fist), reach hitboxes and the fist as `weapon_tip`.
+- **Every swing leaves a white trail** (the human's request, 2026-11-05): swords, maces, clubs and fists draw a crescent in `fx_ramps.swing` (near-white core, mid, grey-blue rim so it reads on light ground) on the strike frame, and it lingers one shade dimmer on the next frame. A thrust leaves straight streaks beside the shaft. Trails are FX: brighter than characters, drawn only on empty pixels, never outlined, never over a tell (they appear on active frames only).
 - **block** works with or without a shield: a shield is raised in front (it rides the torso, so it never swings off the body); a weapon is held upright in front as a parry.
 - **cast** is the same body animation for every caster; a staff is raised then thrust forward, other items do what their poses say.
 - **hurt** keeps the weapon up (`ready`) while the body is knocked back, so a long item never swings off the canvas.
@@ -285,7 +286,7 @@ FX are their own assets in `fx/<name>/`, reused by every character: `fx.yaml` pl
 
 | Category | Effects | Notes |
 |---|---|---|
-| Smears | `smear_arc` (slash), `smear_vertical` (overhead), `smear_thrust` | 1 frame each, matched to attack_slash, attack_heavy, thrust |
+| Smears | `smear_arc` (slash), `smear_vertical` (overhead), `smear_thrust` | 1 frame each, matched to attack_slash, attack_heavy, thrust; white, in the `swing` ramp like every drawn trail |
 | Impacts | `spark_small` (4 frames, about 9 px), `impact_big` (6 frames, about 17 px, with a 2 to 3 px dust ring), and one elemental impact per element | neutral impacts use the `impact` ramp |
 | Projectiles | `arrow`, `fireball`, `ice_shard`, `poison_glob`, `arcane_orb` | each has `travel` (loop, 2 to 4 frames) and `impact` (4 to 6 frames) |
 | Casting | `gather_glow` (loop, 3 frames, at the hand), one tint per element | |
@@ -320,7 +321,7 @@ anims:
 | `spark_small` | impact | 16 | 4 at 40 to 60 ms | the hit spark; rotates |
 | `impact_big` | impact | 32 | 6 | 17 px star and ring, a dust ring along the ground; upright |
 | `dust_puff` | impact | 16 | 4 | below the characters; rolls and landings |
-| `smear_arc`, `smear_vertical`, `smear_thrust` | impact | 32 | 1 at 60 ms | in character coordinates (pivot = the character pivot), for attacks without drawn smears (monsters) |
+| `smear_arc`, `smear_vertical`, `smear_thrust` | swing | 32 | 1 at 60 ms | in character coordinates (pivot = the character pivot), for attacks without drawn smears (monsters) |
 | `impact_<element>` | arcane art, tinted fire, ice, poison, arcane, holy, shadow | 24 | 5 | one shape, six tints |
 | `arrow` | impact | 16 | travel 2 (loop), impact 4 | spawned at `bow_nock` |
 | `fireball`, `ice_shard`, `poison_glob`, `arcane_orb` | their element | 16 | travel 2 to 3 (loop) | each lands as `<name>_impact` (24 px, 5 frames) |

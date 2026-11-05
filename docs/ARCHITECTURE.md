@@ -123,7 +123,7 @@ Held items (Phase 5) do this with **pose cells** instead: one cell per direction
 
 - `pose_<name>.png`: the item in that pose, at its usual z-order place.
 - `pose_<name>_behind.png`: the item drawn behind the whole character (a sword cocked behind the head shows only where it sticks out). A pose with only a behind cell has nothing in front.
-- `smear_<name>.png` (held_near only): the strike's smear, composited after the outline on empty pixels only, never outlined, so it can't cover the body.
+- `smear_<name>.png` (held_near only): the strike's swing trail, composited after the outline on empty pixels only, never outlined, so it can't cover the body. Its colors are ranks, not paint: the compositor repaints the lightest as the white core of `fx_ramps.swing`, the next as mid and the rest as the rim; on the frame after a strike the trail lingers a shade dimmer.
 - `hitboxes.json`: hitboxes per pose and direction, and named points per pose (`weapon_tip`, `bow_nock`, `shield_front`), in idle-hand coordinates (COMBAT.md section 4).
 
 The base body's frames name the pose each held item takes (`"pose": {"held_near": "strike", "held_far": "guard"}` in anchors.json); trims follow their parent slot's pose; an item without that pose uses its rest cell. `tools/art/weapons.py` draws every pose as clean pixel lines in the item's shades (2:1 and 1:2 slopes in pixel pairs) and checks each against every frame that uses it, so no pose runs off the canvas or past x = 28 facing e (west mirrors x to 30 - x).
@@ -254,7 +254,7 @@ For each animation, each direction in `s, e, n`, each frame:
 6. Generate the outline (section 10) and draw it in the outline color.
 7. Restore hand-placed outline pixels.
 8. Composite the result over the shadow layer (shadow drawn from `style.json`, never outlined).
-9. Apply effects flagged for this frame (closed eyes for blink and `eyes_closed` frames), then draw the held item's smear on empty pixels, then the flash.
+9. Apply effects flagged for this frame (closed eyes for blink and `eyes_closed` frames), then draw the held item's swing trail on empty pixels in `fx_ramps.swing` (or, on the frame after a strike, the previous frame's trail a shade dimmer), then the flash.
 10. Record the frame's combat data: named points (rig anchors plus the held items' pose points), the hurtbox (body pixels without held items or smears) and, on active frames, the held item's hitboxes for its pose, moved with the hand and clipped to the canvas.
 11. Run per-frame validation.
 

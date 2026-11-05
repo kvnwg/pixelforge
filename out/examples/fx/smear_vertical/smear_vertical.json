@@ -127,7 +127,7 @@
   ],
   "pixelforge": {
    "fx": "smear_vertical",
-   "ramp": "impact",
+   "ramp": "swing",
    "cell": 32,
    "pivot": {
     "play_s": [
