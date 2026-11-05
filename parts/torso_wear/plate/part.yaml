@@ -1,0 +1,10 @@
+slot: torso_wear
+variant: plate
+material: metal
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Breastplate with pauldrons and a gorget.

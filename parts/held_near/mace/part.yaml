@@ -1,0 +1,20 @@
+slot: held_near
+variant: mace
+material: metal
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A flanged mace held upright.
+allow_singletons:
+  s:
+  - - 9
+    - 20
+  e:
+  - - 18
+    - 20
+  n:
+  - - 21
+    - 20

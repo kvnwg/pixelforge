@@ -1,0 +1,8 @@
+slot: feet
+variant: boots
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: 'Boots: the bottom two rows of each leg.'

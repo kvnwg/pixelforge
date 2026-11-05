@@ -1,0 +1,10 @@
+slot: held_near
+variant: staff
+material: leather
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Wooden staff beside the hand.

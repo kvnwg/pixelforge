@@ -1,0 +1,27 @@
+name: random_1_10
+rig: humanoid
+timing_profile: player
+seed: 696257969
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
+  eyes: dots
+  feet: boots
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: dress
+  held_near_trim: hilt
+colors:
+  accent: silver
+  cloth: mustard
+  eyes: dark
+  hair: black
+  leather: dark
+  metal: gold
+  skin: green (orc)
+anims:
+- idle
+- blink
+- walk

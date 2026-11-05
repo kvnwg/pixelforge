@@ -1,0 +1,10 @@
+slot: headwear
+variant: mitre
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A cleric's mitre.

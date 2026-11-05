@@ -17,6 +17,8 @@ from .parts import RIGID_SHEET, Library, Part
 from .sheet import Sheet, SheetError, mirror
 from .style import Style
 
+LOWER_SLOTS = ("body", "legs_wear", "feet")
+HELD_SLOTS = ("held_near", "held_near_trim", "held_far")
 HEAD_SLOTS = ("body", "hair_front", "hair_back", "hair_locks", "headwear", "headwear_trim", "eyes")
 
 
@@ -55,6 +57,7 @@ class Validator:
         v = self.style.raw.get("validator", {})
         self.singletons_max = int(v.get("singletons_max", 3))
         self.flat_area_max = int(v.get("flat_area_max", 12))
+        self.flat_share_max = float(v.get("flat_share_max", 1.0))
         self.change_budget = float(v.get("change_budget", 0.35))
         self.area_change_max = float(v.get("area_change_max", 0.15))
         self.drift = v.get("pivot_drift_px", {"s": 1, "n": 1, "e": 2, "w": 2})
@@ -115,9 +118,12 @@ class Validator:
         touching = ~opaque & (up | down | left | right)
         rows = np.flatnonzero((sil | is_outline).any(axis=1))
         if rows.size:
-            cut = int(rows[-1]) - (self.style.outline.sole_rows - 1)
+            base = self.pivot[1]  # grounded frames measure open soles from the baseline
             yy = np.arange(size)[:, None]
-            soles = touching & up & ~down & ~left & ~right & (yy >= cut)
+            band = (yy >= base - (self.style.outline.sole_rows - 1)) & (yy <= base + 1)
+            soles = touching & up & ~down & ~left & ~right & band
+            if "airborne" in f.flags:
+                soles = np.zeros_like(soles)
             gaps = touching & ~soles
             edge = sil.copy()
             edge[1:-1, 1:-1] = False
@@ -139,16 +145,24 @@ class Validator:
         if sil.any():
             ys = np.flatnonzero(sil.any(axis=1))
             xs = np.flatnonzero(sil.any(axis=0))
-            # E6 baseline
-            if not ({"airborne", "lying"} & f.flags) and int(ys.max()) != self.pivot[1]:
-                out.append(Finding("error", "E6", where, f"lowest silhouette row is {int(ys.max())}, "
+            # E6 baseline: the feet (body, legs wear, boots) rest on it; held items may hang lower
+            # the feet stand on the baseline even where a robe covers them: read the leg layers
+            feet = np.zeros_like(sil)
+            for layer in f.layers:
+                if layer.slot in LOWER_SLOTS:
+                    feet |= layer.image[..., 3] == 255
+            fys = np.flatnonzero(feet.any(axis=1)) if feet.any() else ys
+            if not ({"airborne", "lying"} & f.flags) and int(fys.max()) != self.pivot[1]:
+                out.append(Finding("error", "E6", where, f"lowest foot row is {int(fys.max())}, "
                                                          f"not the baseline {self.pivot[1]}",
                                    hint="legs drawn too short or too long, or the frame should be "
                                         "flagged airborne or lying"))
             # E7 pivot drift
             if f.anim in self.c.anims and self._base_anim(f) in self.motion_anims \
                     and "displaced" not in f.flags:
-                center = (int(xs.min()) + int(xs.max())) / 2
+                body = sil & ~f.slot_mask(*HELD_SLOTS)  # a staff held out front is not drift
+                bxs = np.flatnonzero(body.any(axis=0)) if body.any() else xs
+                center = (int(bxs.min()) + int(bxs.max())) / 2
                 limit = self.drift.get(f.direction, 2)
                 if abs(center - self.pivot[0]) > limit:
                     out.append(Finding("error", "E7", where,
@@ -221,6 +235,9 @@ class Validator:
         h, w = owner.shape
         seen = np.zeros((h, w), bool)
         out = []
+        totals: dict[str, int] = {}
+        for i, layer in enumerate(f.layers):
+            totals[layer.part.material] = totals.get(layer.part.material, 0) + int((owner == i).sum())
         for y in range(h):
             for x in range(w):
                 i = owner[y, x]
@@ -240,10 +257,12 @@ class Validator:
                                     and tuple(img[ny, nx, :3]) == color:
                                 seen[ny, nx] = True
                                 stack.append((nx, ny))
-                if len(comp) > self.flat_area_max:
+                share = len(comp) / max(totals.get(material, 1), 1)
+                if len(comp) > self.flat_area_max and share > self.flat_share_max:
                     out.append(Finding("warning", "W5", where,
                                        f"{material} uses {to_hex(color)} over {len(comp)} connected "
-                                       f"pixels (more than {self.flat_area_max})", tuple(comp[:1]),
+                                       f"pixels ({share:.0%} of the {material}; more than "
+                                       f"{self.flat_area_max})", tuple(comp[:1]),
                                        "a flat, unshaded area; add the light or dark shade"))
         return out
 
@@ -324,14 +343,15 @@ class Validator:
             expected = np.where(moved[..., 3:] == 255, moved, legs)
         both = (expected[..., 3] == 255) | (b.sprite[..., 3] == 255)
         changed = both & np.any(expected != b.sprite, axis=-1)
-        # Lagging rigid parts (loose hair) move by the previous frame's offset by design.
+        # Rigid parts only ever translate (by their anchor, a frame late if they lag), so they
+        # cannot boil; W2 judges the drawn layers.
         lagging = np.zeros_like(changed)
         for f in (a, b):
             for i, layer in enumerate(f.layers):
-                if layer.part.lags and not layer.part.drawn(f.source[0]):
+                if not layer.part.drawn(f.source[0]):
                     lagging |= f.owner == i
         changed &= ~lagging
-        return int(changed.sum()), max(base - int((lagging & (a.sprite[..., 3] == 255)).sum()), 1)
+        return int(changed.sum()), base
 
     def _stride(self, a: Frame) -> int:
         """Screen-space x shift of a planted foot from frame a to the next (0 = stays put)."""
@@ -358,7 +378,7 @@ class Validator:
                                    hint="planted feet must stay on the ground: move them only by "
                                         "the walk's stride_px"))
                 continue
-            lower = ("body", "legs_wear", "feet")
+            lower = LOWER_SLOTS
             la = {l.slot: l.image for l in a.layers if l.slot in lower}
             lb = {l.slot: l.image for l in b.layers if l.slot in lower}
             changed = set()

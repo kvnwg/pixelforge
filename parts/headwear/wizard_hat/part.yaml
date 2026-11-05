@@ -1,0 +1,10 @@
+slot: headwear
+variant: wizard_hat
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: An arcanist's pointed hat.

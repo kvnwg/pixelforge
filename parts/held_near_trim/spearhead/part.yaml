@@ -1,0 +1,20 @@
+slot: held_near_trim
+variant: spearhead
+material: metal
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A lance's steel head.
+allow_singletons:
+  s:
+  - - 9
+    - 10
+  e:
+  - - 20
+    - 10
+  n:
+  - - 21
+    - 10

@@ -176,10 +176,12 @@ class Composer:
             sprite[mask] = layer.image[mask]
             owner[mask] = i
         o = self.style.outline
-        result = outline(sprite, o.rgb, open_soles=o.open_soles, sole_rows=o.sole_rows)
+        flags = src.frame_flags(src_index) | anim.frame_flags(index)
+        airborne = "airborne" in flags
+        result = outline(sprite, o.rgb, open_soles=o.open_soles and not airborne,
+                         sole_rows=o.sole_rows, lowest=None if airborne else self.rig.size.pivot[1])
         sprite = result.image
         owner[result.ring] = OUTLINE
-        flags = src.frame_flags(src_index) | anim.frame_flags(index)
         if anim.effect == "close_eyes":
             eyes = np.isin(owner, [i for i, l in enumerate(layers) if l.slot == "eyes"])
             sprite = close_eyes(sprite, eyes, self.lid)

@@ -226,3 +226,50 @@ def preview(
             server.serve_forever()
         except KeyboardInterrupt:
             pass
+
+
+@app.command()
+def template(
+    slot: str = typer.Argument(..., help="Slot, e.g. headwear."),
+    variant: str = typer.Argument(..., help="Variant name, e.g. wizard_hat."),
+    anim: str = typer.Argument(..., help="Animation (or 'rigid' for a rigid part's 3 cells)."),
+    rig: str = typer.Option("humanoid", "--rig"),
+) -> None:
+    """Write an empty sheet and a *_guide.png with the base body ghosted in every cell."""
+    from .template import write_template
+    style = _style()
+    sheet, guide = write_template(style, slot, variant, anim, rig)
+    typer.echo(f"sheet: {sheet}\nguide: {guide}  (put it on a reference layer in Aseprite)")
+
+
+@app.command("random")
+def random_cmd(
+    seed: int = typer.Option(1, "--seed"),
+    count: int = typer.Option(12, "--count"),
+    out: Optional[Path] = typer.Option(None, "--out", help="Output folder [default: out/]."),
+) -> None:
+    """Generate random characters (characters/random/), build them, and render a gallery."""
+    from .build import build
+    from .export import export
+    from .randomize import random_recipes
+    from .review import random_gallery
+    style = _style()
+    recipes = random_recipes(style, seed, count)
+    folder = style.root / "characters" / "random"
+    folder.mkdir(parents=True, exist_ok=True)
+    builds, errors = [], 0
+    for r in recipes:
+        (folder / f"{r.name}.yaml").write_text(r.to_yaml())
+        b = build(style.root, r, style=style)
+        _, ef = export(b, out or style.root / "out", gifs=False)
+        e, w = _report(b.findings + ef)
+        errors += e
+        builds.append(b)
+        parts = ", ".join(f"{s}/{v}" for s, v in sorted(r.parts.items()))
+        typer.echo(f"{r.name}: {e} errors, {w} warnings  [{parts}]")
+    path = style.root / "review" / f"random_{seed}_gallery.png"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    random_gallery(builds).save(path)
+    typer.echo(f"gallery: {path}")
+    if errors:
+        raise typer.Exit(1)

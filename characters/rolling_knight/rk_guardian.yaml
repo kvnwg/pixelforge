@@ -1,0 +1,26 @@
+# Rolling Knight guardian: Tank. Great helm, flanged mace, heater shield. See docs/GAMES.md.
+name: rk_guardian
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  torso_wear: plate
+  over_torso: tabard
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  headwear: great_helm
+  held_near: mace
+  held_far: shield
+colors:
+  metal: steel
+  cloth: navy (anchor)
+  leather: dark
+  accent: gold (anchor)
+anims:
+- idle
+- blink
+- walk

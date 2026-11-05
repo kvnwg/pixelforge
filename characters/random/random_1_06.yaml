@@ -1,0 +1,21 @@
+name: random_1_06
+rig: humanoid
+timing_profile: player
+seed: 752076169
+parts:
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: leather_belt
+  eyes: dots
+  legs_wear: leggings
+  torso_wear: tunic
+colors:
+  cloth: forest
+  eyes: navy (anchor)
+  hair: brown (anchor)
+  leather: dark
+  skin: deep
+anims:
+- idle
+- blink
+- walk

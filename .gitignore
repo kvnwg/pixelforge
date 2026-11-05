@@ -20,3 +20,6 @@ dist/
 Thumbs.db
 .idea/
 .vscode/
+
+# Drawing guides (pf template); regenerate them when needed
+parts/**/*_guide.png

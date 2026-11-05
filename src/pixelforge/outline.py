@@ -49,9 +49,14 @@ def silhouette(img: np.ndarray, color: RGB) -> np.ndarray:
     return (img[..., 3] == 255) & ~outline_colored(img, color)
 
 
-def outline(img: np.ndarray, color: RGB, *, open_soles: bool = True, sole_rows: int = 3
-            ) -> OutlineResult:
-    """Draw the generated outline around `img`'s silhouette. Returns a new array."""
+def outline(img: np.ndarray, color: RGB, *, open_soles: bool = True, sole_rows: int = 3,
+            lowest: int | None = None) -> OutlineResult:
+    """Draw the generated outline around `img`'s silhouette. Returns a new array.
+
+    `lowest` is the row the open soles are measured from: by default the lowest row with
+    silhouette or hand-placed outline; the compositor passes the baseline for grounded frames,
+    so an item hanging below the feet (a sword tip) keeps a closed outline. Open soles apply
+    from `lowest - (sole_rows - 1)` down to `lowest + 1` (the row under the feet)."""
     _check_rgba(img)
     opaque = img[..., 3] == 255
     hand = outline_colored(img, color)
@@ -63,9 +68,10 @@ def outline(img: np.ndarray, color: RGB, *, open_soles: bool = True, sole_rows: 
     open_ = np.zeros_like(ring)
     rows = np.flatnonzero((sil | hand).any(axis=1))
     if open_soles and rows.size:
-        lowest = int(rows[-1])
-        below_cut = (np.arange(sil.shape[0]) >= lowest - (sole_rows - 1))[:, None]
-        open_ = ring & up & ~down & ~left & ~right & below_cut
+        base = int(rows[-1]) if lowest is None else int(lowest)
+        y = np.arange(sil.shape[0])[:, None]
+        band = (y >= base - (sole_rows - 1)) & (y <= base + 1)
+        open_ = ring & up & ~down & ~left & ~right & band
     drawn = ring & ~open_
     out = img.copy()
     out[drawn] = (*color, 255)

@@ -14,7 +14,7 @@ Run: .venv/bin/python tools/art/anchor_girl.py
 from __future__ import annotations
 
 from artlib import FRAMES, empty, g, write_part, write_recipe
-from humanoid import LEGS_E, LEGS_S, leather_legs
+from humanoid import LEGS_E, LEGS_IDLE, LEGS_S, leather_legs
 
 BLANK = ["..............."]
 #                x: 890123456789012
@@ -97,8 +97,8 @@ SASH_S = g(BLANK * 14 + [
     "......0110.....",  # y25 the tail hanging in front
 ])
 SASH_E = g(BLANK * 14 + [
-    "....011110.....",  # y24
-    "........0......",  # y25 the end of the knot on the near hip
+    "....111100.....",  # y24 knot in shade at the front of the hip
+    "........0......",  # y25 the end of the knot hanging
 ])
 SASH_N = g(BLANK * 14 + [
     "....0111110....",  # y24 the band around the back (the tail hangs in front)
@@ -168,8 +168,8 @@ def main() -> None:
     write_part("legs_wear", "leggings", {
         "material": "leather", "kind": "animated", "lags": False, "rigs": ["humanoid"],
         "notes": "Leather leggings and shoes, redrawn per frame with the legs.",
-    }, {"idle": {(d, i): legs for d, legs in (("s", LEGGINGS_S), ("e", LEGGINGS_E),
-                                              ("n", LEGGINGS_N)) for i in range(FRAMES["idle"])},
+    }, {"idle": {(d, i): leather_legs(LEGS_IDLE[d]) for d in ("s", "e", "n")
+                 for i in range(FRAMES["idle"])},
         "walk": {(d, i): leather_legs(legs[i]) for d, legs in (("s", LEGS_S), ("e", LEGS_E),
                                                                 ("n", LEGS_S)) for i in range(4)}})
     write_recipe("anchor_girl.yaml", RECIPE)

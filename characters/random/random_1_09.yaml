@@ -1,0 +1,19 @@
+name: random_1_09
+rig: humanoid
+timing_profile: player
+seed: 155229173
+parts:
+  hair_front: short
+  eyes: dots
+  legs_wear: leggings
+  torso_wear: tunic
+colors:
+  cloth: teal
+  eyes: navy (anchor)
+  hair: mint
+  leather: dark
+  skin: green (orc)
+anims:
+- idle
+- blink
+- walk

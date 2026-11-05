@@ -1,0 +1,10 @@
+slot: over_torso
+variant: tabard
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Tabard panel, front and back.

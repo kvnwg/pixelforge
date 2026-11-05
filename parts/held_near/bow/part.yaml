@@ -1,0 +1,26 @@
+slot: held_near
+variant: bow
+material: leather
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Wooden bow held at the grip.
+allow_singletons:
+  s:
+  - - 10
+    - 18
+  - - 10
+    - 28
+  e:
+  - - 19
+    - 18
+  - - 19
+    - 28
+  n:
+  - - 20
+    - 18
+  - - 20
+    - 28

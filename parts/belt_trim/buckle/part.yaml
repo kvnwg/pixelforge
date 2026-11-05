@@ -1,0 +1,17 @@
+slot: belt_trim
+variant: buckle
+material: accent
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Belt buckle.
+allow_singletons:
+  s:
+  - - 15
+    - 24
+  e:
+  - - 17
+    - 24

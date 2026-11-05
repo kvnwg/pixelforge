@@ -1,0 +1,23 @@
+name: random_1_11
+rig: humanoid
+timing_profile: player
+seed: 913634201
+parts:
+  hair_front: bun
+  hair_back: bun
+  eyes: dots
+  headwear: hood
+  held_far: shield
+  legs_wear: leggings
+  torso_wear: tunic
+colors:
+  cloth: teal
+  eyes: brown
+  hair: black
+  leather: brown (anchor)
+  metal: gold
+  skin: fair
+anims:
+- idle
+- blink
+- walk

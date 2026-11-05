@@ -1,0 +1,25 @@
+# Rolling Knight arcanist: Mage. Pointed hat, robe and an orb staff. See docs/GAMES.md.
+name: rk_arcanist
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: short
+  headwear: wizard_hat
+  torso_wear: robe
+  belt: sash
+  legs_wear: leggings
+  held_near: staff
+  held_near_trim: orb
+colors:
+  skin: light (anchor)
+  hair: silver
+  cloth: plum
+  leather: dark
+  accent: silver
+  eyes: dark
+anims:
+- idle
+- blink
+- walk

@@ -1,0 +1,20 @@
+slot: held_near
+variant: lance
+material: leather
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A lance held upright.
+allow_singletons:
+  s:
+  - - 9
+    - 28
+  e:
+  - - 20
+    - 28
+  n:
+  - - 21
+    - 28

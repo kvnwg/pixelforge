@@ -1,0 +1,8 @@
+slot: legs_wear
+variant: greaves
+material: metal
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: Metal greaves, derived from the base legs.

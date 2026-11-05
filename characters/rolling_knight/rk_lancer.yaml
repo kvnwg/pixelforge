@@ -1,0 +1,28 @@
+# Rolling Knight lancer: Lancer. Winged helm and lance. See docs/GAMES.md.
+name: rk_lancer
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  torso_wear: plate
+  over_torso: tabard
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  headwear: winged_helm
+  held_near: lance
+  held_near_trim: spearhead
+colors:
+  metal: bronze
+  cloth: mustard
+  leather: brown (anchor)
+  accent: red
+  skin: tan
+  eyes: brown
+anims:
+- idle
+- blink
+- walk

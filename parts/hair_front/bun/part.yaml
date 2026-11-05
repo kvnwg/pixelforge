@@ -1,0 +1,10 @@
+slot: hair_front
+variant: bun
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Hair drawn back from the face.

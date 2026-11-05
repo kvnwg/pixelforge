@@ -1,0 +1,20 @@
+slot: held_near
+variant: sword
+material: metal
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Sword held low, blade down.
+allow_singletons:
+  s:
+  - - 10
+    - 28
+  e:
+  - - 16
+    - 28
+  n:
+  - - 20
+    - 28

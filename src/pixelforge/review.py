@@ -346,3 +346,50 @@ def recolor_grid(b: Build, combos: list[dict[str, str]], reference: Path | None 
         dr.text((pad, y), f"reference: {Path(reference).name}", fill=INK, font=font(13))
         paste(im, ref, pad, y + 18)
     return im
+
+
+def parts_showcase(b: Build, swaps: list[dict[str, str]], k: int = 4) -> Image.Image:
+    """Each swap (slot -> variant, 'none' to empty) applied to the build's recipe, idle frame 0
+    facing s, e and n, one row per swap."""
+    from dataclasses import replace
+
+    from .build import build
+    size = b.composer.size
+    pad, label_w = 8, 230
+    rows = []
+    for swap in swaps:
+        r = replace(b.recipe, parts={**b.recipe.parts, **swap}, anims=("idle",))
+        rows.append((swap, build(b.style.root, r, style=b.style, validate=False)))
+    im, dr = canvas(label_w + 3 * (size * k + pad) + pad, pad + len(rows) * (size * k + pad))
+    bg = bgs(b)["beige"]
+    for j, (swap, built) in enumerate(rows):
+        y = pad + j * (size * k + pad)
+        dr.text((pad, y + size * k // 2 - 8), ", ".join(f"{s}/{v}" for s, v in swap.items()),
+                fill=INK, font=font(12))
+        for i, d in enumerate(("s", "e", "n")):
+            if ("idle", d) in built.frames:
+                paste(im, big(flat(built.frames[("idle", d)][0].image, bg), k),
+                      label_w + i * (size * k + pad), y)
+    return im
+
+
+def random_gallery(builds: list[Build], k: int = 3) -> Image.Image:
+    """Idle frame 0 facing s of every build at k x, then the four directions at 1x, with names."""
+    if not builds:
+        return canvas(10, 10)[0]
+    size = builds[0].composer.size
+    cols = 6
+    cell_w, cell_h = size * k + 24, size * k + size + 40
+    rows = (len(builds) + cols - 1) // cols
+    im, dr = canvas(cols * cell_w + 16, rows * cell_h + 16)
+    bg = bgs(builds[0])["beige"]
+    for i, b in enumerate(builds):
+        x = 12 + (i % cols) * cell_w
+        y = 12 + (i // cols) * cell_h
+        if ("idle", "s") in b.frames:
+            paste(im, big(flat(b.frames[("idle", "s")][0].image, bg), k), x, y)
+        for j, d in enumerate(("s", "e", "n", "w")):
+            if ("idle", d) in b.frames:
+                paste(im, flat(b.frames[("idle", d)][0].image, bg), x + j * (size + 2), y + size * k + 6)
+        dr.text((x, y + size * k + size + 10), b.recipe.name, fill=INK, font=font(11))
+    return im

@@ -63,7 +63,8 @@ def test_off_palette_color_is_E2(girl, v):
 def test_baseline_drift_is_E6(girl, v):
     f = girl.frames[("idle", "s")][0]
     img, _ = shift(f.image, 0, -1)
-    assert "E6" in rules(v.frame(broken(f, img)))
+    lifted = [replace(layer, image=shift(layer.image, 0, -1)[0]) for layer in f.layers]
+    assert "E6" in rules(v.frame(replace(broken(f, img), layers=lifted)))
 
 
 def test_soft_alpha_is_E3_and_sideways_drift_is_E7(girl, v):

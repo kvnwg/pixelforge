@@ -1,0 +1,10 @@
+slot: headwear_trim
+variant: plume
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A short plume for a helm.

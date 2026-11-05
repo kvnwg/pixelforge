@@ -1,0 +1,10 @@
+slot: belt
+variant: leather_belt
+material: leather
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A leather belt.

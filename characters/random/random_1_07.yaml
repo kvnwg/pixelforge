@@ -1,0 +1,26 @@
+name: random_1_07
+rig: humanoid
+timing_profile: player
+seed: 106820952
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
+  eyes: dots
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: dress
+  held_near_trim: hilt
+colors:
+  accent: silver
+  cloth: navy (anchor)
+  eyes: navy (anchor)
+  hair: mint
+  leather: tan
+  metal: bronze
+  skin: deep
+anims:
+- idle
+- blink
+- walk

@@ -1,0 +1,19 @@
+name: random_1_03
+rig: humanoid
+timing_profile: player
+seed: 635811217
+parts:
+  hair_front: short
+  eyes: dots
+  legs_wear: leggings
+  torso_wear: tunic
+colors:
+  cloth: teal
+  eyes: dark
+  hair: auburn
+  leather: brown (anchor)
+  skin: deep
+anims:
+- idle
+- blink
+- walk

@@ -1,0 +1,26 @@
+# The knight from the ROADMAP.md Phase 4 brief.
+name: knight
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  headwear: great_helm
+  headwear_trim: plume
+  torso_wear: plate
+  over_torso: tabard
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  skin: light (anchor)
+  metal: steel
+  cloth: crimson
+  leather: dark
+  accent: gold (anchor)
+  eyes: dark
+anims: [idle, blink, walk]

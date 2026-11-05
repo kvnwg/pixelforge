@@ -1,0 +1,29 @@
+# Rolling Knight blade: Fighter. Plumed sallet and sword. See docs/GAMES.md.
+name: rk_blade
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  torso_wear: plate
+  over_torso: tabard
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  headwear: sallet
+  headwear_trim: plume
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  metal: iron
+  cloth: crimson
+  leather: dark
+  accent: gold (anchor)
+  skin: light (anchor)
+  eyes: dark
+anims:
+- idle
+- blink
+- walk

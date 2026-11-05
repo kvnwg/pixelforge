@@ -1,0 +1,23 @@
+name: random_1_01
+rig: humanoid
+timing_profile: player
+seed: 636493528
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  eyes: dots
+  feet: boots
+  held_near: mace
+  legs_wear: greaves
+  torso_wear: plate
+colors:
+  eyes: navy (anchor)
+  hair: auburn
+  leather: tan
+  metal: steel
+  skin: fair
+anims:
+- idle
+- blink
+- walk

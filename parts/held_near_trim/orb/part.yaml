@@ -1,0 +1,20 @@
+slot: held_near_trim
+variant: orb
+material: accent
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: An orb atop a staff.
+allow_singletons:
+  s:
+  - - 8
+    - 17
+  e:
+  - - 21
+    - 17
+  n:
+  - - 22
+    - 17

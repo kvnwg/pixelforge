@@ -1,0 +1,15 @@
+slot: headwear
+variant: great_helm
+material: metal
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Rounded great helm with an eye slit.
+hides:
+- hair_front
+- hair_locks
+- hair_back
+- eyes

@@ -1,0 +1,10 @@
+slot: hair_front
+variant: short
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Short hair with a side fringe and sideburns.

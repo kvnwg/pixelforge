@@ -1,0 +1,10 @@
+slot: held_far
+variant: shield
+material: metal
+kind: rigid
+attach: hand_far
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Heater shield on the far arm.

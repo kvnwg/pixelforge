@@ -1,0 +1,25 @@
+name: random_1_05
+rig: humanoid
+timing_profile: player
+seed: 253556679
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  eyes: dots
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: robe
+  held_near_trim: hilt
+colors:
+  accent: gold (anchor)
+  cloth: plum
+  eyes: green
+  hair: black
+  leather: dark
+  metal: steel
+  skin: light (anchor)
+anims:
+- idle
+- blink
+- walk

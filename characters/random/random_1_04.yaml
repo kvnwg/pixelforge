@@ -1,0 +1,26 @@
+name: random_1_04
+rig: humanoid
+timing_profile: player
+seed: 503886500
+parts:
+  belt: leather_belt
+  eyes: dots
+  feet: boots
+  headwear: hood
+  held_far: shield
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: plate
+  held_near_trim: hilt
+  belt_trim: buckle
+colors:
+  accent: silver
+  cloth: plum
+  eyes: brown
+  leather: tan
+  metal: gold
+  skin: green (orc)
+anims:
+- idle
+- blink
+- walk

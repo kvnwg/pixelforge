@@ -143,6 +143,7 @@
   "validator": {
     "singletons_max": 3,
     "flat_area_max": 22,
+    "flat_share_max": 0.5,
     "change_budget": 0.35,
     "area_change_max": 0.15,
     "pivot_drift_px": {
@@ -155,7 +156,7 @@
       "idle",
       "walk"
     ],
-    "note": "Thresholds for QUALITY.md warnings. flat_area_max is the anchor's largest flat area (22 px of hair light); the doc's 12 would flag the anchor itself, and the anchor wins."
+    "note": "Thresholds for QUALITY.md warnings. flat_area_max is the anchor's largest flat area (22 px of hair light); the doc's 12 would flag the anchor itself, and the anchor wins. W5 also needs that one shade to be more than flat_share_max of its material's visible pixels: a flat region is a material left unshaded, not a big cluster in a shaded one."
   },
   "materials": {
     "skin": {
@@ -633,32 +634,37 @@
       "shadow",
       "back",
       "hair_back",
-      "held_far",
       "body",
       "legs_wear",
       "feet",
       "torso_wear",
       "over_torso",
       "belt",
+      "belt_trim",
       "arm_far",
+      "held_far",
       "arm_near",
       "hands",
       "hair_front",
       "hair_locks",
       "eyes",
       "headwear",
-      "held_near"
+      "headwear_trim",
+      "held_near",
+      "held_near_trim"
     ],
     "n": [
       "shadow",
       "held_far",
       "held_near",
+      "held_near_trim",
       "body",
       "legs_wear",
       "feet",
       "torso_wear",
       "over_torso",
       "belt",
+      "belt_trim",
       "arm_far",
       "arm_near",
       "hands",
@@ -666,6 +672,7 @@
       "hair_locks",
       "hair_back",
       "headwear",
+      "headwear_trim",
       "back"
     ],
     "e": [
@@ -679,14 +686,17 @@
       "torso_wear",
       "over_torso",
       "belt",
+      "belt_trim",
       "hair_back",
       "hair_front",
       "hair_locks",
       "eyes",
       "headwear",
+      "headwear_trim",
       "arm_near",
       "hands",
-      "held_near"
+      "held_near",
+      "held_near_trim"
     ]
   },
   "animations": {

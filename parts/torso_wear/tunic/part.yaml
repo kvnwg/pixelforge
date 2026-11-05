@@ -1,0 +1,10 @@
+slot: torso_wear
+variant: tunic
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Tunic to the hip, dark hem.

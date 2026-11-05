@@ -1,0 +1,10 @@
+slot: hair_back
+variant: ponytail
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: A ponytail; it trails the head.

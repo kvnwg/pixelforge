@@ -1,0 +1,10 @@
+slot: held_near_trim
+variant: hilt
+material: accent
+kind: rigid
+attach: hand_near
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Sword crossguard and grip.

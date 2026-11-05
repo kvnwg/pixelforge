@@ -1,0 +1,12 @@
+slot: headwear
+variant: winged_helm
+material: metal
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A cap with two small wings.
+hides:
+- hair_front

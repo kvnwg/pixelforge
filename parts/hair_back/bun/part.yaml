@@ -1,0 +1,10 @@
+slot: hair_back
+variant: bun
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A bun tied on top; adds two rows.

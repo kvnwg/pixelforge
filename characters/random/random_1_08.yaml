@@ -1,0 +1,25 @@
+name: random_1_08
+rig: humanoid
+timing_profile: player
+seed: 1061845717
+parts:
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: leather_belt
+  eyes: dots
+  feet: boots
+  held_near: bow
+  legs_wear: leggings
+  torso_wear: dress
+  belt_trim: buckle
+colors:
+  accent: gold (anchor)
+  cloth: cream
+  eyes: navy (anchor)
+  hair: black
+  leather: tan
+  skin: light (anchor)
+anims:
+- idle
+- blink
+- walk

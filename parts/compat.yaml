@@ -1,0 +1,60 @@
+# What pf random may combine. Deterministic: the same seed always gives the same characters.
+
+# A hairstyle sets up to three hair slots at once.
+hairstyles:
+  none: {weight: 1, parts: {}}
+  long_straight: {weight: 3, parts: {hair_front: long_straight, hair_locks: long_straight, hair_back: long_straight}}
+  short: {weight: 3, parts: {hair_front: short}}
+  ponytail: {weight: 2, parts: {hair_front: ponytail, hair_back: ponytail}}
+  bun: {weight: 2, parts: {hair_front: bun, hair_back: bun}}
+
+# slot -> variant: weight ("none" leaves the slot empty)
+slots:
+  eyes: {dots: 1}
+  torso_wear: {dress: 2, tunic: 3, robe: 2, plate: 2}
+  over_torso: {none: 2, tabard: 1}
+  belt: {none: 1, sash: 2, leather_belt: 2}
+  legs_wear: {leggings: 3, greaves: 1}
+  feet: {none: 2, boots: 2}
+  hands: {none: 3, gauntlets: 1}
+  headwear: {none: 6, hood: 2, great_helm: 1, sallet: 1, mitre: 1, wizard_hat: 1, winged_helm: 1}
+  held_near: {none: 2, sword: 3, staff: 1, bow: 1, mace: 1, lance: 1}
+  held_far: {none: 4, shield: 1}
+
+# A trim follows its parent part (the first rule that matches fills the slot).
+trims:
+  - {slot: held_near_trim, parent: held_near/sword, variant: hilt, chance: 1.0}
+  - {slot: held_near_trim, parent: held_near/lance, variant: spearhead, chance: 1.0}
+  - {slot: held_near_trim, parent: held_near/staff, variant: orb, chance: 0.6}
+  - {slot: belt_trim, parent: belt/leather_belt, variant: buckle, chance: 0.7}
+  - {slot: headwear_trim, parent: headwear/great_helm, variant: plume, chance: 0.5}
+  - {slot: headwear_trim, parent: headwear/sallet, variant: plume, chance: 0.6}
+
+# A part needs one of these to be present.
+requires:
+  over_torso/tabard: [torso_wear/plate, torso_wear/tunic]
+  hands/gauntlets: [torso_wear/plate]
+  legs_wear/greaves: [torso_wear/plate]
+  headwear/great_helm: [torso_wear/plate]
+  headwear/sallet: [torso_wear/plate]
+  headwear/winged_helm: [torso_wear/plate]
+  headwear/mitre: [torso_wear/robe, torso_wear/dress]
+  headwear/wizard_hat: [torso_wear/robe, torso_wear/dress]
+  held_near/mace: [torso_wear/plate, torso_wear/tunic]
+  held_near/lance: [torso_wear/plate]
+
+# Pairs that never go together.
+incompatible:
+  - [torso_wear/robe, held_far/shield]
+  - [torso_wear/robe, legs_wear/greaves]
+  - [held_near/bow, held_far/shield]
+  - [held_near/staff, held_far/shield]
+  - [headwear/great_helm, held_near/staff]
+  - [held_near/lance, held_far/shield]
+  - [hair_back/bun, headwear/mitre]        # a bun would poke out around a tall hat
+  - [hair_back/bun, headwear/wizard_hat]
+  - [hair_back/bun, headwear/winged_helm]
+
+# Presets the randomizer never uses for heroes (glow eyes are reserved for monsters).
+exclude_presets:
+  eyes: [glow red, glow yellow, glow ghost]

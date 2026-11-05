@@ -16,13 +16,13 @@ from artlib import FRAMES, IDLE_UPPER_DY, empty, g, grid, shift_anchors, split_s
 #                x: 890123456789012
 BODY_S = g([
     "...............",  # y10
-    "....1222221....",  # y11 top of the skull (hidden under hair)
-    "...122222221...",  # y12
-    "...122222221...",  # y13
-    "...122222221...",  # y14
-    "...122222221...",  # y15 forehead shows under the center part
-    "...122222221...",  # y16
-    "...122222221...",  # y17
+    "....1222221....",  # y11 top of the skull (hidden under hair; shaded like a sphere so
+    "...012222221...",  # y12   bald, short and pulled-back hair look round)
+    "...011222221...",  # y13
+    "...011111211...",  # y14
+    "...011122211...",  # y15 forehead shows under the center part
+    "...112222211...",  # y16
+    "...112222211...",  # y17
     "...122222221...",  # y18 eye row: skin mid cheeks at x 11 and 19
     "....0222220....",  # y19 chin, skin shadow at both ends
     "...110000011...",  # y20 collar line (skin shadow) between the shoulders
@@ -60,14 +60,14 @@ ARM_FAR_S = g([
 #                x: 890123456789012
 BODY_E = g([
     "...............",  # y10
-    ".....12222.....",  # y11 skull (under hair)
+    ".....12222.....",  # y11 skull (under hair), lit on top and front, dark at the back
     "....1122222....",  # y12
-    "...11122222....",  # y13
-    "...11122222....",  # y14
-    "...11122222....",  # y15 forehead peeks out at x 18
-    "...11111222....",  # y16 face: x 15 mid, x 16-18 light
-    "...11111222....",  # y17
-    "...11111222....",  # y18 eye at x 17 (eyes part)
+    "...01122222....",  # y13
+    "...01112221....",  # y14
+    "...00111112....",  # y15 forehead peeks out at x 18
+    "...00101222....",  # y16 face: x 15 mid, x 16-18 light; ear in shadow at x 14
+    "...00101222....",  # y17
+    "...01111222....",  # y18 eye at x 17 (eyes part)
     "....110221.....",  # y19 jaw; shadow at the back under the ear
     "....110001.....",  # y20 neck: the collar line
     "....122221.....",  # y21 torso (under the dress)
@@ -93,14 +93,14 @@ ARM_FAR_E = g(["..............."] * 12 + [
 BODY_N = g([
     "...............",  # y10
     "....1222221....",  # y11 back of the skull (under hair)
-    "...122222221...",  # y12
-    "...122222221...",  # y13
-    "...122222221...",  # y14
-    "...122222221...",  # y15
-    "...122222221...",  # y16
-    "...112222211...",  # y17
-    "...111222111...",  # y18
-    "....1122211....",  # y19 nape (under hair)
+    "...012222221...",  # y12
+    "...012222211...",  # y13
+    "...011222111...",  # y14
+    "...011111111...",  # y15
+    "...001111110...",  # y16
+    "...001121100...",  # y17
+    "...111222111...",  # y18 nape (shows under short hair and when the hair lifts)
+    "....1122211....",  # y19
     "...111111111...",  # y20 shoulders (under the dress)
     "...1122221.....",  # y21
     "....122221.....",  # y22
@@ -129,6 +129,14 @@ ANCHORS_N0 = {
 
 
 HIP = 25  # first leg row in idle frame 0, every direction
+
+# The legs' footprint in idle, as leather shades ('O' = a set-back foot in shadow). Leggings,
+# greaves and boots are all derived from these and the walk legs, so every legs part lines up.
+LEGS_IDLE = {
+    "s": g(["..............."] * 15 + ["....211..11....", "....220..OO....", "....220........"]),
+    "e": g(["..............."] * 15 + [".....0021......", ".....OO21......", ".......222....."]),
+}
+LEGS_IDLE["n"] = LEGS_IDLE["s"]  # the n stance matches s on screen
 BODY0 = {"s": BODY_S, "e": BODY_E, "n": BODY_N}
 ARM_NEAR0 = {"s": ARM_NEAR_S, "e": ARM_NEAR_E, "n": ARM_FAR_S}
 ARM_FAR0 = {"s": ARM_FAR_S, "e": ARM_FAR_E, "n": ARM_NEAR_S}
@@ -183,28 +191,28 @@ LEGS_S = [
 # Facing e: near leg light leather (2, 1), far leg dark (1, 0), so they never twin. The supporting
 # foot moves back 3 then 2 px (the ground's travel at the walk's natural speed), so it looks
 # planted in the game; the swinging foot passes lifted on row 26.
-LEGS_E = [
+LEGS_E = [  # each leg one shade: a 2 px diagonal stroke shaded front and back is a staircase
     g(["..............."] * 15 + [  # 0 contact A: near foot 3 px ahead, far foot 2 px behind
-        ".....1021......",  # y25
-        "....10..21.....",  # y26
-        "....110..221...",  # y27
+        ".....0022......",  # y25
+        "....00..22.....",  # y26
+        "....000..222...",  # y27
     ]),
     g(["..............."] * 14 + [  # 1 passing: near leg under the pivot, far leg lifted behind it
-        "......210......",  # y24
-        "......210......",  # y25
-        "......2110.....",  # y26
-        "......221......",  # y27
+        "......220......",  # y24
+        "......220......",  # y25
+        "......2200.....",  # y26
+        "......222......",  # y27
     ]),
     g(["..............."] * 15 + [  # 2 contact B: far foot ahead, near foot behind
-        ".....2110......",  # y25
-        "....21..10.....",  # y26
-        "....221..110...",  # y27
+        ".....2200......",  # y25
+        "....22..00.....",  # y26
+        "....222..000...",  # y27
     ]),
     g(["..............."] * 14 + [  # 3 passing: far leg under the pivot, near leg lifted in front
-        "......121......",  # y24
-        "......121......",  # y25
-        "......1021.....",  # y26
-        "......110......",  # y27
+        "......022......",  # y24
+        "......022......",  # y25
+        "......0022.....",  # y26
+        "......000......",  # y27
     ]),
 ]
 WALK_STRIDE_E = [3, 2, 3, 2]  # px the ground moves back between frames i and i + 1
@@ -269,7 +277,9 @@ def walk() -> tuple[dict, dict, dict, dict]:
     anchors["e"] = []
     near_e = [ARM_NEAR_E_BACK, None, ARM_NEAR_E_FWD, None]
     far_e = [ARM_FAR_E_FWD, None, ARM_FAR_E_BACK, None]
-    hands_e = [([14, 23], [18, 23]), ([15, 22], [13, 22]), ([16, 23], [11, 23]), ([15, 22], [13, 22])]
+    # the far hand peeks out past the torso in the drawing; its grip anchor (where a shield
+    # hangs) swings only 1 px so held items never jump
+    hands_e = [([14, 23], [14, 23]), ([15, 22], [13, 22]), ([16, 23], [12, 23]), ([15, 22], [13, 22])]
     feet_e = [([18, 27], [13, 27]), ([15, 27], [16, 26]), ([13, 27], [18, 27]), ([16, 26], [15, 27])]
     planted_e = [["foot_near", "foot_far"], ["foot_near"], ["foot_near", "foot_far"], ["foot_far"]]
     for i, dy in enumerate(WALK_UPPER_DY):
@@ -285,6 +295,24 @@ def walk() -> tuple[dict, dict, dict, dict]:
         a["planted"] = planted_e[i]
         anchors["e"].append(a)
     return body, near, far, anchors
+
+
+def legs_frames() -> dict:
+    """(anim, direction, frame) -> legs codes, for every drawn pose."""
+    out = {("idle", d, i): LEGS_IDLE[d] for d in ("s", "e", "n") for i in range(len(IDLE_UPPER_DY))}
+    for i in range(4):
+        out[("walk", "s", i)] = out[("walk", "n", i)] = LEGS_S[i]
+        out[("walk", "e", i)] = LEGS_E[i]
+    return out
+
+
+def arm_frames() -> dict:
+    """(anim, direction, frame) -> (near arm codes, far arm codes)."""
+    _, near, far, _ = idle()
+    _, wnear, wfar, _ = walk()
+    out = {("idle", d, i): (near[(d, i)], far[(d, i)]) for (d, i) in near}
+    out.update({("walk", d, i): (wnear[(d, i)], wfar[(d, i)]) for (d, i) in wnear})
+    return out
 
 
 def main() -> None:
