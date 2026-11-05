@@ -1,0 +1,8 @@
+slot: body
+variant: flyer
+material: fur
+kind: animated
+lags: false
+rigs:
+- flyer
+notes: The bat's round body with 1 px ears.

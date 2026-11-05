@@ -1,0 +1,8 @@
+slot: wings
+variant: bat
+material: membrane
+kind: animated
+lags: false
+rigs:
+- flyer
+notes: Membrane wings, redrawn per beat.

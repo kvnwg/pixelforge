@@ -1,0 +1,18 @@
+name: bat
+rig: flyer
+timing_profile: enemy
+seed: 1
+parts:
+  wings: bat
+  eyes: bat
+colors:
+  fur: brown
+  membrane: dusk
+  eyes: glow red
+anims:
+- idle
+- combat_idle
+- move
+- attack_swoop
+- hurt
+- death

@@ -73,3 +73,32 @@ def test_slime_spits_from_its_mouth(slime):
     assert f.points["mouth"][0] >= bbox(f)[2] - 1  # at the front edge facing e
     pf_events = [e for e in slime.composer.anims["attack_spit"].events if e["type"] == "spawn"]
     assert pf_events[0]["fx"] == "poison_glob"
+
+
+@pytest.fixture(scope="module")
+def bat(root, style):
+    return build(root, "bat", style=style)
+
+
+def test_bat_validates_and_hovers(bat):
+    assert [str(f) for f in bat.findings] == []
+    for f in bat.frames[("idle", "s")]:
+        assert "airborne" in f.flags
+        assert 27 - bbox(f)[3] >= 6  # the body floats about 7 px up
+        shadow = np.nonzero(f.image[..., 3] == 70)
+        assert set(shadow[0]) == {27, 28} and shadow[1].min() >= 12  # small, on the ground
+
+
+def test_bat_wings_beat(bat):
+    def wing_span(f):
+        ys = np.nonzero(f.slot_mask("wings"))[0]
+        return ys.min(), ys.max()
+    up, mid, down, _ = (wing_span(f) for f in bat.frames[("idle", "s")])
+    assert up[0] < mid[0] and down[1] > mid[1]  # tips raised, then swept below
+
+
+def test_bat_falls_to_the_ground_when_it_dies(bat):
+    last = bat.frames[("death", "s")][-1]
+    assert "airborne" not in last.flags and bbox(last)[3] == 27
+    full = np.nonzero(last.image[..., 3] == 70)
+    assert full[1].min() < 12  # the default (full size) shadow once grounded

@@ -1,0 +1,10 @@
+slot: eyes
+variant: bat
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- flyer
+notes: Two eyes close together; forward facing e; none facing n.

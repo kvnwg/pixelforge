@@ -1556,7 +1556,173 @@
       "size_class": "small",
       "examples": "bat, crow, wisp",
       "hover_height_px": 7,
-      "note": "pivot and shadow stay on the ground; the body floats above"
+      "note": "pivot and shadow stay on the ground; the body floats above",
+      "z_order": {
+        "s": [
+          "shadow",
+          "wings",
+          "body",
+          "eyes"
+        ],
+        "e": [
+          "shadow",
+          "wings",
+          "body",
+          "eyes"
+        ],
+        "n": [
+          "shadow",
+          "body",
+          "wings",
+          "eyes"
+        ]
+      },
+      "hover": true,
+      "shadow_rows": {
+        "27": [
+          12,
+          18
+        ],
+        "28": [
+          13,
+          17
+        ]
+      },
+      "close_eyes": {
+        "material": "fur",
+        "shade": 1
+      },
+      "validator": {
+        "motion_checked_anims": [],
+        "note": "wing beats reshape the whole silhouette every frame by design"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            90,
+            90,
+            90,
+            90
+          ],
+          "note": "the hover: wings up, mid, down, mid; the body sinks 1 px on the up-stroke and rises 1 px on the down-stroke"
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "move": {
+          "alias": "idle",
+          "note": "flying is the hover; the game moves it"
+        },
+        "attack_swoop": {
+          "loop": false,
+          "frames_ms": [
+            140,
+            140,
+            60,
+            60,
+            140
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2,
+            3
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "root_motion_px": [
+            0,
+            0,
+            6,
+            4,
+            -4
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 4,
+              "type": "recover"
+            }
+          ],
+          "note": "rise 2 px with wings wide, hold, dive 4 px lower toward the target with wings swept back, contact, pull up"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            120,
+            140
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1
+          ],
+          "displaced_frames": [
+            1
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            120,
+            100,
+            100,
+            400
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "grounded_frames": [
+            3,
+            4
+          ],
+          "lying_frames": [
+            4
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "combat": true,
+          "optional_dissolve_ms": [
+            100,
+            100,
+            100,
+            100
+          ],
+          "note": "flash, tumble, fall 3 px, land (shadow at full size), lie with the wings flat"
+        }
+      }
     },
     "boss": {
       "size_class": "large or huge",
