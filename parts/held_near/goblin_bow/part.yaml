@@ -1,0 +1,8 @@
+slot: held_near
+variant: goblin_bow
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid_small
+notes: A short bow with an outline-colored string, drawn per frame; the arrow leaves from bow_nock.

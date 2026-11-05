@@ -1,38 +1,33 @@
-# pixelforge starter kit
+# pixelforge
 
-Everything Claude Code needs to build a reusable pixel character and animation system that matches your reference sprite exactly.
+pixelforge makes tiny chibi pixel-art characters, monsters, bosses and combat effects in one locked style, and exports them with the combat data a game needs. It was built for **Rolling Knight** and is engine-agnostic: the output is PNG spritesheets plus Aseprite-format JSON.
 
-## What's inside
+The style is pinned to one reference sprite, `style/anchor.png` (11 x 18 px on a 32 x 32 canvas): a muted locked palette, a generated 1 px plum outline with open soles, hard pixels, never any scaling or rotation of character art. Everything else is measured against it.
 
-| File | What it's for |
+How a character is made: hand-authored **parts** (bodies, hair, armor, weapons, ears, tusks...) are layered onto a **rig**'s base animations, recolored with **material ramps**, outlined as one silhouette, checked by a validator and exported. A recipe is a few lines of YAML:
+
+```yaml
+name: knight
+rig: humanoid
+timing_profile: player
+parts: {headwear: great_helm, torso_wear: plate, held_near: sword, held_far: shield, ...}
+colors: {metal: steel, cloth: crimson, leather: dark}
+anims: [idle, walk, combat_idle, attack_slash, attack_heavy, block_hold, dodge, hurt, death, victory]
+```
+
+## What's in it
+
+| | |
 |---|---|
-| `CLAUDE.md` | Rules Claude Code reads at the start of every session |
-| `KICKOFF_PROMPT.md` | The prompt for each phase, plus prompts for resuming and debugging |
-| `docs/STYLE_GUIDE.md` | Your style measured pixel by pixel: palette, proportions, outline rules, shading, face |
-| `docs/ARCHITECTURE.md` | How the system works: parts, layers, recoloring, outlining, export, tools |
-| `docs/ANIMATION_SPEC.md` | Frame-by-frame specs for idle, blink, walk, and the core attack, hurt and death |
-| `docs/COMBAT.md` | The full combat set (stances, slash, heavy, bow, cast, block, dodge, stun, victory), telegraph timing for enemies, events, hitboxes, and the FX library |
-| `docs/MONSTERS.md` | Body plans (rigs) for slimes, flyers, beasts, humanoid monsters and bosses, size classes, monster materials, design rules |
-| `docs/QUALITY.md` | Validator rules, the visual review process, the scoring rubric |
-| `docs/ROADMAP.md` | Build phases with acceptance tests and checkpoints, plus the knight brief |
-| `style/style.json` | Palette, material ramps, recolor presets, canvas and timing data |
-| `style/anchor.png` | Your reference sprite, cleaned to its true pixels (11 x 18 on 32 x 32) |
-| `style/anchor_annotated.png` | The anchor at 12x with proportions, pivot and eyes marked |
-| `style/recolor_test_*.png` | Eight recolors of the anchor proving the presets stay on-style |
-| `style/monster_fx_swatches.png` | Every monster material and FX ramp next to the anchor's colors |
-| `style/examples/` | A draft slime and a battle mockup (fireball FX) proving the style extends to monsters and effects |
-| `templates/SKILL.md` | Installed in the last phase so any project can use pixelforge |
+| Rigs | `humanoid` (the player cast), `humanoid_small` (goblins), `humanoid_large` (ogres, on a 48 px canvas), `blob` (slimes), `flyer` (bats), `quadruped` (wolves), `golem` (the Stone Warden boss, on a 64 px canvas) |
+| Characters | the anchor girl, a knight, the six Rolling Knight classes, a randomizer; monsters: slime, bat, wolf and frost wolf, skeleton, orc, goblin, goblin chief, goblin archer, ogre, and the Stone Warden boss with its enraged form |
+| Combat | attack_slash, attack_heavy, shoot_bow, cast, block, dodge, roll, backflip, vault, stun, hurt, death, victory; monster sets (hop, spit, swoop, bite, howl, roar...) and six boss moves; phases, events, hitboxes, hurtboxes, root motion and four timing profiles (player, enemy, elite, boss) |
+| FX | 44 effects: hit sparks, slam impacts and shockwaves, projectiles and their impacts per element, charge glows, status overlays, death poofs, sound rings, summon circles, falling rocks |
+| Tools | a validator with 30 rules, review renders, a browser preview with a combat arena, loaders for canvas/TypeScript, Phaser and Godot |
 
-## Starting
+Finished examples are in [`out/examples/`](out/examples/): one character per rig, the boss and the FX set.
 
-1. Create an empty folder called `pixelforge` and put the contents of this kit in it, so `CLAUDE.md` is at the top level.
-2. Open a terminal in that folder and run `claude`.
-3. Paste the Phase 0 prompt from `KICKOFF_PROMPT.md`.
-4. Approve its plan, let it work, and move to the next phase prompt when it stops.
-
-You'll want Python 3.11+ installed, and the GitHub CLI (`gh`) logged in so it can create the private repo. If either is missing, Claude Code will tell you what to install.
-
-## Developer setup
+## Setup
 
 Python 3.11 or newer.
 
@@ -48,29 +43,121 @@ python3 -m venv .venv
 .venv/bin/pytest
 ```
 
+`pf` finds the repo from the current folder, or from `$PIXELFORGE_ROOT` when run elsewhere.
+
+## Everyday commands
+
 ```bash
-.venv/bin/pf palette --check
+.venv/bin/pf build knight
 ```
 
-The last command checks every color in `style/style.json` and writes `review/palette_swatches.png`.
+```bash
+.venv/bin/pf validate
+```
 
-## How to approve checkpoints
+```bash
+.venv/bin/pf review knight --combat
+```
 
-The checkpoints are where quality is decided. At each one:
+```bash
+.venv/bin/pf preview
+```
 
-- Open the review images it points you to, and open the preview it builds (from Phase 3a on).
-- Look at the sprites at 1x (true size), not just zoomed in. That's how players see them.
-- Compare against `style/anchor_annotated.png`. Same head size? Same colors? Same outline?
-- If something bugs you, say exactly what ("the head looks smaller in the side view", "the walk feels bouncy") rather than "make it better".
+- `pf build <recipe>... | --all`: composite, validate and export to `out/<name>/` (PNG, JSON, GIFs).
+- `pf validate`: every rule on every part and recipe; exits 1 on errors (QUALITY.md lists the rules).
+- `pf review <recipe> [--combat]`: review images in `review/<name>/` (turnaround, side by side with the anchor, sheets, onion skins, silhouettes, 1x strips, timelines). Look at them before calling art good.
+- `pf battle <attacker> <defender> --anim A [--profile P]`: an attack against a target, with FX and hit timing.
+- `pf roster`: every monster in a size-sorted lineup with silhouettes (and the lookalike check).
+- `pf preview [--bundle file.html]`: the browser preview (player, gallery, walk test, arena, FX).
+- `pf fx build --all` and `pf fx review`: the FX library.
+- `pf palette --check`, `pf template`, `pf random --seed N --count K`, `pf anchors --check`, `pf diff`.
 
-The base body turnaround (Phase 2) and the walk cycle (Phase 3b) matter most, since every future character inherits them. For combat, the Phase 5 checkpoint decides how every fight in your games will feel: watch the enemy-timing version and ask yourself whether you could react to it.
+## Making things
 
-## Resuming
+**A character from existing parts.** Browse `parts/<slot>/<variant>/` and the material presets in `style/style.json`, write `characters/<name>.yaml`, then build, validate and review. `pf random` shows what combinations look like.
 
-Start `claude` in the folder and use the "Resuming in a new session" prompt from `KICKOFF_PROMPT.md`.
+**A monster.** Pick a rig and a timing profile (`enemy`, `elite` or `boss`: enemies get longer tells from the same art). A variant of an existing monster is a recipe with other presets and a shared `family:` (an elite adds a trait, like the goblin chief's crown, and must read differently in grayscale). Read `docs/MONSTERS.md` first.
 
-## Tips
+**A part.** `pf template <slot> <variant> <anim>` writes an empty sheet and a guide with the base body ghosted in. Parts are drawn as character grids in Python (`tools/art/*.py`) or edited as PNGs in Aseprite; one material per part, no outer outline (the compositor draws it), outline-colored pixels inside a part are kept as details. Then build, validate, review, and score the rubric in `docs/QUALITY.md` until every score is 4 or higher.
 
-- Aseprite is the best tool for fixing a pixel by hand. Parts are plain PNGs in a 32 x 32 grid, so you can edit them directly and rebuild.
-- If Claude Code says something "looks good", ask what it checked. It should have opened the review images and scored the rubric.
-- Commit history is your undo button. If a change makes things worse, ask it to revert to the last good commit.
+**A rig or a boss.** A rig is a folder `parts/body/<rig>/` with sheets and `anchors.json`, plus an entry under `rigs` in `style.json` (size class, z-order, animations, events). Bosses get a written spec in `docs/MONSTERS.md` section 5.5 before any drawing; `tools/art/stone_warden.py` is the worked example (separate arm layers, a 64 px canvas, six moves).
+
+**An FX.** Add it to `tools/art/fx_art.py` (drawn facing east in an `fx_ramps` ramp), run it, then `pf fx build --all`. FX may be brighter than characters, may rotate in 90 degree steps, and must read on beige, light and dark ground.
+
+## Using the exports
+
+Each export is `<name>.png` plus `<name>.json`:
+
+- `frames` and `meta.frameTags`: standard Aseprite JSON. Tags are `<anim>_<dir>` with `dir` in `s`, `e`, `n`, `w`. West is drawn (mirrored at build time), so never flip sprites at runtime. Pick the view from the aim or travel vector's dominant axis.
+- `meta.pixelforge`:
+  - `pivot`: the pixel that stands on the ground point (`[15, 27]` small, `[23, 43]` medium, `[31, 59]` large). Place the sprite so this pixel is on the entity's position; use integer positions and integer zoom.
+  - `events[tag]`: `{frame, type, fx?, point?, point_name?}` with types `windup` (the tell starts), `hit` (deal damage, hit stop), `spawn` (a projectile at `point`; bosses add `pattern: ring|fan`, `count`, `spread`), `vfx` (play `fx` at `point`), `footstep`, `summon`, `recover` (can act again).
+  - `hitboxes[tag][frame]` and `hurtboxes[tag][frame]`: `{x, y, w, h}` in frame pixels; hitboxes exist only on active frames.
+  - `points[tag][frame]`: named points per frame (`hand_near`, `weapon_tip`, `bow_nock`, `head`, `torso`, `core`...) for attaching FX and projectiles.
+  - `phases[tag]`: `windup`, `active` or `recovery` per frame.
+  - `root_motion[tag]`: pixels to move along the facing per frame (dodges, a boss's charge); `loop_frames[tag]`: frames to repeat while a move lasts.
+  - `holds`, `base_durations`, `timing_profiles`: frame durations in the sheet are already timed for the recipe's profile; these let a game retime the same art for another profile (hold frames x `hold_scale`, then the last hold grows until the tell meets `telegraph_min_ms`).
+- FX exports (`out/fx/<name>/`) use the same format; their `pivot` is per tag, and `layer` (above or below characters), `space` (world or follow an anchor) and `loops` say how to play them.
+
+### Rolling Knight, or any canvas renderer (TypeScript)
+
+`loaders/pixelforge.ts` has no dependencies: `Sheet` reads an export, `Animator` plays clips, fires events in order, retimes for a profile, gives world-space hitboxes and points, and draws with the pivot on the entity's position.
+
+```ts
+import { loadSheet, Animator, facing } from "./pixelforge";
+
+const sheet = await loadSheet("art/goblin_archer.png", "art/goblin_archer.json");
+const goblin = new Animator(sheet);            // its recipe's timing (enemy)
+goblin.play("shoot_bow", facing(target.x - x, target.y - y));
+
+// every tick:
+for (const ev of goblin.update(dtMs)) {
+  if (ev.type === "spawn") fireArrow(goblin.toWorld(ev.point!, x, y, zoom));
+  if (ev.type === "hit") damage(goblin.hitboxes(x, y, zoom));
+}
+goblin.draw(ctx, x, y, zoom);
+```
+
+### Phaser 3
+
+`loaders/phaser.js` uses Phaser's own Aseprite loader, sets each sprite's origin to its pivot, applies the loop flags and emits `pf-event` as frames show.
+
+```js
+preloadPixelforge(this, "ogre", "art/ogre.png", "art/ogre.json");   // in preload()
+const ogre = createPixelforge(this, "ogre", 160, 120);               // in create()
+ogre.on("pf-event", (e) => { if (e.type === "hit") smash(hitboxes(ogre)); });
+playDir(ogre, "attack_heavy", facing(dx, dy));
+```
+
+### Godot 4
+
+`loaders/godot/pixelforge_sprite.gd` is an `AnimatedSprite2D` (`PixelforgeSprite`) that builds its `SpriteFrames` from an export, can retime for another profile, puts its origin on the pivot and emits `pf_event`.
+
+```gdscript
+var boss := PixelforgeSprite.new()
+boss.texture = load("res://art/stone_warden.png")
+boss.json_path = "res://art/stone_warden.json"
+add_child(boss)
+boss.pf_event.connect(func(e): if e.type == "spawn": shoot(e.get("pattern"), e.get("count")))
+boss.play_dir("cast_ring", PixelforgeSprite.facing(to_player))
+```
+
+## Using pixelforge from another project
+
+`templates/SKILL.md` is a Claude Code skill. Copy it to `~/.claude/skills/pixelforge/SKILL.md` and set the repo path in it; then, from any game's folder, asking Claude Code for "a goblin archer enemy" or "a fire variant of the slime" goes through pixelforge: recipes, parts, validation, review and an export copied into the game.
+
+## Documents
+
+| | |
+|---|---|
+| `CLAUDE.md` | the rules (read them before changing anything) |
+| `docs/STYLE_GUIDE.md` | the style, measured from the anchor |
+| `docs/ARCHITECTURE.md` | how the system is built |
+| `docs/ANIMATION_SPEC.md` | frame-by-frame specs for locomotion and reactions |
+| `docs/COMBAT.md` | the combat set, timing profiles, events, hitboxes, the FX library |
+| `docs/MONSTERS.md` | rigs, size classes, monster design, the boss spec |
+| `docs/QUALITY.md` | validator rules, the review protocol and rubric |
+| `docs/ROADMAP.md` | the phases, with the decisions and self-reviews made along the way |
+| `docs/GAMES.md` | what each game needs (Rolling Knight first) |
+
+pixelforge was built phase by phase from a starter kit (`KICKOFF_PROMPT.md` holds its prompts).

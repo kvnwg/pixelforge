@@ -1,0 +1,401 @@
+{
+ "fx": [
+  {
+   "name": "arcane_orb",
+   "image": "fx/arcane_orb/arcane_orb.png",
+   "json": "fx/arcane_orb/arcane_orb.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "arcane_orb_impact",
+   "image": "fx/arcane_orb_impact/arcane_orb_impact.png",
+   "json": "fx/arcane_orb_impact/arcane_orb_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "arrow",
+   "image": "fx/arrow/arrow.png",
+   "json": "fx/arrow/arrow.json",
+   "layer": "above",
+   "anims": [
+    "travel",
+    "impact"
+   ]
+  },
+  {
+   "name": "bone_crumble",
+   "image": "fx/bone_crumble/bone_crumble.png",
+   "json": "fx/bone_crumble/bone_crumble.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "buff_up",
+   "image": "fx/buff_up/buff_up.png",
+   "json": "fx/buff_up/buff_up.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "debuff_down",
+   "image": "fx/debuff_down/debuff_down.png",
+   "json": "fx/debuff_down/debuff_down.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "dust_puff",
+   "image": "fx/dust_puff/dust_puff.png",
+   "json": "fx/dust_puff/dust_puff.json",
+   "layer": "below",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "falling_rock",
+   "image": "fx/falling_rock/falling_rock.png",
+   "json": "fx/falling_rock/falling_rock.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "fireball",
+   "image": "fx/fireball/fireball.png",
+   "json": "fx/fireball/fireball.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "fireball_impact",
+   "image": "fx/fireball_impact/fireball_impact.png",
+   "json": "fx/fireball_impact/fireball_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "gather_glow_arcane",
+   "image": "fx/gather_glow_arcane/gather_glow_arcane.png",
+   "json": "fx/gather_glow_arcane/gather_glow_arcane.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "gather_glow_fire",
+   "image": "fx/gather_glow_fire/gather_glow_fire.png",
+   "json": "fx/gather_glow_fire/gather_glow_fire.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "gather_glow_holy",
+   "image": "fx/gather_glow_holy/gather_glow_holy.png",
+   "json": "fx/gather_glow_holy/gather_glow_holy.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "gather_glow_ice",
+   "image": "fx/gather_glow_ice/gather_glow_ice.png",
+   "json": "fx/gather_glow_ice/gather_glow_ice.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "gather_glow_poison",
+   "image": "fx/gather_glow_poison/gather_glow_poison.png",
+   "json": "fx/gather_glow_poison/gather_glow_poison.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "heal_sparkle",
+   "image": "fx/heal_sparkle/heal_sparkle.png",
+   "json": "fx/heal_sparkle/heal_sparkle.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "ice_shard",
+   "image": "fx/ice_shard/ice_shard.png",
+   "json": "fx/ice_shard/ice_shard.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "ice_shard_impact",
+   "image": "fx/ice_shard_impact/ice_shard_impact.png",
+   "json": "fx/ice_shard_impact/ice_shard_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_arcane",
+   "image": "fx/impact_arcane/impact_arcane.png",
+   "json": "fx/impact_arcane/impact_arcane.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_big",
+   "image": "fx/impact_big/impact_big.png",
+   "json": "fx/impact_big/impact_big.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_fire",
+   "image": "fx/impact_fire/impact_fire.png",
+   "json": "fx/impact_fire/impact_fire.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_holy",
+   "image": "fx/impact_holy/impact_holy.png",
+   "json": "fx/impact_holy/impact_holy.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_ice",
+   "image": "fx/impact_ice/impact_ice.png",
+   "json": "fx/impact_ice/impact_ice.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_poison",
+   "image": "fx/impact_poison/impact_poison.png",
+   "json": "fx/impact_poison/impact_poison.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "impact_shadow",
+   "image": "fx/impact_shadow/impact_shadow.png",
+   "json": "fx/impact_shadow/impact_shadow.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "poison_glob",
+   "image": "fx/poison_glob/poison_glob.png",
+   "json": "fx/poison_glob/poison_glob.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "poison_glob_impact",
+   "image": "fx/poison_glob_impact/poison_glob_impact.png",
+   "json": "fx/poison_glob_impact/poison_glob_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "poof_smoke",
+   "image": "fx/poof_smoke/poof_smoke.png",
+   "json": "fx/poof_smoke/poof_smoke.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "rock_shard",
+   "image": "fx/rock_shard/rock_shard.png",
+   "json": "fx/rock_shard/rock_shard.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "rock_shard_impact",
+   "image": "fx/rock_shard_impact/rock_shard_impact.png",
+   "json": "fx/rock_shard_impact/rock_shard_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "shockwave",
+   "image": "fx/shockwave/shockwave.png",
+   "json": "fx/shockwave/shockwave.json",
+   "layer": "below",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "smear_arc",
+   "image": "fx/smear_arc/smear_arc.png",
+   "json": "fx/smear_arc/smear_arc.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "smear_thrust",
+   "image": "fx/smear_thrust/smear_thrust.png",
+   "json": "fx/smear_thrust/smear_thrust.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "smear_vertical",
+   "image": "fx/smear_vertical/smear_vertical.png",
+   "json": "fx/smear_vertical/smear_vertical.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "soul_wisp",
+   "image": "fx/soul_wisp/soul_wisp.png",
+   "json": "fx/soul_wisp/soul_wisp.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "sound_rings",
+   "image": "fx/sound_rings/sound_rings.png",
+   "json": "fx/sound_rings/sound_rings.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "spark_small",
+   "image": "fx/spark_small/spark_small.png",
+   "json": "fx/spark_small/spark_small.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
+   "name": "status_burn",
+   "image": "fx/status_burn/status_burn.png",
+   "json": "fx/status_burn/status_burn.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "status_freeze",
+   "image": "fx/status_freeze/status_freeze.png",
+   "json": "fx/status_freeze/status_freeze.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "status_poison",
+   "image": "fx/status_poison/status_poison.png",
+   "json": "fx/status_poison/status_poison.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "status_shield",
+   "image": "fx/status_shield/status_shield.png",
+   "json": "fx/status_shield/status_shield.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "status_sleep",
+   "image": "fx/status_sleep/status_sleep.png",
+   "json": "fx/status_sleep/status_sleep.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "status_stun",
+   "image": "fx/status_stun/status_stun.png",
+   "json": "fx/status_stun/status_stun.json",
+   "layer": "above",
+   "anims": [
+    "loop"
+   ]
+  },
+  {
+   "name": "summon_circle",
+   "image": "fx/summon_circle/summon_circle.png",
+   "json": "fx/summon_circle/summon_circle.json",
+   "layer": "below",
+   "anims": [
+    "loop"
+   ]
+  }
+ ]
+}

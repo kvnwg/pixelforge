@@ -1,0 +1,159 @@
+{
+ "frames": [
+  {
+   "filename": "smear_arc play_s 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "smear_arc play_e 0",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "smear_arc play_n 0",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "smear_arc play_w 0",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  }
+ ],
+ "meta": {
+  "app": "pixelforge",
+  "version": "1",
+  "image": "smear_arc.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 32,
+   "h": 128
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "play_s",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "play_e",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "play_n",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "play_w",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   }
+  ],
+  "pixelforge": {
+   "fx": "smear_arc",
+   "ramp": "impact",
+   "cell": 32,
+   "pivot": {
+    "play_s": [
+     4,
+     15
+    ],
+    "play_e": [
+     15,
+     27
+    ],
+    "play_n": [
+     27,
+     16
+    ],
+    "play_w": [
+     16,
+     27
+    ]
+   },
+   "layer": "above",
+   "space": "follow",
+   "attach": null,
+   "rotate": true,
+   "loop": {
+    "play": false
+   }
+  }
+ }
+}

@@ -172,3 +172,20 @@ def test_ogre_tell_meets_the_elite_profile(ogre, style):
     assert ogre.recipe.timing_profile == "elite"
     assert sum(durations[:3]) >= profile["telegraph_min_ms"]
     assert set(adef.flags["active"]) == {3, 4}
+
+
+def test_goblin_archer_shoots_from_its_bow(root, style):
+    archer = build(root, "goblin_archer", style=style)
+    assert [str(f) for f in archer.findings] == []
+    assert archer.recipe.timing_profile == "enemy" and archer.recipe.raw["family"] == "goblin"
+    adef = archer.composer.anims["shoot_bow"]
+    spawn = [e for e in adef.events if e["type"] == "spawn"][0]
+    assert spawn["fx"] == "arrow" and spawn["point"] == "bow_nock"
+    for d in ("s", "e", "n"):
+        f = archer.frames[("shoot_bow", d)][spawn["frame"]]
+        bow = next(l for l in f.layers if l.slot == "held_near")
+        ys, xs = np.nonzero(bow.image[..., 3] == 255)
+        nx, ny = f.points["bow_nock"]
+        assert abs(nx - xs.mean()) <= 3 and ys.min() <= ny <= ys.max()  # the arrow leaves the bow
+    durations = [f.duration for f in archer.frames[("shoot_bow", "e")]]
+    assert sum(durations[:spawn["frame"]]) >= style.raw["combat"]["timing_profiles"]["enemy"]["telegraph_min_ms"]

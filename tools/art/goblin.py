@@ -107,6 +107,9 @@ ARMS = {  # (points as (x, y, shade) in idle frame 0 coordinates, hand)
     ("n", "up"): ([(19, 22, 1), (19, 21, 1), (20, 21, 1), (20, 20, 1)], (20, 20)),
     ("n", "fwd"): ([(19, 23, 1), (19, 24, 1), (18, 24, 1), (18, 25, 1)], (18, 25)),
 }
+ARMS[("s", "bow")] = ([(11, 23, 1), (10, 23, 1), (9, 23, 1)], (9, 23))   # the bow arm held out
+ARMS[("e", "bow")] = ([(15, 22, 2), (16, 22, 2), (17, 22, 2)], (17, 22))
+ARMS[("n", "bow")] = ([(19, 23, 1), (20, 23, 1), (21, 23, 1)], (21, 23))
 FAR_ARM = {"s": [(19, 23, 1), (19, 24, 1)], "e": [], "n": [(11, 23, 0), (11, 24, 0)]}
 
 CLUB = {  # wood (leather), relative to the hand: a stubby club with a knob
@@ -116,7 +119,8 @@ CLUB = {  # wood (leather), relative to the hand: a stubby club with a knob
     "down": [(1, 1, 1), (1, 2, 1), (2, 3, 2), (2, 2, 2)],
 }
 
-# frames: (head dx, dy, torso dy, legs, near arm, club pose)
+# frames: (head dx, dy, torso dy, legs, near arm, club pose[, bow pose]); without a bow pose the
+# bow follows the club (rest, raised, dropped)
 FRAMES = {
     "idle": [(0, 0, 0, "stand", "rest", "rest"), (0, 1, 1, "stand", "rest", "rest"),
              (0, 1, 1, "stand", "rest", "rest"), (0, 0, 0, "stand", "rest", "rest")],
@@ -132,7 +136,69 @@ FRAMES = {
     "victory": [(0, 1, 1, "wide", "rest", "rest"), (0, -2, -2, "stand", "up", "up"),
                 (0, 1, 1, "wide", "up", "up"), (0, 0, 0, "stand", "up", "up")],
 }
+FRAMES["shoot_bow"] = [  # the goblin archer: nock, draw, full draw (held), release, recoil, lower
+    (0, 0, 0, "wide", "bow", "rest", "nock"), (-1, 0, 0, "wide", "bow", "rest", "draw"),
+    (-1, 0, 0, "wide", "bow", "rest", "full"), (0, 0, 0, "wide", "bow", "rest", "release"),
+    (-1, 0, 0, "wide", "bow", "rest", "release"), (0, 0, 0, "stand", "rest", "rest", "rest"),
+]
 FRAMES["combat_idle"] = None  # an alias of idle (style.json)
+BOW_FROM_CLUB = {"rest": "rest", "up": "up", "fwd": "rest", "down": "dropped"}
+PULL = {"nock": 0, "draw": 1, "full": 2, "release": 0}
+
+
+def bow_codes(d: str, pose: str, hand: tuple[int, int]) -> tuple[np.ndarray, list[int]]:
+    """The goblin's short bow (leather) with an outline-colored string: held out and drawn
+    (nock, draw, full: the string pulled back 0, 1, 2 px, an arrow on it; release: straight and
+    empty), at rest beside the hand, raised, or dropped on the ground. Returns the codes and the
+    nock point (where the arrow leaves)."""
+    c = empty()
+    hx, hy = hand
+    if pose == "dropped":
+        y = 27
+        x0 = {"s": 6, "e": 16, "n": 20}[d]
+        for x in range(x0, x0 + 6):
+            c[y, x] = 1 if x in (x0, x0 + 5) else 2
+        for x in range(x0 + 1, x0 + 5):
+            c[y - 1, x] = grid.INK
+        return c, [x0 + 3, y - 1]
+    if pose in ("rest", "up"):  # held upright beside the hand, the string toward the body
+        side = {"s": -1, "e": 1, "n": 1}[d]
+        # raised facing s or n, the bow stands in the hand's own column so the ear beside it stays
+        # one piece
+        bx = hx if pose == "up" and d != "e" else hx + side
+        top = hy - 3 if pose == "rest" else hy - 5
+        limbs = [(bx, top, 1), (bx, top + 1, 2), (bx, top + 2, 2), (bx, top + 3, 2), (bx, top + 4, 1),
+                 (bx, top + 5, 1), (bx, top + 6, 0)]
+        for x, y, sh in limbs:
+            if 0 <= y < 32:
+                c[y, x] = sh
+        for y in range(top + 1, top + 6):
+            if 0 <= y < 32 and c[y, bx + side] == grid.CLEAR and (bx + side, y) != (hx, hy):
+                c[y, bx + side] = grid.INK
+        return c, [hx, hy]
+    pull = PULL[pose]
+    if d == "e":  # aimed ahead: limbs in front of the hand, the string pulled back toward the face
+        gx, back = hx + 1, -1
+    else:  # s and n: the bow upright on the weapon side, the string pulled toward the body
+        gx, back = (hx - 1, 1) if d == "s" else (hx + 1, -1)
+    for dy, sh in ((0, 1), (-1, 2), (-2, 2), (-3, 1), (1, 1), (2, 1), (3, 0)):
+        c[hy + dy, gx] = sh
+    c[hy - 4, gx + back] = 1  # the tips curve back toward the archer
+    c[hy + 4, gx + back] = 0
+    nock = (gx + back * (1 + pull), hy)
+    for dy in range(-3, 4):  # the string from tip to tip through the nock
+        x = gx + back * (1 + round(pull * (1 - abs(dy) / 4)))
+        if c[hy + dy, x] == grid.CLEAR and (x, hy + dy) != (hx, hy):
+            c[hy + dy, x] = grid.INK
+    if pose != "release":
+        if d == "e":  # the arrow on the string, its head past the bow
+            for x in range(nock[0] + 1, gx + 3):
+                c[hy, x] = 2
+            c[hy, gx + 3] = 1
+        else:  # facing s or n the arrow points at the viewer: a short light shaft at the nock
+            c[hy, nock[0]] = 2
+            c[hy + 1, nock[0]] = 2
+    return c, list(nock)
 
 
 def despeckle(codes: np.ndarray) -> np.ndarray:
@@ -150,7 +216,7 @@ def despeckle(codes: np.ndarray) -> np.ndarray:
             if v in near:
                 continue
             same = [n for n in near if n >= 0]
-            if len(same) >= 2:
+            if same:  # an edge pixel with one neighbor follows it too
                 counts = {n: same.count(n) for n in same}
                 out[y, x] = sorted(counts, key=lambda n: (-counts[n], n))[0]
     return out
@@ -161,7 +227,7 @@ def dirx(d: str, dx: int) -> int:
 
 
 def body_frame(d: str, spec) -> tuple[np.ndarray, np.ndarray, dict]:
-    hdx, hdy, tdy, legs, arm, club = spec
+    hdx, hdy, tdy, legs, arm, club = spec[:6]
     hx = dirx(d, hdx)
     codes = empty()
     rows = LEGS.get((d, legs)) or LEGS[(d, "stand")]
@@ -190,17 +256,21 @@ def body_frame(d: str, spec) -> tuple[np.ndarray, np.ndarray, dict]:
 def main() -> None:
     anims = load_anims(STYLE, RIG)
     body, club, anchors = {}, {}, {}
+    bow = {}
     for anim, frames in FRAMES.items():
         if frames is None:
             continue
         assert len(frames) == anims[anim].frames, anim
-        body[anim], club[anim] = {}, {}
+        body[anim], club[anim], bow[anim] = {}, {}, {}
         anchors[anim] = {d: [] for d in DIRS}
         for i, spec in enumerate(frames):
             for d in DIRS:
                 codes, clubc, pts = body_frame(d, spec)
                 body[anim][(d, i)], club[anim][(d, i)] = despeckle(codes), clubc
-                if i in anims[anim].flags.get("active", ()):
+                bow_pose = spec[6] if len(spec) > 6 else BOW_FROM_CLUB[spec[5]]
+                bow[anim][(d, i)], nock = bow_codes(d, bow_pose, tuple(pts["hand_near"]))
+                pts["bow_nock"] = nock
+                if i in anims[anim].flags.get("active", ()) and anim != "shoot_bow":
                     hx, hy = pts["hand_near"]
                     pts["hitboxes"] = [{"e": [hx, hy - 4, 7, 7], "s": [8, hy - 1, 14, 8],
                                         "n": [8, 9, 14, 8]}[d]]
@@ -212,6 +282,10 @@ def main() -> None:
     write_part("held_near", "goblin_club", {"material": "leather", "kind": "animated", "lags": False,
                                             "rigs": [RIG], "notes": "A stubby club, drawn per frame."},
                club, counts)
+    write_part("held_near", "goblin_bow", {"material": "leather", "kind": "animated", "lags": False,
+                                           "rigs": [RIG], "notes": "A short bow with an outline-colored "
+                                           "string, drawn per frame; the arrow leaves from bow_nock."},
+               bow, counts)
 
     def rigid(points: dict, origin: str) -> dict:
         cells = {}
@@ -263,7 +337,14 @@ def main() -> None:
                    "eyes": "glow red"},
         "anims": common,
     })
-    print("wrote the goblin and the goblin chief")
+    write_recipe("monsters/goblin_archer.yaml", {
+        "name": "goblin_archer", "family": "goblin", "rig": RIG, "timing_profile": "enemy", "seed": 1,
+        "parts": {"ears": "goblin", "eyes": "goblin", "over_torso": "loincloth",
+                  "held_near": "goblin_bow"},
+        "colors": {"hide": "goblin", "cloth": "forest", "leather": "tan", "eyes": "glow yellow"},
+        "anims": ["idle", "walk", "combat_idle", "shoot_bow", "hurt", "death", "victory"],
+    })
+    print("wrote the goblin, the goblin chief and the goblin archer")
 
 
 if __name__ == "__main__":

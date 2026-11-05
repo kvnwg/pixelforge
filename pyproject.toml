@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pixelforge"
-version = "0.1.0"
+version = "1.0.0"
 description = "A reusable pixel art character, monster, combat and FX system with a locked chibi style."
 readme = "README.md"
 requires-python = ">=3.11"

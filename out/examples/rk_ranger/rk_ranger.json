@@ -1,0 +1,12371 @@
+{
+ "frames": [
+  {
+   "filename": "rk_ranger idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 450
+  },
+  {
+   "filename": "rk_ranger idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger blink_s 0",
+   "frame": {
+    "x": 0,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger blink_e 0",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger blink_w 0",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger walk_s 0",
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_s 1",
+   "frame": {
+    "x": 32,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_s 2",
+   "frame": {
+    "x": 64,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_s 3",
+   "frame": {
+    "x": 96,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_e 0",
+   "frame": {
+    "x": 0,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_e 1",
+   "frame": {
+    "x": 32,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_e 2",
+   "frame": {
+    "x": 64,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_e 3",
+   "frame": {
+    "x": 96,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_n 0",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_n 1",
+   "frame": {
+    "x": 32,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_n 2",
+   "frame": {
+    "x": 64,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_n 3",
+   "frame": {
+    "x": 96,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_w 0",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_w 1",
+   "frame": {
+    "x": 32,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_w 2",
+   "frame": {
+    "x": 64,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger walk_w 3",
+   "frame": {
+    "x": 96,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 130
+  },
+  {
+   "filename": "rk_ranger combat_idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger combat_idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger combat_idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 0",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 1",
+   "frame": {
+    "x": 32,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 2",
+   "frame": {
+    "x": 64,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 3",
+   "frame": {
+    "x": 96,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 4",
+   "frame": {
+    "x": 128,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_s 5",
+   "frame": {
+    "x": 160,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 0",
+   "frame": {
+    "x": 0,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 1",
+   "frame": {
+    "x": 32,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 2",
+   "frame": {
+    "x": 64,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 3",
+   "frame": {
+    "x": 96,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 4",
+   "frame": {
+    "x": 128,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_e 5",
+   "frame": {
+    "x": 160,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 0",
+   "frame": {
+    "x": 0,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 1",
+   "frame": {
+    "x": 32,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 2",
+   "frame": {
+    "x": 64,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 3",
+   "frame": {
+    "x": 96,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 4",
+   "frame": {
+    "x": 128,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_n 5",
+   "frame": {
+    "x": 160,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 0",
+   "frame": {
+    "x": 0,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 1",
+   "frame": {
+    "x": 32,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 2",
+   "frame": {
+    "x": 64,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 3",
+   "frame": {
+    "x": 96,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 4",
+   "frame": {
+    "x": 128,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger shoot_bow_w 5",
+   "frame": {
+    "x": 160,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger backflip_s 0",
+   "frame": {
+    "x": 0,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger backflip_s 1",
+   "frame": {
+    "x": 32,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_s 2",
+   "frame": {
+    "x": 64,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_s 3",
+   "frame": {
+    "x": 96,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_s 4",
+   "frame": {
+    "x": 128,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_e 0",
+   "frame": {
+    "x": 0,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger backflip_e 1",
+   "frame": {
+    "x": 32,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_e 2",
+   "frame": {
+    "x": 64,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_e 3",
+   "frame": {
+    "x": 96,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_e 4",
+   "frame": {
+    "x": 128,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_n 0",
+   "frame": {
+    "x": 0,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger backflip_n 1",
+   "frame": {
+    "x": 32,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_n 2",
+   "frame": {
+    "x": 64,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_n 3",
+   "frame": {
+    "x": 96,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_n 4",
+   "frame": {
+    "x": 128,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_w 0",
+   "frame": {
+    "x": 0,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger backflip_w 1",
+   "frame": {
+    "x": 32,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_w 2",
+   "frame": {
+    "x": 64,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_w 3",
+   "frame": {
+    "x": 96,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger backflip_w 4",
+   "frame": {
+    "x": 128,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger dodge_s 0",
+   "frame": {
+    "x": 0,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger dodge_s 1",
+   "frame": {
+    "x": 32,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_s 2",
+   "frame": {
+    "x": 64,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_s 3",
+   "frame": {
+    "x": 96,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger dodge_e 0",
+   "frame": {
+    "x": 0,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger dodge_e 1",
+   "frame": {
+    "x": 32,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_e 2",
+   "frame": {
+    "x": 64,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_e 3",
+   "frame": {
+    "x": 96,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger dodge_n 0",
+   "frame": {
+    "x": 0,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger dodge_n 1",
+   "frame": {
+    "x": 32,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_n 2",
+   "frame": {
+    "x": 64,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_n 3",
+   "frame": {
+    "x": 96,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger dodge_w 0",
+   "frame": {
+    "x": 0,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger dodge_w 1",
+   "frame": {
+    "x": 32,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_w 2",
+   "frame": {
+    "x": 64,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger dodge_w 3",
+   "frame": {
+    "x": 96,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger hurt_s 0",
+   "frame": {
+    "x": 0,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger hurt_s 1",
+   "frame": {
+    "x": 32,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger hurt_s 2",
+   "frame": {
+    "x": 64,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger hurt_e 0",
+   "frame": {
+    "x": 0,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger hurt_e 1",
+   "frame": {
+    "x": 32,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger hurt_e 2",
+   "frame": {
+    "x": 64,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger hurt_n 0",
+   "frame": {
+    "x": 0,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger hurt_n 1",
+   "frame": {
+    "x": 32,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger hurt_n 2",
+   "frame": {
+    "x": 64,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger hurt_w 0",
+   "frame": {
+    "x": 0,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger hurt_w 1",
+   "frame": {
+    "x": 32,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "rk_ranger hurt_w 2",
+   "frame": {
+    "x": 64,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger stun_s 0",
+   "frame": {
+    "x": 0,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_s 1",
+   "frame": {
+    "x": 32,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_s 2",
+   "frame": {
+    "x": 64,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_s 3",
+   "frame": {
+    "x": 96,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_e 0",
+   "frame": {
+    "x": 0,
+    "y": 1024,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_e 1",
+   "frame": {
+    "x": 32,
+    "y": 1024,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_e 2",
+   "frame": {
+    "x": 64,
+    "y": 1024,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_e 3",
+   "frame": {
+    "x": 96,
+    "y": 1024,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_n 0",
+   "frame": {
+    "x": 0,
+    "y": 1056,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_n 1",
+   "frame": {
+    "x": 32,
+    "y": 1056,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_n 2",
+   "frame": {
+    "x": 64,
+    "y": 1056,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_n 3",
+   "frame": {
+    "x": 96,
+    "y": 1056,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_w 0",
+   "frame": {
+    "x": 0,
+    "y": 1088,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_w 1",
+   "frame": {
+    "x": 32,
+    "y": 1088,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_w 2",
+   "frame": {
+    "x": 64,
+    "y": 1088,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger stun_w 3",
+   "frame": {
+    "x": 96,
+    "y": 1088,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger death_s 0",
+   "frame": {
+    "x": 0,
+    "y": 1120,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger death_s 1",
+   "frame": {
+    "x": 32,
+    "y": 1120,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_s 2",
+   "frame": {
+    "x": 64,
+    "y": 1120,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_s 3",
+   "frame": {
+    "x": 96,
+    "y": 1120,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "rk_ranger death_s 4",
+   "frame": {
+    "x": 128,
+    "y": 1120,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "rk_ranger death_e 0",
+   "frame": {
+    "x": 0,
+    "y": 1152,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger death_e 1",
+   "frame": {
+    "x": 32,
+    "y": 1152,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_e 2",
+   "frame": {
+    "x": 64,
+    "y": 1152,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_e 3",
+   "frame": {
+    "x": 96,
+    "y": 1152,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "rk_ranger death_e 4",
+   "frame": {
+    "x": 128,
+    "y": 1152,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "rk_ranger death_n 0",
+   "frame": {
+    "x": 0,
+    "y": 1184,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger death_n 1",
+   "frame": {
+    "x": 32,
+    "y": 1184,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_n 2",
+   "frame": {
+    "x": 64,
+    "y": 1184,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_n 3",
+   "frame": {
+    "x": 96,
+    "y": 1184,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "rk_ranger death_n 4",
+   "frame": {
+    "x": 128,
+    "y": 1184,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "rk_ranger death_w 0",
+   "frame": {
+    "x": 0,
+    "y": 1216,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger death_w 1",
+   "frame": {
+    "x": 32,
+    "y": 1216,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_w 2",
+   "frame": {
+    "x": 64,
+    "y": 1216,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger death_w 3",
+   "frame": {
+    "x": 96,
+    "y": 1216,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "rk_ranger death_w 4",
+   "frame": {
+    "x": 128,
+    "y": 1216,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "rk_ranger victory_s 0",
+   "frame": {
+    "x": 0,
+    "y": 1248,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_s 1",
+   "frame": {
+    "x": 32,
+    "y": 1248,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger victory_s 2",
+   "frame": {
+    "x": 64,
+    "y": 1248,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_s 3",
+   "frame": {
+    "x": 96,
+    "y": 1248,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger victory_e 0",
+   "frame": {
+    "x": 0,
+    "y": 1280,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_e 1",
+   "frame": {
+    "x": 32,
+    "y": 1280,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger victory_e 2",
+   "frame": {
+    "x": 64,
+    "y": 1280,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_e 3",
+   "frame": {
+    "x": 96,
+    "y": 1280,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger victory_n 0",
+   "frame": {
+    "x": 0,
+    "y": 1312,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_n 1",
+   "frame": {
+    "x": 32,
+    "y": 1312,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger victory_n 2",
+   "frame": {
+    "x": 64,
+    "y": 1312,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_n 3",
+   "frame": {
+    "x": 96,
+    "y": 1312,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "rk_ranger victory_w 0",
+   "frame": {
+    "x": 0,
+    "y": 1344,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_w 1",
+   "frame": {
+    "x": 32,
+    "y": 1344,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "rk_ranger victory_w 2",
+   "frame": {
+    "x": 64,
+    "y": 1344,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "rk_ranger victory_w 3",
+   "frame": {
+    "x": 96,
+    "y": 1344,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  }
+ ],
+ "meta": {
+  "app": "pixelforge",
+  "version": "1.0",
+  "image": "rk_ranger.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 192,
+   "h": 1376
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "idle_s",
+    "from": 0,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_e",
+    "from": 4,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_n",
+    "from": 8,
+    "to": 11,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_w",
+    "from": 12,
+    "to": 15,
+    "direction": "forward"
+   },
+   {
+    "name": "blink_s",
+    "from": 16,
+    "to": 16,
+    "direction": "forward"
+   },
+   {
+    "name": "blink_e",
+    "from": 17,
+    "to": 17,
+    "direction": "forward"
+   },
+   {
+    "name": "blink_w",
+    "from": 18,
+    "to": 18,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_s",
+    "from": 19,
+    "to": 22,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_e",
+    "from": 23,
+    "to": 26,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_n",
+    "from": 27,
+    "to": 30,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_w",
+    "from": 31,
+    "to": 34,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_s",
+    "from": 35,
+    "to": 38,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_e",
+    "from": 39,
+    "to": 42,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_n",
+    "from": 43,
+    "to": 46,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_w",
+    "from": 47,
+    "to": 50,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_s",
+    "from": 51,
+    "to": 56,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_e",
+    "from": 57,
+    "to": 62,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_n",
+    "from": 63,
+    "to": 68,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_w",
+    "from": 69,
+    "to": 74,
+    "direction": "forward"
+   },
+   {
+    "name": "backflip_s",
+    "from": 75,
+    "to": 79,
+    "direction": "forward"
+   },
+   {
+    "name": "backflip_e",
+    "from": 80,
+    "to": 84,
+    "direction": "forward"
+   },
+   {
+    "name": "backflip_n",
+    "from": 85,
+    "to": 89,
+    "direction": "forward"
+   },
+   {
+    "name": "backflip_w",
+    "from": 90,
+    "to": 94,
+    "direction": "forward"
+   },
+   {
+    "name": "dodge_s",
+    "from": 95,
+    "to": 98,
+    "direction": "forward"
+   },
+   {
+    "name": "dodge_e",
+    "from": 99,
+    "to": 102,
+    "direction": "forward"
+   },
+   {
+    "name": "dodge_n",
+    "from": 103,
+    "to": 106,
+    "direction": "forward"
+   },
+   {
+    "name": "dodge_w",
+    "from": 107,
+    "to": 110,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_s",
+    "from": 111,
+    "to": 113,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_e",
+    "from": 114,
+    "to": 116,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_n",
+    "from": 117,
+    "to": 119,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_w",
+    "from": 120,
+    "to": 122,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_s",
+    "from": 123,
+    "to": 126,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_e",
+    "from": 127,
+    "to": 130,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_n",
+    "from": 131,
+    "to": 134,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_w",
+    "from": 135,
+    "to": 138,
+    "direction": "forward"
+   },
+   {
+    "name": "death_s",
+    "from": 139,
+    "to": 143,
+    "direction": "forward"
+   },
+   {
+    "name": "death_e",
+    "from": 144,
+    "to": 148,
+    "direction": "forward"
+   },
+   {
+    "name": "death_n",
+    "from": 149,
+    "to": 153,
+    "direction": "forward"
+   },
+   {
+    "name": "death_w",
+    "from": 154,
+    "to": 158,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_s",
+    "from": 159,
+    "to": 162,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_e",
+    "from": 163,
+    "to": 166,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_n",
+    "from": 167,
+    "to": 170,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_w",
+    "from": 171,
+    "to": 174,
+    "direction": "forward"
+   }
+  ],
+  "pixelforge": {
+   "pivot": [
+    15,
+    27
+   ],
+   "size_class": "small",
+   "rig": "humanoid",
+   "timing_profile": "player",
+   "loop": {
+    "idle": true,
+    "blink": false,
+    "walk": true,
+    "combat_idle": true,
+    "shoot_bow": false,
+    "backflip": false,
+    "dodge": false,
+    "hurt": false,
+    "stun": true,
+    "death": false,
+    "victory": true
+   },
+   "events": {
+    "shoot_bow_s": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       11,
+       21
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_e": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       18,
+       21
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_n": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       19,
+       21
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_w": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       12,
+       21
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ]
+   },
+   "phases": {
+    "shoot_bow_s": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_e": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_n": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_w": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ]
+   },
+   "hitboxes": {},
+   "hurtboxes": {
+    "combat_idle_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "combat_idle_e": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "combat_idle_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "combat_idle_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "shoot_bow_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 10,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 10,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 10,
+       "w": 10,
+       "h": 18
+      }
+     ],
+     "5": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "shoot_bow_e": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "4": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "5": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "shoot_bow_n": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 9,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 9,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "4": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "5": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "shoot_bow_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "4": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "5": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "backflip_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 7,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "backflip_e": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 9,
+       "y": 8,
+       "w": 10,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 7,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "backflip_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 7,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "backflip_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 8,
+       "w": 10,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 7,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "dodge_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 8,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "dodge_e": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 8,
+       "w": 8,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "dodge_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 8,
+       "w": 9,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "dodge_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 8,
+       "w": 8,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "hurt_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 10,
+       "w": 10,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "hurt_e": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "hurt_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 11,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 13,
+       "w": 11,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ]
+    },
+    "hurt_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "stun_s": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ]
+    },
+    "stun_e": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "stun_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ]
+    },
+    "stun_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "death_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 10,
+       "w": 10,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 9,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ]
+    },
+    "death_e": {
+     "0": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ]
+    },
+    "death_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 11,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 9,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ]
+    },
+    "death_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 9,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 9,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 9,
+       "h": 14
+      }
+     ]
+    },
+    "victory_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 11,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ]
+    },
+    "victory_e": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 8,
+       "w": 8,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    },
+    "victory_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 8,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 11,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ]
+    },
+    "victory_w": {
+     "0": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 12,
+       "y": 8,
+       "w": 8,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 12,
+       "y": 12,
+       "w": 8,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 12,
+       "y": 11,
+       "w": 8,
+       "h": 17
+      }
+     ]
+    }
+   },
+   "root_motion": {
+    "backflip_s": [
+     0,
+     -20,
+     -26,
+     -20,
+     -8
+    ],
+    "backflip_e": [
+     0,
+     -20,
+     -26,
+     -20,
+     -8
+    ],
+    "backflip_n": [
+     0,
+     -20,
+     -26,
+     -20,
+     -8
+    ],
+    "backflip_w": [
+     0,
+     -20,
+     -26,
+     -20,
+     -8
+    ],
+    "dodge_s": [
+     0,
+     -4,
+     -3,
+     -1
+    ],
+    "dodge_e": [
+     0,
+     -4,
+     -3,
+     -1
+    ],
+    "dodge_n": [
+     0,
+     -4,
+     -3,
+     -1
+    ],
+    "dodge_w": [
+     0,
+     -4,
+     -3,
+     -1
+    ]
+   },
+   "stride_px": {
+    "walk_e": [
+     3,
+     2,
+     3,
+     2
+    ],
+    "walk_w": [
+     3,
+     2,
+     3,
+     2
+    ]
+   },
+   "holds": {
+    "shoot_bow_s": [
+     2
+    ],
+    "shoot_bow_e": [
+     2
+    ],
+    "shoot_bow_n": [
+     2
+    ],
+    "shoot_bow_w": [
+     2
+    ]
+   },
+   "base_durations": {
+    "idle_s": [
+     450,
+     150,
+     450,
+     150
+    ],
+    "idle_e": [
+     450,
+     150,
+     450,
+     150
+    ],
+    "idle_n": [
+     450,
+     150,
+     450,
+     150
+    ],
+    "idle_w": [
+     450,
+     150,
+     450,
+     150
+    ],
+    "blink_s": [
+     100
+    ],
+    "blink_e": [
+     100
+    ],
+    "blink_w": [
+     100
+    ],
+    "walk_s": [
+     130,
+     130,
+     130,
+     130
+    ],
+    "walk_e": [
+     130,
+     130,
+     130,
+     130
+    ],
+    "walk_n": [
+     130,
+     130,
+     130,
+     130
+    ],
+    "walk_w": [
+     130,
+     130,
+     130,
+     130
+    ],
+    "combat_idle_s": [
+     300,
+     150,
+     300,
+     150
+    ],
+    "combat_idle_e": [
+     300,
+     150,
+     300,
+     150
+    ],
+    "combat_idle_n": [
+     300,
+     150,
+     300,
+     150
+    ],
+    "combat_idle_w": [
+     300,
+     150,
+     300,
+     150
+    ],
+    "shoot_bow_s": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_e": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_n": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_w": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "backflip_s": [
+     60,
+     90,
+     90,
+     90,
+     90
+    ],
+    "backflip_e": [
+     60,
+     90,
+     90,
+     90,
+     90
+    ],
+    "backflip_n": [
+     60,
+     90,
+     90,
+     90,
+     90
+    ],
+    "backflip_w": [
+     60,
+     90,
+     90,
+     90,
+     90
+    ],
+    "dodge_s": [
+     60,
+     80,
+     80,
+     100
+    ],
+    "dodge_e": [
+     60,
+     80,
+     80,
+     100
+    ],
+    "dodge_n": [
+     60,
+     80,
+     80,
+     100
+    ],
+    "dodge_w": [
+     60,
+     80,
+     80,
+     100
+    ],
+    "hurt_s": [
+     80,
+     120,
+     140
+    ],
+    "hurt_e": [
+     80,
+     120,
+     140
+    ],
+    "hurt_n": [
+     80,
+     120,
+     140
+    ],
+    "hurt_w": [
+     80,
+     120,
+     140
+    ],
+    "stun_s": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "stun_e": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "stun_n": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "stun_w": [
+     150,
+     150,
+     150,
+     150
+    ],
+    "death_s": [
+     80,
+     140,
+     140,
+     160,
+     600
+    ],
+    "death_e": [
+     80,
+     140,
+     140,
+     160,
+     600
+    ],
+    "death_n": [
+     80,
+     140,
+     140,
+     160,
+     600
+    ],
+    "death_w": [
+     80,
+     140,
+     140,
+     160,
+     600
+    ],
+    "victory_s": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_e": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_n": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_w": [
+     200,
+     150,
+     200,
+     300
+    ]
+   },
+   "points": {
+    "combat_idle_s": [
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "combat_idle_e": [
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "combat_idle_n": [
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "combat_idle_w": [
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "shoot_bow_s": [
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       11,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       22
+      ],
+      "hand_near": [
+       12,
+       23
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       11,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       20
+      ],
+      "bow_nock": [
+       11,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       21
+      ],
+      "hand_near": [
+       12,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       23
+      ],
+      "torso": [
+       15,
+       19
+      ],
+      "weapon_tip": [
+       11,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       20
+      ],
+      "bow_nock": [
+       11,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       21
+      ],
+      "hand_near": [
+       12,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       23
+      ],
+      "torso": [
+       15,
+       19
+      ],
+      "weapon_tip": [
+       11,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       11,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       22
+      ],
+      "hand_near": [
+       12,
+       23
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       11,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       20
+      ],
+      "bow_nock": [
+       11,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       22
+      ],
+      "hand_near": [
+       12,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       23
+      ],
+      "torso": [
+       15,
+       19
+      ],
+      "weapon_tip": [
+       11,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "shoot_bow_e": [
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       18,
+       22
+      ],
+      "hand_near": [
+       19,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       15,
+       20
+      ],
+      "hand_near": [
+       19,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       15,
+       21
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       15,
+       20
+      ],
+      "hand_near": [
+       19,
+       21
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       18,
+       22
+      ],
+      "hand_near": [
+       19,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       21
+      ]
+     },
+     {
+      "back": [
+       11,
+       21
+      ],
+      "bow_nock": [
+       17,
+       21
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       10,
+       23
+      ],
+      "hand_near": [
+       18,
+       21
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       18,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       21,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "shoot_bow_n": [
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       19,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       22
+      ],
+      "hand_near": [
+       18,
+       23
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       19,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       19,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       18,
+       24
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       19,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       19,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       18,
+       24
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       19,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       19,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       22
+      ],
+      "hand_near": [
+       18,
+       23
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       19,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       19,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       18,
+       24
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       19,
+       22
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "shoot_bow_w": [
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       12,
+       22
+      ],
+      "hand_near": [
+       11,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       15,
+       20
+      ],
+      "hand_near": [
+       11,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       15,
+       21
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       15,
+       20
+      ],
+      "hand_near": [
+       11,
+       21
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       12,
+       22
+      ],
+      "hand_near": [
+       11,
+       21
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       21
+      ]
+     },
+     {
+      "back": [
+       19,
+       21
+      ],
+      "bow_nock": [
+       13,
+       21
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       20,
+       23
+      ],
+      "hand_near": [
+       12,
+       21
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       12,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       9,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "backflip_s": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       8,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       20,
+       16
+      ],
+      "hand_near": [
+       10,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       8,
+       16
+      ]
+     },
+     {
+      "back": [
+       15,
+       17
+      ],
+      "bow_nock": [
+       10,
+       18
+      ],
+      "chin": [
+       15,
+       15
+      ],
+      "foot_far": [
+       17,
+       24
+      ],
+      "foot_near": [
+       13,
+       24
+      ],
+      "hand_far": [
+       18,
+       18
+      ],
+      "hand_near": [
+       12,
+       18
+      ],
+      "head": [
+       15,
+       7
+      ],
+      "hip": [
+       15,
+       21
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       16
+      ],
+      "weapon_tip": [
+       10,
+       18
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "backflip_e": [
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       11,
+       18
+      ],
+      "bow_nock": [
+       23,
+       16
+      ],
+      "chin": [
+       13,
+       16
+      ],
+      "foot_far": [
+       13,
+       25
+      ],
+      "foot_near": [
+       17,
+       25
+      ],
+      "hand_far": [
+       13,
+       16
+      ],
+      "hand_near": [
+       17,
+       16
+      ],
+      "head": [
+       13,
+       8
+      ],
+      "hip": [
+       14,
+       22
+      ],
+      "shield_front": [
+       18,
+       18
+      ],
+      "torso": [
+       14,
+       17
+      ],
+      "weapon_tip": [
+       23,
+       16
+      ]
+     },
+     {
+      "back": [
+       11,
+       17
+      ],
+      "bow_nock": [
+       21,
+       18
+      ],
+      "chin": [
+       14,
+       15
+      ],
+      "foot_far": [
+       13,
+       24
+      ],
+      "foot_near": [
+       17,
+       24
+      ],
+      "hand_far": [
+       14,
+       18
+      ],
+      "hand_near": [
+       15,
+       18
+      ],
+      "head": [
+       14,
+       7
+      ],
+      "hip": [
+       14,
+       21
+      ],
+      "shield_front": [
+       18,
+       17
+      ],
+      "torso": [
+       14,
+       16
+      ],
+      "weapon_tip": [
+       21,
+       18
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "backflip_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       22,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       10,
+       16
+      ],
+      "hand_near": [
+       20,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       16
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       22,
+       16
+      ]
+     },
+     {
+      "back": [
+       15,
+       17
+      ],
+      "bow_nock": [
+       20,
+       18
+      ],
+      "chin": [
+       15,
+       15
+      ],
+      "foot_far": [
+       17,
+       24
+      ],
+      "foot_near": [
+       13,
+       24
+      ],
+      "hand_far": [
+       12,
+       18
+      ],
+      "hand_near": [
+       18,
+       18
+      ],
+      "head": [
+       15,
+       7
+      ],
+      "hip": [
+       15,
+       21
+      ],
+      "shield_front": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       16
+      ],
+      "weapon_tip": [
+       20,
+       18
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "backflip_w": [
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       19,
+       18
+      ],
+      "bow_nock": [
+       7,
+       16
+      ],
+      "chin": [
+       17,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       17,
+       16
+      ],
+      "hand_near": [
+       13,
+       16
+      ],
+      "head": [
+       17,
+       8
+      ],
+      "hip": [
+       16,
+       22
+      ],
+      "shield_front": [
+       12,
+       18
+      ],
+      "torso": [
+       16,
+       17
+      ],
+      "weapon_tip": [
+       7,
+       16
+      ]
+     },
+     {
+      "back": [
+       19,
+       17
+      ],
+      "bow_nock": [
+       9,
+       18
+      ],
+      "chin": [
+       16,
+       15
+      ],
+      "foot_far": [
+       17,
+       24
+      ],
+      "foot_near": [
+       13,
+       24
+      ],
+      "hand_far": [
+       16,
+       18
+      ],
+      "hand_near": [
+       15,
+       18
+      ],
+      "head": [
+       16,
+       7
+      ],
+      "hip": [
+       16,
+       21
+      ],
+      "shield_front": [
+       12,
+       17
+      ],
+      "torso": [
+       16,
+       16
+      ],
+      "weapon_tip": [
+       9,
+       18
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "dodge_s": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       10,
+       19
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       18,
+       19
+      ],
+      "hand_near": [
+       12,
+       19
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       10,
+       19
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "dodge_e": [
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       18
+      ],
+      "bow_nock": [
+       22,
+       19
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       13,
+       25
+      ],
+      "foot_near": [
+       17,
+       25
+      ],
+      "hand_far": [
+       15,
+       19
+      ],
+      "hand_near": [
+       16,
+       19
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       19,
+       18
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       22,
+       19
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "dodge_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       20,
+       19
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       12,
+       19
+      ],
+      "hand_near": [
+       18,
+       19
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       16
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       20,
+       19
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "dodge_w": [
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       18
+      ],
+      "bow_nock": [
+       8,
+       19
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       15,
+       19
+      ],
+      "hand_near": [
+       14,
+       19
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       11,
+       18
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       8,
+       19
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "hurt_s": [
+     {
+      "back": [
+       15,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       22
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       23
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       23
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "hurt_e": [
+     {
+      "back": [
+       11,
+       21
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       10,
+       23
+      ],
+      "hand_near": [
+       14,
+       23
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       18,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ]
+     },
+     {
+      "back": [
+       11,
+       22
+      ],
+      "chin": [
+       14,
+       21
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       14,
+       13
+      ],
+      "hip": [
+       14,
+       26
+      ],
+      "shield_front": [
+       18,
+       22
+      ],
+      "torso": [
+       14,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "hurt_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       19,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "hurt_w": [
+     {
+      "back": [
+       19,
+       21
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       20,
+       23
+      ],
+      "hand_near": [
+       16,
+       23
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       12,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ]
+     },
+     {
+      "back": [
+       19,
+       22
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       16,
+       13
+      ],
+      "hip": [
+       16,
+       26
+      ],
+      "shield_front": [
+       12,
+       22
+      ],
+      "torso": [
+       16,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     }
+    ],
+    "stun_s": [
+     {
+      "back": [
+       14,
+       21
+      ],
+      "bow_nock": [
+       8,
+       26
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       18,
+       24
+      ],
+      "hand_near": [
+       10,
+       24
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       14,
+       24
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       26
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       9,
+       26
+      ]
+     },
+     {
+      "back": [
+       16,
+       21
+      ],
+      "bow_nock": [
+       10,
+       26
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       24
+      ],
+      "hand_near": [
+       12,
+       24
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       16,
+       24
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       10,
+       26
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       9,
+       26
+      ]
+     }
+    ],
+    "stun_e": [
+     {
+      "back": [
+       11,
+       21
+      ],
+      "bow_nock": [
+       20,
+       26
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       12,
+       24
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       18,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       20,
+       26
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       21,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       15,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       21,
+       26
+      ]
+     },
+     {
+      "back": [
+       13,
+       21
+      ],
+      "bow_nock": [
+       22,
+       26
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       14,
+       24
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       20,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       26
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       21,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       15,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       21,
+       26
+      ]
+     }
+    ],
+    "stun_n": [
+     {
+      "back": [
+       14,
+       21
+      ],
+      "bow_nock": [
+       20,
+       26
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       18,
+       24
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       14,
+       19
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       20,
+       26
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       21,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       21,
+       26
+      ]
+     },
+     {
+      "back": [
+       16,
+       21
+      ],
+      "bow_nock": [
+       22,
+       26
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       12,
+       24
+      ],
+      "hand_near": [
+       20,
+       24
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       16,
+       19
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       26
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       21,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       21,
+       26
+      ]
+     }
+    ],
+    "stun_w": [
+     {
+      "back": [
+       19,
+       21
+      ],
+      "bow_nock": [
+       10,
+       26
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       18,
+       24
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       12,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ],
+      "weapon_tip": [
+       10,
+       26
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       15,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       9,
+       26
+      ]
+     },
+     {
+      "back": [
+       17,
+       21
+      ],
+      "bow_nock": [
+       8,
+       26
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       16,
+       24
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       10,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       26
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       15,
+       24
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       9,
+       26
+      ]
+     }
+    ],
+    "death_s": [
+     {
+      "back": [
+       15,
+       20
+      ],
+      "chin": [
+       15,
+       18
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       20,
+       22
+      ],
+      "hand_near": [
+       11,
+       22
+      ],
+      "head": [
+       15,
+       10
+      ],
+      "hip": [
+       15,
+       24
+      ],
+      "shield_front": [
+       15,
+       23
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       9,
+       27
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       25
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       9,
+       27
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       26
+      ],
+      "hand_near": [
+       11,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       26
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       26
+      ],
+      "hand_near": [
+       11,
+       26
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       26
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       19,
+       26
+      ],
+      "hand_near": [
+       11,
+       26
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       26
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     }
+    ],
+    "death_e": [
+     {
+      "back": [
+       11,
+       21
+      ],
+      "chin": [
+       14,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       10,
+       23
+      ],
+      "hand_near": [
+       14,
+       23
+      ],
+      "head": [
+       14,
+       11
+      ],
+      "hip": [
+       14,
+       25
+      ],
+      "shield_front": [
+       18,
+       21
+      ],
+      "torso": [
+       14,
+       20
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "bow_nock": [
+       21,
+       27
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       25
+      ],
+      "hand_near": [
+       15,
+       25
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       21,
+       27
+      ]
+     },
+     {
+      "back": [
+       12,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       13,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       19,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     },
+     {
+      "back": [
+       12,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       16,
+       22
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       13,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       19,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     },
+     {
+      "back": [
+       12,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       16,
+       22
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       18,
+       27
+      ],
+      "hand_far": [
+       13,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       19,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     }
+    ],
+    "death_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       10,
+       24
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       21,
+       27
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       25
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       21,
+       27
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       11,
+       26
+      ],
+      "hand_near": [
+       19,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       11,
+       26
+      ],
+      "hand_near": [
+       19,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     },
+     {
+      "back": [
+       15,
+       23
+      ],
+      "bow_nock": [
+       21,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       11,
+       26
+      ],
+      "hand_near": [
+       19,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       21,
+       28
+      ]
+     }
+    ],
+    "death_w": [
+     {
+      "back": [
+       19,
+       21
+      ],
+      "chin": [
+       16,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       20,
+       23
+      ],
+      "hand_near": [
+       16,
+       23
+      ],
+      "head": [
+       16,
+       11
+      ],
+      "hip": [
+       16,
+       25
+      ],
+      "shield_front": [
+       12,
+       21
+      ],
+      "torso": [
+       16,
+       20
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "bow_nock": [
+       9,
+       27
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       25
+      ],
+      "hand_near": [
+       15,
+       25
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       9,
+       27
+      ]
+     },
+     {
+      "back": [
+       18,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       11,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     },
+     {
+      "back": [
+       18,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       14,
+       22
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       11,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     },
+     {
+      "back": [
+       18,
+       23
+      ],
+      "bow_nock": [
+       9,
+       28
+      ],
+      "chin": [
+       14,
+       22
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       17,
+       26
+      ],
+      "hand_near": [
+       15,
+       26
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "hip": [
+       15,
+       27
+      ],
+      "shield_front": [
+       11,
+       23
+      ],
+      "torso": [
+       15,
+       22
+      ],
+      "weapon_tip": [
+       9,
+       28
+      ]
+     }
+    ],
+    "victory_s": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       11,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       10,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       20,
+       16
+      ],
+      "hand_near": [
+       10,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       21
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       10,
+       11
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       10,
+       20
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       24
+      ],
+      "hand_near": [
+       10,
+       20
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       25
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       10,
+       15
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       10,
+       19
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       19,
+       23
+      ],
+      "hand_near": [
+       10,
+       19
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       24
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       10,
+       14
+      ]
+     }
+    ],
+    "victory_e": [
+     {
+      "back": [
+       12,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       17,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       12,
+       18
+      ],
+      "bow_nock": [
+       22,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       13,
+       25
+      ],
+      "foot_near": [
+       17,
+       25
+      ],
+      "hand_far": [
+       14,
+       16
+      ],
+      "hand_near": [
+       18,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       19,
+       18
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       22,
+       11
+      ]
+     },
+     {
+      "back": [
+       12,
+       22
+      ],
+      "bow_nock": [
+       22,
+       20
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       24
+      ],
+      "hand_near": [
+       18,
+       20
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       19,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       22,
+       15
+      ]
+     },
+     {
+      "back": [
+       12,
+       21
+      ],
+      "bow_nock": [
+       22,
+       19
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       12,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_far": [
+       13,
+       23
+      ],
+      "hand_near": [
+       18,
+       19
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       22,
+       14
+      ]
+     }
+    ],
+    "victory_n": [
+     {
+      "back": [
+       15,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       19,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       15,
+       18
+      ],
+      "bow_nock": [
+       20,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       10,
+       16
+      ],
+      "hand_near": [
+       20,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       15,
+       16
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       20,
+       11
+      ]
+     },
+     {
+      "back": [
+       15,
+       22
+      ],
+      "bow_nock": [
+       20,
+       20
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       24
+      ],
+      "hand_near": [
+       20,
+       20
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       15,
+       20
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       20,
+       15
+      ]
+     },
+     {
+      "back": [
+       15,
+       21
+      ],
+      "bow_nock": [
+       20,
+       19
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       12,
+       27
+      ],
+      "hand_far": [
+       11,
+       23
+      ],
+      "hand_near": [
+       20,
+       19
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       15,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       20,
+       14
+      ]
+     }
+    ],
+    "victory_w": [
+     {
+      "back": [
+       18,
+       22
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       13,
+       23
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "back": [
+       18,
+       18
+      ],
+      "bow_nock": [
+       8,
+       16
+      ],
+      "chin": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       25
+      ],
+      "foot_near": [
+       13,
+       25
+      ],
+      "hand_far": [
+       16,
+       16
+      ],
+      "hand_near": [
+       12,
+       16
+      ],
+      "head": [
+       15,
+       8
+      ],
+      "hip": [
+       15,
+       22
+      ],
+      "shield_front": [
+       11,
+       18
+      ],
+      "torso": [
+       15,
+       17
+      ],
+      "weapon_tip": [
+       8,
+       11
+      ]
+     },
+     {
+      "back": [
+       18,
+       22
+      ],
+      "bow_nock": [
+       8,
+       20
+      ],
+      "chin": [
+       15,
+       20
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       24
+      ],
+      "hand_near": [
+       12,
+       20
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "hip": [
+       15,
+       26
+      ],
+      "shield_front": [
+       11,
+       22
+      ],
+      "torso": [
+       15,
+       21
+      ],
+      "weapon_tip": [
+       8,
+       15
+      ]
+     },
+     {
+      "back": [
+       18,
+       21
+      ],
+      "bow_nock": [
+       8,
+       19
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "foot_far": [
+       18,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_far": [
+       17,
+       23
+      ],
+      "hand_near": [
+       12,
+       19
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "hip": [
+       15,
+       25
+      ],
+      "shield_front": [
+       11,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ],
+      "weapon_tip": [
+       8,
+       14
+      ]
+     }
+    ]
+   },
+   "loop_frames": {},
+   "overlays": {
+    "stun": "status_stun"
+   },
+   "timing_profiles": {
+    "player": {
+     "telegraph_min_ms": 0,
+     "hold_scale": 1.0
+    },
+    "enemy": {
+     "telegraph_min_ms": 300,
+     "hold_scale": 1.7
+    },
+    "elite": {
+     "telegraph_min_ms": 350,
+     "hold_scale": 1.8
+    },
+    "boss": {
+     "telegraph_min_ms": 500,
+     "hold_scale": 2.2
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,23 @@
+name: goblin_archer
+family: goblin
+rig: humanoid_small
+timing_profile: enemy
+seed: 1
+parts:
+  ears: goblin
+  eyes: goblin
+  over_torso: loincloth
+  held_near: goblin_bow
+colors:
+  hide: goblin
+  cloth: forest
+  leather: tan
+  eyes: glow yellow
+anims:
+- idle
+- walk
+- combat_idle
+- shoot_bow
+- hurt
+- death
+- victory

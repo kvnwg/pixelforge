@@ -71,6 +71,8 @@ Fill these in as they get built. Built so far:
 - `pf fx build <name>... | --all` (Phase 6): validate FX against `fx_ramps` and export to `out/fx/`; exit 1 on errors.
 - `pf fx review [name...]` (Phase 6): `review/fx/<name>.png` and `review/fx/fx_overview.png`.
 - `pf battle ... --element fire|ice|poison|arcane|holy` (Phase 6): the spell element for `cast`.
+- `tools/make_examples.py` (Phase 10): refresh `out/examples/` (one character per rig, the boss, the FX set) after `pf build --all` and `pf fx build --all`.
+- Loaders (Phase 10): `loaders/pixelforge.ts` (framework-free TypeScript, tested by `tests/test_loaders.py` with Node), `loaders/phaser.js`, `loaders/godot/pixelforge_sprite.gd`.
 - `pf roster` (Phase 7): `review/roster_lineup.png` (every monster beside the anchor, sorted by size, with silhouettes) and the W7 check (Phase 8: recipe `family` members are not compared; mixed size classes are compared on their pivots).
 
 Art is drawn in code as character grids by the scripts in `tools/art/` (run them with `.venv/bin/python tools/art/<script>.py`); the PNGs they write are canonical. Order: `humanoid.py` (base body, with `combat.py` for the combat poses), `anchor_girl.py`, `parts_library.py`, then `weapons.py` (held item poses, smears, hitboxes; it also checks every pose against every frame that uses it). FX: `fx_art.py`, then `pf fx build --all`. Monsters: `slime.py`, `bat.py`, `wolf.py` (each writes its rig's body, parts, anchors and recipe), then `monsters_humanoid.py` (orc, skeleton, frost wolf; after `weapons.py` and `wolf.py`), `goblin.py` (humanoid_small: goblin and goblin chief) and `ogre.py` (humanoid_large on the medium 48 px canvas). Bosses: `stone_warden.py` (the golem rig on the large 64 px canvas; its FX are in `fx_art.py`).

@@ -1,0 +1,7078 @@
+{
+ "frames": [
+  {
+   "filename": "goblin_archer idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer walk_s 0",
+   "frame": {
+    "x": 0,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_s 1",
+   "frame": {
+    "x": 32,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_s 2",
+   "frame": {
+    "x": 64,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_s 3",
+   "frame": {
+    "x": 96,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_e 0",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_e 1",
+   "frame": {
+    "x": 32,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_e 2",
+   "frame": {
+    "x": 64,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_e 3",
+   "frame": {
+    "x": 96,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_n 0",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_n 1",
+   "frame": {
+    "x": 32,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_n 2",
+   "frame": {
+    "x": 64,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_n 3",
+   "frame": {
+    "x": 96,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_w 0",
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_w 1",
+   "frame": {
+    "x": 32,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_w 2",
+   "frame": {
+    "x": 64,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer walk_w 3",
+   "frame": {
+    "x": 96,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 110
+  },
+  {
+   "filename": "goblin_archer combat_idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer combat_idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer combat_idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 0",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 1",
+   "frame": {
+    "x": 32,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 2",
+   "frame": {
+    "x": 64,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 340
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 3",
+   "frame": {
+    "x": 96,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 4",
+   "frame": {
+    "x": 128,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_s 5",
+   "frame": {
+    "x": 160,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 0",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 1",
+   "frame": {
+    "x": 32,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 2",
+   "frame": {
+    "x": 64,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 340
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 3",
+   "frame": {
+    "x": 96,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 4",
+   "frame": {
+    "x": 128,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_e 5",
+   "frame": {
+    "x": 160,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 0",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 1",
+   "frame": {
+    "x": 32,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 2",
+   "frame": {
+    "x": 64,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 340
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 3",
+   "frame": {
+    "x": 96,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 4",
+   "frame": {
+    "x": 128,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_n 5",
+   "frame": {
+    "x": 160,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 0",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 1",
+   "frame": {
+    "x": 32,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 2",
+   "frame": {
+    "x": 64,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 340
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 3",
+   "frame": {
+    "x": 96,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 4",
+   "frame": {
+    "x": 128,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer shoot_bow_w 5",
+   "frame": {
+    "x": 160,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer hurt_s 0",
+   "frame": {
+    "x": 0,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer hurt_s 1",
+   "frame": {
+    "x": 32,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer hurt_s 2",
+   "frame": {
+    "x": 64,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer hurt_e 0",
+   "frame": {
+    "x": 0,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer hurt_e 1",
+   "frame": {
+    "x": 32,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer hurt_e 2",
+   "frame": {
+    "x": 64,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer hurt_n 0",
+   "frame": {
+    "x": 0,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer hurt_n 1",
+   "frame": {
+    "x": 32,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer hurt_n 2",
+   "frame": {
+    "x": 64,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer hurt_w 0",
+   "frame": {
+    "x": 0,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer hurt_w 1",
+   "frame": {
+    "x": 32,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "goblin_archer hurt_w 2",
+   "frame": {
+    "x": 64,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_s 0",
+   "frame": {
+    "x": 0,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer death_s 1",
+   "frame": {
+    "x": 32,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_s 2",
+   "frame": {
+    "x": 64,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_s 3",
+   "frame": {
+    "x": 96,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer death_e 0",
+   "frame": {
+    "x": 0,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer death_e 1",
+   "frame": {
+    "x": 32,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_e 2",
+   "frame": {
+    "x": 64,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_e 3",
+   "frame": {
+    "x": 96,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer death_n 0",
+   "frame": {
+    "x": 0,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer death_n 1",
+   "frame": {
+    "x": 32,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_n 2",
+   "frame": {
+    "x": 64,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_n 3",
+   "frame": {
+    "x": 96,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer death_w 0",
+   "frame": {
+    "x": 0,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "goblin_archer death_w 1",
+   "frame": {
+    "x": 32,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_w 2",
+   "frame": {
+    "x": 64,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "goblin_archer death_w 3",
+   "frame": {
+    "x": 96,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "goblin_archer victory_s 0",
+   "frame": {
+    "x": 0,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_s 1",
+   "frame": {
+    "x": 32,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer victory_s 2",
+   "frame": {
+    "x": 64,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_s 3",
+   "frame": {
+    "x": 96,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "goblin_archer victory_e 0",
+   "frame": {
+    "x": 0,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_e 1",
+   "frame": {
+    "x": 32,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer victory_e 2",
+   "frame": {
+    "x": 64,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_e 3",
+   "frame": {
+    "x": 96,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "goblin_archer victory_n 0",
+   "frame": {
+    "x": 0,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_n 1",
+   "frame": {
+    "x": 32,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer victory_n 2",
+   "frame": {
+    "x": 64,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_n 3",
+   "frame": {
+    "x": 96,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "goblin_archer victory_w 0",
+   "frame": {
+    "x": 0,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_w 1",
+   "frame": {
+    "x": 32,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "goblin_archer victory_w 2",
+   "frame": {
+    "x": 64,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 200
+  },
+  {
+   "filename": "goblin_archer victory_w 3",
+   "frame": {
+    "x": 96,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  }
+ ],
+ "meta": {
+  "app": "pixelforge",
+  "version": "1.0",
+  "image": "goblin_archer.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 192,
+   "h": 896
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "idle_s",
+    "from": 0,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_e",
+    "from": 4,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_n",
+    "from": 8,
+    "to": 11,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_w",
+    "from": 12,
+    "to": 15,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_s",
+    "from": 16,
+    "to": 19,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_e",
+    "from": 20,
+    "to": 23,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_n",
+    "from": 24,
+    "to": 27,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_w",
+    "from": 28,
+    "to": 31,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_s",
+    "from": 32,
+    "to": 35,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_e",
+    "from": 36,
+    "to": 39,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_n",
+    "from": 40,
+    "to": 43,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_w",
+    "from": 44,
+    "to": 47,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_s",
+    "from": 48,
+    "to": 53,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_e",
+    "from": 54,
+    "to": 59,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_n",
+    "from": 60,
+    "to": 65,
+    "direction": "forward"
+   },
+   {
+    "name": "shoot_bow_w",
+    "from": 66,
+    "to": 71,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_s",
+    "from": 72,
+    "to": 74,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_e",
+    "from": 75,
+    "to": 77,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_n",
+    "from": 78,
+    "to": 80,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_w",
+    "from": 81,
+    "to": 83,
+    "direction": "forward"
+   },
+   {
+    "name": "death_s",
+    "from": 84,
+    "to": 87,
+    "direction": "forward"
+   },
+   {
+    "name": "death_e",
+    "from": 88,
+    "to": 91,
+    "direction": "forward"
+   },
+   {
+    "name": "death_n",
+    "from": 92,
+    "to": 95,
+    "direction": "forward"
+   },
+   {
+    "name": "death_w",
+    "from": 96,
+    "to": 99,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_s",
+    "from": 100,
+    "to": 103,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_e",
+    "from": 104,
+    "to": 107,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_n",
+    "from": 108,
+    "to": 111,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_w",
+    "from": 112,
+    "to": 115,
+    "direction": "forward"
+   }
+  ],
+  "pixelforge": {
+   "pivot": [
+    15,
+    27
+   ],
+   "size_class": "small",
+   "rig": "humanoid_small",
+   "timing_profile": "enemy",
+   "loop": {
+    "idle": true,
+    "walk": true,
+    "combat_idle": true,
+    "shoot_bow": false,
+    "hurt": false,
+    "death": false,
+    "victory": true
+   },
+   "events": {
+    "shoot_bow_s": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       9,
+       23
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_e": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       17,
+       22
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_n": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       21,
+       23
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "shoot_bow_w": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 3,
+      "type": "spawn",
+      "fx": "arrow",
+      "point": [
+       13,
+       22
+      ],
+      "point_name": "bow_nock"
+     },
+     {
+      "frame": 5,
+      "type": "recover"
+     }
+    ],
+    "death_s": [
+     {
+      "frame": 3,
+      "type": "vfx",
+      "fx": "poof_smoke",
+      "point": [
+       15,
+       24
+      ],
+      "point_name": "torso"
+     }
+    ],
+    "death_e": [
+     {
+      "frame": 3,
+      "type": "vfx",
+      "fx": "poof_smoke",
+      "point": [
+       15,
+       24
+      ],
+      "point_name": "torso"
+     }
+    ],
+    "death_n": [
+     {
+      "frame": 3,
+      "type": "vfx",
+      "fx": "poof_smoke",
+      "point": [
+       15,
+       24
+      ],
+      "point_name": "torso"
+     }
+    ],
+    "death_w": [
+     {
+      "frame": 3,
+      "type": "vfx",
+      "fx": "poof_smoke",
+      "point": [
+       15,
+       24
+      ],
+      "point_name": "torso"
+     }
+    ]
+   },
+   "phases": {
+    "shoot_bow_s": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_e": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_n": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "shoot_bow_w": [
+     "windup",
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ]
+   },
+   "hitboxes": {},
+   "hurtboxes": {
+    "combat_idle_s": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "combat_idle_e": {
+     "0": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 9,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 9,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "combat_idle_n": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "combat_idle_w": {
+     "0": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "shoot_bow_s": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "shoot_bow_e": {
+     "0": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 8,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "2": [
+      {
+       "x": 8,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "3": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 8,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "shoot_bow_n": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "shoot_bow_w": {
+     "0": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "5": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "hurt_s": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "hurt_e": {
+     "0": [
+      {
+       "x": 8,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 8,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "hurt_n": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "hurt_w": {
+     "0": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "death_s": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 16,
+       "w": 17,
+       "h": 12
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 16,
+       "w": 17,
+       "h": 12
+      }
+     ]
+    },
+    "death_e": {
+     "0": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 9,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 9,
+       "y": 16,
+       "w": 12,
+       "h": 12
+      }
+     ],
+     "3": [
+      {
+       "x": 9,
+       "y": 16,
+       "w": 12,
+       "h": 12
+      }
+     ]
+    },
+    "death_n": {
+     "0": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 16,
+       "w": 17,
+       "h": 12
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 16,
+       "w": 17,
+       "h": 12
+      }
+     ]
+    },
+    "death_w": {
+     "0": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 16,
+       "w": 12,
+       "h": 12
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 16,
+       "w": 12,
+       "h": 12
+      }
+     ]
+    },
+    "victory_s": {
+     "0": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 12,
+       "w": 17,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "victory_e": {
+     "0": [
+      {
+       "x": 9,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "1": [
+      {
+       "x": 9,
+       "y": 12,
+       "w": 12,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 9,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 9,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    },
+    "victory_n": {
+     "0": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 12,
+       "w": 17,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 15,
+       "w": 17,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 7,
+       "y": 14,
+       "w": 17,
+       "h": 14
+      }
+     ]
+    },
+    "victory_w": {
+     "0": [
+      {
+       "x": 10,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 12,
+       "w": 12,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 15,
+       "w": 12,
+       "h": 13
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 14,
+       "w": 12,
+       "h": 14
+      }
+     ]
+    }
+   },
+   "root_motion": {},
+   "stride_px": {},
+   "holds": {
+    "shoot_bow_s": [
+     2
+    ],
+    "shoot_bow_e": [
+     2
+    ],
+    "shoot_bow_n": [
+     2
+    ],
+    "shoot_bow_w": [
+     2
+    ]
+   },
+   "base_durations": {
+    "idle_s": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_e": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_n": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_w": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "walk_s": [
+     110,
+     110,
+     110,
+     110
+    ],
+    "walk_e": [
+     110,
+     110,
+     110,
+     110
+    ],
+    "walk_n": [
+     110,
+     110,
+     110,
+     110
+    ],
+    "walk_w": [
+     110,
+     110,
+     110,
+     110
+    ],
+    "combat_idle_s": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_e": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_n": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_w": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "shoot_bow_s": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_e": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_n": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "shoot_bow_w": [
+     100,
+     120,
+     200,
+     60,
+     120,
+     140
+    ],
+    "hurt_s": [
+     80,
+     120,
+     140
+    ],
+    "hurt_e": [
+     80,
+     120,
+     140
+    ],
+    "hurt_n": [
+     80,
+     120,
+     140
+    ],
+    "hurt_w": [
+     80,
+     120,
+     140
+    ],
+    "death_s": [
+     80,
+     140,
+     140,
+     400
+    ],
+    "death_e": [
+     80,
+     140,
+     140,
+     400
+    ],
+    "death_n": [
+     80,
+     140,
+     140,
+     400
+    ],
+    "death_w": [
+     80,
+     140,
+     140,
+     400
+    ],
+    "victory_s": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_e": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_n": [
+     200,
+     150,
+     200,
+     300
+    ],
+    "victory_w": [
+     200,
+     150,
+     200,
+     300
+    ]
+   },
+   "points": {
+    "combat_idle_s": [
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "combat_idle_e": [
+     {
+      "bow_nock": [
+       14,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "combat_idle_n": [
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "combat_idle_w": [
+     {
+      "bow_nock": [
+       16,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       14,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       14,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "shoot_bow_s": [
+     {
+      "bow_nock": [
+       9,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       9,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       10,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       9,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       9,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       9,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       9,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       9,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       9,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "shoot_bow_e": [
+     {
+      "bow_nock": [
+       17,
+       22
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       15,
+       22
+      ],
+      "chin": [
+       14,
+       21
+      ],
+      "eyes": [
+       14,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       16,
+       22
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       14,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       22
+      ],
+      "chin": [
+       14,
+       21
+      ],
+      "eyes": [
+       14,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       16,
+       22
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       14,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       17,
+       22
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       17,
+       22
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       22
+      ],
+      "chin": [
+       14,
+       21
+      ],
+      "eyes": [
+       14,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       16,
+       22
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       14,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "shoot_bow_n": [
+     {
+      "bow_nock": [
+       21,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       21,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       20,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       21,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       21,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       21,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       21,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       21,
+       23
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       21,
+       23
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "shoot_bow_w": [
+     {
+      "bow_nock": [
+       13,
+       22
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       15,
+       22
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "eyes": [
+       16,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       14,
+       22
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       16,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       22
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "eyes": [
+       16,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       14,
+       22
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       16,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       13,
+       22
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       13,
+       22
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       22
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "eyes": [
+       16,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       14,
+       22
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       16,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "hurt_s": [
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "hurt_e": [
+     {
+      "bow_nock": [
+       13,
+       24
+      ],
+      "chin": [
+       14,
+       21
+      ],
+      "eyes": [
+       14,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       13,
+       24
+      ],
+      "head": [
+       14,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       14,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       13,
+       25
+      ],
+      "chin": [
+       14,
+       22
+      ],
+      "eyes": [
+       14,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       13,
+       25
+      ],
+      "head": [
+       14,
+       15
+      ],
+      "mouth": [
+       15,
+       21
+      ],
+      "torso": [
+       14,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       14,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "hurt_n": [
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "hurt_w": [
+     {
+      "bow_nock": [
+       17,
+       24
+      ],
+      "chin": [
+       16,
+       21
+      ],
+      "eyes": [
+       16,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       17,
+       24
+      ],
+      "head": [
+       16,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "torso": [
+       16,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       17,
+       25
+      ],
+      "chin": [
+       16,
+       22
+      ],
+      "eyes": [
+       16,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       17,
+       25
+      ],
+      "head": [
+       16,
+       15
+      ],
+      "mouth": [
+       15,
+       21
+      ],
+      "torso": [
+       16,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       16,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "death_s": [
+     {
+      "bow_nock": [
+       11,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     },
+     {
+      "bow_nock": [
+       9,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     }
+    ],
+    "death_e": [
+     {
+      "bow_nock": [
+       14,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       26
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     },
+     {
+      "bow_nock": [
+       19,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     }
+    ],
+    "death_n": [
+     {
+      "bow_nock": [
+       19,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       23,
+       26
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       23,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     },
+     {
+      "bow_nock": [
+       23,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       16,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     }
+    ],
+    "death_w": [
+     {
+      "bow_nock": [
+       16,
+       24
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       24
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       26
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       14,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       14,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     },
+     {
+      "bow_nock": [
+       11,
+       26
+      ],
+      "chin": [
+       15,
+       23
+      ],
+      "eyes": [
+       15,
+       20
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       26
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       14,
+       22
+      ],
+      "torso": [
+       15,
+       24
+      ]
+     }
+    ],
+    "victory_s": [
+     {
+      "bow_nock": [
+       11,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       11,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       10,
+       18
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "eyes": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       10,
+       18
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       16,
+       18
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "bow_nock": [
+       10,
+       21
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       10,
+       21
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       10,
+       20
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       10,
+       20
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "victory_e": [
+     {
+      "bow_nock": [
+       14,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       14,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       12,
+       18
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "eyes": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       12,
+       18
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       16,
+       18
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "bow_nock": [
+       12,
+       21
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       12,
+       21
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       12,
+       20
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       12,
+       20
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "victory_n": [
+     {
+      "bow_nock": [
+       19,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       19,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       20,
+       18
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "eyes": [
+       15,
+       16
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       20,
+       18
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       16,
+       18
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "bow_nock": [
+       20,
+       21
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       20,
+       21
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       16,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       20,
+       20
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       17,
+       27
+      ],
+      "foot_near": [
+       13,
+       27
+      ],
+      "hand_near": [
+       20,
+       20
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       16,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ],
+    "victory_w": [
+     {
+      "bow_nock": [
+       16,
+       25
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       16,
+       25
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       14,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       18,
+       18
+      ],
+      "chin": [
+       15,
+       19
+      ],
+      "eyes": [
+       15,
+       16
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       18,
+       18
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       14,
+       18
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "bow_nock": [
+       18,
+       21
+      ],
+      "chin": [
+       15,
+       22
+      ],
+      "eyes": [
+       15,
+       19
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       18,
+       21
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       14,
+       21
+      ],
+      "torso": [
+       15,
+       23
+      ]
+     },
+     {
+      "bow_nock": [
+       18,
+       20
+      ],
+      "chin": [
+       15,
+       21
+      ],
+      "eyes": [
+       15,
+       18
+      ],
+      "foot_far": [
+       13,
+       27
+      ],
+      "foot_near": [
+       17,
+       27
+      ],
+      "hand_near": [
+       18,
+       20
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       14,
+       20
+      ],
+      "torso": [
+       15,
+       22
+      ]
+     }
+    ]
+   },
+   "loop_frames": {},
+   "overlays": {},
+   "timing_profiles": {
+    "player": {
+     "telegraph_min_ms": 0,
+     "hold_scale": 1.0
+    },
+    "enemy": {
+     "telegraph_min_ms": 300,
+     "hold_scale": 1.7
+    },
+    "elite": {
+     "telegraph_min_ms": 350,
+     "hold_scale": 1.8
+    },
+    "boss": {
+     "telegraph_min_ms": 500,
+     "hold_scale": 2.2
+    }
+   }
+  }
+ }
+}

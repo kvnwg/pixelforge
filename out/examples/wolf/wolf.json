@@ -1,0 +1,6529 @@
+{
+ "frames": [
+  {
+   "filename": "wolf idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_s 0",
+   "frame": {
+    "x": 0,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_s 1",
+   "frame": {
+    "x": 32,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_s 2",
+   "frame": {
+    "x": 64,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_s 3",
+   "frame": {
+    "x": 96,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_e 0",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_e 1",
+   "frame": {
+    "x": 32,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_e 2",
+   "frame": {
+    "x": 64,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_e 3",
+   "frame": {
+    "x": 96,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_n 0",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_n 1",
+   "frame": {
+    "x": 32,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_n 2",
+   "frame": {
+    "x": 64,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_n 3",
+   "frame": {
+    "x": 96,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_w 0",
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_w 1",
+   "frame": {
+    "x": 32,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf combat_idle_w 2",
+   "frame": {
+    "x": 64,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 400
+  },
+  {
+   "filename": "wolf combat_idle_w 3",
+   "frame": {
+    "x": 96,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf walk_s 0",
+   "frame": {
+    "x": 0,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_s 1",
+   "frame": {
+    "x": 32,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_s 2",
+   "frame": {
+    "x": 64,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_s 3",
+   "frame": {
+    "x": 96,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_e 0",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_e 1",
+   "frame": {
+    "x": 32,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_e 2",
+   "frame": {
+    "x": 64,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_e 3",
+   "frame": {
+    "x": 96,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_n 0",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_n 1",
+   "frame": {
+    "x": 32,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_n 2",
+   "frame": {
+    "x": 64,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_n 3",
+   "frame": {
+    "x": 96,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_w 0",
+   "frame": {
+    "x": 0,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_w 1",
+   "frame": {
+    "x": 32,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_w 2",
+   "frame": {
+    "x": 64,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf walk_w 3",
+   "frame": {
+    "x": 96,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf run_s 0",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_s 1",
+   "frame": {
+    "x": 32,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_s 2",
+   "frame": {
+    "x": 64,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_s 3",
+   "frame": {
+    "x": 96,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_s 4",
+   "frame": {
+    "x": 128,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_s 5",
+   "frame": {
+    "x": 160,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 0",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 1",
+   "frame": {
+    "x": 32,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 2",
+   "frame": {
+    "x": 64,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 3",
+   "frame": {
+    "x": 96,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 4",
+   "frame": {
+    "x": 128,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_e 5",
+   "frame": {
+    "x": 160,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 0",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 1",
+   "frame": {
+    "x": 32,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 2",
+   "frame": {
+    "x": 64,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 3",
+   "frame": {
+    "x": 96,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 4",
+   "frame": {
+    "x": 128,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_n 5",
+   "frame": {
+    "x": 160,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 0",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 1",
+   "frame": {
+    "x": 32,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 2",
+   "frame": {
+    "x": 64,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 3",
+   "frame": {
+    "x": 96,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 4",
+   "frame": {
+    "x": 128,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf run_w 5",
+   "frame": {
+    "x": 160,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf attack_bite_s 0",
+   "frame": {
+    "x": 0,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 272
+  },
+  {
+   "filename": "wolf attack_bite_s 1",
+   "frame": {
+    "x": 32,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 238
+  },
+  {
+   "filename": "wolf attack_bite_s 2",
+   "frame": {
+    "x": 64,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "wolf attack_bite_s 3",
+   "frame": {
+    "x": 96,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf attack_bite_s 4",
+   "frame": {
+    "x": 128,
+    "y": 512,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf attack_bite_e 0",
+   "frame": {
+    "x": 0,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 272
+  },
+  {
+   "filename": "wolf attack_bite_e 1",
+   "frame": {
+    "x": 32,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 238
+  },
+  {
+   "filename": "wolf attack_bite_e 2",
+   "frame": {
+    "x": 64,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "wolf attack_bite_e 3",
+   "frame": {
+    "x": 96,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf attack_bite_e 4",
+   "frame": {
+    "x": 128,
+    "y": 544,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf attack_bite_n 0",
+   "frame": {
+    "x": 0,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 272
+  },
+  {
+   "filename": "wolf attack_bite_n 1",
+   "frame": {
+    "x": 32,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 238
+  },
+  {
+   "filename": "wolf attack_bite_n 2",
+   "frame": {
+    "x": 64,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "wolf attack_bite_n 3",
+   "frame": {
+    "x": 96,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf attack_bite_n 4",
+   "frame": {
+    "x": 128,
+    "y": 576,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf attack_bite_w 0",
+   "frame": {
+    "x": 0,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 272
+  },
+  {
+   "filename": "wolf attack_bite_w 1",
+   "frame": {
+    "x": 32,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 238
+  },
+  {
+   "filename": "wolf attack_bite_w 2",
+   "frame": {
+    "x": 64,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "wolf attack_bite_w 3",
+   "frame": {
+    "x": 96,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf attack_bite_w 4",
+   "frame": {
+    "x": 128,
+    "y": 608,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf howl_s 0",
+   "frame": {
+    "x": 0,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf howl_s 1",
+   "frame": {
+    "x": 32,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "wolf howl_s 2",
+   "frame": {
+    "x": 64,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_s 3",
+   "frame": {
+    "x": 96,
+    "y": 640,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf howl_e 0",
+   "frame": {
+    "x": 0,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf howl_e 1",
+   "frame": {
+    "x": 32,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "wolf howl_e 2",
+   "frame": {
+    "x": 64,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_e 3",
+   "frame": {
+    "x": 96,
+    "y": 672,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf howl_n 0",
+   "frame": {
+    "x": 0,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf howl_n 1",
+   "frame": {
+    "x": 32,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "wolf howl_n 2",
+   "frame": {
+    "x": 64,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_n 3",
+   "frame": {
+    "x": 96,
+    "y": 704,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf howl_w 0",
+   "frame": {
+    "x": 0,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf howl_w 1",
+   "frame": {
+    "x": 32,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 300
+  },
+  {
+   "filename": "wolf howl_w 2",
+   "frame": {
+    "x": 64,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 510
+  },
+  {
+   "filename": "wolf howl_w 3",
+   "frame": {
+    "x": 96,
+    "y": 736,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 150
+  },
+  {
+   "filename": "wolf hurt_s 0",
+   "frame": {
+    "x": 0,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf hurt_s 1",
+   "frame": {
+    "x": 32,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf hurt_s 2",
+   "frame": {
+    "x": 64,
+    "y": 768,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf hurt_e 0",
+   "frame": {
+    "x": 0,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf hurt_e 1",
+   "frame": {
+    "x": 32,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf hurt_e 2",
+   "frame": {
+    "x": 64,
+    "y": 800,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf hurt_n 0",
+   "frame": {
+    "x": 0,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf hurt_n 1",
+   "frame": {
+    "x": 32,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf hurt_n 2",
+   "frame": {
+    "x": 64,
+    "y": 832,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf hurt_w 0",
+   "frame": {
+    "x": 0,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf hurt_w 1",
+   "frame": {
+    "x": 32,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 120
+  },
+  {
+   "filename": "wolf hurt_w 2",
+   "frame": {
+    "x": 64,
+    "y": 864,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf death_s 0",
+   "frame": {
+    "x": 0,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf death_s 1",
+   "frame": {
+    "x": 32,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf death_s 2",
+   "frame": {
+    "x": 64,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf death_s 3",
+   "frame": {
+    "x": 96,
+    "y": 896,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "wolf death_e 0",
+   "frame": {
+    "x": 0,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf death_e 1",
+   "frame": {
+    "x": 32,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf death_e 2",
+   "frame": {
+    "x": 64,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf death_e 3",
+   "frame": {
+    "x": 96,
+    "y": 928,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "wolf death_n 0",
+   "frame": {
+    "x": 0,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf death_n 1",
+   "frame": {
+    "x": 32,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf death_n 2",
+   "frame": {
+    "x": 64,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf death_n 3",
+   "frame": {
+    "x": 96,
+    "y": 960,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  },
+  {
+   "filename": "wolf death_w 0",
+   "frame": {
+    "x": 0,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "wolf death_w 1",
+   "frame": {
+    "x": 32,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "wolf death_w 2",
+   "frame": {
+    "x": 64,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 160
+  },
+  {
+   "filename": "wolf death_w 3",
+   "frame": {
+    "x": 96,
+    "y": 992,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 600
+  }
+ ],
+ "meta": {
+  "app": "pixelforge",
+  "version": "1.0",
+  "image": "wolf.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 192,
+   "h": 1024
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "idle_s",
+    "from": 0,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_e",
+    "from": 4,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_n",
+    "from": 8,
+    "to": 11,
+    "direction": "forward"
+   },
+   {
+    "name": "idle_w",
+    "from": 12,
+    "to": 15,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_s",
+    "from": 16,
+    "to": 19,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_e",
+    "from": 20,
+    "to": 23,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_n",
+    "from": 24,
+    "to": 27,
+    "direction": "forward"
+   },
+   {
+    "name": "combat_idle_w",
+    "from": 28,
+    "to": 31,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_s",
+    "from": 32,
+    "to": 35,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_e",
+    "from": 36,
+    "to": 39,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_n",
+    "from": 40,
+    "to": 43,
+    "direction": "forward"
+   },
+   {
+    "name": "walk_w",
+    "from": 44,
+    "to": 47,
+    "direction": "forward"
+   },
+   {
+    "name": "run_s",
+    "from": 48,
+    "to": 53,
+    "direction": "forward"
+   },
+   {
+    "name": "run_e",
+    "from": 54,
+    "to": 59,
+    "direction": "forward"
+   },
+   {
+    "name": "run_n",
+    "from": 60,
+    "to": 65,
+    "direction": "forward"
+   },
+   {
+    "name": "run_w",
+    "from": 66,
+    "to": 71,
+    "direction": "forward"
+   },
+   {
+    "name": "attack_bite_s",
+    "from": 72,
+    "to": 76,
+    "direction": "forward"
+   },
+   {
+    "name": "attack_bite_e",
+    "from": 77,
+    "to": 81,
+    "direction": "forward"
+   },
+   {
+    "name": "attack_bite_n",
+    "from": 82,
+    "to": 86,
+    "direction": "forward"
+   },
+   {
+    "name": "attack_bite_w",
+    "from": 87,
+    "to": 91,
+    "direction": "forward"
+   },
+   {
+    "name": "howl_s",
+    "from": 92,
+    "to": 95,
+    "direction": "forward"
+   },
+   {
+    "name": "howl_e",
+    "from": 96,
+    "to": 99,
+    "direction": "forward"
+   },
+   {
+    "name": "howl_n",
+    "from": 100,
+    "to": 103,
+    "direction": "forward"
+   },
+   {
+    "name": "howl_w",
+    "from": 104,
+    "to": 107,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_s",
+    "from": 108,
+    "to": 110,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_e",
+    "from": 111,
+    "to": 113,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_n",
+    "from": 114,
+    "to": 116,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_w",
+    "from": 117,
+    "to": 119,
+    "direction": "forward"
+   },
+   {
+    "name": "death_s",
+    "from": 120,
+    "to": 123,
+    "direction": "forward"
+   },
+   {
+    "name": "death_e",
+    "from": 124,
+    "to": 127,
+    "direction": "forward"
+   },
+   {
+    "name": "death_n",
+    "from": 128,
+    "to": 131,
+    "direction": "forward"
+   },
+   {
+    "name": "death_w",
+    "from": 132,
+    "to": 135,
+    "direction": "forward"
+   }
+  ],
+  "pixelforge": {
+   "pivot": [
+    15,
+    27
+   ],
+   "size_class": "small",
+   "rig": "quadruped",
+   "timing_profile": "enemy",
+   "loop": {
+    "idle": true,
+    "combat_idle": true,
+    "walk": true,
+    "run": true,
+    "attack_bite": false,
+    "howl": false,
+    "hurt": false,
+    "death": false
+   },
+   "events": {
+    "attack_bite_s": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 2,
+      "type": "hit",
+      "fx": "spark_small"
+     },
+     {
+      "frame": 4,
+      "type": "recover"
+     }
+    ],
+    "attack_bite_e": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 2,
+      "type": "hit",
+      "fx": "spark_small"
+     },
+     {
+      "frame": 4,
+      "type": "recover"
+     }
+    ],
+    "attack_bite_n": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 2,
+      "type": "hit",
+      "fx": "spark_small"
+     },
+     {
+      "frame": 4,
+      "type": "recover"
+     }
+    ],
+    "attack_bite_w": [
+     {
+      "frame": 0,
+      "type": "windup"
+     },
+     {
+      "frame": 2,
+      "type": "hit",
+      "fx": "spark_small"
+     },
+     {
+      "frame": 4,
+      "type": "recover"
+     }
+    ],
+    "howl_s": [
+     {
+      "frame": 1,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       15,
+       17
+      ],
+      "point_name": "mouth"
+     },
+     {
+      "frame": 2,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       15,
+       17
+      ],
+      "point_name": "mouth"
+     }
+    ],
+    "howl_e": [
+     {
+      "frame": 1,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       23,
+       11
+      ],
+      "point_name": "mouth"
+     },
+     {
+      "frame": 2,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       23,
+       11
+      ],
+      "point_name": "mouth"
+     }
+    ],
+    "howl_n": [
+     {
+      "frame": 1,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       15,
+       13
+      ],
+      "point_name": "mouth"
+     },
+     {
+      "frame": 2,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       15,
+       13
+      ],
+      "point_name": "mouth"
+     }
+    ],
+    "howl_w": [
+     {
+      "frame": 1,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       7,
+       11
+      ],
+      "point_name": "mouth"
+     },
+     {
+      "frame": 2,
+      "type": "vfx",
+      "fx": "sound_rings",
+      "point": [
+       7,
+       11
+      ],
+      "point_name": "mouth"
+     }
+    ]
+   },
+   "phases": {
+    "attack_bite_s": [
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "attack_bite_e": [
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "attack_bite_n": [
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ],
+    "attack_bite_w": [
+     "windup",
+     "windup",
+     "active",
+     "recovery",
+     "recovery"
+    ]
+   },
+   "hitboxes": {
+    "attack_bite_s": {
+     "2": [
+      {
+       "x": 10,
+       "y": 16,
+       "w": 11,
+       "h": 10
+      }
+     ]
+    },
+    "attack_bite_e": {
+     "2": [
+      {
+       "x": 24,
+       "y": 13,
+       "w": 7,
+       "h": 9
+      }
+     ]
+    },
+    "attack_bite_n": {
+     "2": [
+      {
+       "x": 10,
+       "y": 6,
+       "w": 11,
+       "h": 10
+      }
+     ]
+    },
+    "attack_bite_w": {
+     "2": [
+      {
+       "x": 0,
+       "y": 13,
+       "w": 7,
+       "h": 9
+      }
+     ]
+    }
+   },
+   "hurtboxes": {
+    "combat_idle_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 10,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 10,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ]
+    },
+    "combat_idle_e": {
+     "0": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 3,
+       "y": 13,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "combat_idle_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ]
+    },
+    "combat_idle_w": {
+     "0": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 6,
+       "y": 13,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "attack_bite_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 10,
+       "h": 14
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 15,
+       "w": 10,
+       "h": 13
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 10,
+       "h": 15
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ]
+    },
+    "attack_bite_e": {
+     "0": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 24,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
+       "y": 12,
+       "w": 23,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 4,
+       "y": 12,
+       "w": 21,
+       "h": 16
+      }
+     ]
+    },
+    "attack_bite_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "4": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ]
+    },
+    "attack_bite_w": {
+     "0": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "2": [
+      {
+       "x": 4,
+       "y": 12,
+       "w": 24,
+       "h": 16
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
+       "y": 12,
+       "w": 23,
+       "h": 16
+      }
+     ],
+     "4": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 21,
+       "h": 16
+      }
+     ]
+    },
+    "howl_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 11,
+       "w": 10,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ]
+    },
+    "howl_e": {
+     "0": [
+      {
+       "x": 3,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 3,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 3,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "howl_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "3": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ]
+    },
+    "howl_w": {
+     "0": [
+      {
+       "x": 7,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 7,
+       "y": 11,
+       "w": 21,
+       "h": 17
+      }
+     ],
+     "3": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "hurt_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 13,
+       "w": 10,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ]
+    },
+    "hurt_e": {
+     "0": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 3,
+       "y": 13,
+       "w": 21,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "hurt_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ]
+    },
+    "hurt_w": {
+     "0": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 7,
+       "y": 13,
+       "w": 21,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ]
+    },
+    "death_s": {
+     "0": [
+      {
+       "x": 11,
+       "y": 12,
+       "w": 10,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 11,
+       "y": 14,
+       "w": 10,
+       "h": 14
+      }
+     ],
+     "2": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ]
+    },
+    "death_e": {
+     "0": [
+      {
+       "x": 3,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 3,
+       "y": 13,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ]
+    },
+    "death_n": {
+     "0": [
+      {
+       "x": 10,
+       "y": 10,
+       "w": 11,
+       "h": 18
+      }
+     ],
+     "1": [
+      {
+       "x": 10,
+       "y": 11,
+       "w": 11,
+       "h": 17
+      }
+     ],
+     "2": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ],
+     "3": [
+      {
+       "x": 4,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ]
+    },
+    "death_w": {
+     "0": [
+      {
+       "x": 6,
+       "y": 12,
+       "w": 22,
+       "h": 16
+      }
+     ],
+     "1": [
+      {
+       "x": 6,
+       "y": 13,
+       "w": 22,
+       "h": 15
+      }
+     ],
+     "2": [
+      {
+       "x": 5,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ],
+     "3": [
+      {
+       "x": 5,
+       "y": 22,
+       "w": 22,
+       "h": 6
+      }
+     ]
+    }
+   },
+   "root_motion": {
+    "attack_bite_s": [
+     0,
+     0,
+     4,
+     0,
+     0
+    ],
+    "attack_bite_e": [
+     0,
+     0,
+     4,
+     0,
+     0
+    ],
+    "attack_bite_n": [
+     0,
+     0,
+     4,
+     0,
+     0
+    ],
+    "attack_bite_w": [
+     0,
+     0,
+     4,
+     0,
+     0
+    ]
+   },
+   "stride_px": {},
+   "holds": {
+    "attack_bite_s": [
+     0,
+     1
+    ],
+    "attack_bite_e": [
+     0,
+     1
+    ],
+    "attack_bite_n": [
+     0,
+     1
+    ],
+    "attack_bite_w": [
+     0,
+     1
+    ],
+    "howl_s": [
+     2
+    ],
+    "howl_e": [
+     2
+    ],
+    "howl_n": [
+     2
+    ],
+    "howl_w": [
+     2
+    ]
+   },
+   "base_durations": {
+    "idle_s": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_e": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_n": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "idle_w": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_s": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_e": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_n": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "combat_idle_w": [
+     400,
+     150,
+     400,
+     150
+    ],
+    "walk_s": [
+     120,
+     120,
+     120,
+     120
+    ],
+    "walk_e": [
+     120,
+     120,
+     120,
+     120
+    ],
+    "walk_n": [
+     120,
+     120,
+     120,
+     120
+    ],
+    "walk_w": [
+     120,
+     120,
+     120,
+     120
+    ],
+    "run_s": [
+     80,
+     80,
+     80,
+     80,
+     80,
+     80
+    ],
+    "run_e": [
+     80,
+     80,
+     80,
+     80,
+     80,
+     80
+    ],
+    "run_n": [
+     80,
+     80,
+     80,
+     80,
+     80,
+     80
+    ],
+    "run_w": [
+     80,
+     80,
+     80,
+     80,
+     80,
+     80
+    ],
+    "attack_bite_s": [
+     160,
+     140,
+     60,
+     120,
+     160
+    ],
+    "attack_bite_e": [
+     160,
+     140,
+     60,
+     120,
+     160
+    ],
+    "attack_bite_n": [
+     160,
+     140,
+     60,
+     120,
+     160
+    ],
+    "attack_bite_w": [
+     160,
+     140,
+     60,
+     120,
+     160
+    ],
+    "howl_s": [
+     120,
+     300,
+     300,
+     150
+    ],
+    "howl_e": [
+     120,
+     300,
+     300,
+     150
+    ],
+    "howl_n": [
+     120,
+     300,
+     300,
+     150
+    ],
+    "howl_w": [
+     120,
+     300,
+     300,
+     150
+    ],
+    "hurt_s": [
+     80,
+     120,
+     140
+    ],
+    "hurt_e": [
+     80,
+     120,
+     140
+    ],
+    "hurt_n": [
+     80,
+     120,
+     140
+    ],
+    "hurt_w": [
+     80,
+     120,
+     140
+    ],
+    "death_s": [
+     80,
+     140,
+     160,
+     600
+    ],
+    "death_e": [
+     80,
+     140,
+     160,
+     600
+    ],
+    "death_n": [
+     80,
+     140,
+     160,
+     600
+    ],
+    "death_w": [
+     80,
+     140,
+     160,
+     600
+    ]
+   },
+   "points": {
+    "combat_idle_s": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "mouth": [
+       15,
+       19
+      ],
+      "tail": [
+       19,
+       20
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "mouth": [
+       15,
+       19
+      ],
+      "tail": [
+       19,
+       20
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "combat_idle_e": [
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       13
+      ],
+      "mouth": [
+       24,
+       18
+      ],
+      "tail": [
+       8,
+       19
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       13
+      ],
+      "mouth": [
+       24,
+       18
+      ],
+      "tail": [
+       8,
+       19
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     }
+    ],
+    "combat_idle_n": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       15,
+       14
+      ],
+      "tail": [
+       15,
+       16
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       15,
+       14
+      ],
+      "tail": [
+       15,
+       16
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "combat_idle_w": [
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       13
+      ],
+      "mouth": [
+       6,
+       18
+      ],
+      "tail": [
+       22,
+       19
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       13
+      ],
+      "mouth": [
+       6,
+       18
+      ],
+      "tail": [
+       22,
+       19
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     }
+    ],
+    "attack_bite_s": [
+     {
+      "eyes": [
+       15,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "attack_bite_e": [
+     {
+      "eyes": [
+       21,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       14
+      ],
+      "mouth": [
+       24,
+       19
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       14
+      ],
+      "mouth": [
+       24,
+       20
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       23,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       22,
+       12
+      ],
+      "mouth": [
+       26,
+       18
+      ],
+      "tail": [
+       9,
+       18
+      ],
+      "torso": [
+       14,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       23,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       22,
+       12
+      ],
+      "mouth": [
+       26,
+       17
+      ],
+      "tail": [
+       9,
+       18
+      ],
+      "torso": [
+       14,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     }
+    ],
+    "attack_bite_n": [
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       15,
+       14
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       15,
+       14
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "attack_bite_w": [
+     {
+      "eyes": [
+       9,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       14
+      ],
+      "mouth": [
+       6,
+       19
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       14
+      ],
+      "mouth": [
+       6,
+       20
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       7,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       8,
+       12
+      ],
+      "mouth": [
+       4,
+       18
+      ],
+      "tail": [
+       21,
+       18
+      ],
+      "torso": [
+       16,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       7,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       8,
+       12
+      ],
+      "mouth": [
+       4,
+       17
+      ],
+      "tail": [
+       21,
+       18
+      ],
+      "torso": [
+       16,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     }
+    ],
+    "howl_s": [
+     {
+      "eyes": [
+       15,
+       14
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "mouth": [
+       15,
+       17
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       14
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "mouth": [
+       15,
+       17
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       14
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       11
+      ],
+      "mouth": [
+       15,
+       17
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "howl_e": [
+     {
+      "eyes": [
+       20,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       11
+      ],
+      "mouth": [
+       23,
+       11
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       20,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       11
+      ],
+      "mouth": [
+       23,
+       11
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       20,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       11
+      ],
+      "mouth": [
+       23,
+       11
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     }
+    ],
+    "howl_n": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "howl_w": [
+     {
+      "eyes": [
+       10,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       11
+      ],
+      "mouth": [
+       7,
+       11
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       10,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       11
+      ],
+      "mouth": [
+       7,
+       11
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       10,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       11
+      ],
+      "mouth": [
+       7,
+       11
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     }
+    ],
+    "hurt_s": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       13
+      ],
+      "mouth": [
+       15,
+       19
+      ],
+      "tail": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "hurt_e": [
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       20,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       19,
+       13
+      ],
+      "mouth": [
+       23,
+       18
+      ],
+      "tail": [
+       8,
+       20
+      ],
+      "torso": [
+       13,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     }
+    ],
+    "hurt_n": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       16
+      ],
+      "mouth": [
+       15,
+       14
+      ],
+      "tail": [
+       15,
+       17
+      ],
+      "torso": [
+       15,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     }
+    ],
+    "hurt_w": [
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       10,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       11,
+       13
+      ],
+      "mouth": [
+       7,
+       18
+      ],
+      "tail": [
+       22,
+       20
+      ],
+      "torso": [
+       17,
+       20
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     }
+    ],
+    "death_s": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       12
+      ],
+      "mouth": [
+       15,
+       18
+      ],
+      "tail": [
+       19,
+       19
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       14
+      ],
+      "mouth": [
+       15,
+       20
+      ],
+      "tail": [
+       19,
+       21
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     }
+    ],
+    "death_e": [
+     {
+      "eyes": [
+       21,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       12
+      ],
+      "mouth": [
+       24,
+       17
+      ],
+      "tail": [
+       8,
+       18
+      ],
+      "torso": [
+       13,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       20,
+       14
+      ],
+      "mouth": [
+       24,
+       19
+      ],
+      "tail": [
+       8,
+       20
+      ],
+      "torso": [
+       13,
+       21
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     }
+    ],
+    "death_n": [
+     {
+      "eyes": [
+       15,
+       15
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       15
+      ],
+      "mouth": [
+       15,
+       13
+      ],
+      "tail": [
+       15,
+       15
+      ],
+      "torso": [
+       15,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       15,
+       17
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       15,
+       17
+      ],
+      "mouth": [
+       15,
+       15
+      ],
+      "tail": [
+       15,
+       17
+      ],
+      "torso": [
+       15,
+       21
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     },
+     {
+      "eyes": [
+       21,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       21,
+       23
+      ],
+      "mouth": [
+       24,
+       25
+      ],
+      "tail": [
+       8,
+       22
+      ],
+      "torso": [
+       13,
+       24
+      ]
+     }
+    ],
+    "death_w": [
+     {
+      "eyes": [
+       9,
+       16
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       12
+      ],
+      "mouth": [
+       6,
+       17
+      ],
+      "tail": [
+       22,
+       18
+      ],
+      "torso": [
+       17,
+       19
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       18
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       10,
+       14
+      ],
+      "mouth": [
+       6,
+       19
+      ],
+      "tail": [
+       22,
+       20
+      ],
+      "torso": [
+       17,
+       21
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       9,
+       23
+      ],
+      "mouth": [
+       6,
+       25
+      ],
+      "tail": [
+       22,
+       22
+      ],
+      "torso": [
+       17,
+       24
+      ]
+     },
+     {
+      "eyes": [
+       9,
+       24
+      ],
+      "ground": [
+       15,
+       27
+      ],
+      "head": [
+       9,
+       23
+      ],
+      "mouth": [
+       6,
+       25
+      ],
+      "tail": [
+       22,
+       22
+      ],
+      "torso": [
+       17,
+       24
+      ]
+     }
+    ]
+   },
+   "loop_frames": {},
+   "overlays": {},
+   "timing_profiles": {
+    "player": {
+     "telegraph_min_ms": 0,
+     "hold_scale": 1.0
+    },
+    "enemy": {
+     "telegraph_min_ms": 300,
+     "hold_scale": 1.7
+    },
+    "elite": {
+     "telegraph_min_ms": 350,
+     "hold_scale": 1.8
+    },
+    "boss": {
+     "telegraph_min_ms": 500,
+     "hold_scale": 2.2
+    }
+   }
+  }
+ }
+}

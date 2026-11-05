@@ -1492,6 +1492,49 @@
           ],
           "note": "the club swing: raised, coiled, down, follow-through"
         },
+        "shoot_bow": {
+          "loop": false,
+          "frames_ms": [
+            100,
+            120,
+            200,
+            60,
+            120,
+            140
+          ],
+          "hold_frames": [
+            2
+          ],
+          "charge_loop_frame": 2,
+          "active_frames": [
+            3
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 3,
+              "type": "spawn",
+              "fx": "arrow",
+              "point": "bow_nock"
+            },
+            {
+              "frame": 5,
+              "type": "recover"
+            }
+          ],
+          "note": "the goblin archer: nock, draw, full draw (held), release, recoil, lower"
+        },
         "hurt": {
           "loop": false,
           "frames_ms": [
