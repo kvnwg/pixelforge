@@ -8,3 +8,9 @@ lags: false
 rigs:
 - humanoid
 notes: Tunic to the hip, dark hem.
+allow_singletons:
+  s:
+  - - 11
+    - 20
+  - - 19
+    - 20

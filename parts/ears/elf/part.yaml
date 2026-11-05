@@ -1,0 +1,10 @@
+slot: ears
+variant: elf
+material: skin
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Long pointed ears through the hair.

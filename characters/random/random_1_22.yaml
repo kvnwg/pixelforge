@@ -1,0 +1,21 @@
+name: random_1_22
+rig: humanoid
+timing_profile: player
+seed: 547386200
+parts:
+  belt: sash
+  eyes: dots
+  feet: boots
+  held_near: bow
+  legs_wear: leggings
+  torso_wear: tunic
+colors:
+  accent: orange
+  cloth: teal
+  eyes: violet
+  leather: green
+  skin: frost
+anims:
+- idle
+- blink
+- walk

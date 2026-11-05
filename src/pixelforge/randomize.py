@@ -64,8 +64,19 @@ def random_recipe(style: Style, lib: Library, compat: dict[str, Any], rng: rando
     for m in sorted(materials):
         presets = [p for p in style.materials[m].presets if p not in excluded.get(m, [])]
         colors[m] = rng.choice(presets)
+    # two-tone outfits: a slot listed under slot_colors may take its own preset of its material
+    slot_colors = {}
+    for slot, chance in sorted((compat.get("slot_colors") or {}).items()):
+        if slot in parts and rng.random() < float(chance):
+            m = lib.part(slot, parts[slot]).material
+            presets = [p for p in style.materials[m].presets
+                       if p not in excluded.get(m, []) and p != colors.get(m)]
+            if presets:
+                slot_colors[slot] = rng.choice(presets)
     data = {"name": name, "rig": "humanoid", "timing_profile": "player",
             "seed": rng.randrange(1 << 30), "parts": parts, "colors": colors, "anims": list(anims)}
+    if slot_colors:
+        data["slot_colors"] = slot_colors
     return parse_recipe(data, style)
 
 
@@ -90,12 +101,15 @@ def random_recipes(style: Style, seed: int, count: int, anims: tuple[str, ...] =
     rng = random.Random(seed)
     budget = style.constraints.max_colors_per_frame
     out = []
+    from .build import build
     for i in range(count):
-        for _ in range(100):  # redraw until the character fits the color budget
+        for _ in range(100):  # redraw until the character fits the color budget and validates
             r = random_recipe(style, lib, compat, rng, f"random_{seed}_{i + 1:02d}", anims)
-            if color_count(style, lib, r) <= budget:
+            if color_count(style, lib, r) > budget:
+                continue
+            if not build(style.root, r, style=style, library=lib).findings:
                 break
         else:
-            raise CompatError(f"could not fit a character in {budget} colors")
+            raise CompatError(f"could not draw a clean character in {budget} colors")
         out.append(r)
     return out

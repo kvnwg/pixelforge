@@ -26,11 +26,16 @@ class Recipe:
     anims: tuple[str, ...]
     path: Path | None = None
     raw: dict[str, Any] = field(default_factory=dict, repr=False)
+    # slot -> preset of that slot's part material: one part dyed apart from the rest of its
+    # material (a scarlet cape over a royal tunic, both cloth)
+    slot_colors: dict[str, str] = field(default_factory=dict)
 
     def to_yaml(self) -> str:
         data = {"name": self.name, "rig": self.rig, "timing_profile": self.timing_profile,
                 "seed": self.seed, "parts": dict(self.parts), "colors": dict(self.colors),
                 "anims": list(self.anims)}
+        if self.slot_colors:
+            data["slot_colors"] = dict(self.slot_colors)
         return yaml.safe_dump(data, sort_keys=False, allow_unicode=True)
 
 
@@ -52,6 +57,10 @@ def parse_recipe(data: dict[str, Any], style: Style, path: Path | None = None) -
         elif preset not in style.materials[material].presets:
             problems.append(f"colors.{material}: {preset!r} is not a preset of {material} "
                             f"({', '.join(style.materials[material].presets)})")
+    slot_colors = {str(k): str(v) for k, v in (data.get("slot_colors") or {}).items()}
+    for slot, preset in slot_colors.items():
+        if not any(preset in m.presets for m in style.materials.values()):
+            problems.append(f"slot_colors.{slot}: {preset!r} is not a preset of any material")
     anims = tuple(data.get("anims") or [])
     from .anim import anim_specs
     rig_name = rig if isinstance(rig, str) else None
@@ -63,7 +72,7 @@ def parse_recipe(data: dict[str, Any], style: Style, path: Path | None = None) -
     return Recipe(
         name=str(data["name"]), rig=rig, timing_profile=profile, seed=int(data.get("seed", 1)),
         parts={str(k): str(v) for k, v in data["parts"].items()}, colors=colors, anims=anims,
-        path=path, raw=data,
+        path=path, raw=data, slot_colors=slot_colors,
     )
 
 

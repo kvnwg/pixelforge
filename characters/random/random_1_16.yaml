@@ -1,0 +1,29 @@
+name: random_1_16
+rig: humanoid
+timing_profile: player
+seed: 216377533
+parts:
+  hair_front: short
+  belt: leather_belt
+  eyes: dots
+  headwear: hood
+  held_near: sword
+  legs_wear: leggings
+  scarf: wrap
+  torso_wear: tunic
+  held_near_trim: hilt
+colors:
+  accent: orange
+  cloth: violet
+  eyes: teal
+  hair: black
+  leather: brown (anchor)
+  metal: royal gold
+  skin: porcelain
+anims:
+- idle
+- blink
+- walk
+slot_colors:
+  headwear: wine
+  scarf: emerald

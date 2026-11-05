@@ -27,7 +27,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E8 | Bounds: no opaque pixel outside x 2..29, y 2..30. |
 | E9 | Mirror: every `w` frame equals its `e` frame mirrored around x = 15. |
 | E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. A rig whose body layer also holds raised arms names the layers to measure instead (`validator.head_slots`; the ogre uses its topknot). |
-| E11 | At most 16 distinct colors per frame. |
+| E11 | At most 24 distinct colors per frame (`constraints.max_colors_per_frame`; 16 until the 2026-11-05 design pass). |
 | E12 | Export integrity: JSON frame rects match the sheet, every duration is positive, tags cover all frames with no overlap, events point at valid frames. |
 | E13 | Part material: every pixel in a part file is from that part's declared material base ramp or the outline color. |
 | E14 | Completeness: every animated part in a recipe has a sheet for every animation the recipe lists. |
@@ -44,7 +44,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 |---|---|
 | W1 | Jitter: a region that the animation spec says is static (legs in idle, a planted foot in walk) changed between consecutive frames. Checked on each planted foot's bottom row (x - 1 to x + 1 around the `foot_*` anchor) in the lower-body layers, so a belt swinging in front of a foot is not jitter. A planted foot may move only by the animation's `stride_px` (the ground's travel in a side-view walk). |
 | W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk, after undoing the planned motion (the upper body above the `hip` anchor moved by the head anchor's delta). Usually means boiling or a misaligned layer. A plain pixel count would flag the spec's own 1 px breathing, which moves about half the pixels. Pixels of lagging rigid parts (loose hair) are left out, since they move one frame late by design. |
-| W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one frame, not counting eyes and pixels listed in a part's `allow_singletons`. |
+| W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one part of one frame, not counting eyes, pixels listed in a part's `allow_singletons`, or hurt-flash frames. Counted per part since the design pass: a pixel or two at the edge of each of several overlapping parts (a sword hanging across a pauldron's rim) is occlusion, not noise. |
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
 | W5 | A material uses a single shade over more than 22 connected pixels that are also more than half of that material's visible pixels (a flat, unshaded material). The doc first said 12 connected pixels, but the anchor's own hair light covers 22, and cloth has only two shades, so a big cluster alone is not a flat area. Frames flagged `flash` are skipped: they are one color on purpose. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |

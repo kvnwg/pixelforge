@@ -80,9 +80,9 @@
   "constraints": {
     "oklch_L_range": [
       0.3,
-      0.8
+      0.84
     ],
-    "oklch_C_max": 0.09,
+    "oklch_C_max": 0.13,
     "ramp_L_step_range": [
       0.05,
       0.1
@@ -91,7 +91,7 @@
       3,
       10
     ],
-    "max_colors_per_frame": 16,
+    "max_colors_per_frame": 24,
     "alpha_values_allowed": [
       0,
       255
@@ -138,7 +138,9 @@
         ],
         "reason": "Shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide; the ramp reads correctly in style/monster_fx_swatches.png."
       }
-    }
+    },
+    "bold_note": "Raised on 2026-11-05 from C 0.09 and L 0.80 at the human's request: characters should be as varied and colorful as a chibi roster, each with a signature color. The anchor's own colors stay at C 0.03 to 0.09; bold presets go up to 0.13. FX and glow eyes keep the brighter range.",
+    "max_colors_note": "Raised from 16 on 2026-11-05 (design pass): two-tone outfits (slot_colors), 4-shade metals and fantasy skins need more than 16; the anchor still uses 12."
   },
   "validator": {
     "singletons_max": 3,
@@ -198,6 +200,36 @@
           "#755e4d",
           "#8f7863",
           "#a8957e"
+        ],
+        "ebony": [
+          "#5f3e33",
+          "#735243",
+          "#876655"
+        ],
+        "frost": [
+          "#538296",
+          "#6a96ae",
+          "#81abc6"
+        ],
+        "dusk": [
+          "#5e4f79",
+          "#75618d",
+          "#8d75a0"
+        ],
+        "ash": [
+          "#6a737b",
+          "#7f8791",
+          "#959ca6"
+        ],
+        "ember": [
+          "#92413e",
+          "#a8564b",
+          "#bf6c59"
+        ],
+        "porcelain": [
+          "#af998e",
+          "#c2aea1",
+          "#d7c3b4"
         ]
       },
       "anchor_use": "face, neck line, arms, hands"
@@ -239,6 +271,51 @@
           "#577a6d",
           "#698f85",
           "#80a8a0"
+        ],
+        "fire": [
+          "#96372b",
+          "#ac4f33",
+          "#c2663c"
+        ],
+        "platinum": [
+          "#a29e93",
+          "#b7b4a9",
+          "#cccbbf"
+        ],
+        "raven": [
+          "#293248",
+          "#3c4359",
+          "#50536c"
+        ],
+        "bubblegum": [
+          "#ba6988",
+          "#d37d96",
+          "#ed93a4"
+        ],
+        "lavender": [
+          "#78669f",
+          "#9278b2",
+          "#ac8cc5"
+        ],
+        "sky": [
+          "#3f82a8",
+          "#5b96c1",
+          "#77aadb"
+        ],
+        "leaf": [
+          "#457036",
+          "#518750",
+          "#5d9d6b"
+        ],
+        "copper": [
+          "#9f4f25",
+          "#b46632",
+          "#c87e41"
+        ],
+        "golden": [
+          "#bc9041",
+          "#cda956",
+          "#dec26d"
         ]
       },
       "anchor_use": "hair"
@@ -277,6 +354,54 @@
         "cream": [
           "#9b917e",
           "#afa793"
+        ],
+        "royal": [
+          "#1f438a",
+          "#3d55a0"
+        ],
+        "scarlet": [
+          "#933332",
+          "#aa493c"
+        ],
+        "emerald": [
+          "#0e6936",
+          "#1a7f51"
+        ],
+        "violet": [
+          "#55337c",
+          "#6e458d"
+        ],
+        "sunflower": [
+          "#bb9133",
+          "#cbaa4b"
+        ],
+        "azure": [
+          "#2e84ab",
+          "#4e98c5"
+        ],
+        "rose": [
+          "#b36383",
+          "#cc7791"
+        ],
+        "tangerine": [
+          "#be6436",
+          "#d37c43"
+        ],
+        "ink": [
+          "#313447",
+          "#424357"
+        ],
+        "snow": [
+          "#b5b1a6",
+          "#cac8bc"
+        ],
+        "jade": [
+          "#17745d",
+          "#2c8977"
+        ],
+        "wine": [
+          "#692436",
+          "#803841"
         ]
       },
       "anchor_use": "dress"
@@ -303,6 +428,26 @@
           "#795d46",
           "#8c7258",
           "#9f886b"
+        ],
+        "black": [
+          "#34313a",
+          "#44404a",
+          "#55505a"
+        ],
+        "red": [
+          "#70322d",
+          "#86463b",
+          "#9c5b49"
+        ],
+        "white": [
+          "#989187",
+          "#ada79c",
+          "#c2bdb2"
+        ],
+        "green": [
+          "#314a2b",
+          "#405e40",
+          "#507357"
         ]
       },
       "anchor_use": "legs and feet; same hex values as hair in the anchor but a separate material"
@@ -325,6 +470,34 @@
         "red": [
           "#925651",
           "#ab6e63"
+        ],
+        "emerald": [
+          "#33854a",
+          "#409e6a"
+        ],
+        "sapphire": [
+          "#2f5da0",
+          "#5072bb"
+        ],
+        "amethyst": [
+          "#734f99",
+          "#9164ae"
+        ],
+        "ruby": [
+          "#99383e",
+          "#b4514b"
+        ],
+        "pearl": [
+          "#b4b1a7",
+          "#cac8bd"
+        ],
+        "onyx": [
+          "#35343f",
+          "#484652"
+        ],
+        "orange": [
+          "#c46b39",
+          "#dc8649"
         ]
       },
       "anchor_use": "sash/belt"
@@ -355,6 +528,18 @@
         ],
         "glow ghost": [
           "#83d4d8"
+        ],
+        "blue": [
+          "#2e65a0"
+        ],
+        "violet": [
+          "#664689"
+        ],
+        "amber": [
+          "#b37736"
+        ],
+        "teal": [
+          "#157171"
         ]
       },
       "glow_presets": [
@@ -397,6 +582,42 @@
           "#ac8450",
           "#c29e66",
           "#d5b67b"
+        ],
+        "obsidian": [
+          "#31323c",
+          "#43434d",
+          "#55545e",
+          "#686671"
+        ],
+        "royal gold": [
+          "#9d6800",
+          "#b38225",
+          "#c89e41",
+          "#ddba5c"
+        ],
+        "blued": [
+          "#334f6d",
+          "#4c6585",
+          "#667b9e",
+          "#8092b8"
+        ],
+        "rose gold": [
+          "#8b5243",
+          "#a36a55",
+          "#bc8368",
+          "#d49d7d"
+        ],
+        "verdigris": [
+          "#2e6051",
+          "#43776b",
+          "#598f86",
+          "#6fa8a1"
+        ],
+        "crimson": [
+          "#751e26",
+          "#8c3432",
+          "#a34a3d",
+          "#b9604a"
         ]
       },
       "anchor_use": "not in anchor; armor, helmets, blades"
@@ -686,6 +907,7 @@
   "z_order": {
     "s": [
       "shadow",
+      "cape",
       "back",
       "hair_back",
       "body",
@@ -699,10 +921,14 @@
       "held_far",
       "arm_near",
       "hands",
+      "scarf",
+      "shoulders",
       "hair_front",
       "hair_locks",
+      "ears",
       "eyes",
       "tusks",
+      "beard",
       "headwear",
       "headwear_trim",
       "held_near",
@@ -723,9 +949,14 @@
       "arm_far",
       "arm_near",
       "hands",
+      "cape",
+      "scarf",
+      "shoulders",
       "hair_front",
       "hair_locks",
       "hair_back",
+      "ears",
+      "beard",
       "headwear",
       "headwear_trim",
       "back"
@@ -734,6 +965,7 @@
       "shadow",
       "held_far",
       "arm_far",
+      "cape",
       "back",
       "body",
       "legs_wear",
@@ -742,14 +974,18 @@
       "over_torso",
       "belt",
       "belt_trim",
+      "scarf",
       "hair_back",
       "hair_front",
       "hair_locks",
+      "ears",
       "eyes",
       "tusks",
+      "beard",
       "headwear",
       "headwear_trim",
       "arm_near",
+      "shoulders",
       "hands",
       "held_near",
       "held_near_trim"
@@ -1348,15 +1584,15 @@
       0.3,
       0.93
     ],
-    "oklch_C_max": 0.14,
+    "oklch_C_max": 0.16,
     "note": "FX are the only art allowed brighter and more saturated than characters. That contrast is what makes attacks and spells pop against the muted cast. Binary alpha only, no outline by default."
   },
   "glow_constraints": {
     "oklch_L_range": [
       0.3,
-      0.85
+      0.88
     ],
-    "oklch_C_max": 0.14,
+    "oklch_C_max": 0.16,
     "note": "Limits for glow eye presets (materials.<name>.glow_presets), the only character colors allowed past the normal constraints. Reserved for monsters and elites."
   },
   "size_classes": {
@@ -3035,5 +3271,6 @@
       "hurt": "#3b8bff"
     }
   },
-  "fx_swing_note": "Swing trails: every smear (the arc a swung weapon, club or fist traces on its strike frame) is painted in fx_ramps.swing by rank, brightest at the leading edge, the grey-blue rim on the inside and the tail so the trail reads on light ground too. On the frame after a strike the trail lingers one shade dimmer (rim pixels drop), then is gone. Drawn only on empty pixels, never outlined."
+  "fx_swing_note": "Swing trails: every smear (the arc a swung weapon, club or fist traces on its strike frame) is painted in fx_ramps.swing by rank, brightest at the leading edge, the grey-blue rim on the inside and the tail so the trail reads on light ground too. On the frame after a strike the trail lingers one shade dimmer (rim pixels drop), then is gone. Drawn only on empty pixels, never outlined.",
+  "z_order_note_slots": "Design pass (2026-11-05): cape (behind the body facing s and e, over the back but under the hair facing n), scarf, shoulders (pauldrons over the arms), ears (through the hair), beard (over the face)."
 }

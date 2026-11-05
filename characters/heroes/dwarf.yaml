@@ -1,0 +1,28 @@
+# A dwarf: a copper beard under a horned helm, steel plate with domed pauldrons, and a mace.
+name: dwarf
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: short
+  beard: full
+  headwear: horned_helm
+  headwear_trim: horns
+  torso_wear: plate
+  shoulders: pauldrons
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  held_near: mace
+colors:
+  skin: light (anchor)
+  hair: copper
+  metal: steel
+  leather: brown (anchor)
+  accent: gold (anchor)
+  horn: pale
+  eyes: dark
+anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, dodge, hurt, stun, death, victory]

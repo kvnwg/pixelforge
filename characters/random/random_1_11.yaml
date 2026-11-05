@@ -1,26 +1,28 @@
 name: random_1_11
 rig: humanoid
 timing_profile: player
-seed: 71266493
+seed: 656047419
 parts:
-  hair_front: short
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
   belt: sash
+  ears: elf
   eyes: dots
   feet: boots
-  headwear: hood
   held_far: shield
   held_near: sword
   legs_wear: leggings
   torso_wear: dress
   held_near_trim: hilt
 colors:
-  accent: silver
-  cloth: plum
-  eyes: brown
-  hair: brown (anchor)
-  leather: dark
-  metal: steel
-  skin: fair
+  accent: amethyst
+  cloth: emerald
+  eyes: amber
+  hair: auburn
+  leather: brown (anchor)
+  metal: gold
+  skin: porcelain
 anims:
 - idle
 - blink

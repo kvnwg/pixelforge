@@ -314,7 +314,10 @@ def main() -> None:
                                               lags=True), cells(**PONYTAIL_BACK))
     write_part("hair_back", "bun", rigid(hair, "head", "A bun tied on top; adds two rows."),
                cells(**BUN_BACK))
-    write_part("torso_wear", "tunic", rigid("cloth", "torso", "Tunic to the hip, dark hem."),
+    write_part("torso_wear", "tunic", rigid("cloth", "torso", "Tunic to the hip, dark hem.",
+                                            # the shoulder corners stand alone when a tucked head's
+                                            # ears cover the collar (backflip, dodge)
+                                            allow_singletons={"s": [[11, 20], [19, 20]]}),
                cells(**TUNIC))
     write_part("torso_wear", "robe", rigid("cloth", "torso", "Long robe to the ankles."), cells(**ROBE))
     write_part("torso_wear", "plate", rigid("metal", "torso", "Breastplate with pauldrons and a "

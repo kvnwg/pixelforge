@@ -1,0 +1,10 @@
+slot: headwear
+variant: witch_hat
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A tall cone bent at the tip over a wide brim.

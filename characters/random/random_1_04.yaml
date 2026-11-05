@@ -1,26 +1,31 @@
 name: random_1_04
 rig: humanoid
 timing_profile: player
-seed: 1040453083
+seed: 152291735
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
+  hair_front: short
+  belt: leather_belt
+  cape: cloak
   eyes: dots
-  headwear: great_helm
-  held_near: mace
+  feet: boots
+  headwear: ranger_hat
+  held_far: shield
   legs_wear: leggings
-  over_torso: tabard
-  torso_wear: plate
-  headwear_trim: plume
+  shoulders: pauldrons
+  torso_wear: tunic
+  belt_trim: buckle
+  headwear_trim: feather
 colors:
-  cloth: mustard
-  eyes: navy (anchor)
+  accent: onyx
+  cloth: wine
+  eyes: dark
   hair: auburn
-  leather: tan
-  metal: bronze
-  skin: ogre
+  leather: dark
+  metal: steel
+  skin: deep
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  cape: scarlet

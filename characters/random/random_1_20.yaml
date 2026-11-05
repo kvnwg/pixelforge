@@ -1,0 +1,25 @@
+name: random_1_20
+rig: humanoid
+timing_profile: player
+seed: 1048568374
+parts:
+  hair_front: short
+  hair_back: twintails
+  belt: leather_belt
+  eyes: dots
+  held_near: mace
+  legs_wear: leggings
+  torso_wear: tunic
+  belt_trim: buckle
+colors:
+  accent: emerald
+  cloth: rose
+  eyes: teal
+  hair: fire
+  leather: red
+  metal: iron
+  skin: ash
+anims:
+- idle
+- blink
+- walk

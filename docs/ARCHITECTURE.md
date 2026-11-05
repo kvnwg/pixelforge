@@ -194,11 +194,11 @@ A rig may name **default parts** in `style.json` (`rigs.<rig>.defaults`): every 
 
 Z-order comes from `style.json` (`z_order.s`, `z_order.e`, `z_order.n`), bottom to top. Defaults:
 
-- **s:** shadow, back, hair_back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, held_far, arm_near, hands, hair_front, hair_locks, eyes, headwear, headwear_trim, held_near, held_near_trim
-- **e:** shadow, held_far, arm_far, back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, hair_back, hair_front, hair_locks, eyes, headwear, headwear_trim, arm_near, hands, held_near, held_near_trim
-- **n:** shadow, held_far, held_near, held_near_trim, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, arm_near, hands, hair_front, hair_locks, hair_back, headwear, headwear_trim, back
+- **s:** shadow, cape, back, hair_back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, held_far, arm_near, hands, scarf, shoulders, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_trim, held_near, held_near_trim
+- **e:** shadow, held_far, arm_far, cape, back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, scarf, hair_back, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_trim, arm_near, shoulders, hands, held_near, held_near_trim
+- **n:** shadow, held_far, held_near, held_near_trim, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, arm_near, hands, cape, scarf, shoulders, hair_front, hair_locks, hair_back, ears, beard, headwear, headwear_trim, back
 
-Notes: in the N view, `hair_back` is drawn over the head because it's what you see from behind, and a cape (`back`) goes over everything except headwear. Arms are above clothing in S and N because they hang beside the torso. In E, the near arm and its held item are in front of everything.
+Notes: in the N view, `hair_back` is drawn over the head because it's what you see from behind, and a quiver (`back`) goes over everything. The design pass slots (2026-11-05): `cape` hangs behind the body facing s and e and covers the back facing n, under the hair; `scarf` wraps the collar; `shoulders` (pauldrons) sit over the arms; `ears` poke through the hair; `beard` lies over the face and chest. Arms are above clothing in S and N because they hang beside the torso. In E, the near arm and its held item are in front of everything.
 
 `hides`: a part can hide other slots (a helmet hides `hair_front`, `hair_locks` and `hair_back`). Hidden slots are skipped entirely.
 
@@ -240,7 +240,9 @@ anims: [idle, walk, blink, combat_idle, attack_slash, attack_heavy, block_enter,
 
 `characters/anchor_girl.yaml` must rebuild the anchor exactly (see ROADMAP Phase 1).
 
-Randomizer: `pf random --seed N --count K` picks a part per slot from allowed variants and a preset per material, respecting `hides` and `parts/compat.yaml`: weighted hairstyles (one hairstyle sets up to three hair slots), weighted variants per slot, trims that follow their parent part (a sword gets a hilt), `requires` (a tabard needs plate or a tunic) and `incompatible` pairs (a bun under a tall hat). It redraws any character that would use more than 16 colors in any idle or walk frame, and writes the recipes it generated to `characters/random/` so a good one can be kept. Same seed, same characters.
+`slot_colors` (design pass): `{slot: preset}` gives one part its own preset of its material, so two parts of one material can differ (a scarlet cloak over a royal tunic, both cloth). The validator allows the slot's colors like any recipe color.
+
+Randomizer: `pf random --seed N --count K` picks a part per slot from allowed variants and a preset per material, respecting `hides` and `parts/compat.yaml`: weighted hairstyles (one hairstyle sets up to three hair slots), weighted variants per slot, trims that follow their parent part (a sword gets a hilt), `requires` (a tabard needs plate or a tunic), `incompatible` pairs (a bun under a tall hat, spikes or cat ears under a helmet) and `slot_colors` chances (a cloak in a second color). It redraws any character that would use more colors than the budget in any idle or walk frame, or that would not validate with 0 errors and 0 warnings, and writes the recipes it generated to `characters/random/` so a good one can be kept. Same seed, same characters.
 
 ## 9. Compositing pipeline
 
@@ -284,6 +286,7 @@ Grounded frames measure open soles from the baseline rather than the lowest silh
 ## 11. Recoloring
 
 - Each material has a fixed number of shades (skin 3, hair 3, cloth 2, leather 3, accent 2, eyes 1, metal 4).
+- A recipe's `slot_colors` maps one slot's part to another preset of its material; everything else of that material keeps the recipe's `colors` preset.
 - A preset must have exactly that many shades.
 - Recolor maps base shade i to preset shade i. Because each part declares one material, colors shared between materials (eyes vs cloth, leather vs hair) never collide.
 - `pf palette --check` verifies every preset against the constraints in `style.json` (L range, C max, step size, hue shift direction) and renders a swatch sheet. Hard limits are errors; step size and hue shift are warnings, and known deviations are accepted in `constraints.accepted_ramp_warnings` (STYLE_GUIDE.md section 4).

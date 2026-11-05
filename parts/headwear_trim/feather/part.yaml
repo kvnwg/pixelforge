@@ -1,0 +1,10 @@
+slot: headwear_trim
+variant: feather
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A feather in the hat band.

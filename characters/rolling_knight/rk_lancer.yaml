@@ -1,25 +1,29 @@
-# Rolling Knight lancer: Lancer. Winged helm and lance. See docs/GAMES.md.
+# Rolling Knight lancer: crimson plate under a gold winged helm, a sunflower tabard, white twin tails and a lance. See docs/GAMES.md.
 name: rk_lancer
 rig: humanoid
 timing_profile: player
 seed: 1
 parts:
   eyes: dots
+  hair_back: twintails
+  headwear: winged_helm
   torso_wear: plate
   over_torso: tabard
   belt: leather_belt
-  belt_trim: buckle
   legs_wear: greaves
   feet: boots
   hands: gauntlets
-  headwear: winged_helm
   held_near: lance
   held_near_trim: spearhead
 colors:
-  metal: bronze
-  cloth: mustard
-  leather: brown (anchor)
-  accent: red
   skin: tan
+  hair: platinum
+  metal: crimson
+  cloth: sunflower
+  leather: red
+  accent: gold (anchor)
   eyes: brown
+slot_colors:
+  headwear: royal gold
+  held_near_trim: royal gold
 anims: [idle, blink, walk, run, combat_idle, attack_slash, vault, hurt, stun, death, victory]

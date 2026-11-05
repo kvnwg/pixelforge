@@ -1,22 +1,25 @@
 name: random_1_01
 rig: humanoid
 timing_profile: player
-seed: 636493528
+seed: 259609208
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
+  hair_front: short
+  hair_back: twintails
+  beard: full
+  belt: leather_belt
   eyes: dots
   feet: boots
-  held_near: mace
-  legs_wear: greaves
-  torso_wear: plate
+  headwear: bandana
+  legs_wear: leggings
+  torso_wear: robe
+  belt_trim: buckle
 colors:
-  eyes: navy (anchor)
-  hair: auburn
-  leather: tan
-  metal: steel
-  skin: fair
+  accent: gold (anchor)
+  cloth: rose
+  eyes: dark
+  hair: blonde
+  leather: white
+  skin: porcelain
 anims:
 - idle
 - blink

@@ -1,23 +1,30 @@
 name: random_1_06
 rig: humanoid
 timing_profile: player
-seed: 727747380
+seed: 791756013
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
+  hair_front: short
   belt: sash
+  cape: cloak
   eyes: dots
+  feet: boots
+  headwear: hood
+  held_near: sword
   legs_wear: leggings
-  torso_wear: dress
+  over_torso: tabard
+  torso_wear: plate
+  held_near_trim: hilt
 colors:
-  accent: silver
-  cloth: navy (anchor)
-  eyes: green
-  hair: brown (anchor)
-  leather: tan
-  skin: green (orc)
+  accent: emerald
+  cloth: rose
+  eyes: violet
+  hair: raven
+  leather: red
+  metal: obsidian
+  skin: ember
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  cape: forest

@@ -435,3 +435,24 @@ What the review images show: facing e the anchor girl walks with her feet altern
 Rubric (anchor girl, knight, orc; idle, walk, run in every view): style match 4 (same parts, palette and outline), 1x readability 4 (the run's open stride and the bob read at 1x; the arm swing is subtle where sleeves match the torso, clear with a held weapon), silhouette 4, motion 4 (the breath travels, timing eases, the hair follows through, feet never slide; how it feels at true speed is the human's call in the preview), consistency 4 (every humanoid recipe and derived part shares the cycles), cleanliness 4 (0 validator findings across 33 recipes), part fit 4 (held items stay on the canvas, armor follows the neck), appeal 4, combat readability 4 (locomotion never covers a tell).
 
 Next (MOTION.md section 5): attack_slash and attack_heavy (a two-frame strike, a follow-through that reaches 1 px further and holds, a settle bounce), combat_idle, and the goblin and ogre idles.
+
+---
+
+## Design pass: a colorful, varied cast (after Motion pass 1)
+
+Status: done (commit "Design pass: bold palette, silhouette parts, redesigned cast"; the arcanist got a witch hat when the silhouette test found it too close to the cleric)
+
+Asked for: "u see how character's are different and interesting with different colours and designs. make it like that" (with a reference roster of chibi sprites; not to be copied). Also: "whenever something is swung, have a trail of white behind it" (done first, commit "White swing trails on every swing").
+
+Built:
+- **Palette:** character chroma up to 0.13 and lightness to 0.84 (from 0.09 and 0.80), 48 bold presets generated in OKLCH and checked by `pf palette --check` (0 errors, 0 warnings): cloth royal, scarlet, emerald, violet, sunflower, azure, rose, tangerine, ink, snow, jade, wine; hair fire, platinum, raven, bubblegum, lavender, sky, leaf, copper, golden; skin ebony, frost, dusk, ash, ember, porcelain; metal obsidian, royal gold, blued, rose gold, verdigris, crimson; accents, leathers and eye colors. 24 colors per frame (from 16).
+- **Engine:** `slot_colors` in recipes (one part in its own preset of its material), new slots `cape`, `scarf`, `shoulders`, `ears`, `beard` in the z-order, W3 counted per part.
+- **Parts** (`tools/art/parts_design.py`): cloak (follows through), scarf (tails follow through), pauldrons, full beard, elf ears, cat ears, spiky hair, twin tails (follow through), ranger hat with a feather, bandana; the horned helm lost two speckle pixels.
+- **Cast:** the six Rolling Knight classes and both knights redesigned (GAMES.md), six heroes in `characters/heroes/`, and a randomizer with the new parts, two-tone chances and exclusions that redraws until every character validates (24 random characters).
+
+What the lineup shows: next to the old cast (one domed silhouette in grey, brown and olive), every character now has a shape and a color of its own: the blue guardian with a red plume and cloak, the black-haired blade in a red scarf, the elf ranger under a wide hat with an orange feather, the cleric in gold and white, the white-bearded violet wizard, the gold-helmed lancer with white twin tails, the gold paladin with a blue cloak, the masked corsair, the copper-bearded dwarf, the pink cat-eared scout, the blue frost elf and the horned red warlock.
+
+Rubric (the redesigned cast): style match 4 (same body, outline and shading; the colors are bolder by decision), 1x readability 5 (hats, hair, ears and capes read at 1x where the old cast blurred together), silhouette 5, motion 4 (cloaks, scarves and tails follow through), consistency 4, cleanliness 4 (0 validator findings across 51 recipes), part fit 4, appeal 5, combat readability 4 (the white swing trails stay the brightest thing on screen).
+
+Next: the Stone Warden as a forest guardian (the human's reference), and new monsters: big, slow ones (a dragon) and a tall, quick humanoid duelist.
+

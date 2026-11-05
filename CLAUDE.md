@@ -30,7 +30,7 @@ Read the relevant doc before starting a task. If a decision changes, update the 
 8. Stop at every CHECKPOINT in ROADMAP.md: show the human the review images, tell them how to open the preview, and wait for approval. Never start the next phase on your own. (Waived by the human on 2026-11-05: see the note at the top of ROADMAP.md.)
 9. Commit after every working milestone with a clear message. Push to GitHub after each phase.
 10. When an art decision is unclear, prefer the simpler option that reads better at 1x, and record the decision in the relevant doc.
-11. Characters and monsters stay muted. Only FX (from `fx_ramps`) and glow eye presets may go brighter or more saturated. FX may be rotated in exact 90-degree steps; characters never.
+11. Characters and monsters stay inside the character limits in `style.json` (chroma 0.13, lightness 0.84, raised on 2026-11-05 so the cast can be colorful). Only FX (from `fx_ramps`, including the white swing trails) and glow eye presets may go brighter or more saturated. FX may be rotated in exact 90-degree steps; characters never.
 12. Enemy attacks must meet their timing profile's telegraph minimum with a whole-body tell, and FX must never cover a tell.
 13. Never commit, push, open pull requests or write anything to the Rolling Knight repository (kvnwg/rolling-knight), ever (the human, 2026-11-05). It is read-only reference: read its code to check what the game needs, and hand exports to the human instead of committing them there. Commits and pushes go to the pixelforge repository only.
 

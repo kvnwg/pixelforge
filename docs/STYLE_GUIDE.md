@@ -10,7 +10,7 @@ When this guide and the anchor disagree, the anchor wins. When a new design ques
 
 ## 1. The style in one paragraph
 
-Tiny chibi characters for a cozy top-down RPG, seen from slightly above (low top-down, about 3/4). About 11 px wide and 18 px tall, with a huge head (10 of the 18 rows). Muted, warm, low-saturation colors with no black and no white. A dark plum outline wraps the outer edge with rounded corners. Shading is minimal: two or three tones per material in flat clusters, no gradients, no dithering. The face is just two single-pixel eyes. A soft translucent shadow sits under the feet.
+Tiny chibi characters for a cozy top-down RPG, seen from slightly above (low top-down, about 3/4). About 11 px wide and 18 px tall, with a huge head (10 of the 18 rows). Warm colors with no black and no white: the anchor itself is muted, and the cast around it is a colorful roster where every character has a signature color and a silhouette of its own (section 13). A dark plum outline wraps the outer edge with rounded corners. Shading is minimal: two or three tones per material in flat clusters, no gradients, no dithering. The face is just two single-pixel eyes. A soft translucent shadow sits under the feet.
 
 ---
 
@@ -109,11 +109,11 @@ Twelve colors total, plus the translucent ground shadow.
 
 Rules for any new color (checked by the validator and by eye):
 
-- Lightness (OKLCH L) between 0.30 and 0.80. The outline is the darkest value in any sprite. Nothing is near white, except the effect flash color in flash frames.
-- Chroma (OKLCH C) at most 0.09. Most colors sit between 0.03 and 0.07. This low chroma is what makes the style feel soft and cozy.
+- Lightness (OKLCH L) between 0.30 and 0.84. The outline is the darkest value in any sprite. Nothing is near white, except FX (swing trails, sparks) and the effect flash color in flash frames.
+- Chroma (OKLCH C) at most 0.13. The anchor's own colors sit between 0.03 and 0.09 and stay there; bold presets (royal, scarlet, emerald, violet, sunflower, fire hair, frost skin...) go up to 0.13 so characters can carry a signature color. Raised from 0.09 and L 0.80 on 2026-11-05 at the human's request ("characters different and interesting with different colours and designs").
 - Shades within a ramp step by about 0.05 to 0.10 in L.
 - Hue shifts warmer as shades get lighter: hair goes 44 to 51 to 58 degrees, accent goes 67 to 77. Use 3 to 10 degrees per step. Darker shades lean redder or cooler; lighter shades lean yellower.
-- At most 16 colors in any single frame (the anchor uses 12).
+- At most 24 colors in any single frame (the anchor uses 12). Raised from 16 on 2026-11-05: two-tone outfits, 4-shade metals and fantasy skins need room.
 - Never pure black (#000000) or pure white (#ffffff), anywhere.
 
 How `pf palette --check` enforces these (decided in Phase 0; settings in `style.json` under `constraints`):
@@ -221,7 +221,7 @@ How the humanoid turnaround was drawn (Phase 2, measured from the parts in `part
 
 ## 11. Brightness belongs to FX
 
-Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact; see `fx_ramps` in `style.json`) and glow eye presets may go brighter and more saturated. In combat, that contrast is what makes attacks, spells and enemy tells pop without the characters losing their soft look. `style/examples/battle_mock_6x.png` shows the balance.
+Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact, swing; see `fx_ramps` in `style.json`) and glow eye presets may go brighter and more saturated (L up to 0.93 and 0.88, C up to 0.16). In combat, that contrast is what makes attacks, spells and enemy tells pop without the characters losing their soft look. `style/examples/battle_mock_6x.png` shows the balance.
 
 ## 12. What breaks this style
 
@@ -229,7 +229,8 @@ These are the mistakes to watch for in every review:
 
 - Faces getting bigger or more detailed (2 px eyes, mouths, noses, eye highlights)
 - Black outlines or black shading
-- Highlights near white, or saturated colors
+- Highlights near white, or neon colors past the chroma limit (0.13)
+- A cast that all reads the same: one silhouette in grey and brown (section 13)
 - Antialiased or semi-transparent edges
 - Gradients, pillow shading, dithering, banding
 - Outlines thickening to 2 px, or doubling where parts meet
@@ -237,3 +238,14 @@ These are the mistakes to watch for in every review:
 - Side views where both arms or both legs do the same thing at the same time (twinning)
 - Single stray pixels and noisy one-pixel clusters
 - The collar line disappearing so the head merges into the body
+
+## 13. A cast, not a costume rack (design pass, 2026-11-05)
+
+The human's direction, with a reference roster of chibi sprites: characters should be "different and interesting with different colours and designs". Every character on one base body still has to read as a different person at 1x. Three levers, in order of strength:
+
+1. **Silhouette.** Change the outline, not only the fill: a wide-brimmed hat, spikes, twin tails, a cloak trailing behind, pauldrons 3 px past the shoulders, a beard, long or animal ears, horns. A design that leaves the plain dome head and narrow body untouched is a recolor, and recolors belong to families of monsters, not to heroes.
+2. **A signature color.** One bold preset owns the character (the guardian's blue plate, the blade's scarlet scarf, the cleric's gold, the arcanist's violet), set against neutral support colors. `slot_colors` in a recipe gives one part its own preset of its material, so a cloak, hat or scarf can differ from the tunic (two cloths). Keep warm against cool or light against dark between the signature part and what touches it: a red scarf on red hair disappears.
+3. **Skin and face.** Fantasy skins (frost, dusk, ember, ash), glowing or colored eyes, a beard or a masking scarf change the face at 1x more than any outfit.
+
+The randomizer follows the same rules (`parts/compat.yaml`): new hairstyles and slots, `slot_colors` chances for a second signature color, exclusions where pieces would poke through each other, and every random character must validate cleanly.
+

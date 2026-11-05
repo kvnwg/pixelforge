@@ -1,0 +1,10 @@
+slot: headwear
+variant: bandana
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A cloth band over the head, knotted at the back.

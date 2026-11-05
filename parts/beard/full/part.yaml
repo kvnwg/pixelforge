@@ -1,0 +1,10 @@
+slot: beard
+variant: full
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Sideburns and a full beard over the chin and chest (hair colors).

@@ -1,0 +1,29 @@
+# A paladin: royal gold plate and pauldrons under a winged helm, a white tabard, a royal blue cloak, sword and shield.
+name: paladin
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  headwear: winged_helm
+  torso_wear: plate
+  shoulders: pauldrons
+  cape: cloak
+  over_torso: tabard
+  belt: leather_belt
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  held_near: sword
+  held_near_trim: hilt
+  held_far: shield
+colors:
+  metal: royal gold
+  cloth: snow
+  leather: white
+  accent: sapphire
+  skin: light (anchor)
+  eyes: dark
+slot_colors:
+  cape: royal
+anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, dodge, hurt, stun, death, victory, block_enter, block_hold, block_impact]

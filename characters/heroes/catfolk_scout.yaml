@@ -1,0 +1,22 @@
+# A catfolk scout: pink twin tails and cat ears, an azure dress, quick fists.
+name: catfolk_scout
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: short
+  ears: cat
+  hair_back: twintails
+  torso_wear: dress
+  belt: sash
+  legs_wear: leggings
+  feet: boots
+colors:
+  skin: fair
+  hair: bubblegum
+  cloth: azure
+  leather: white
+  accent: pearl
+  eyes: violet
+anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, dodge, hurt, stun, death, victory]

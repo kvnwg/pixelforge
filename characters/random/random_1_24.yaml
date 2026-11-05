@@ -1,0 +1,25 @@
+name: random_1_24
+rig: humanoid
+timing_profile: player
+seed: 98458024
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  eyes: dots
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: tunic
+  held_near_trim: hilt
+colors:
+  accent: ruby
+  cloth: jade
+  eyes: blue
+  hair: silver
+  leather: tan
+  metal: steel
+  skin: ash
+anims:
+- idle
+- blink
+- walk

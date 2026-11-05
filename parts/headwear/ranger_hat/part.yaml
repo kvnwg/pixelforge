@@ -1,0 +1,10 @@
+slot: headwear
+variant: ranger_hat
+material: leather
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A wide-brimmed hat with a dark band.

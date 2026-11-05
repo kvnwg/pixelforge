@@ -1,0 +1,29 @@
+name: random_1_17
+rig: humanoid
+timing_profile: player
+seed: 519822033
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
+  cape: cloak
+  eyes: dots
+  feet: boots
+  headwear: hood
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: dress
+  held_near_trim: hilt
+colors:
+  accent: sapphire
+  cloth: snow
+  eyes: navy (anchor)
+  hair: mint
+  leather: brown (anchor)
+  metal: iron
+  skin: tan
+anims:
+- idle
+- blink
+- walk

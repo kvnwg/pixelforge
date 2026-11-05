@@ -1,0 +1,31 @@
+name: random_1_21
+rig: humanoid
+timing_profile: player
+seed: 376147493
+parts:
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: leather_belt
+  cape: cloak
+  eyes: dots
+  feet: boots
+  held_far: shield
+  held_near: sword
+  legs_wear: leggings
+  torso_wear: plate
+  held_near_trim: hilt
+  belt_trim: buckle
+colors:
+  accent: ruby
+  cloth: cream
+  eyes: teal
+  hair: copper
+  leather: tan
+  metal: royal gold
+  skin: tan
+anims:
+- idle
+- blink
+- walk
+slot_colors:
+  cape: emerald

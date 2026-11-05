@@ -1,22 +1,28 @@
 name: random_1_09
 rig: humanoid
 timing_profile: player
-seed: 446050240
+seed: 870272204
 parts:
+  hair_front: short
   belt: leather_belt
+  cape: cloak
   eyes: dots
-  held_near: bow
+  held_far: shield
   legs_wear: leggings
-  over_torso: tabard
-  torso_wear: tunic
+  shoulders: pauldrons
+  torso_wear: plate
   belt_trim: buckle
 colors:
-  accent: red
-  cloth: forest
-  eyes: brown
-  leather: brown (anchor)
-  skin: green (orc)
+  accent: orange
+  cloth: snow
+  eyes: green
+  hair: mint
+  leather: red
+  metal: steel
+  skin: ember
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  cape: rose

@@ -104,6 +104,16 @@ class Composer:
         materials = {p.material for p in self.parts.values()}
         self.maps = {m: ramp_map(style.materials[m], preset_ramp(style, m, recipe.colors.get(m)))
                      for m in materials}
+        self.slot_maps = {}  # recipe slot_colors: one part dyed apart from its material's preset
+        for slot, preset in recipe.slot_colors.items():
+            part = self.parts.get(slot)
+            if part is None:
+                continue
+            if preset not in style.materials[part.material].presets:
+                raise RecipeError(f"{recipe.name}: slot_colors.{slot}: {preset!r} is not a "
+                                  f"{part.material} preset")
+            self.slot_maps[slot] = ramp_map(style.materials[part.material],
+                                            preset_ramp(style, part.material, preset))
         # closed eyes take a shade of the body around them: skin for humanoids, the rig's own
         # material for monsters (rigs.<rig>.close_eyes)
         lid = dict(self.rig_spec.get("close_eyes") or style.raw["effects"].get(
@@ -210,7 +220,8 @@ class Composer:
                 return None
             offset, dropped = (0, 0), 0
             name = anim.name
-        return Layer(part.slot, part, recolor(cell, self.maps[part.material]), offset, dropped,
+        mapping = self.slot_maps.get(part.slot, self.maps[part.material])
+        return Layer(part.slot, part, recolor(cell, mapping), offset, dropped,
                      name)
 
     def stretch_neck(self, cell: np.ndarray, part: Part, anim: AnimDef, direction: str,

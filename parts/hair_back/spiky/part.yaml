@@ -1,0 +1,10 @@
+slot: hair_back
+variant: spiky
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: Spikes behind the head (facing e).

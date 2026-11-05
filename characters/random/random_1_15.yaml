@@ -1,0 +1,23 @@
+name: random_1_15
+rig: humanoid
+timing_profile: player
+seed: 631892289
+parts:
+  hair_front: bun
+  hair_back: bun
+  belt: sash
+  eyes: dots
+  headwear: hood
+  legs_wear: leggings
+  torso_wear: robe
+colors:
+  accent: gold (anchor)
+  cloth: cream
+  eyes: dark
+  hair: copper
+  leather: black
+  skin: fair
+anims:
+- idle
+- blink
+- walk

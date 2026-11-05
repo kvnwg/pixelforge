@@ -1,25 +1,29 @@
 name: random_1_12
 rig: humanoid
 timing_profile: player
-seed: 261700922
+seed: 96434241
 parts:
   hair_front: long_straight
   hair_locks: long_straight
   hair_back: long_straight
-  belt: leather_belt
+  belt: sash
+  cape: cloak
   eyes: dots
-  hands: gauntlets
-  held_near: bow
+  feet: boots
+  headwear: ranger_hat
+  held_near: sword
   legs_wear: leggings
-  torso_wear: plate
-  belt_trim: buckle
+  torso_wear: robe
+  held_near_trim: hilt
+  headwear_trim: feather
 colors:
-  accent: silver
-  eyes: brown
+  accent: sapphire
+  cloth: forest
+  eyes: blue
   hair: blonde
-  leather: tan
-  metal: steel
-  skin: green (orc)
+  leather: brown (anchor)
+  metal: bronze
+  skin: light (anchor)
 anims:
 - idle
 - blink

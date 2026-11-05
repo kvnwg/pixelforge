@@ -1,0 +1,10 @@
+slot: ears
+variant: cat
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Animal ears on top of the head, in the hair's color.

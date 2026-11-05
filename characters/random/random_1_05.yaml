@@ -1,23 +1,22 @@
 name: random_1_05
 rig: humanoid
 timing_profile: player
-seed: 1049674601
+seed: 296962875
 parts:
-  hair_front: short
+  hair_front: bun
+  hair_back: bun
+  belt: leather_belt
   eyes: dots
   feet: boots
-  hands: gauntlets
-  headwear: hood
-  held_near: mace
+  held_near: bow
   legs_wear: leggings
-  torso_wear: plate
+  torso_wear: tunic
 colors:
-  cloth: forest
-  eyes: brown
-  hair: brown (anchor)
-  leather: dark
-  metal: iron
-  skin: green (orc)
+  cloth: navy (anchor)
+  eyes: navy (anchor)
+  hair: sky
+  leather: tan
+  skin: ash
 anims:
 - idle
 - blink

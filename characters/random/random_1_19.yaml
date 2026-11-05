@@ -1,0 +1,25 @@
+name: random_1_19
+rig: humanoid
+timing_profile: player
+seed: 581760420
+parts:
+  hair_front: short
+  hair_back: twintails
+  belt: leather_belt
+  eyes: dots
+  held_far: shield
+  legs_wear: leggings
+  torso_wear: tunic
+  belt_trim: buckle
+colors:
+  accent: gold (anchor)
+  cloth: teal
+  eyes: brown
+  hair: raven
+  leather: red
+  metal: royal gold
+  skin: dusk
+anims:
+- idle
+- blink
+- walk

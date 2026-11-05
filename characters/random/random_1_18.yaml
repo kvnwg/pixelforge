@@ -1,0 +1,28 @@
+name: random_1_18
+rig: humanoid
+timing_profile: player
+seed: 20827103
+parts:
+  hair_front: short
+  eyes: dots
+  feet: boots
+  hands: gauntlets
+  held_near: sword
+  legs_wear: leggings
+  over_torso: tabard
+  torso_wear: plate
+  held_near_trim: hilt
+colors:
+  accent: ruby
+  cloth: tangerine
+  eyes: amber
+  hair: black
+  leather: red
+  metal: bronze
+  skin: green (orc)
+anims:
+- idle
+- blink
+- walk
+slot_colors:
+  over_torso: navy (anchor)

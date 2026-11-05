@@ -1,0 +1,31 @@
+name: random_1_23
+rig: humanoid
+timing_profile: player
+seed: 826359573
+parts:
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: leather_belt
+  eyes: dots
+  headwear: hood
+  held_near: sword
+  legs_wear: leggings
+  shoulders: pauldrons
+  torso_wear: plate
+  held_near_trim: hilt
+  belt_trim: buckle
+colors:
+  accent: gold (anchor)
+  cloth: rose
+  eyes: teal
+  hair: auburn
+  leather: dark
+  metal: crimson
+  skin: dusk
+anims:
+- idle
+- blink
+- walk
+slot_colors:
+  headwear: jade

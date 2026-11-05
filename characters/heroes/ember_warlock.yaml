@@ -1,0 +1,27 @@
+# An ember warlock: red skin, horns through spiky black hair, a wine robe and an ink cloak, a ruby orb staff.
+name: ember_warlock
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: spiky
+  hair_back: spiky
+  headwear_trim: horns
+  torso_wear: robe
+  cape: cloak
+  belt: sash
+  legs_wear: leggings
+  held_near: staff
+  held_near_trim: orb
+colors:
+  skin: ember
+  hair: raven
+  cloth: wine
+  leather: black
+  accent: ruby
+  horn: pale
+  eyes: amber
+slot_colors:
+  cape: ink
+anims: [idle, blink, walk, run, combat_idle, cast, dodge, hurt, stun, death, victory]

@@ -1,19 +1,30 @@
 name: random_1_03
 rig: humanoid
 timing_profile: player
-seed: 837648638
+seed: 711112269
 parts:
-  hair_front: short
+  hair_front: ponytail
+  hair_back: ponytail
   eyes: dots
+  hands: gauntlets
+  headwear: winged_helm
+  held_far: shield
+  held_near: sword
   legs_wear: leggings
-  torso_wear: tunic
+  over_torso: tabard
+  torso_wear: plate
+  held_near_trim: hilt
 colors:
-  cloth: teal
-  eyes: dark
-  hair: auburn
-  leather: brown (anchor)
+  accent: amethyst
+  cloth: wine
+  eyes: green
+  hair: raven
+  leather: black
+  metal: rose gold
   skin: ogre
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  over_torso: jade

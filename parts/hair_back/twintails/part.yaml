@@ -1,0 +1,10 @@
+slot: hair_back
+variant: twintails
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: Two tails tied at the sides of the head; they follow through.

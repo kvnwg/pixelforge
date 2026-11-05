@@ -99,7 +99,7 @@ class Validator:
     # ------------------------------------------------------------------ per frame
     def allowed_colors(self, frame: Frame) -> set[tuple[int, int, int]]:
         allowed = {self.outline_rgb}
-        for mapping in self.c.maps.values():
+        for mapping in [*self.c.maps.values(), *self.c.slot_maps.values()]:
             allowed.update(mapping.values())
         anim = self.c.anims[frame.anim]
         if anim.effect == "close_eyes":
@@ -215,7 +215,8 @@ class Validator:
         if n_colors > limit:
             out.append(Finding("error", "E11", where, f"{n_colors} colors, more than {limit}"))
         if f.mirrored_from is None:
-            out += self._singletons(f, sil, where)
+            if "flash" not in f.flags:  # the hurt flash speckles light colors on purpose, 1 frame
+                out += self._singletons(f, sil, where)
             if self.c.size > self.style.canvas:  # medium, large and huge
                 out += self._busy(f, sil, opaque, where)
             if "flash" not in f.flags:  # a flash frame is one flat color on purpose
@@ -263,13 +264,18 @@ class Validator:
         lonely, key, names = self._lonely(f, sil)
         out = []
         for value in np.unique(key[lonely]):
-            pts = lonely & (key == value)
-            if pts.sum() > self.singletons_max:
-                name = names[int(value) >> 24]
-                out.append(Finding("warning", "W3", where,
-                                   f"{int(pts.sum())} isolated {name} pixels of "
-                                   f"#{int(value) & 0xFFFFFF:06x} (more than {self.singletons_max})",
-                                   _px(pts), "noisy one-pixel clusters; merge them into neighbors"))
+            # counted per part: a few edge pixels each of several parts that cover one another
+            # (a sword hanging across a pauldron's rim) are occlusion, not a noisy part
+            for owner in np.unique(f.owner[lonely & (key == value)]):
+                pts = lonely & (key == value) & (f.owner == owner)
+                if pts.sum() > self.singletons_max:
+                    name = names[int(value) >> 24]
+                    slot = f.layers[int(owner)].slot if owner >= 0 else "outline"
+                    out.append(Finding("warning", "W3", where,
+                                       f"{int(pts.sum())} isolated {name} pixels of "
+                                       f"#{int(value) & 0xFFFFFF:06x} in {slot} (more than "
+                                       f"{self.singletons_max})", _px(pts),
+                                       "noisy one-pixel clusters; merge them into neighbors"))
         return out
 
     def _busy(self, f: Frame, sil: np.ndarray, opaque: np.ndarray, where: str) -> list[Finding]:

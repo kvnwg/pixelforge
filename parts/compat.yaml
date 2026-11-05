@@ -7,6 +7,8 @@ hairstyles:
   short: {weight: 3, parts: {hair_front: short}}
   ponytail: {weight: 2, parts: {hair_front: ponytail, hair_back: ponytail}}
   bun: {weight: 2, parts: {hair_front: bun, hair_back: bun}}
+  spiky: {weight: 2, parts: {hair_front: spiky, hair_back: spiky}}
+  twintails: {weight: 2, parts: {hair_front: short, hair_back: twintails}}
 
 # slot -> variant: weight ("none" leaves the slot empty)
 slots:
@@ -17,7 +19,13 @@ slots:
   legs_wear: {leggings: 3, greaves: 1}
   feet: {none: 2, boots: 2}
   hands: {none: 3, gauntlets: 1}
-  headwear: {none: 6, hood: 2, great_helm: 1, sallet: 1, mitre: 1, wizard_hat: 1, winged_helm: 1}
+  headwear: {none: 6, hood: 2, great_helm: 1, sallet: 1, mitre: 1, wizard_hat: 2, winged_helm: 1,
+             ranger_hat: 2, bandana: 1, horned_helm: 1, witch_hat: 2}
+  cape: {none: 3, cloak: 2}
+  scarf: {none: 6, wrap: 1}
+  shoulders: {none: 4, pauldrons: 1}
+  ears: {none: 6, elf: 1, cat: 1}
+  beard: {none: 8, full: 1}
   held_near: {none: 2, sword: 3, staff: 1, bow: 1, mace: 1, lance: 1}
   held_far: {none: 4, shield: 1}
 
@@ -29,6 +37,8 @@ trims:
   - {slot: belt_trim, parent: belt/leather_belt, variant: buckle, chance: 0.7}
   - {slot: headwear_trim, parent: headwear/great_helm, variant: plume, chance: 0.5}
   - {slot: headwear_trim, parent: headwear/sallet, variant: plume, chance: 0.6}
+  - {slot: headwear_trim, parent: headwear/ranger_hat, variant: feather, chance: 0.8}
+  - {slot: headwear_trim, parent: headwear/horned_helm, variant: horns, chance: 1.0}
 
 # A part needs one of these to be present.
 requires:
@@ -40,8 +50,11 @@ requires:
   headwear/winged_helm: [torso_wear/plate]
   headwear/mitre: [torso_wear/robe, torso_wear/dress]
   headwear/wizard_hat: [torso_wear/robe, torso_wear/dress]
+  headwear/witch_hat: [torso_wear/robe, torso_wear/dress]
   held_near/mace: [torso_wear/plate, torso_wear/tunic]
   held_near/lance: [torso_wear/plate]
+  shoulders/pauldrons: [torso_wear/plate, torso_wear/tunic]
+  headwear/horned_helm: [torso_wear/plate, torso_wear/tunic]
 
 # Pairs that never go together.
 incompatible:
@@ -54,7 +67,45 @@ incompatible:
   - [hair_back/bun, headwear/mitre]        # a bun would poke out around a tall hat
   - [hair_back/bun, headwear/wizard_hat]
   - [hair_back/bun, headwear/winged_helm]
+  - [hair_back/bun, headwear/ranger_hat]
+  - [hair_back/bun, headwear/witch_hat]
+  - [hair_front/spiky, headwear/witch_hat]
+  - [ears/cat, headwear/witch_hat]
+  # spikes poke through anything but a bandana; cat ears through no hat
+  - [hair_front/spiky, headwear/hood]
+  - [hair_front/spiky, headwear/mitre]
+  - [hair_front/spiky, headwear/wizard_hat]
+  - [hair_front/spiky, headwear/winged_helm]
+  - [hair_front/spiky, headwear/ranger_hat]
+  - [ears/cat, headwear/hood]
+  - [ears/cat, headwear/great_helm]
+  - [ears/cat, headwear/sallet]
+  - [ears/cat, headwear/mitre]
+  - [ears/cat, headwear/wizard_hat]
+  - [ears/cat, headwear/winged_helm]
+  - [ears/cat, headwear/ranger_hat]
+  - [ears/cat, headwear/bandana]
+  - [ears/cat, headwear/horned_helm]
+  - [ears/elf, headwear/hood]
+  - [ears/elf, headwear/great_helm]
+  - [ears/elf, headwear/sallet]
+  - [ears/elf, headwear/horned_helm]
+  - [beard/full, headwear/great_helm]
+  - [beard/full, headwear/hood]
+  - [beard/full, scarf/wrap]
+  - [hair_back/twintails, headwear/hood]
+  - [hair_back/twintails, headwear/great_helm]
+  - [hair_back/twintails, headwear/sallet]
+  - [hair_back/twintails, headwear/horned_helm]
 
 # Presets the randomizer never uses for heroes (glow eyes are reserved for monsters).
 exclude_presets:
   eyes: [glow red, glow yellow, glow ghost]
+
+# Two-tone outfits: a part in one of these slots takes its own preset of its material this often
+# (a scarlet cloak over a royal tunic), so random characters get a second signature color.
+slot_colors:
+  cape: 0.8
+  scarf: 0.7
+  headwear: 0.35
+  over_torso: 0.5

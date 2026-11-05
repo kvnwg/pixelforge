@@ -1,4 +1,4 @@
-# Rolling Knight ranger: Archer. Hood and longbow. See docs/GAMES.md.
+# Rolling Knight ranger: Archer. An elf in a wide feathered hat, an emerald tunic and a jade cloak, with a bow. See docs/GAMES.md.
 name: rk_ranger
 rig: humanoid
 timing_profile: player
@@ -6,7 +6,10 @@ seed: 1
 parts:
   eyes: dots
   hair_front: short
-  headwear: hood
+  ears: elf
+  headwear: ranger_hat
+  headwear_trim: feather
+  cape: cloak
   torso_wear: tunic
   belt: leather_belt
   legs_wear: leggings
@@ -14,8 +17,11 @@ parts:
   held_near: bow
 colors:
   skin: tan
-  hair: auburn
-  cloth: forest
-  leather: tan
-  eyes: brown
+  hair: golden
+  cloth: emerald
+  leather: brown (anchor)
+  accent: orange
+  eyes: green
+slot_colors:
+  cape: jade
 anims: [idle, blink, walk, run, combat_idle, shoot_bow, backflip, dodge, hurt, stun, death, victory]

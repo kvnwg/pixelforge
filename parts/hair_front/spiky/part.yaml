@@ -1,0 +1,10 @@
+slot: hair_front
+variant: spiky
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A crown of spikes and spiky bangs.

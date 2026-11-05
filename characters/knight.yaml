@@ -1,4 +1,4 @@
-# The knight from the ROADMAP.md Phase 4 brief.
+# The knight from the ROADMAP.md Phase 4 brief, redesigned in the design pass: steel plate, a scarlet tabard and plume, a royal blue cloak.
 name: knight
 rig: humanoid
 timing_profile: player
@@ -9,6 +9,7 @@ parts:
   headwear_trim: plume
   torso_wear: plate
   over_torso: tabard
+  cape: cloak
   belt: leather_belt
   belt_trim: buckle
   legs_wear: greaves
@@ -19,8 +20,10 @@ parts:
 colors:
   skin: light (anchor)
   metal: steel
-  cloth: crimson
+  cloth: scarlet
   leather: dark
   accent: gold (anchor)
   eyes: dark
+slot_colors:
+  cape: royal
 anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, cast, block_enter, block_hold, block_impact, dodge, hurt, stun, death, victory, roll, backflip, vault]

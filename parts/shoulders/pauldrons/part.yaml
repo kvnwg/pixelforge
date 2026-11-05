@@ -1,0 +1,10 @@
+slot: shoulders
+variant: pauldrons
+material: metal
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: 'Big domed shoulder plates: the figure is 3 px wider a side.'
