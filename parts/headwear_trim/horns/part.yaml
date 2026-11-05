@@ -1,0 +1,16 @@
+slot: headwear_trim
+variant: horns
+material: horn
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+allow_singletons:
+  e:
+  - - 17
+    - 9
+  - - 17
+    - 8
+notes: 'Two horns rising from a helm: a silhouette no human enemy shares.'

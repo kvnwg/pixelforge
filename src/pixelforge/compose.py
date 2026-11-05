@@ -91,8 +91,11 @@ class Composer:
                      for m in materials}
         # closed eyes take a shade of the body around them: skin for humanoids, the rig's own
         # material for monsters (rigs.<rig>.close_eyes)
-        lid = self.rig_spec.get("close_eyes") or style.raw["effects"].get(
-            "close_eyes", {"material": "skin", "shade": 0})
+        lid = dict(self.rig_spec.get("close_eyes") or style.raw["effects"].get(
+            "close_eyes", {"material": "skin", "shade": 0}))
+        body = self.parts.get("body")
+        if body is not None and body.material != lid["material"]:
+            lid = {"material": body.material, "shade": 0}  # a skull's socket, not a skin lid
         self.lid = parse_hex(preset_ramp(style, lid["material"], recipe.colors.get(lid["material"]))
                              [lid["shade"]])
         self.flash_rgb = parse_hex(style.flash)

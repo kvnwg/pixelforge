@@ -414,6 +414,12 @@
           "#755644",
           "#8c6d58",
           "#a3856e"
+        ],
+        "frost": [
+          "#536674",
+          "#718393",
+          "#91a0b1",
+          "#b0bbcc"
         ]
       },
       "anchor_use": "monsters: wolves, bears, rats"
@@ -648,6 +654,7 @@
       "hair_front",
       "hair_locks",
       "eyes",
+      "tusks",
       "headwear",
       "headwear_trim",
       "held_near",
@@ -691,6 +698,7 @@
       "hair_front",
       "hair_locks",
       "eyes",
+      "tusks",
       "headwear",
       "headwear_trim",
       "arm_near",
@@ -1157,6 +1165,42 @@
         30,
         20
       ]
+    },
+    "death_crumble": {
+      "alias": "death",
+      "alias_frames": [
+        0,
+        1,
+        2
+      ],
+      "loop": false,
+      "frames_ms": [
+        80,
+        140,
+        120
+      ],
+      "flash_frames": [
+        0
+      ],
+      "eyes_closed_frames": [
+        1,
+        2
+      ],
+      "displaced_frames": [
+        0,
+        1,
+        2
+      ],
+      "combat": true,
+      "events": [
+        {
+          "frame": 2,
+          "type": "vfx",
+          "fx": "bone_crumble",
+          "point": "torso"
+        }
+      ],
+      "note": "Skeletons fall apart instead of kneeling: flash, buckle, then bone_crumble plays at the torso and the game removes the body (MONSTERS.md section 5.4)."
     }
   },
   "fx_ramps": {

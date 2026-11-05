@@ -1,0 +1,35 @@
+name: orc
+rig: humanoid
+timing_profile: enemy
+seed: 1
+parts:
+  eyes: dots
+  headwear: horned_helm
+  headwear_trim: horns
+  tusks: orc
+  torso_wear: plate
+  belt: leather_belt
+  belt_trim: buckle
+  legs_wear: greaves
+  feet: boots
+  hands: gauntlets
+  held_near: mace
+colors:
+  skin: green (orc)
+  hair: black
+  metal: iron
+  leather: dark
+  accent: silver
+  eyes: glow red
+  horn: pale
+anims:
+- idle
+- blink
+- walk
+- combat_idle
+- attack_slash
+- attack_heavy
+- hurt
+- stun
+- death
+- victory

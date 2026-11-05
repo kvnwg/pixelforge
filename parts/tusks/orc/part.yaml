@@ -1,0 +1,19 @@
+slot: tusks
+variant: orc
+material: horn
+kind: rigid
+attach: chin
+origin: auto
+lags: false
+rigs:
+- humanoid
+allow_singletons:
+  s:
+  - - 13
+    - 19
+  - - 17
+    - 19
+  e:
+  - - 18
+    - 19
+notes: Two 1 px tusks at the corners of the jaw.

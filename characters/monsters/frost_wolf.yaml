@@ -1,0 +1,19 @@
+name: frost_wolf
+rig: quadruped
+timing_profile: enemy
+seed: 1
+parts:
+  tail: wolf
+  eyes: wolf
+colors:
+  fur: frost
+  eyes: glow ghost
+anims:
+- idle
+- combat_idle
+- walk
+- run
+- attack_bite
+- howl
+- hurt
+- death

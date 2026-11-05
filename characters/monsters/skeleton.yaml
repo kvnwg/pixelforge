@@ -1,0 +1,31 @@
+name: skeleton
+rig: humanoid
+timing_profile: enemy
+seed: 1
+parts:
+  body: skeleton
+  arm_near: skeleton
+  arm_far: skeleton
+  eyes: dots
+  belt: leather_belt
+  held_near: sword
+  held_near_trim: hilt
+  held_far: shield
+colors:
+  bone: ivory
+  eyes: glow ghost
+  metal: iron
+  accent: silver
+  leather: dark
+anims:
+- idle
+- walk
+- combat_idle
+- attack_slash
+- block_enter
+- block_hold
+- block_impact
+- hurt
+- stun
+- death_crumble
+- victory

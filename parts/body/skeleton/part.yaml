@@ -1,0 +1,8 @@
+slot: body
+variant: skeleton
+material: bone
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: The humanoid base body in bone, with sockets and ribs (generated).

@@ -58,6 +58,8 @@ class AnimDef:
         if not self.source:
             return (self.name, index)
         anim, frame = self.source
+        if isinstance(frame, (list, tuple)):  # chosen frames of another animation
+            return (anim, int(frame[index]))
         return (anim, index if frame is None else frame)
 
     def event_frame(self, *types: str) -> int | None:
@@ -111,13 +113,16 @@ def load_anims(style: Style, rig: str | None = None) -> dict[str, AnimDef]:
         phases = None
         if "active_frames" in a or a.get("phases"):
             phases = tuple(a.get("phases") or _phases(len(frames_ms), set(a.get("active_frames", []))))
-        src = a.get("source") or ({"anim": a["alias"], "frame": None} if "alias" in a else None)
+        src = a.get("source") or ({"anim": a["alias"], "frame": a.get("alias_frames")}
+                                  if "alias" in a else None)
         out[name] = AnimDef(
             name=name, loop=bool(a["loop"]), frames_ms=frames_ms,
             flags={flag: frozenset(a.get(key, [])) for key, flag in FLAG_KEYS.items()},
             events=tuple(a.get("events", [])), phases=phases,
             root_motion=tuple(a["root_motion_px"]) if "root_motion_px" in a else None,
-            source=(src["anim"], None if src.get("frame") is None else int(src["frame"])) if src else None,
+            source=(src["anim"], None if src.get("frame") is None else
+                    (tuple(src["frame"]) if isinstance(src["frame"], list) else int(src["frame"])))
+            if src else None,
             effect=a.get("effect"),
             only_directions=tuple(a["directions"]) if "directions" in a else None,
             combat=bool(a.get("combat", False)), raw=a,
