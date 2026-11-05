@@ -1,0 +1,1165 @@
+{
+  "name": "pixelforge-chibi",
+  "version": 1,
+  "notes": "Measured from style/anchor.png. Code must read colors and geometry from this file, never hardcode them. See docs/STYLE_GUIDE.md.",
+  "canvas": {
+    "w": 32,
+    "h": 32
+  },
+  "pivot": {
+    "x": 15,
+    "y": 27
+  },
+  "baseline_y": 27,
+  "safe_bounds": {
+    "x0": 2,
+    "y0": 2,
+    "x1": 29,
+    "y1": 30
+  },
+  "directions": [
+    "s",
+    "e",
+    "n",
+    "w"
+  ],
+  "mirror": {
+    "w": {
+      "from": "e",
+      "axis_x": 15,
+      "formula": "x_new = 2*axis_x - x"
+    }
+  },
+  "outline": {
+    "color": "#3a263a",
+    "mode": "4-neighbor",
+    "open_soles": {
+      "enabled": true,
+      "rows_from_bottom": 3,
+      "rule": "a ring pixel is left open (not outlined) when it touches the silhouette only from above (no silhouette pixel to its left, right or below) and its row is at or below (lowest sprite row - 2). The ground shadow shows there instead."
+    },
+    "outline_colored_pixels_in_parts": "preserved as hand-placed details; they do not count as silhouette for ring generation"
+  },
+  "shadow": {
+    "color": "#3a263a",
+    "alpha": 70,
+    "ellipse_rows": {
+      "26": [
+        11,
+        19
+      ],
+      "27": [
+        10,
+        20
+      ],
+      "28": [
+        10,
+        20
+      ],
+      "29": [
+        11,
+        19
+      ]
+    },
+    "note": "Drawn behind the character. On preview beige #c3bc9d it produces #9d9382, matching the original."
+  },
+  "preview_backgrounds": {
+    "beige": "#c3bc9d",
+    "light": "#e8e2d0",
+    "dark": "#2b2b33"
+  },
+  "effects": {
+    "flash": "#efe2c8",
+    "flash_note": "Only allowed in frames flagged flash (hurt/death). Lighter than the palette rule on purpose."
+  },
+  "constraints": {
+    "oklch_L_range": [
+      0.3,
+      0.8
+    ],
+    "oklch_C_max": 0.09,
+    "ramp_L_step_range": [
+      0.05,
+      0.1
+    ],
+    "ramp_hue_shift_deg_per_lighter_step": [
+      3,
+      10
+    ],
+    "max_colors_per_frame": 16,
+    "alpha_values_allowed": [
+      0,
+      255
+    ],
+    "alpha_exception": "ground shadow pixels only: outline color at alpha 70",
+    "limit_tolerance": 0.002,
+    "ramp_L_step_slack": 0.005,
+    "hue_shift_min_chroma": 0.02,
+    "palette_check": "Errors (block a build): L or C outside the limits (with limit_tolerance, which absorbs 8-bit rounding of colors placed on a limit), pure black or white, shades not ordered dark to light, a color darker than the outline. Warnings (guidance for new presets): a lightness step outside ramp_L_step_range (with ramp_L_step_slack) or a hue shift outside ramp_hue_shift_deg_per_lighter_step, skipped for near-gray ramps (mean C under hue_shift_min_chroma). Warnings listed in accepted_ramp_warnings are known and accepted. See STYLE_GUIDE.md section 4.",
+    "accepted_ramp_warnings": {
+      "skin/light (anchor)": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Anchor ground truth: the anchor's skin shifts hue only 1.5 to 2.6 degrees per step."
+      },
+      "skin/fair": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Follows the anchor skin's small hue shift (about 2 degrees per step), so skin stays skin-colored in the light shade."
+      },
+      "skin/tan": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Follows the anchor skin's small hue shift (about 2 degrees per step), so skin stays skin-colored in the light shade."
+      },
+      "cloth/navy (anchor)": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Anchor ground truth: the navy dress turns 6 degrees cooler as it gets lighter."
+      },
+      "leather/brown (anchor)": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Anchor ground truth: the dark leather shade #5e494c is redder than the two hair browns above it."
+      },
+      "bone/ivory": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "Shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide; the ramp reads correctly in style/monster_fx_swatches.png."
+      }
+    }
+  },
+  "materials": {
+    "skin": {
+      "shades": 3,
+      "base": [
+        "#9f6f65",
+        "#c08d80",
+        "#dba292"
+      ],
+      "presets": {
+        "light (anchor)": [
+          "#9f6f65",
+          "#c08d80",
+          "#dba292"
+        ],
+        "fair": [
+          "#aa8173",
+          "#c69d8c",
+          "#ddb3a0"
+        ],
+        "tan": [
+          "#865f4a",
+          "#a3785f",
+          "#bb9174"
+        ],
+        "deep": [
+          "#5f3e33",
+          "#785444",
+          "#8f6b57"
+        ],
+        "green (orc)": [
+          "#526540",
+          "#67805c",
+          "#7b9977"
+        ]
+      },
+      "anchor_use": "face, neck line, arms, hands"
+    },
+    "hair": {
+      "shades": 3,
+      "base": [
+        "#735b51",
+        "#826b5e",
+        "#957e6d"
+      ],
+      "presets": {
+        "brown (anchor)": [
+          "#735b51",
+          "#826b5e",
+          "#957e6d"
+        ],
+        "black": [
+          "#3f3a49",
+          "#504a58",
+          "#625a68"
+        ],
+        "blonde": [
+          "#a08461",
+          "#b7996c",
+          "#cbb17d"
+        ],
+        "auburn": [
+          "#7b4d42",
+          "#8f5e4c",
+          "#a3735c"
+        ],
+        "silver": [
+          "#797983",
+          "#92919a",
+          "#aeacb6"
+        ],
+        "mint": [
+          "#577a6d",
+          "#698f85",
+          "#80a8a0"
+        ]
+      },
+      "anchor_use": "hair"
+    },
+    "cloth": {
+      "shades": 2,
+      "base": [
+        "#4c445a",
+        "#5a556b"
+      ],
+      "presets": {
+        "navy (anchor)": [
+          "#4c445a",
+          "#5a556b"
+        ],
+        "crimson": [
+          "#6a3638",
+          "#804946"
+        ],
+        "forest": [
+          "#364f3b",
+          "#466350"
+        ],
+        "teal": [
+          "#2d5459",
+          "#41686f"
+        ],
+        "plum": [
+          "#563a53",
+          "#6c4c64"
+        ],
+        "mustard": [
+          "#896d3c",
+          "#9a8350"
+        ],
+        "cream": [
+          "#9b917e",
+          "#afa793"
+        ]
+      },
+      "anchor_use": "dress"
+    },
+    "leather": {
+      "shades": 3,
+      "base": [
+        "#5e494c",
+        "#735b51",
+        "#826b5e"
+      ],
+      "presets": {
+        "brown (anchor)": [
+          "#5e494c",
+          "#735b51",
+          "#826b5e"
+        ],
+        "dark": [
+          "#443333",
+          "#554341",
+          "#65534f"
+        ],
+        "tan": [
+          "#795d46",
+          "#8c7258",
+          "#9f886b"
+        ]
+      },
+      "anchor_use": "legs and feet; same hex values as hair in the anchor but a separate material"
+    },
+    "accent": {
+      "shades": 2,
+      "base": [
+        "#bc8f5f",
+        "#d2ab70"
+      ],
+      "presets": {
+        "gold (anchor)": [
+          "#bc8f5f",
+          "#d2ab70"
+        ],
+        "silver": [
+          "#81868f",
+          "#a0a5ae"
+        ],
+        "red": [
+          "#925651",
+          "#ab6e63"
+        ]
+      },
+      "anchor_use": "sash/belt"
+    },
+    "eyes": {
+      "shades": 1,
+      "base": [
+        "#5a556b"
+      ],
+      "presets": {
+        "navy (anchor)": [
+          "#5a556b"
+        ],
+        "dark": [
+          "#3f3a49"
+        ],
+        "brown": [
+          "#5e494c"
+        ],
+        "green": [
+          "#466350"
+        ],
+        "glow red": [
+          "#cd605a"
+        ],
+        "glow yellow": [
+          "#dec358"
+        ],
+        "glow ghost": [
+          "#83d4d8"
+        ]
+      },
+      "glow_presets": [
+        "glow red",
+        "glow yellow",
+        "glow ghost"
+      ],
+      "anchor_use": "the two 1px eyes; same hex as cloth mid in the anchor but a separate material",
+      "glow_exception": "Glow presets may use C up to 0.14 and L up to 0.85. They are the only character pixels allowed past the normal limits, used for monster and elite eyes so threats read instantly."
+    },
+    "metal": {
+      "shades": 4,
+      "base": [
+        "#50555e",
+        "#6d727b",
+        "#8b8f99",
+        "#a7aab5"
+      ],
+      "presets": {
+        "steel": [
+          "#50555e",
+          "#6d727b",
+          "#8b8f99",
+          "#a7aab5"
+        ],
+        "iron": [
+          "#3e4349",
+          "#565b62",
+          "#70757c",
+          "#8b8f97"
+        ],
+        "bronze": [
+          "#775230",
+          "#8f6d46",
+          "#a88a5e",
+          "#c0a778"
+        ],
+        "gold": [
+          "#926837",
+          "#ac8450",
+          "#c29e66",
+          "#d5b67b"
+        ]
+      },
+      "anchor_use": "not in anchor; armor, helmets, blades"
+    },
+    "fur": {
+      "shades": 4,
+      "base": [
+        "#564a43",
+        "#6c6158",
+        "#83786e",
+        "#9a9085"
+      ],
+      "presets": {
+        "gray": [
+          "#564a43",
+          "#6c6158",
+          "#83786e",
+          "#9a9085"
+        ],
+        "brown": [
+          "#5f3f31",
+          "#755644",
+          "#8c6d58",
+          "#a3856e"
+        ]
+      },
+      "anchor_use": "monsters: wolves, bears, rats"
+    },
+    "scales": {
+      "shades": 4,
+      "base": [
+        "#365030",
+        "#46674a",
+        "#577f66",
+        "#6a9882"
+      ],
+      "presets": {
+        "green": [
+          "#365030",
+          "#46674a",
+          "#577f66",
+          "#6a9882"
+        ],
+        "red": [
+          "#6c3434",
+          "#854b42",
+          "#9d6452",
+          "#b57d63"
+        ]
+      },
+      "anchor_use": "monsters: lizards, snakes, drakes"
+    },
+    "bone": {
+      "shades": 4,
+      "base": [
+        "#7b705e",
+        "#958b78",
+        "#aca490",
+        "#c1baa5"
+      ],
+      "presets": {
+        "ivory": [
+          "#7b705e",
+          "#958b78",
+          "#aca490",
+          "#c1baa5"
+        ]
+      },
+      "anchor_use": "skeletons, skulls"
+    },
+    "chitin": {
+      "shades": 4,
+      "base": [
+        "#3b2f4a",
+        "#51405b",
+        "#67526d",
+        "#816881"
+      ],
+      "presets": {
+        "dusk": [
+          "#3b2f4a",
+          "#51405b",
+          "#67526d",
+          "#816881"
+        ]
+      },
+      "anchor_use": "spiders, beetles, crabs"
+    },
+    "slime": {
+      "shades": 4,
+      "base": [
+        "#3c6553",
+        "#4f7c6d",
+        "#659488",
+        "#7bada5"
+      ],
+      "presets": {
+        "mint": [
+          "#3c6553",
+          "#4f7c6d",
+          "#659488",
+          "#7bada5"
+        ]
+      },
+      "anchor_use": "slimes and oozes; highlight uses the slime_highlight shade"
+    },
+    "slime_highlight": {
+      "shades": 1,
+      "base": [
+        "#a3c7bf"
+      ],
+      "presets": {
+        "mint": [
+          "#a3c7bf"
+        ]
+      },
+      "anchor_use": "1-2 px gloss on slimes (L 0.80, the top of the allowed range)"
+    },
+    "hide": {
+      "shades": 3,
+      "base": [
+        "#525b2b",
+        "#637345",
+        "#758c5f"
+      ],
+      "presets": {
+        "goblin": [
+          "#525b2b",
+          "#637345",
+          "#758c5f"
+        ]
+      },
+      "anchor_use": "goblins, trolls"
+    },
+    "membrane": {
+      "shades": 2,
+      "base": [
+        "#4b344a",
+        "#61455b"
+      ],
+      "presets": {
+        "dusk": [
+          "#4b344a",
+          "#61455b"
+        ]
+      },
+      "anchor_use": "bat and dragon wings"
+    },
+    "horn": {
+      "shades": 3,
+      "base": [
+        "#7d6f5f",
+        "#9a8d7b",
+        "#b5a996"
+      ],
+      "presets": {
+        "pale": [
+          "#7d6f5f",
+          "#9a8d7b",
+          "#b5a996"
+        ]
+      },
+      "anchor_use": "horns, claws, tusks, fangs"
+    }
+  },
+  "palette_anchor": {
+    "outline": "#3a263a",
+    "cloth_dark": "#4c445a",
+    "cloth_mid": "#5a556b",
+    "leather_dark": "#5e494c",
+    "hair_dark": "#735b51",
+    "hair_mid": "#826b5e",
+    "hair_light": "#957e6d",
+    "skin_shadow": "#9f6f65",
+    "skin_mid": "#c08d80",
+    "skin_light": "#dba292",
+    "accent_dark": "#bc8f5f",
+    "accent_light": "#d2ab70"
+  },
+  "anchor": {
+    "file": "style/anchor.png",
+    "bbox": {
+      "x0": 10,
+      "y0": 10,
+      "x1": 20,
+      "y1": 27
+    },
+    "rows": {
+      "head": [
+        10,
+        19
+      ],
+      "collar": [
+        20,
+        20
+      ],
+      "torso_arms": [
+        20,
+        24
+      ],
+      "belt": [
+        24,
+        25
+      ],
+      "legs_feet": [
+        25,
+        27
+      ]
+    },
+    "eyes": [
+      [
+        13,
+        18
+      ],
+      [
+        17,
+        18
+      ]
+    ],
+    "hand_placed_outline": [
+      [
+        10,
+        24
+      ],
+      [
+        20,
+        24
+      ],
+      [
+        17,
+        26
+      ],
+      [
+        18,
+        26
+      ]
+    ],
+    "stance": "viewer-left foot on baseline row 27; viewer-right foot set back, 1px higher (row 26). This is the idle base pose (idle_s frame 0)."
+  },
+  "z_order": {
+    "s": [
+      "shadow",
+      "back",
+      "hair_back",
+      "held_far",
+      "body",
+      "legs_wear",
+      "feet",
+      "torso_wear",
+      "over_torso",
+      "belt",
+      "arm_far",
+      "arm_near",
+      "hands",
+      "eyes",
+      "hair_front",
+      "headwear",
+      "held_near"
+    ],
+    "n": [
+      "shadow",
+      "held_far",
+      "held_near",
+      "body",
+      "legs_wear",
+      "feet",
+      "torso_wear",
+      "over_torso",
+      "belt",
+      "arm_far",
+      "arm_near",
+      "hands",
+      "hair_front",
+      "hair_back",
+      "headwear",
+      "back"
+    ],
+    "e": [
+      "shadow",
+      "held_far",
+      "arm_far",
+      "back",
+      "body",
+      "legs_wear",
+      "feet",
+      "torso_wear",
+      "over_torso",
+      "belt",
+      "hair_back",
+      "eyes",
+      "hair_front",
+      "headwear",
+      "arm_near",
+      "hands",
+      "held_near"
+    ]
+  },
+  "animations": {
+    "idle": {
+      "loop": true,
+      "frames_ms": [
+        450,
+        150,
+        450,
+        150
+      ]
+    },
+    "walk": {
+      "loop": true,
+      "frames_ms": [
+        130,
+        130,
+        130,
+        130
+      ]
+    },
+    "hurt": {
+      "loop": false,
+      "frames_ms": [
+        80,
+        120,
+        140
+      ],
+      "flash_frames": [
+        0
+      ],
+      "note": "see COMBAT.md; knockback beyond 1 px is root motion"
+    },
+    "death": {
+      "loop": false,
+      "frames_ms": [
+        80,
+        140,
+        140,
+        160,
+        600
+      ],
+      "flash_frames": [
+        0
+      ],
+      "optional_dissolve_ms": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "note": "see COMBAT.md"
+    },
+    "blink": {
+      "loop": false,
+      "frames_ms": [
+        100
+      ],
+      "note": "idle frame 0 with eyes closed; engine swaps it in every 2.5 to 5 s"
+    },
+    "combat_idle": {
+      "loop": true,
+      "frames_ms": [
+        300,
+        150,
+        300,
+        150
+      ]
+    },
+    "attack_slash": {
+      "loop": false,
+      "frames_ms": [
+        120,
+        80,
+        60,
+        140,
+        160
+      ],
+      "hold_frames": [
+        0,
+        1
+      ],
+      "active_frames": [
+        2
+      ],
+      "events": [
+        {
+          "frame": 0,
+          "type": "windup"
+        },
+        {
+          "frame": 2,
+          "type": "hit"
+        },
+        {
+          "frame": 4,
+          "type": "recover"
+        }
+      ]
+    },
+    "attack_heavy": {
+      "loop": false,
+      "frames_ms": [
+        140,
+        120,
+        80,
+        50,
+        60,
+        160,
+        200
+      ],
+      "hold_frames": [
+        1,
+        2
+      ],
+      "active_frames": [
+        3,
+        4
+      ],
+      "events": [
+        {
+          "frame": 0,
+          "type": "windup"
+        },
+        {
+          "frame": 3,
+          "type": "hit"
+        },
+        {
+          "frame": 4,
+          "type": "vfx",
+          "fx": "impact_big",
+          "point": "weapon_tip"
+        },
+        {
+          "frame": 6,
+          "type": "recover"
+        }
+      ]
+    },
+    "shoot_bow": {
+      "loop": false,
+      "frames_ms": [
+        100,
+        120,
+        200,
+        60,
+        120,
+        140
+      ],
+      "hold_frames": [
+        2
+      ],
+      "charge_loop_frame": 2,
+      "events": [
+        {
+          "frame": 0,
+          "type": "windup"
+        },
+        {
+          "frame": 3,
+          "type": "spawn",
+          "fx": "arrow",
+          "point": "bow_nock"
+        },
+        {
+          "frame": 5,
+          "type": "recover"
+        }
+      ]
+    },
+    "cast": {
+      "loop": false,
+      "frames_ms": [
+        120,
+        120,
+        160,
+        80,
+        140,
+        160
+      ],
+      "hold_frames": [
+        2
+      ],
+      "charge_loop_frame": 2,
+      "events": [
+        {
+          "frame": 0,
+          "type": "windup"
+        },
+        {
+          "frame": 1,
+          "type": "vfx",
+          "fx": "gather_glow",
+          "point": "hand_near"
+        },
+        {
+          "frame": 3,
+          "type": "spawn",
+          "point": "hand_near"
+        },
+        {
+          "frame": 5,
+          "type": "recover"
+        }
+      ]
+    },
+    "block_enter": {
+      "loop": false,
+      "frames_ms": [
+        60,
+        80
+      ]
+    },
+    "block_hold": {
+      "loop": true,
+      "frames_ms": [
+        300,
+        300
+      ]
+    },
+    "block_impact": {
+      "loop": false,
+      "frames_ms": [
+        60,
+        120
+      ],
+      "events": [
+        {
+          "frame": 0,
+          "type": "vfx",
+          "fx": "spark_small",
+          "point": "shield_front"
+        }
+      ]
+    },
+    "dodge": {
+      "loop": false,
+      "frames_ms": [
+        60,
+        80,
+        80,
+        100
+      ],
+      "airborne_frames": [
+        1
+      ],
+      "root_motion_px": [
+        0,
+        -4,
+        -3,
+        -1
+      ]
+    },
+    "stun": {
+      "loop": true,
+      "frames_ms": [
+        150,
+        150,
+        150,
+        150
+      ],
+      "overlay_fx": "status_stun"
+    },
+    "victory": {
+      "loop": true,
+      "frames_ms": [
+        200,
+        150,
+        200,
+        300
+      ],
+      "airborne_frames": [
+        1
+      ]
+    }
+  },
+  "fx_ramps": {
+    "fire": [
+      "#b0503e",
+      "#de7949",
+      "#f3ae58",
+      "#f3dd99"
+    ],
+    "ice": [
+      "#5587a4",
+      "#73aec6",
+      "#9bd2e0",
+      "#c7edf1"
+    ],
+    "poison": [
+      "#3b7335",
+      "#609743",
+      "#95b964",
+      "#cbda96"
+    ],
+    "arcane": [
+      "#60438d",
+      "#8c60b3",
+      "#b789ce",
+      "#dfbce7"
+    ],
+    "holy": [
+      "#ba995b",
+      "#d6bb79",
+      "#e6d7a3",
+      "#eee9cb"
+    ],
+    "shadow": [
+      "#322843",
+      "#4a3a5c",
+      "#634e71",
+      "#7e6985"
+    ],
+    "impact": [
+      "#a38f70",
+      "#c7b593",
+      "#e2d7ba",
+      "#ece8d9"
+    ]
+  },
+  "fx_constraints": {
+    "oklch_L_range": [
+      0.3,
+      0.93
+    ],
+    "oklch_C_max": 0.14,
+    "note": "FX are the only art allowed brighter and more saturated than characters. That contrast is what makes attacks and spells pop against the muted cast. Binary alpha only, no outline by default."
+  },
+  "glow_constraints": {
+    "oklch_L_range": [
+      0.3,
+      0.85
+    ],
+    "oklch_C_max": 0.14,
+    "note": "Limits for glow eye presets (materials.<name>.glow_presets), the only character colors allowed past the normal constraints. Reserved for monsters and elites."
+  },
+  "size_classes": {
+    "small": {
+      "canvas": 32,
+      "pivot": [
+        15,
+        27
+      ],
+      "mirror_axis_x": 15,
+      "safe_bounds": [
+        2,
+        2,
+        29,
+        30
+      ],
+      "examples": "player humanoids, goblins, slimes, bats, wolves"
+    },
+    "medium": {
+      "canvas": 48,
+      "pivot": [
+        23,
+        43
+      ],
+      "mirror_axis_x": 23,
+      "safe_bounds": [
+        2,
+        2,
+        45,
+        46
+      ],
+      "examples": "ogres, trolls, bears, giant spiders"
+    },
+    "large": {
+      "canvas": 64,
+      "pivot": [
+        31,
+        59
+      ],
+      "mirror_axis_x": 31,
+      "safe_bounds": [
+        2,
+        2,
+        61,
+        62
+      ],
+      "examples": "minibosses, young dragons, golems"
+    },
+    "huge": {
+      "canvas": 96,
+      "pivot": [
+        47,
+        91
+      ],
+      "mirror_axis_x": 47,
+      "safe_bounds": [
+        2,
+        2,
+        93,
+        94
+      ],
+      "examples": "bosses"
+    },
+    "rule": "pivot = (canvas/2 - 1, canvas - 5); W mirror uses x_new = 2*mirror_axis_x - x. Bigger classes use the same pixel scale: never upscale a smaller sprite."
+  },
+  "rigs": {
+    "humanoid": {
+      "size_class": "small",
+      "height_rows": 18,
+      "head_rows": 10,
+      "status": "defined by the anchor"
+    },
+    "humanoid_small": {
+      "size_class": "small",
+      "height_rows": 14,
+      "head_rows": 8,
+      "examples": "goblin, imp, kobold"
+    },
+    "humanoid_large": {
+      "size_class": "medium",
+      "height_rows": 28,
+      "head_rows": 12,
+      "examples": "ogre, troll"
+    },
+    "blob": {
+      "size_class": "small",
+      "examples": "slime, ooze",
+      "draft": "style/examples/slime_draft.png"
+    },
+    "quadruped": {
+      "size_class": "small",
+      "examples": "wolf, boar, fox",
+      "primary_view": "e"
+    },
+    "flyer": {
+      "size_class": "small",
+      "examples": "bat, crow, wisp",
+      "hover_height_px": 7,
+      "note": "pivot and shadow stay on the ground; the body floats above"
+    },
+    "boss": {
+      "size_class": "large or huge",
+      "note": "custom rig per boss; spec written in MONSTERS.md before drawing"
+    }
+  },
+  "combat": {
+    "view": "topdown",
+    "view_options": {
+      "side": {
+        "combat_directions": [
+          "e"
+        ],
+        "generated": [
+          "w"
+        ],
+        "note": "units face each other; most common with a top-down overworld"
+      },
+      "topdown": {
+        "combat_directions": [
+          "s",
+          "e",
+          "n"
+        ],
+        "generated": [
+          "w"
+        ],
+        "note": "real-time action; about 3x the combat art"
+      }
+    },
+    "timing_profiles": {
+      "player": {
+        "telegraph_min_ms": 0,
+        "hold_scale": 1.0
+      },
+      "enemy": {
+        "telegraph_min_ms": 300,
+        "hold_scale": 1.7
+      },
+      "elite": {
+        "telegraph_min_ms": 350,
+        "hold_scale": 1.8
+      },
+      "boss": {
+        "telegraph_min_ms": 500,
+        "hold_scale": 2.2
+      }
+    },
+    "event_types": [
+      "windup",
+      "active_start",
+      "hit",
+      "active_end",
+      "spawn",
+      "vfx",
+      "sfx",
+      "impact",
+      "footstep",
+      "recover",
+      "cancel"
+    ],
+    "hitbox_colors_preview": {
+      "hit": "#ff3b3b",
+      "hurt": "#3b8bff"
+    }
+  }
+}
