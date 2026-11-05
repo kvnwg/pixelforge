@@ -295,9 +295,10 @@ def derived() -> tuple[dict, dict, dict]:
         digits = np.where(legs >= 0, legs, grid.CLEAR).astype(np.int8)
         greaves.setdefault(anim, {})[(d, i)] = remap(digits, LEATHER_TO_METAL)
         boots.setdefault(anim, {})[(d, i)] = remap(boots_from(digits), {0: 0, 1: 1, 2: 1})
-    for (anim, d, i), (near, far, tdx) in arm_frames().items():
+    for (anim, d, i), (near, far, tdx, view) in arm_frames().items():
         hand = hands_from(near)
-        hidden = (12 + tdx, 17 + tdx) if d == "e" else None  # behind the torso facing e
+        # behind the torso facing e (or w: a spin frame drawn from the mirrored e view)
+        hidden = {"e": (12 + tdx, 17 + tdx), "w": (13 + tdx, 18 + tdx)}.get(view)
         hand = grid.overlay(hand, hands_from(far, only_outside=hidden))
         gauntlets.setdefault(anim, {})[(d, i)] = hand
     return greaves, boots, gauntlets

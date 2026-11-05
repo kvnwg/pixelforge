@@ -197,3 +197,27 @@ pose_singletons:
     n:
     - - 25
       - 24
+  pose_spin:
+    s:
+    - - 11
+      - 27
+    e:
+    - - 20
+      - 23
+  pose_spin_behind:
+    n:
+    - - 19
+      - 17
+  pose_coil:
+    e:
+    - - 12
+      - 24
+    - - 10
+      - 25
+  pose_coil_behind:
+    s:
+    - - 8
+      - 18
+    n:
+    - - 22
+      - 18

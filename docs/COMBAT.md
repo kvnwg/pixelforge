@@ -89,17 +89,26 @@ This is the attack from ANIMATION_SPEC.md section 6.
 
 Hitbox on frame 2: covers the smear and blade, roughly 10 x 12 px in front of the body.
 
-### attack_heavy (overhead smash)
+### attack_heavy (the whirlwind)
+
+Rolling Knight's Blade special is **Whirlwind**: a 2 s channel that hits everything within 28 px every 0.22 s while the knight can still walk, its sword turning about 3 times a second (`src/world/skills.ts`). The heavy attack is that spin. It replaced an overhead chop that ended with the sword lying on the ground, which the human called out ("attack heavy just slams his sword on the ground").
+
+The target, written before drawing:
+- **Read at 1x:** the body turns away and crouches with the blade trailing (the tell), then spins like a top inside a white ring, sweeps once more across the front and settles. The ring and the changing facing must both show at 1x.
+- **The spin** turns counter-clockwise seen from above (s, e, n, w), the blade pointing where the body faces at waist height, so its tip runs round an ellipse (center (15, 22), 11 x 5 px for blades, 7 x 3 for fists) seen from the 3/4 camera. Each spin frame is drawn from another view (the `view` anchor, ARCHITECTURE.md section 21).
+- **The ring** is a comet: the last three quarters the tip swept, brightest at the blade. Every spin frame shows the same amount of it, so the four spin frames loop seamlessly (`loop_frames`) for as long as the game channels. The half in front of the body is drawn over it.
+- **The tell** turns the whole body a quarter the other way (facing s it turns to w) with the blade cocked behind: a whole-body tell, never covered by FX.
 
 | Frame | ms | Phase | Notes |
 |---|---|---|---|
-| 0 | 140 | windup | weapon lifted overhead, body stretches up (upper (0, -1)) |
-| 1 | 120 | windup (hold) | lean back (-1, -1), weapon behind the head: the big tell |
-| 2 | 80 | windup (hold) | peak squash (-1, +1) |
-| 3 | 50 | active | weapon slams down in front, vertical smear; `hit` |
-| 4 | 60 | active | weapon on the ground, `vfx impact_big` at the weapon tip |
-| 5 | 160 | recovery | weapon stuck low, body bent (0, +1) |
-| 6 | 200 | recovery | heave back to combat_idle; `recover` |
+| 0 | 120 | windup | crouch 1 px, the blade cocked behind on the weapon side (low behind the hip facing e, up behind the shoulder facing s and n), the far arm forward |
+| 1 | 200 | windup (hold) | the coil: drawn from the view a quarter turn back (s: w, e: s, n: e), crouched 2 px, the blade trailing low; `vfx dust_puff` at `foot_far` |
+| 2 to 5 | 4 x 60 | active (loop) | the spin: views s, e, n, w (from e: e, n, w, s; from n: n, w, s, e), crouched 1 px, wide stance, the blade where the body faces (behind the body facing n), the far arm out; the ring; `hit` on 2; rig hitbox x 3..27, y 15..28 on every spin frame |
+| 6 | 70 | active | the release: back in the start view, the slash's sweep across the front; the whole ring with the final sweep brightest; `vfx dust_puff` at `foot_near` |
+| 7 | 160 | recovery | follow-through low on the far side; the ring's front lingers a shade dimmer |
+| 8 | 200 | recovery | ready; `recover` |
+
+Tells: 320 ms on `player`, 460 ms on `enemy`, 480 ms on `elite`. Rolling Knight can play frames 0 and 1 when the special starts, repeat 2 to 5 for the 2 s channel (one turn per 240 ms, near the game's 314 ms), then play 6 to 8.
 
 ### shoot_bow
 

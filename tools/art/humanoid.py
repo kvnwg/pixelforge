@@ -394,17 +394,18 @@ def legs_frames() -> dict:
 
 
 def arm_frames() -> dict:
-    """(anim, direction, frame) -> (near arm codes, far arm codes, torso x offset)."""
+    """(anim, direction, frame) -> (near arm codes, far arm codes, torso x offset, view)."""
     _, near, far, _ = idle()
     _, wnear, wfar, _ = walk()
     _, rnear, rfar, _ = run()
-    out = {("idle", d, i): (near[(d, i)], far[(d, i)], 0) for (d, i) in near}
-    out.update({("walk", d, i): (wnear[(d, i)], wfar[(d, i)], 0) for (d, i) in wnear})
-    out.update({("run", d, i): (rnear[(d, i)], rfar[(d, i)], RUN_LEAN if d == "e" else 0)
+    out = {("idle", d, i): (near[(d, i)], far[(d, i)], 0, d) for (d, i) in near}
+    out.update({("walk", d, i): (wnear[(d, i)], wfar[(d, i)], 0, d) for (d, i) in wnear})
+    out.update({("run", d, i): (rnear[(d, i)], rfar[(d, i)], RUN_LEAN if d == "e" else 0, d)
                 for (d, i) in rnear})
     for anim, res in combat_frames().items():
         for key in res["near"]:
-            out[(anim, *key)] = (res["near"][key], res["far"][key], res["torso_dx"][key])
+            out[(anim, *key)] = (res["near"][key], res["far"][key], res["torso_dx"][key],
+                                 res["view"][key])
     return out
 
 

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 from pathlib import Path
+from typing import Sequence
 
 import json
 
@@ -150,9 +151,26 @@ class Composer:
         return {s: p for s, p in present.items() if s not in hidden}
 
     def origin(self, part: Part, direction: str) -> tuple[int, int]:
+        if direction == "w":  # a frame drawn from the west view (a spin): east's origin mirrored
+            ox, oy = self.origin(part, "e")
+            return 2 * self.rig.size.mirror_axis_x - ox, oy
         if part.origin and direction in part.origin:
             return part.origin[direction]
         return self.rig.anchor("idle", direction, 0, part.attach)
+
+    def view(self, anim: AnimDef, direction: str, index: int) -> str:
+        """The view a frame is drawn from: its own direction, unless its anchors name another
+        (`view`: a spin turns the body through s, e, n and w inside one direction's frames)."""
+        return self.rig.points(anim.name, direction, index).get("view", direction)
+
+    def view_cell(self, sheet, view: str, frame: int = 0) -> np.ndarray | None:
+        """A sheet's cell for a view; west is east mirrored around the size class's axis."""
+        if sheet is None:
+            return None
+        if view == "w":
+            cell = sheet.get("e", frame)
+            return None if cell is None else mirror(cell, self.rig.size.mirror_axis_x)[0]
+        return sheet.get(view, frame)
 
     def offset(self, part: Part, anim: AnimDef, direction: str, index: int) -> tuple[int, int]:
         """Where a rigid part sits in this frame. A lagging part (hair locks, a ponytail, a tail)
@@ -169,7 +187,7 @@ class Composer:
             held = not anim.loop and index == self.rig.frame_count(anim.name, direction) - 1
             ax = _follow([p[0] for p in pts], held)
             ay = _follow([p[1] for p in pts], held)
-        ox, oy = self.origin(part, direction)
+        ox, oy = self.origin(part, self.view(anim, direction, index))
         return ax - ox, ay - oy
 
     def lag_frame(self, part: Part, anim: AnimDef, direction: str, index: int) -> int:
@@ -202,7 +220,7 @@ class Composer:
               behind: bool = False) -> Layer | None:
         if not part.drawn(anim.name):
             sheet = self.pose_sheet(part, self.pose(part, anim, direction, index), behind)
-            cell = sheet.get(direction, 0) if sheet else None
+            cell = self.view_cell(sheet, self.view(anim, direction, index))
             if cell is None or not cell[..., 3].any():
                 return None
             dx, dy = self.offset(part, anim, direction, index)
@@ -232,9 +250,11 @@ class Composer:
         of opening a line of skin under a helmet. Facing n the repeated row takes the material's
         dark shade, the head's shadow on the back, as the body's does (a doubled row of flat
         cloth reads as a slab, W5). The gap is measured against idle frame 0."""
+        view = self.view(anim, direction, index)
         try:
             chin, torso = (self.rig.anchor(anim.name, direction, index, n) for n in ("chin", "torso"))
-            chin0, torso0 = (self.rig.anchor("idle", direction, 0, n) for n in ("chin", "torso"))
+            chin0, torso0 = (self.rig.anchor("idle", "e" if view == "w" else view, 0, n)
+                             for n in ("chin", "torso"))
         except RigError:
             return cell
         gap, top = (torso[1] - chin[1]) - (torso0[1] - chin0[1]), torso[1]
@@ -242,7 +262,7 @@ class Composer:
             return cell
         out = cell.copy()
         source = cell[top].copy()
-        if direction == "n":
+        if view == "n":
             dark = np.array(parse_hex(self.style.materials[part.material].base[0]), np.uint8)
             ink = np.array(self.style.outline.rgb, np.uint8)
             shade = (source[:, 3] == 255) & ~np.all(source[:, :3] == ink, axis=-1)
@@ -261,24 +281,45 @@ class Composer:
         if held is None:
             return None
         cell = None
-        if held.drawn(src.name):
-            sheet = self.lib.sheet(held, f"smear_{src.name}" + ("_front" if front else ""))
-            if sheet is not None and index < sheet.frames:
-                cell = sheet.get(direction, index)
+        suffix = "_front" if front else ""
+        per_anim = self.lib.sheet(held, f"smear_{src.name}{suffix}")
+        if held.drawn(src.name) or self.per_frame_trails(held, src.name):
+            # trails drawn per frame: a monster's drawn weapon, or a posed weapon's move that
+            # turns the body (the whirlwind's ring: smear_attack_heavy.png, a cell per frame)
+            if per_anim is not None and index < per_anim.frames:
+                cell = per_anim.get(direction, index)
         else:
             pose = self.pose(held, src, direction, index)
-            sheet = self.lib.sheet(held, f"smear_{pose}" + ("_front" if front else "")) if pose else None
-            cell = sheet.get(direction, 0) if sheet else None
+            sheet = self.lib.sheet(held, f"smear_{pose}{suffix}") if pose else None
+            cell = self.view_cell(sheet, self.view(src, direction, index))
             if cell is not None:
                 cell, _ = shift(cell, *self.offset(held, src, direction, index))
         return cell if cell is not None and cell[..., 3].any() else None
 
-    def swing(self, cell: np.ndarray, fade: bool = False) -> np.ndarray:
+    def per_frame_trails(self, held: Part, anim: str) -> bool:
+        """True when a posed item draws this animation's trails per frame instead of per pose."""
+        return any(self.lib.sheet(held, f"smear_{anim}{sfx}") is not None for sfx in ("", "_front"))
+
+    def swing(self, cell: np.ndarray, fade: bool = False,
+              ramp: Sequence[str] | None = None) -> np.ndarray:
         """Paint a smear in fx_ramps.swing by rank: the smear's lightest color becomes the white
         core, the next the mid shade, the rest the grey-blue rim. A fading trail (the frame after
-        the strike) drops its darkest rank and steps the rest one shade down."""
+        the strike) drops its darkest rank and steps the rest one shade down.
+        With `ramp` (the item's material ramp), ranks are absolute instead: the ramp's top shade
+        is the core, the next the mid, the third the rim (weapons.trail_shade), so a trail split
+        into pieces (a ring's front and back halves) keeps its ages in each piece."""
         out = np.zeros_like(cell)
         solid = cell[..., 3] == 255
+        if ramp is not None:
+            index = {parse_hex(c): i for i, c in enumerate(ramp)}
+            for y, x in zip(*np.nonzero(solid)):
+                i = index.get(tuple(int(v) for v in cell[y, x, :3]))
+                rank = 2 if i is None else max(i - (len(ramp) - 3), 0)
+                if fade and rank == 0:
+                    continue
+                out[y, x, :3] = self.swing_rgb[rank - 1 if fade else rank]
+                out[y, x, 3] = 255
+            return out
         colors = sorted({tuple(int(v) for v in px[:3]) for px in cell[solid]},
                         key=lambda c: -(0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]))
         for rank, color in enumerate(colors):
@@ -345,7 +386,8 @@ class Composer:
                 if layer is not None:
                     layers.append(layer)
         hidden_here = set(self.rig.points(src.name, direction, src_index).get("hide", []))
-        for slot in self.rig.z_order[direction]:
+        view = self.view(src, direction, src_index)
+        for slot in self.rig.z_order["e" if view == "w" else view]:
             part = self.parts.get(slot)
             if part is not None and slot not in hidden_here:  # a pose may hide a part
                 layer = self.layer(part, src, direction, src_index)
@@ -385,7 +427,10 @@ class Composer:
             if cell is None and src_index > 0:
                 cell, fade = self.smear_cell(held, src, direction, src_index - 1, front), True
             if cell is not None:
-                cell = self.swing(cell, fade)
+                ramp = (self.style.materials[held.material].base  # a trail drawn per frame
+                        if not held.drawn(src.name) and self.per_frame_trails(held, src.name)
+                        else None)
+                cell = self.swing(cell, fade, ramp)
                 mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0 if not front else True)
                 sprite[mask] = cell[mask]
                 owner[mask] = SMEAR
@@ -432,9 +477,13 @@ class Composer:
             data = self.part_data(part)
             pose = self.pose(part, anim, direction, index) or "rest"
             dx, dy = (0, 0) if part.drawn(anim.name) else self.offset(part, anim, direction, index)
+            view = self.view(anim, direction, index)
             for name, per_dir in data.get("points", {}).get(pose, {}).items():
-                if direction in per_dir:
-                    x, y = per_dir[direction]
+                key = "e" if view == "w" else view
+                if key in per_dir:
+                    x, y = per_dir[key]
+                    if view == "w":
+                        x = 2 * self.rig.size.mirror_axis_x - x
                     frame.points[name] = (x + dx, y + dy)
             if slot == "held_near" and "active" in frame.flags:
                 for x, y, w, h in data.get("hitboxes", {}).get(pose, {}).get(direction, []):

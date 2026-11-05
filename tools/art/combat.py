@@ -102,6 +102,7 @@ ARMS = {
         "overhead": _arm([], (14, 12)),  # behind the head: only the weapon shows above it
         "limp": _arm([(15, 22, 2), (15, 23, 2), (15, 24, 2)], (15, 24)),
         "tuck": _arm([(16, 21, 2), (16, 22, 2)], (16, 22)),
+        "coil": _arm([(15, 22, 2), (14, 22, 2), (14, 23, 2)], (14, 23)),  # pulled back past the hip
     },
     ("e", "far"): {  # behind the torso: only what reaches past it shows
         "rest": _arm([(13, 22, 1), (13, 23, 0)], (13, 23)),
@@ -128,6 +129,7 @@ ARMS = {
                         (14, 22, 1), (13, 23, 1), (14, 23, 1)], (15, 23)),  # 2 px thick: no torn cloth
         "after": _arm([(11, 22, 1), (12, 22, 1), (12, 23, 1), (13, 23, 1), (14, 23, 1),
                        (15, 23, 1), (15, 24, 1), (16, 24, 1)], (17, 24)),  # follow-through, far side low
+        "coil": _arm([(11, 22, 1), (10, 22, 1)], (10, 22)),  # out and back: the blade cocked behind
     },
     ("s", "far"): {  # viewer-right, lit, two columns like the idle arm
         "rest": _arm([(18, 21, 2), (19, 21, 2), (18, 22, 1), (19, 22, 2), (18, 23, 1),
@@ -172,10 +174,13 @@ def arm_grid(d: str, side: str, name: str, t: tuple[int, int]) -> tuple[np.ndarr
 # offsets (forward is +x facing e, +y facing s, -y facing n), so each frame gives its offsets per
 # direction; arms, stance and held poses are named once.
 def F(e, s=None, n=None, *, legs="ready", near="ready", far="rest", held="ready", shield="rest",
-      head=None, sdl=None, ndl=None, lift=0, planted=None):
+      head=None, sdl=None, ndl=None, lift=0, planted=None, view=None, hitboxes=None):
     """e, s, n: torso offsets (x, y). head: extra head offset relative to the torso, per direction
     as a dict or one tuple for all. sdl / ndl: stance overrides for s and n. lift: raise the
-    stance (airborne frames) by this many px."""
+    stance (airborne frames) by this many px. view: per direction, the view the frame is drawn
+    from when it is not the direction's own (a spin turns the body: s, e, n or w; w is e
+    mirrored). Offsets, arms, stance and held poses are then the view's. hitboxes: boxes the
+    rig authors on an active frame, besides the held item's (the whirlwind's ring)."""
     s = s if s is not None else (0, e[1])
     n = n if n is not None else (0, e[1])
     head = head or {}
@@ -183,8 +188,12 @@ def F(e, s=None, n=None, *, legs="ready", near="ready", far="rest", held="ready"
         head = {d: head for d in DIRS}
     return {"T": {"e": e, "s": s, "n": n}, "head": head, "legs": legs,
             "legs_dir": {"s": sdl, "n": ndl}, "near": near, "far": far,
-            "held": held, "shield": shield, "lift": lift, "planted": planted}
+            "held": held, "shield": shield, "lift": lift, "planted": planted,
+            "view": view or {}, "hitboxes": hitboxes}
 
+
+# the whirlwind hits all around: the ring its blade sweeps (weapons.py RING), x 3..27, y 15..28
+RING = [[3, 15, 25, 14]]
 
 FRAMES: dict[str, list[dict]] = {
     # ready stance, weapon up; the body bobs 1 px like idle, the hair lags. The spec's +1/+2 bob
@@ -205,15 +214,25 @@ FRAMES: dict[str, list[dict]] = {
           held="across", legs="lunge"),
         F((0, 0), near="ready", held="ready"),
     ],
-    # overhead smash: lift, lean back (the tell), squash, slam, weapon down, heave back
+    # The whirlwind (Rolling Knight's Blade special, COMBAT.md): coil, turning the whole body a
+    # quarter away from the spin with the blade cocked low behind (the tell), then spin like a
+    # top through s, e, n and w with the blade pointing where the body faces and a white ring
+    # around it (the spin frames loop while the game channels), a last sweep across the front,
+    # the follow-through low on the far side, and the settle. The spin turns counter-clockwise
+    # seen from above (s, e, n, w); the coil turns the other way first.
     "attack_heavy": [
-        F((0, -1), (0, -1), (0, -1), near="up", far="up", held="overhead", legs="tall"),
-        F((-1, -1), (0, -1), (0, -1), near="overhead", far="up", held="back", legs="tall",
-          head={"e": (-1, 0)}),
-        F((-1, 1), (0, 1), (0, 1), near="overhead", far="up", held="back", legs="crouch"),
-        F((1, 1), (0, 1), (0, 0), near="fwd", far="back", held="slam", legs="lunge"),
-        F((1, 2), (0, 2), (0, 1), near="low", far="back", held="ground", legs="crouch"),
-        F((1, 1), (0, 1), (0, 1), near="low", far="back", held="ground", legs="crouch"),
+        F((-1, 1), (0, 1), (0, 1), near="coil", far={"e": "fwd", "s": "guard", "n": "guard"},
+          held="coil", legs="crouch"),
+        F((-1, 2), (0, 2), (0, 2), near="coil", far={"e": "fwd", "s": "guard", "n": "guard"},
+          held="coil", legs="crouch", view={"s": "w", "e": "s", "n": "e"}),
+        *[F((0, 1), (0, 1), (0, 1), near={"e": "fwd", "s": "ready", "n": "ready"}, far="back",
+            held="spin", legs="ready",
+            view=dict(zip(("s", "e", "n"), views)), hitboxes=RING)
+          for views in (("s", "e", "n"), ("e", "n", "w"), ("n", "w", "s"), ("w", "s", "e"))],
+        F((1, 0), (0, 1), (0, -1), near={"e": "fwd", "s": "across", "n": "across"}, far="back",
+          held="sweep", legs="lunge", head={"e": (1, 0)}, hitboxes=RING),
+        F((1, 1), (0, 1), (0, 0), near={"e": "low", "s": "after", "n": "after"}, far="back",
+          held="across", legs="lunge"),
         F((0, 0), near="ready", held="ready"),
     ],
     # nock, draw, full draw (charge loop), release, recoil, lower
@@ -368,18 +387,48 @@ def frame_parts(d: str, spec: dict, base_body: np.ndarray, base_anchors: dict) -
             "torso_dx": tx}
 
 
+def mirror_codes(codes: np.ndarray) -> np.ndarray:
+    """East drawn as west: x -> 30 - x (the small class's mirror axis 15)."""
+    out = np.full(codes.shape, grid.CLEAR, np.int8)
+    out[:, :31] = codes[:, 30::-1]
+    return out
+
+
+def mirror_anchors(a: dict) -> dict:
+    out = {}
+    for k, v in a.items():
+        if isinstance(v, list) and len(v) == 2 and all(isinstance(c, int) for c in v):
+            out[k] = [30 - v[0], v[1]]
+        else:
+            out[k] = v
+    return out
+
+
 def combat(base_bodies: dict, base_anchors: dict) -> dict:
     """anim -> {"body": {(d, i): codes}, "near": ..., "far": ..., "legs": ..., "anchors":
-    {d: [..]}, "torso_dx": {(d, i): int}}"""
+    {d: [..]}, "torso_dx": {(d, i): int}, "view": {(d, i): view}}. A frame drawn from another
+    view (spec["view"]) is built from that view's base body, offsets and poses; facing w it is
+    the e frame mirrored, and its anchors carry `view` for the compositor."""
     out = {}
     for anim, frames in FRAMES.items():
-        res = {"body": {}, "near": {}, "far": {}, "legs": {}, "anchors": {}, "torso_dx": {}}
+        res = {"body": {}, "near": {}, "far": {}, "legs": {}, "anchors": {}, "torso_dx": {},
+               "view": {}}
         for d in DIRS:
             res["anchors"][d] = []
             for i, spec in enumerate(frames):
-                p = frame_parts(d, spec, base_bodies[d], base_anchors[d])
+                view = spec["view"].get(d, d)
+                src = "e" if view == "w" else view
+                p = frame_parts(src, spec, base_bodies[src], base_anchors[src])
+                if view == "w":
+                    p = {**p, **{k: mirror_codes(p[k]) for k in ("body", "near", "far", "legs")},
+                         "anchors": mirror_anchors(p["anchors"]), "torso_dx": -p["torso_dx"]}
+                if view != d:
+                    p["anchors"]["view"] = view
+                if spec["hitboxes"]:
+                    p["anchors"]["hitboxes"] = [list(b) for b in spec["hitboxes"]]
                 for key in ("body", "near", "far", "legs", "torso_dx"):
                     res[key][(d, i)] = p[key]
+                res["view"][(d, i)] = view
                 res["anchors"][d].append(p["anchors"])
         out[anim] = res
     return out

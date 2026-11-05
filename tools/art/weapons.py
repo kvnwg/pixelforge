@@ -75,6 +75,8 @@ SWORD_E = {
     "tuck": ((-1, 0), "h", -1, 0, 4, False),         # along the body, pointing back
     "high": ((1, 0), "steep", 1, -1, 6, False),      # raised high: victory
     "dropped": ((5, 1), "h", 1, 0, 5, False),        # let go: on the ground in front
+    "spin": ((1, 0), "h", 1, 0, 5, False),           # whirlwind: pointing where the body faces
+    "coil": ((-1, 0), "shallow", -1, 1, 5, False),   # its tell: trailing low past the hip
 }
 SWORD_S = {
     "ready": ((-1, 0), "steep", -1, -1, 4, False),
@@ -92,6 +94,8 @@ SWORD_S = {
     "tuck": ((-1, 0), "shallow", -1, -1, 4, False),  # held close, pointing up and out
     "high": ((-1, -1), "v", 0, -1, 6, False),
     "dropped": ((-2, 1), "h", -1, 0, 4, False),
+    "spin": ((0, 1), "v", 0, 1, 2, False),           # pointing at the camera: foreshortened
+    "coil": ((-1, 0), "steep", -1, -1, 5, True),     # cocked out and up behind the shoulder
 }
 
 # Smears (relative to the hand in the pose's reference arm position): the arc the weapon's tip
@@ -133,6 +137,7 @@ def mirror_table(table: dict) -> dict:
 
 
 SWORD = {"e": SWORD_E, "s": SWORD_S, "n": mirror_table(SWORD_S)}
+SWORD["n"]["spin"] = ((0, -1), "v", 0, -1, 5, True)  # facing away it points away: behind the body
 SMEARS = {"e": SMEAR_E, "s": SMEAR_S, "n": {k: mirror_rel(v) for k, v in SMEAR_S.items()}}
 FIST_SMEARS = {"e": FIST_SMEAR_E, "s": FIST_SMEAR_S,
                "n": {k: mirror_rel(v) for k, v in FIST_SMEAR_S.items()}}
@@ -191,6 +196,75 @@ FIST_TRAILS["s"].pop("sweep", None)
 FIST_TRAILS["n"]["sweep"] = crescent([(x - 15, y - 22) for x, y in ellipse_arc((15, 17), 7, 7, -25, -175)], 2)
 
 
+# The whirlwind's ring (COMBAT.md, attack_heavy): the blade's tip runs round the body at the
+# waist, an ellipse seen from the game's 3/4 view. Each spin frame shows the last three quarters
+# it swept, brightest at the blade (a comet that loops seamlessly); the release shows the whole
+# ring with the final sweep brightest, and the compositor fades it on the follow-through. The
+# half in front of the body is drawn over it (the _front sheet), the rest behind.
+RING = {"blade": ((15, 22), 11, 5), "fist": ((15, 22), 7, 3)}  # center, rx, ry
+TIP_ANGLE = {"s": 90, "e": 0, "n": -90, "w": -180}  # where the tip is when the body faces a view
+
+
+def ring_trail(center, rx, ry, newest, span=270, mid=180):
+    """The comet: the ellipse arc swept over the last `span` degrees (angles y down, the spin
+    runs toward smaller angles), ranked by age: 2 for the newest quarter with a mid band on its
+    inside, 1 up to `mid` degrees old, 0 for the rest. Ranks are the trail's ages, kept
+    absolute by the compositor, so the front and back halves fade together."""
+    arc = ellipse_arc(center, rx, ry, newest + span, newest)
+    cx, cy = center
+    out: dict[tuple[int, int], int] = {}
+    for i, (x, y) in enumerate(arc):
+        age = span * (1 - i / max(len(arc) - 1, 1))
+        out[(x, y)] = max(out.get((x, y), -1), 2 if age <= 90 else 1 if age <= mid else 0)
+    for (x, y), rank in list(out.items()):
+        if rank == 2:  # the core is 2 px: a mid band toward the center
+            nx, ny = (x - cx) / rx, (y - cy) / ry
+            q = (x - int(np.sign(nx)), y) if abs(nx) > abs(ny) else (x, y - int(np.sign(ny)))
+            out.setdefault(q, 1)
+    return [(x, y, v) for (x, y), v in out.items()]
+
+
+def spin_trails(kind: str) -> dict:
+    """(direction, frame) -> (behind points, front points) for attack_heavy, from combat.FRAMES."""
+    from combat import FRAMES
+    center, rx, ry = RING[kind]
+    frames = FRAMES["attack_heavy"]
+    out = {}
+    for d in DIRS:
+        angles = []  # the tip's angle per spin frame, unwrapped so the spin keeps turning
+        for i, spec in enumerate(frames):
+            if spec["held"] == "spin":
+                a = TIP_ANGLE[spec["view"].get(d, d)]
+                while angles and a >= angles[-1]:
+                    a -= 360
+                angles.append(a)
+                pts = ring_trail(center, rx, ry, a)
+            elif spec["held"] == "sweep" and angles:  # the release: on round to the sweep's end
+                end = {"s": 0, "e": 0, "n": -180}[d]
+                while end >= angles[-1]:
+                    end -= 360
+                pts = ring_trail(center, rx, ry, end, span=360, mid=170)  # the far side fades
+            else:
+                continue
+            out[(d, i)] = ([p for p in pts if p[1] <= center[1]], [p for p in pts if p[1] > center[1]])
+    return out
+
+
+def write_spin_trails(folder, material: str, kind: str) -> None:
+    from combat import FRAMES
+    n = len(FRAMES["attack_heavy"])
+    trails = spin_trails(kind)
+    ramp = STYLE.materials[material].base
+    for k, name in ((0, "smear_attack_heavy"), (1, "smear_attack_heavy_front")):
+        cells = {}
+        for d in DIRS:
+            for i in range(n):
+                pts = trails.get((d, i), ([], []))[k]
+                codes = cell([(x, y, trail_shade(material, v)) for x, y, v in pts], (0, 0))
+                cells[(d, i)] = grid.paint(codes, ramp, OUTLINE)
+        write_sheet(folder / f"{name}.png", cells, DIRS, n, SIZE)
+
+
 # ============================================================================== item drawings
 # Each returns {"main": [(dx, dy, shade)], "trim": [...], "tip": (dx, dy)} relative to the hand.
 def sword(pose: str, d: str):
@@ -213,6 +287,7 @@ def mace(pose: str, d: str):
         return None
     (gx, gy), kind, sx, sy, n, behind = spec
     reach = 5 if n >= 5 and sy < 0 else 4  # raised or cocked, it reaches past the helm
+    reach = min(reach, n + 1)  # a foreshortened pose (the spin at the camera) stays short
     pts = [(gx + x, gy + y) for x, y in line(kind, reach, sx, sy)]  # grip and the shaft
     ex, ey = line(kind, reach + 1, sx, sy)[reach]
     hx, hy = gx + ex, gy + ey  # head centre just past the shaft
@@ -611,6 +686,8 @@ def main() -> None:
     build_item("held_near", "sword", "metal", sword, BLADE_POSES,
                trim=("held_near_trim", "hilt", "accent"), smears=TRAILS, front_smears=FRONT_TRAILS)
     build_item("held_near", "mace", "metal", mace, BLADE_POSES, smears=TRAILS, front_smears=FRONT_TRAILS)
+    for item in ("sword", "mace"):
+        write_spin_trails(ROOT / "parts" / "held_near" / item, "metal", "blade")
     build_item("held_near", "staff", "leather", staff, tuple(STAFF_E),
                trim=("held_near_trim", "orb", "accent"))
     build_item("held_near", "lance", "leather", lance, tuple(LANCE_E),
@@ -618,6 +695,7 @@ def main() -> None:
     build_item("held_near", "bow", "leather", bow, ("aim", "draw", "release", "low", "ground",
                                                      "dropped", "tuck", "high"))
     fist()
+    write_spin_trails(ROOT / "parts" / "held_near" / "fist", "accent", "fist")
     shield()
     import yaml
     for folder in sorted({f for f in (ROOT / "parts").glob("held*/*") if f.is_dir()}):

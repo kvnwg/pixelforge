@@ -201,8 +201,10 @@ def test_export_carries_combat_data(knight):
     pf = data["meta"]["pixelforge"]
     assert pf["hitboxes"]["attack_slash_e"]["2"]
     assert set(pf["hurtboxes"]["attack_slash_e"]) == {"0", "1", "2", "3", "4"}
-    heavy = {e["type"]: e for e in pf["events"]["attack_heavy_e"]}
-    assert heavy["vfx"]["point_name"] == "weapon_tip" and len(heavy["vfx"]["point"]) == 2
+    heavy = [e for e in pf["events"]["attack_heavy_e"] if e["type"] == "vfx"]
+    assert [e["point_name"] for e in heavy] == ["foot_far", "foot_near"]  # dust off the feet
+    assert all(len(e["point"]) == 2 for e in heavy)
+    assert pf["loop_frames"]["attack_heavy_e"] == [2, 3, 4, 5]  # the whirlwind's channel
     assert pf["holds"]["attack_slash_e"] == [0, 1]
     assert pf["base_durations"]["attack_slash_e"] == [120, 80, 60, 140, 160]
     assert pf["timing_profiles"]["enemy"]["telegraph_min_ms"] == 300

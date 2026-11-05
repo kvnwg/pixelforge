@@ -1276,21 +1276,31 @@
     "attack_heavy": {
       "loop": false,
       "frames_ms": [
-        140,
         120,
-        80,
-        50,
+        200,
         60,
+        60,
+        60,
+        60,
+        70,
         160,
         200
       ],
       "hold_frames": [
-        1,
-        2
+        1
       ],
       "active_frames": [
+        2,
         3,
-        4
+        4,
+        5,
+        6
+      ],
+      "loop_frames": [
+        2,
+        3,
+        4,
+        5
       ],
       "events": [
         {
@@ -1298,18 +1308,24 @@
           "type": "windup"
         },
         {
-          "frame": 3,
+          "frame": 1,
+          "type": "vfx",
+          "fx": "dust_puff",
+          "point": "foot_far"
+        },
+        {
+          "frame": 2,
           "type": "hit",
           "fx": "spark_small"
         },
         {
-          "frame": 4,
+          "frame": 6,
           "type": "vfx",
-          "fx": "impact_big",
-          "point": "weapon_tip"
+          "fx": "dust_puff",
+          "point": "foot_near"
         },
         {
-          "frame": 6,
+          "frame": 8,
           "type": "recover"
         }
       ],
@@ -1320,8 +1336,11 @@
         2,
         3,
         4,
-        5
-      ]
+        5,
+        6,
+        7
+      ],
+      "note": "the whirlwind (Rolling Knight's Blade special): coil a quarter turn away with the blade low behind (the tell), spin s, e, n, w with the blade where the body faces and a white ring around it (loop_frames repeat while the game channels), a last sweep across the front, follow-through low on the far side, settle"
     },
     "shoot_bow": {
       "loop": false,

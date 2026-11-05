@@ -18,3 +18,15 @@ allow_singletons:
   n:
   - - 20
     - 28
+pose_singletons:
+  pose_coil:
+    e:
+    - - 8
+      - 26
+  pose_coil_behind:
+    s:
+    - - 7
+      - 17
+    n:
+    - - 23
+      - 17

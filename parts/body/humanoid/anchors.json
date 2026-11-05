@@ -4106,106 +4106,6 @@
    {
     "head": [
      15,
-     10
-    ],
-    "chin": [
-     15,
-     18
-    ],
-    "torso": [
-     15,
-     19
-    ],
-    "back": [
-     15,
-     20
-    ],
-    "hip": [
-     15,
-     24
-    ],
-    "hand_near": [
-     10,
-     18
-    ],
-    "hand_far": [
-     20,
-     18
-    ],
-    "foot_near": [
-     12,
-     27
-    ],
-    "foot_far": [
-     18,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     15,
-     23
-    ],
-    "pose": {
-     "held_near": "overhead",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     15,
-     10
-    ],
-    "chin": [
-     15,
-     18
-    ],
-    "torso": [
-     15,
-     19
-    ],
-    "back": [
-     15,
-     20
-    ],
-    "hip": [
-     15,
-     24
-    ],
-    "hand_near": [
-     10,
-     19
-    ],
-    "hand_far": [
-     20,
-     18
-    ],
-    "foot_near": [
-     12,
-     27
-    ],
-    "foot_far": [
-     18,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     15,
-     23
-    ],
-    "pose": {
-     "held_near": "back",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     15,
      12
     ],
     "chin": [
@@ -4226,11 +4126,11 @@
     ],
     "hand_near": [
      10,
-     21
+     23
     ],
     "hand_far": [
-     20,
-     20
+     17,
+     23
     ],
     "foot_near": [
      12,
@@ -4249,91 +4149,41 @@
      25
     ],
     "pose": {
-     "held_near": "back",
+     "held_near": "coil",
      "held_far": "rest"
     }
    },
    {
     "head": [
-     15,
-     12
-    ],
-    "chin": [
-     15,
-     20
-    ],
-    "torso": [
-     15,
-     21
-    ],
-    "back": [
-     15,
-     22
-    ],
-    "hip": [
-     15,
-     26
-    ],
-    "hand_near": [
-     12,
-     24
-    ],
-    "hand_far": [
-     20,
-     24
-    ],
-    "foot_near": [
-     12,
-     27
-    ],
-    "foot_far": [
-     18,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     15,
-     25
-    ],
-    "pose": {
-     "held_near": "slam",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     15,
+     16,
      13
     ],
     "chin": [
-     15,
+     16,
      21
     ],
     "torso": [
-     15,
+     16,
      22
     ],
     "back": [
-     15,
+     19,
      23
     ],
     "hip": [
-     15,
+     16,
      27
     ],
     "hand_near": [
-     12,
-     26
-    ],
-    "hand_far": [
-     20,
+     17,
      25
     ],
+    "hand_far": [
+     13,
+     24
+    ],
     "foot_near": [
-     12,
+     13,
      27
     ],
     "foot_far": [
@@ -4345,13 +4195,14 @@
      "foot_far"
     ],
     "shield_front": [
-     15,
-     26
+     12,
+     23
     ],
     "pose": {
-     "held_near": "ground",
+     "held_near": "coil",
      "held_far": "rest"
-    }
+    },
+    "view": "w"
    },
    {
     "head": [
@@ -4375,7 +4226,300 @@
      26
     ],
     "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
      12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "e",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "n",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     18,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     11,
+     22
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "w",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     15,
+     24
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "sweep",
+     "held_far": "rest"
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     17,
      25
     ],
     "hand_far": [
@@ -4399,7 +4543,7 @@
      25
     ],
     "pose": {
-     "held_near": "ground",
+     "held_near": "across",
      "held_far": "rest"
     }
    },
@@ -4457,32 +4601,133 @@
   "e": [
    {
     "head": [
+     14,
+     12
+    ],
+    "chin": [
+     14,
+     20
+    ],
+    "torso": [
+     14,
+     21
+    ],
+    "back": [
+     11,
+     22
+    ],
+    "hip": [
+     14,
+     26
+    ],
+    "hand_near": [
+     13,
+     24
+    ],
+    "hand_far": [
+     17,
+     23
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     18,
+     22
+    ],
+    "pose": {
+     "held_near": "coil",
+     "held_far": "rest"
+    }
+   },
+   {
+    "head": [
      15,
-     10
+     13
     ],
     "chin": [
      15,
-     18
+     21
     ],
     "torso": [
      15,
-     19
+     22
     ],
     "back": [
-     12,
-     20
+     15,
+     23
     ],
     "hip": [
      15,
-     24
+     27
     ],
     "hand_near": [
-     18,
-     18
+     10,
+     24
     ],
     "hand_far": [
-     14,
-     18
+     17,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     26
+    ],
+    "pose": {
+     "held_near": "coil",
+     "held_far": "rest"
+    },
+    "view": "s"
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     24
     ],
     "foot_near": [
      17,
@@ -4498,193 +4743,229 @@
     ],
     "shield_front": [
      19,
-     20
+     22
     ],
     "pose": {
-     "held_near": "overhead",
+     "held_near": "spin",
      "held_far": "rest"
-    }
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
    },
    {
     "head": [
-     13,
-     10
+     15,
+     12
     ],
     "chin": [
-     13,
-     18
-    ],
-    "torso": [
-     14,
-     19
-    ],
-    "back": [
-     11,
+     15,
      20
     ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
     "hip": [
-     14,
-     24
+     15,
+     26
     ],
     "hand_near": [
+     19,
+     23
+    ],
+    "hand_far": [
+     10,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     20
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "n",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     18,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
      13,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     11,
+     22
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "w",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "s",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     17,
      11
     ],
-    "hand_far": [
-     13,
-     18
-    ],
-    "foot_near": [
+    "chin": [
      17,
-     27
-    ],
-    "foot_far": [
-     12,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     18,
-     20
-    ],
-    "pose": {
-     "held_near": "back",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     14,
-     12
-    ],
-    "chin": [
-     14,
-     20
-    ],
-    "torso": [
-     14,
-     21
-    ],
-    "back": [
-     11,
-     22
-    ],
-    "hip": [
-     14,
-     26
-    ],
-    "hand_near": [
-     13,
-     13
-    ],
-    "hand_far": [
-     13,
-     20
-    ],
-    "foot_near": [
-     17,
-     27
-    ],
-    "foot_far": [
-     12,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     18,
-     22
-    ],
-    "pose": {
-     "held_near": "back",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     16,
-     12
-    ],
-    "chin": [
-     16,
-     20
+     19
     ],
     "torso": [
      16,
-     21
+     20
     ],
     "back": [
      13,
-     22
-    ],
-    "hip": [
-     16,
-     26
-    ],
-    "hand_near": [
-     20,
-     22
-    ],
-    "hand_far": [
-     12,
-     24
-    ],
-    "foot_near": [
-     18,
-     27
-    ],
-    "foot_far": [
-     12,
-     27
-    ],
-    "planted": [
-     "foot_far"
-    ],
-    "shield_front": [
-     20,
-     22
-    ],
-    "pose": {
-     "held_near": "slam",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     16,
-     13
-    ],
-    "chin": [
-     16,
      21
     ],
-    "torso": [
-     16,
-     22
-    ],
-    "back": [
-     13,
-     23
-    ],
     "hip": [
      16,
-     27
-    ],
-    "hand_near": [
-     18,
-     26
-    ],
-    "hand_far": [
-     12,
      25
     ],
+    "hand_near": [
+     20,
+     21
+    ],
+    "hand_far": [
+     12,
+     23
+    ],
     "foot_near": [
-     17,
+     18,
      27
     ],
     "foot_far": [
@@ -4692,17 +4973,24 @@
      27
     ],
     "planted": [
-     "foot_near",
      "foot_far"
     ],
     "shield_front": [
      20,
-     23
+     21
     ],
     "pose": {
-     "held_near": "ground",
+     "held_near": "sweep",
      "held_far": "rest"
-    }
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
    },
    {
     "head": [
@@ -4734,7 +5022,7 @@
      24
     ],
     "foot_near": [
-     17,
+     18,
      27
     ],
     "foot_far": [
@@ -4742,7 +5030,6 @@
      27
     ],
     "planted": [
-     "foot_near",
      "foot_far"
     ],
     "shield_front": [
@@ -4750,7 +5037,7 @@
      22
     ],
     "pose": {
-     "held_near": "ground",
+     "held_near": "across",
      "held_far": "rest"
     }
    },
@@ -4809,31 +5096,31 @@
    {
     "head": [
      15,
-     10
+     12
     ],
     "chin": [
      15,
-     18
+     20
     ],
     "torso": [
      15,
-     19
+     21
     ],
     "back": [
      15,
-     20
+     22
     ],
     "hip": [
      15,
-     24
+     26
     ],
     "hand_near": [
      20,
-     18
+     23
     ],
     "hand_far": [
-     10,
-     18
+     13,
+     23
     ],
     "foot_near": [
      12,
@@ -4849,48 +5136,48 @@
     ],
     "shield_front": [
      15,
-     18
+     20
     ],
     "pose": {
-     "held_near": "overhead",
+     "held_near": "coil",
      "held_far": "rest"
     }
    },
    {
     "head": [
-     15,
-     10
+     14,
+     13
     ],
     "chin": [
-     15,
-     18
+     14,
+     21
     ],
     "torso": [
-     15,
-     19
+     14,
+     22
     ],
     "back": [
-     15,
-     20
+     11,
+     23
     ],
     "hip": [
-     15,
-     24
+     14,
+     27
     ],
     "hand_near": [
-     20,
-     19
+     13,
+     25
     ],
     "hand_far": [
-     10,
-     18
+     17,
+     24
     ],
     "foot_near": [
-     12,
+     17,
      27
     ],
     "foot_far": [
-     18,
+     12,
      27
     ],
     "planted": [
@@ -4898,13 +5185,14 @@
      "foot_far"
     ],
     "shield_front": [
-     15,
-     18
+     18,
+     23
     ],
     "pose": {
-     "held_near": "back",
+     "held_near": "coil",
      "held_far": "rest"
-    }
+    },
+    "view": "e"
    },
    {
     "head": [
@@ -4928,12 +5216,12 @@
      26
     ],
     "hand_near": [
-     20,
-     21
+     19,
+     23
     ],
     "hand_far": [
      10,
-     20
+     24
     ],
     "foot_near": [
      12,
@@ -4952,9 +5240,252 @@
      20
     ],
     "pose": {
-     "held_near": "back",
+     "held_near": "spin",
      "held_far": "rest"
-    }
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     18,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     22
+    ],
+    "hand_far": [
+     19,
+     24
+    ],
+    "foot_near": [
+     13,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     11,
+     22
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "w",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     15,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     11,
+     23
+    ],
+    "hand_far": [
+     20,
+     24
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     25
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "s",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     12
+    ],
+    "chin": [
+     15,
+     20
+    ],
+    "torso": [
+     15,
+     21
+    ],
+    "back": [
+     12,
+     22
+    ],
+    "hip": [
+     15,
+     26
+    ],
+    "hand_near": [
+     19,
+     22
+    ],
+    "hand_far": [
+     11,
+     24
+    ],
+    "foot_near": [
+     17,
+     27
+    ],
+    "foot_far": [
+     12,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     19,
+     22
+    ],
+    "pose": {
+     "held_near": "spin",
+     "held_far": "rest"
+    },
+    "view": "e",
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
+   },
+   {
+    "head": [
+     15,
+     10
+    ],
+    "chin": [
+     15,
+     18
+    ],
+    "torso": [
+     15,
+     19
+    ],
+    "back": [
+     15,
+     20
+    ],
+    "hip": [
+     15,
+     24
+    ],
+    "hand_near": [
+     15,
+     22
+    ],
+    "hand_far": [
+     10,
+     22
+    ],
+    "foot_near": [
+     12,
+     27
+    ],
+    "foot_far": [
+     18,
+     27
+    ],
+    "planted": [
+     "foot_near",
+     "foot_far"
+    ],
+    "shield_front": [
+     15,
+     18
+    ],
+    "pose": {
+     "held_near": "sweep",
+     "held_far": "rest"
+    },
+    "hitboxes": [
+     [
+      3,
+      15,
+      25,
+      14
+     ]
+    ]
    },
    {
     "head": [
@@ -4978,8 +5509,8 @@
      25
     ],
     "hand_near": [
-     18,
-     23
+     13,
+     24
     ],
     "hand_far": [
      10,
@@ -5002,107 +5533,7 @@
      19
     ],
     "pose": {
-     "held_near": "slam",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     15,
-     12
-    ],
-    "chin": [
-     15,
-     20
-    ],
-    "torso": [
-     15,
-     21
-    ],
-    "back": [
-     15,
-     22
-    ],
-    "hip": [
-     15,
-     26
-    ],
-    "hand_near": [
-     18,
-     25
-    ],
-    "hand_far": [
-     10,
-     24
-    ],
-    "foot_near": [
-     12,
-     27
-    ],
-    "foot_far": [
-     18,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     15,
-     20
-    ],
-    "pose": {
-     "held_near": "ground",
-     "held_far": "rest"
-    }
-   },
-   {
-    "head": [
-     15,
-     12
-    ],
-    "chin": [
-     15,
-     20
-    ],
-    "torso": [
-     15,
-     21
-    ],
-    "back": [
-     15,
-     22
-    ],
-    "hip": [
-     15,
-     26
-    ],
-    "hand_near": [
-     18,
-     25
-    ],
-    "hand_far": [
-     10,
-     24
-    ],
-    "foot_near": [
-     12,
-     27
-    ],
-    "foot_far": [
-     18,
-     27
-    ],
-    "planted": [
-     "foot_near",
-     "foot_far"
-    ],
-    "shield_front": [
-     15,
-     20
-    ],
-    "pose": {
-     "held_near": "ground",
+     "held_near": "across",
      "held_far": "rest"
     }
    },

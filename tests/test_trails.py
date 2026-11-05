@@ -11,7 +11,9 @@ from pixelforge.color import parse_hex
 from pixelforge.compose import SMEAR
 
 CASES = [  # recipe, animation, strike frame: a sword, a mace, a fist, a drawn club, a big club
-    ("knight", "attack_slash", 2), ("knight", "attack_heavy", 3), ("orc", "attack_slash", 2),
+    # (the humanoid's attack_heavy is the whirlwind, whose ring runs through every spin frame:
+    # tests/test_whirlwind.py)
+    ("knight", "attack_slash", 2), ("orc", "attack_slash", 2),
     ("anchor_girl", "attack_slash", 2), ("goblin", "attack_slash", 2), ("ogre", "attack_heavy", 3),
 ]
 

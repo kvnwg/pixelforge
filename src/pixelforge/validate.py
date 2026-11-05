@@ -440,6 +440,8 @@ class Validator:
         lower-body layers, so a belt or skirt swinging in front of it is not jitter."""
         out = []
         pa, pb = self._points(a), self._points(b)
+        if pa.get("view") != pb.get("view"):
+            return out  # the body turns between these frames (a spin): its feet pivot on purpose
         stride = self._stride(a)
         for foot in sorted(set(pa.get("planted", [])) & set(pb.get("planted", []))):
             xa, ya = self._x(a, pa[foot][0]), pa[foot][1]
