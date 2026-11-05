@@ -12,7 +12,7 @@ rig: humanoid
 timing_profile: player
 parts: {headwear: great_helm, torso_wear: plate, held_near: sword, held_far: shield, ...}
 colors: {metal: steel, cloth: crimson, leather: dark}
-anims: [idle, walk, combat_idle, attack_slash, attack_heavy, block_hold, dodge, hurt, death, victory]
+anims: [idle, walk, run, combat_idle, attack_slash, attack_heavy, block_hold, dodge, hurt, death, victory]
 ```
 
 ## What's in it
@@ -21,6 +21,7 @@ anims: [idle, walk, combat_idle, attack_slash, attack_heavy, block_hold, dodge, 
 |---|---|
 | Rigs | `humanoid` (the player cast), `humanoid_small` (goblins), `humanoid_large` (ogres, on a 48 px canvas), `blob` (slimes), `flyer` (bats), `quadruped` (wolves), `golem` (the Stone Warden boss, on a 64 px canvas) |
 | Characters | the anchor girl, a knight, the six Rolling Knight classes, a randomizer; monsters: slime, bat, wolf and frost wolf, skeleton, orc, goblin, goblin chief, goblin archer, ogre, and the Stone Warden boss with its enraged form |
+| Motion | a 6-frame idle that breathes through the body (chest, head, hands), 8-frame walk and run cycles (the run with flight frames, tuned to Rolling Knight's speed), and follow-through on hair, ponytails and tails; `docs/MOTION.md` has the research and rules behind them |
 | Combat | attack_slash, attack_heavy, shoot_bow, cast, block, dodge, roll, backflip, vault, stun, hurt, death, victory; monster sets (hop, spit, swoop, bite, howl, roar...) and six boss moves; phases, events, hitboxes, hurtboxes, root motion and four timing profiles (player, enemy, elite, boss) |
 | FX | 44 effects: hit sparks, slam impacts and shockwaves, projectiles and their impacts per element, charge glows, status overlays, death poofs, sound rings, summon circles, falling rocks |
 | Tools | a validator with 30 rules, review renders, a browser preview with a combat arena, loaders for canvas/TypeScript, Phaser and Godot |
@@ -96,6 +97,7 @@ Each export is `<name>.png` plus `<name>.json`:
   - `points[tag][frame]`: named points per frame (`hand_near`, `weapon_tip`, `bow_nock`, `head`, `torso`, `core`...) for attaching FX and projectiles.
   - `phases[tag]`: `windup`, `active` or `recovery` per frame.
   - `root_motion[tag]`: pixels to move along the facing per frame (dodges, a boss's charge); `loop_frames[tag]`: frames to repeat while a move lasts.
+  - `stride_px[tag]`: ground pixels a gait's planted feet travel per frame (walk and run, facing e and w). Their sum over the cycle's duration is the gait's natural speed (about 17 px/s walking, 54 running); move at it, or scale the playback rate to the entity's speed, and the feet never slide.
   - `holds`, `base_durations`, `timing_profiles`: frame durations in the sheet are already timed for the recipe's profile; these let a game retime the same art for another profile (hold frames x `hold_scale`, then the last hold grows until the tell meets `telegraph_min_ms`).
 - FX exports (`out/fx/<name>/`) use the same format; their `pivot` is per tag, and `layer` (above or below characters), `space` (world or follow an anchor) and `loops` say how to play them.
 
@@ -116,6 +118,12 @@ for (const ev of goblin.update(dtMs)) {
   if (ev.type === "hit") damage(goblin.hitboxes(x, y, zoom));
 }
 goblin.draw(ctx, x, y, zoom);
+
+// a moving knight plays the run at its own speed, so its feet never slide
+const knightSheet = await loadSheet("art/knight.png", "art/knight.json");
+const knight = new Animator(knightSheet);
+knight.play("run", facing(vx, vy));
+knight.rate = speed / knightSheet.naturalSpeed("run")!;   // px/s; set it back to 1 for attacks
 ```
 
 ### Phaser 3
@@ -154,6 +162,7 @@ boss.play_dir("cast_ring", PixelforgeSprite.facing(to_player))
 | `docs/STYLE_GUIDE.md` | the style, measured from the anchor |
 | `docs/ARCHITECTURE.md` | how the system is built |
 | `docs/ANIMATION_SPEC.md` | frame-by-frame specs for locomotion and reactions |
+| `docs/MOTION.md` | how sprites should move: research with sources, the motion rules, decisions |
 | `docs/COMBAT.md` | the combat set, timing profiles, events, hitboxes, the FX library |
 | `docs/MONSTERS.md` | rigs, size classes, monster design, the boss spec |
 | `docs/QUALITY.md` | validator rules, the review protocol and rubric |

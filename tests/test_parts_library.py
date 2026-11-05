@@ -80,7 +80,7 @@ def test_template_writes_a_sheet_and_a_guide(root, style, tmp_path, monkeypatch)
     sheet, guide = write_template(style, "headwear", "test_template_hat", "walk")
     try:
         from pixelforge.sheet import load_rgba
-        assert load_rgba(sheet).shape == (96, 128, 4) and load_rgba(guide)[..., 3].any()
+        assert load_rgba(sheet).shape == (96, 256, 4) and load_rgba(guide)[..., 3].any()  # 8 walk frames
     finally:
         import shutil
         shutil.rmtree(sheet.parent)

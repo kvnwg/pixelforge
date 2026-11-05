@@ -18,4 +18,4 @@ colors:
   cloth: forest
   leather: tan
   eyes: brown
-anims: [idle, blink, walk, combat_idle, shoot_bow, backflip, dodge, hurt, stun, death, victory]
+anims: [idle, blink, walk, run, combat_idle, shoot_bow, backflip, dodge, hurt, stun, death, victory]

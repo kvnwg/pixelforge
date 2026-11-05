@@ -1,24 +1,25 @@
 name: random_1_08
 rig: humanoid
 timing_profile: player
-seed: 1061845717
+seed: 698935648
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
   belt: leather_belt
   eyes: dots
   feet: boots
-  held_near: bow
+  headwear: hood
+  held_far: shield
+  held_near: sword
   legs_wear: leggings
-  torso_wear: dress
-  belt_trim: buckle
+  over_torso: tabard
+  torso_wear: tunic
+  held_near_trim: hilt
 colors:
   accent: gold (anchor)
   cloth: cream
-  eyes: navy (anchor)
-  hair: black
-  leather: tan
-  skin: light (anchor)
+  eyes: green
+  leather: dark
+  metal: gold
+  skin: fair
 anims:
 - idle
 - blink

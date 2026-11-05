@@ -18,7 +18,7 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 ## Before doing anything
 
 1. Read `<repo>/CLAUDE.md`. Its rules apply here too (no resampling, the locked palette, look at review images before judging art, `pf validate` and the tests pass before a commit).
-2. For new art, also read `<repo>/docs/STYLE_GUIDE.md` and the relevant part of `<repo>/docs/ANIMATION_SPEC.md`; for monsters `<repo>/docs/MONSTERS.md`; for attacks, spells and FX `<repo>/docs/COMBAT.md`.
+2. For new art, also read `<repo>/docs/STYLE_GUIDE.md` and the relevant part of `<repo>/docs/ANIMATION_SPEC.md`, and for any animation `<repo>/docs/MOTION.md` (how motion should flow); for monsters `<repo>/docs/MONSTERS.md`; for attacks, spells and FX `<repo>/docs/COMBAT.md`.
 
 ## Making a character or monster from existing parts
 
@@ -42,6 +42,7 @@ PIXELFORGE_ROOT=<repo> <repo>/.venv/bin/pf --help
 - Place sprites by `meta.pixelforge.pivot` (their ground point), at integer positions and zoom.
 - Events: `windup` (the tell), `hit` (damage and hit stop), `spawn` (a projectile from `point`, aimed from there at the target, not from the pivot; bosses add `pattern`, `count`, `spread`), `vfx` (play `fx` at `point`), `summon`, `recover`. FX pivots are per tag (`<anim>_<dir>`).
 - `hitboxes` exist only on active frames; `root_motion` moves the entity; `loop_frames` may repeat while a move lasts (a charge, a held full draw).
+- Moving entities play `run` (or `walk` when slow) and scale its playback to their speed so the feet don't slide: natural speed is the sum of `stride_px[<anim>_e]` over the cycle's duration (about 54 px/s running, 17 walking); in the TypeScript loader `animator.rate = speed / sheet.naturalSpeed("run")`, then back to 1 for other clips.
 
 ## Rules
 

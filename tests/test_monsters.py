@@ -22,7 +22,7 @@ def bbox(frame):
 
 def test_rigs_have_their_own_animations(style):
     humanoid, blob = load_anims(style, "humanoid"), load_anims(style, "blob")
-    assert humanoid["idle"].frames_ms == (450, 150, 450, 150)
+    assert humanoid["idle"].frames_ms == (360, 100, 100, 260, 140, 140)
     assert blob["idle"].frames_ms == (200, 150, 200, 150)
     assert "attack_spit" in blob and "attack_spit" not in humanoid
     assert blob["combat_idle"].frames_ms == blob["idle"].frames_ms  # an alias of idle

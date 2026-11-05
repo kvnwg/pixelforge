@@ -1,25 +1,25 @@
 name: random_1_07
 rig: humanoid
 timing_profile: player
-seed: 106820952
+seed: 501501109
 parts:
   hair_front: long_straight
   hair_locks: long_straight
   hair_back: long_straight
-  belt: sash
+  belt: leather_belt
   eyes: dots
-  held_near: sword
+  feet: boots
+  held_near: bow
   legs_wear: leggings
   torso_wear: dress
-  held_near_trim: hilt
+  belt_trim: buckle
 colors:
   accent: silver
-  cloth: navy (anchor)
-  eyes: navy (anchor)
-  hair: mint
+  cloth: teal
+  eyes: green
+  hair: black
   leather: tan
-  metal: bronze
-  skin: deep
+  skin: light (anchor)
 anims:
 - idle
 - blink

@@ -1,7 +1,7 @@
 name: random_1_03
 rig: humanoid
 timing_profile: player
-seed: 635811217
+seed: 837648638
 parts:
   hair_front: short
   eyes: dots
@@ -12,7 +12,7 @@ colors:
   eyes: dark
   hair: auburn
   leather: brown (anchor)
-  skin: deep
+  skin: ogre
 anims:
 - idle
 - blink

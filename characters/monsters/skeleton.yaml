@@ -20,6 +20,7 @@ colors:
 anims:
 - idle
 - walk
+- run
 - combat_idle
 - attack_slash
 - block_enter

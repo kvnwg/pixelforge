@@ -4,7 +4,7 @@ Frame-by-frame specs for locomotion and the core reactions of the humanoid rig. 
 
 - The full combat set (combat_idle, attacks, bow, cast, block, dodge, stun, victory), plus phases, events, hitboxes and telegraph timing, is in COMBAT.md.
 - Monster rigs and their animations are in MONSTERS.md.
-- Everything in section 1 (principles) applies to all of them.
+- Everything in section 1 (principles) applies to all of them, and MOTION.md says why: what good pixel animation does (with sources) and the eight motion rules every new or reworked animation follows.
 
 The pixel offsets below are tested conventions for sprites this size and the right starting point, but the final judge is how it looks in the preview at 1x and 4x. If a change from the spec looks better, make it and update this file so the spec stays true.
 
@@ -16,15 +16,16 @@ The pixel offsets below are tested conventions for sprites this size and the rig
 - **Move only what should move.** In every frame, decide which regions move and keep everything else pixel-identical. Unplanned 1 px shifts of the whole sprite read as jitter.
 - **Whole pixels only.** No sub-pixel motion, no rotation, no scaling. A "rotated" pose (lying down, a swung sword) is redrawn by hand.
 - **The feet sell the weight.** A planted foot never moves while it is planted. Sliding feet are the most visible animation bug.
-- **Overlapping action.** Loose parts (hair locks, capes, the back hair in side views) trail the body by one frame. This one-frame lag is most of what makes tiny animations feel alive.
-- **Hold the key poses longest.** Breathing idles hold the extremes; attacks hold the wind-up and follow-through, and flash the strike.
+- **Waves, not blocks.** A move travels through the body: chest, then head a frame later, then hands, then hair. Moving the whole upper body as one block reads mechanical (MOTION.md rule 1).
+- **Overlapping action and follow-through.** Loose parts (hair locks, capes, the back hair in side views, tails) trail their anchor by a pixel while it moves, catch up when it stops, swing 1 px past it a frame later and settle (the compositor does this for every `lags: true` part; MOTION.md rule 5). This is most of what makes tiny animations feel alive.
+- **Hold the key poses longest; fall faster than you rise.** Spacing can't go below a pixel, so easing is done with frame times: idles hold the top of the breath, sink quickly and rise slower; attacks hold the wind-up and follow-through, and flash the strike. A cycle with one flat duration reads mechanical.
 - **Readability over realism.** At 1x the player should instantly tell the facing direction and the action. If a frame doesn't read at 1x, simplify it.
 - **Big moves are root motion.** Lunges, dodges and knockbacks beyond 1 to 2 px are exported as root motion for the game to apply, not drawn off-center in the frame.
 
 ## 2. Vocabulary
 
 - **upper body:** head, torso, arms and everything attached to them (hair, headwear, torso wear, belt, held items at rest). In the anchor that's rows 10 to 24.
-- **upper offset (dx, dy):** how far the upper body is translated relative to idle frame 0. Positive dy is down.
+- **upper offset (dx, dy):** how far the upper body is translated relative to idle frame 0. Positive dy is down. Where the head, torso and hands move separately (the idle's wave), each has its own offset; when the torso drops below the head, the neck stretches by a row (drawn, never a gap).
 - **legs:** rows 25 to 27 in idle frame 0. Redrawn per frame rather than translated.
 - **hair locks:** the parts of hair marked `lags: true`. In S these are the side locks around rows 16 and 17 (the `hair_locks` slot: x 11-12 and 18-19, rows 15 to 17); in E and N, the back of the hair (`hair_back`).
 - **planted foot:** a foot touching the baseline (row 27) and carrying weight. It may not move.
@@ -34,22 +35,25 @@ When the upper body moves down 1 px and the legs stay, the belt covers the top l
 
 ---
 
-## 3. idle (loop, all directions)
+## 3. idle (loop, 6 frames, all directions)
 
-Breathing with a hair lag. Feet never move.
+A breath that travels through the body: the chest sinks, the head follows a frame later, the hands settle last; then the chest rises, the head, the hands. Feet and legs never move. Hair follows through.
 
-| Frame | ms | Upper offset | Hair locks | Legs | Notes |
-|---|---|---|---|---|---|
-| 0 | 450 | (0, 0) | (0, 0) | base | the anchor pose in S |
-| 1 | 150 | (0, +1) | (0, 0) | base | body settles, hair lags behind |
-| 2 | 450 | (0, +1) | (0, +1) | base | hair catches up |
-| 3 | 150 | (0, 0) | (0, +1) | base | body rises, hair lags |
+| Frame | ms | Torso | Head | Hands | Hair locks | Notes |
+|---|---|---|---|---|---|---|
+| 0 | 360 | 0 | 0 | 0 | 0 | the anchor pose in S; the top of the breath, held |
+| 1 | 100 | +1 | 0 | 0 | -1 | the chest sinks under a still head: the neck stretches a row; the hair swings 1 px up (past the head that just rose) |
+| 2 | 100 | +1 | +1 | 0 | 0 | the head follows; the hair trails it |
+| 3 | 260 | +1 | +1 | +1 | +1 | the hands settle: the bottom, held; the hair catches up |
+| 4 | 140 | 0 | +1 | +1 | +2 | the chest rises (the head briefly overlaps the collar); the hair swings 1 px past |
+| 5 | 140 | 0 | 0 | +1 | +1 | the head rises; the hair trails; the hands come up as the loop restarts |
 
-- Hands move with the upper body.
+- Timing: sinking frames are 100 ms, rising frames 140 ms, the top held longer than the bottom (gravity, MOTION.md rule 2); 1100 ms per breath.
+- The neck stretch: the torso's top row fills the gap. Facing s and e that row is the collar's shadow; facing n it is the bare upper back, so the gap row takes the dark shade (the head's shadow on the nape).
 - Eyes move with the head and stay open (blink is separate).
-- N: identical motion; the back hair is the lagging part.
-- S: the side hair framing the face (rows 15 to 17) lags as one clump. Eyes are drawn above the locks, so a lowered lock never hides an eye. In the frame where the body settles, a row of skin shows under the lifted locks; in the frame where it rises, the locks hang a row lower beside the eyes.
-- E: identical motion; the back of the hair lags.
+- S: the side hair framing the face (rows 15 to 17) is the following part. Eyes are drawn above the locks, so a lowered lock never hides an eye.
+- E and N: the back of the hair follows.
+- The hair column above is the compositor's follow-through (section 1), not drawn per frame: trail 1 px while the head moves, catch up when it stops, swing 1 px past a frame later, settle.
 
 ## 4. blink (1 frame, all directions with visible eyes)
 
@@ -58,54 +62,76 @@ Breathing with a hair lag. Feet never move.
 
 ---
 
-## 5. walk (loop, 4 frames, 130 ms each)
+## 5. walk (loop, 8 frames)
 
-A cycle of two steps: contact, passing, contact (other foot), passing.
+Two steps of four keys each (Slynyrd's walk, MOTION.md): **contact** (the stride wide open, the arms at their extremes), **down** (the weight lands: the body drops 1 px, the back foot lifts), **pass** (the legs cross, the arms at rest), **up** (the body rises 1 px, the free foot reaches forward). Frames 4 to 7 repeat them with the other leg.
 
-### walk S (toward camera)
+| Frame | Key | ms | Body dy | Near arm |
+|---|---|---|---|---|
+| 0 | contact A | 100 | 0 | back |
+| 1 | down | 80 | +1 | back |
+| 2 | pass | 90 | 0 | middle |
+| 3 | up | 80 | -1 | forward |
+| 4 | contact B | 100 | 0 | forward |
+| 5 | down | 80 | +1 | forward |
+| 6 | pass | 90 | 0 | middle |
+| 7 | up | 80 | -1 | back |
 
-| Frame | Upper offset | Legs | Arms |
-|---|---|---|---|
-| 0 contact A | (0, 0) | viewer-left foot planted on row 27, viewer-right foot back and lifted (row 26), exactly the anchor stance | viewer-right hand 1 px down (swinging forward), viewer-left hand 1 px up |
-| 1 passing | (0, -1) | legs together under the body; viewer-left foot planted, viewer-right foot passing, lifted (row 26); legs extend 1 row to meet the raised body | both hands neutral |
-| 2 contact B | (0, 0) | mirror of frame 0: viewer-right foot planted on row 27, viewer-left back and lifted | viewer-left hand 1 px down, viewer-right hand 1 px up |
-| 3 passing | (0, -1) | legs together; viewer-right planted, viewer-left passing and lifted | both hands neutral |
+- The bob is a triangle (MOTION.md rule 4): lowest on down, highest on up, 1 px either way, never more. Contact frames are held longest (100 ms) and the down and up frames are quick (80 ms): 700 ms per cycle.
+- The near arm swings opposite the near leg, at its extremes on contact and through the rest pose as the legs cross; the far arm mirrors it. Arms swing by reach, never by sliding: a forward hand reaches 1 px further (e) or 1 px lower (s, n), a back hand pulls 1 px shorter, so sleeves never detach. Facing s and n, a forward reach on a down frame is taken up by the dip instead (the hand stays at its rest height), so hanging weapons never leave the canvas.
+- Hair locks follow through (section 1).
 
-- Hair locks lag one frame: they use the previous frame's upper offset.
-- The body rises on passing frames and comes down on contact frames. This bob is 1 px, never more.
-- Arm swing in S is subtle: a 1 px vertical shift of the hand, opposite to the forward leg. If it looks fidgety at 1x, remove it.
+### walk S (toward camera) and N (away)
 
-### walk N (away from camera)
-
-Same timing and offsets as S, drawn from behind. Viewer-left is now the character's left. No face; the back hair lags.
+- The viewer-left foot is planted on row 27 from contact A to up; the viewer-right leg lifts back (contact, heel up, drawn dark like the anchor's set-back foot), disappears under the hips as the body drops (down), passes in the dark shade (pass) and swings forward lifted 1 px in the mid shade (up), brightening as it comes forward. Frames 4 to 7 mirror 0 to 3 around x = 15, so the stance never shifts sideways.
+- The planted leg keeps its foot rows from contact to up: the body sinks onto it (the down frame drops the thigh row) and rises off it (the up frame doubles the thigh row), so its sole never changes (W1).
+- N: the same legs from behind; viewer-left is the character's left. No face; the back hair follows.
 
 ### walk E (screen-right)
 
-| Frame | Upper offset | Legs | Arms |
-|---|---|---|---|
-| 0 contact A | (0, 0) | legs apart: front foot 2 to 3 px ahead of the pivot, back foot 2 to 3 px behind, both on row 27 | near arm back (hand 1 px behind the torso), far arm forward (mostly hidden) |
-| 1 passing | (0, -1) | legs together under the pivot; the back leg passing, foot lifted to row 26 | arms neutral at the sides |
-| 2 contact B | (0, 0) | legs apart, swapped: the other leg in front | near arm forward, far arm back |
-| 3 passing | (0, -1) | legs together; the other leg passing and lifted | arms neutral |
+Each foot is given by its heel pixel's x (the 3 px foot points ahead from it); a foot marked ^ is lifted 1 px.
 
-- Near and far legs must be distinguishable: the far leg uses the darker leather shades, the near leg the lighter ones. This prevents twinning.
-- Back hair lags one frame (vertical only).
+| Frame | Near foot | Far foot | Planted |
+|---|---|---|---|
+| 0 contact A | 17 | 11 | both |
+| 1 down | 15 | 11^ | near |
+| 2 pass | 14 | 14^ | near |
+| 3 up | 12 | 17^ | near |
+| 4 contact B | 11 | 17 | both |
+| 5 down | 11^ | 15 | far |
+| 6 pass | 14^ | 14 | far |
+| 7 up | 17^ | 12 | far |
+
+- Near and far legs must be distinguishable: the far leg uses the darker leather shade, the near leg the lighter one (no twinning). Each leg is a 2 px strip from the hip to the foot row, then a 3 px foot pointing ahead.
 - The head never tilts or changes shape.
 
 ### walk W
 
 Generated by mirroring walk E.
 
-### How the humanoid walk was drawn (Phase 3b)
-
-- **Facing e, planted feet travel with the ground.** The sprite stays on its pivot while the game moves it, so a planted foot moves back by exactly the ground's travel: front foot 3 px ahead of the pivot at contact, under the pivot at passing, 2 px behind at the next contact. Steps of 3 then 2 px give 10 px per cycle, the stride above, recorded per frame as `stride_px` in `style.json` (exported in `meta.pixelforge.stride_px`). At the walk's natural speed (10 px per 520 ms, about 19 px/s) the foot does not slide; W1 checks that each planted foot moves exactly that much.
-- **Facing s and n, planted feet stay put** (stride 0), as in the tables above; the passing foot is lifted to row 26 and drawn dark like the anchor's set-back foot. Contact B mirrors contact A around x = 15, so the stance never shifts sideways.
-- **Arms swing by reach, not by sliding:** the forward hand reaches 1 px lower (s, n) or 1 px further (e), the back hand pulls 1 px shorter, so sleeves never detach. Facing e, the far hand peeks 1 px past the torso in front or behind.
-- **Legs:** 3 rows on contact frames, 4 on passing frames (the hip anchor rises with the body). Facing e the near leg is light leather and the far leg dark.
-
 ### Speed and foot sliding
 
-Distance covered per cycle is about two strides (roughly 10 px in E/W). At 4 x 130 ms that matches about 19 px per second. Top-down RPGs usually move faster and tolerate some sliding, especially in S and N. If the game's movement speed is much faster, shorten frame durations (down to about 90 ms) rather than adding frames, and check it with the preview's movement test.
+Facing e, a planted foot moves back by exactly the ground's travel: 2 px, then 1 px, alternating (`stride_px` [2, 1, 2, 1, 2, 1, 2, 1] in `style.json`, exported in `meta.pixelforge.stride_px`), 12 px per 700 ms cycle, about 17 px/s. At that speed the foot does not slide; W1 checks that each planted foot moves exactly that much. Facing s and n planted feet stay put. A game that moves faster should play the run (section 5b), not a sped-up walk; small differences can be taken up by shortening frame durations, never by adding frames. The preview's walk test shows both gaits at their natural speeds.
+
+## 5b. run (loop, 8 frames)
+
+The walk's keys with a flight: **contact**, **down** (the deepest frame), **push** (the back leg drives, the front knee lifts), **flight** (both feet leave the ground). The upper body leans 1 px into the facing (e and w; invisible in s and n) and the arms pump in long arcs.
+
+| Frame | Key | ms | Body dy | Near arm | Near heel x (e) | Far heel x (e) |
+|---|---|---|---|---|---|---|
+| 0 | contact A | 70 | 0 | back | 18 | 10, 2 px up |
+| 1 | down | 60 | +1 | back | 14 | 13, 2 px up |
+| 2 | push | 70 | 0 | forward | 10 | 16, 1 px up |
+| 3 | flight | 80 | -1 | forward | 11, 2 px up | 18, 1 px up |
+| 4 | contact B | 70 | 0 | forward | 10, 2 px up | 18 |
+| 5 | down | 60 | +1 | forward | 13, 2 px up | 14 |
+| 6 | push | 70 | 0 | back | 16, 1 px up | 10 |
+| 7 | flight | 80 | -1 | back | 18, 1 px up | 11, 2 px up |
+
+- `stride_px` facing e is [4, 4, 4, 3, 4, 4, 4, 3]: 30 px per 560 ms, about 54 px/s, three times the walk and Rolling Knight's movement speed (GAMES.md). The flight frames are listed as `airborne_frames` [3, 7]: the shadow shrinks and the soles get their outline.
+- Timing: the flight is held longest (80 ms) and the down frame is the quickest (60 ms), so the body hangs in the air and drops fast.
+- Facing s and n the planted foot stays put; on the flight frame both feet lift (the planted one 1 px, showing its sole).
+- The run is a cycle the player watches all game, so it gets 8 frames like the walk (MOTION.md rule 3).
 
 ---
 
@@ -168,18 +194,19 @@ Directions: draw death for S and E (W mirrored). N reuses S frames 3 and 4 (the 
 - **Arm poses** per direction and side (`ready`, `fwd`, `low`, `up_back`, `up`, `overhead`, `limp`, `tuck`, plus `guard`, `back` and `draw` for the far arm), a few pixels each, moved with the torso. Combat arm poses are 4-connected runs of one shade, so a reaching arm never breaks into single pixels. The forward arm reaches 4 px from the shoulder so a strike clears the body. Facing n the arm poses mirror s.
 - **Held poses**: each frame names the pose its held items take (COMBAT.md section 3).
 
-Lagging parts (hair locks, ponytails) trail by one frame but never by more than 1 px, so they drift behind a 3 px lunge instead of detaching. In grounded frames nothing but held items is drawn below the baseline: a robe or tabard pushed down by a deep crouch folds onto the ground row.
+Lagging parts (hair locks, ponytails) trail by one frame but never by more than 1 px, so they drift behind a 3 px lunge instead of detaching, and swing 1 px past the pose a frame after it stops (except on a once-through animation's held last frame, which stays put). In grounded frames nothing but held items is drawn below the baseline: a robe or tabard pushed down by a deep crouch folds onto the ground row.
 
 ## 10. Later animations (not in v1)
 
-Specs to write here before drawing: run (6 frames), jump (with shadow shrink), cast (staff raise and glow), interact or pick up, sit, emotes (a 1 to 2 frame bounce with a small icon above the head).
+Specs to write here before drawing: jump (with shadow shrink), interact or pick up, sit, emotes (a 1 to 2 frame bounce with a small icon above the head). The run is section 5b; cast is in COMBAT.md.
 
 ## 11. Review checklist for any animation
 
 - Planted feet never move.
 - Head height constant, except frames flagged squash.
 - Only the planned regions change between frames (check the diff strip).
-- Hair and loose parts lag by exactly one frame.
+- Hair and loose parts trail by one frame, never more than 1 px, and follow through (one overshoot pixel, then settle).
+- Durations differ within the animation: extremes held, in-betweens quick, falls faster than rises.
 - Loops are seamless: last frame to first frame is checked like any other pair.
 - At 1x the action is obvious, and it doesn't look like vibrating noise.
 - Timing feels right in the preview at true speed (the human judges this; review images can't show timing).

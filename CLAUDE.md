@@ -9,6 +9,7 @@ A reusable pixel art character, monster, combat and FX system. It produces tiny 
 - `docs/STYLE_GUIDE.md`: what the style is, measured pixel by pixel.
 - `docs/ARCHITECTURE.md`: how the system is built.
 - `docs/ANIMATION_SPEC.md`: frame-by-frame specs for locomotion and core reactions.
+- `docs/MOTION.md`: how sprites should move (research with sources, the eight motion rules, decisions). Read it before making or reworking any animation.
 - `docs/COMBAT.md`: combat animation set, phases, telegraph timing, events, hitboxes, FX library.
 - `docs/MONSTERS.md`: rigs, size classes, monster materials, monster design rules and animations.
 - `docs/QUALITY.md`: validator rules, review protocol, rubric, definition of done.

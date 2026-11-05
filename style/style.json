@@ -759,29 +759,72 @@
     "idle": {
       "loop": true,
       "frames_ms": [
-        450,
-        150,
-        450,
-        150
-      ]
+        360,
+        100,
+        100,
+        260,
+        140,
+        140
+      ],
+      "note": "MOTION.md: a breath travels chest, head, hands; the top and bottom hold, the fall is quicker than the rise"
     },
     "walk": {
       "loop": true,
       "frames_ms": [
-        130,
-        130,
-        130,
-        130
+        100,
+        80,
+        90,
+        80,
+        100,
+        80,
+        90,
+        80
       ],
       "stride_px": {
         "e": [
-          3,
           2,
-          3,
-          2
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1
         ]
       },
-      "stride_note": "Pixels the ground moves back (against the facing) between frame i and i + 1. A planted foot moves exactly this much in the sprite, so it stays put while the game moves the character: 10 px per cycle at 4 x 130 ms is about 19 px/s, the walk's natural speed. Facing s and n the stride is 0 (planted feet are identical); w mirrors e."
+      "stride_note": "Pixels the ground moves back (against the facing) between frame i and i + 1. A planted foot moves exactly this much in the sprite, so it stays put while the game moves the character: 12 px per 700 ms cycle is about 17 px/s, the walk's natural speed. Facing s and n the stride is 0 (planted feet are identical); w mirrors e.",
+      "note": "MOTION.md: 8 frames (contact, down, pass, up per leg), a triangle bob, arms a frame behind the legs; contacts held a little longer"
+    },
+    "run": {
+      "loop": true,
+      "frames_ms": [
+        70,
+        60,
+        70,
+        80,
+        70,
+        60,
+        70,
+        80
+      ],
+      "stride_px": {
+        "e": [
+          4,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4,
+          3
+        ]
+      },
+      "airborne_frames": [
+        3,
+        7
+      ],
+      "stride_note": "30 px per 560 ms cycle is about 54 px/s: Rolling Knight's knight speed (50 to 64 px/s); the game can scale durations to its own speed.",
+      "note": "MOTION.md: 8 frames with a flight frame per stride, the upper body leaning 1 px into the facing, arms pumping a frame behind the legs"
     },
     "hurt": {
       "loop": false,

@@ -412,3 +412,26 @@ What the review images show: the goblin archer is the goblin with a tan short bo
 Rubric (goblin archer): style match 4, 1x readability 4 (the bow is thin at 1x; the quiver and pose carry it), silhouette 4, motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4.
 
 Known limits: the Phaser and Godot loaders are written against their documented APIs (Phaser's Aseprite loader, Godot 4's `SpriteFrames`) but not run here; the skill is installed in this machine's `~/.claude/skills`, and each machine that uses pixelforge needs the same copy.
+
+---
+
+## Motion pass 1 (after v1.0)
+
+Status: done (commit "Motion pass 1: breathing idle, 8-frame walk, run, follow-through")
+
+Asked for after v1.0: the animations were "the most basic baseline trudging movements"; research how good pixel art moves and flows, then apply it. The research (Slynyrd's Pixelblogs on idles, walks and attacks; sub-pixel animation; the animation principles at pixel scale), the eight motion rules and every decision made here are in `docs/MOTION.md`.
+
+Built:
+- **Engine:** every `lags: true` part follows through (trails its anchor by a pixel while it moves, catches up when it stops, swings 1 px past a frame later, settles; never on a held last frame). Torso wear and tabards stretch with the neck when the idle drops the chest under a still head, in the dark shade facing n.
+- **Humanoid idle:** 6 frames; the breath travels chest, head, hands, and the hair follows through; 360/100/100/260/140/140 ms (sinks fast, rises slower, holds the top).
+- **Humanoid walk:** 8 frames (contact, down, pass, up, twice), a triangle bob, arms swinging in phase with the legs in three reach states; 100/80/90/80 ms; 12 px per cycle.
+- **Humanoid run (new):** 8 frames with two flight frames, a 1 px lean, a long arm pump; 4 px strides, about 54 px/s, Rolling Knight's movement speed. Added to the anchor girl, both knights, the six Rolling Knight classes, the orc and the skeleton; the derived parts (greaves, boots, gauntlets, the skeleton's bones) follow automatically.
+- **Preview:** the walk test plays the walk or the run at its natural speed. **Loader:** `Sheet.naturalSpeed(anim)` and `Animator.rate`, so a game plays the run at any entity speed without sliding feet (tested at 50 and 64 px/s, Rolling Knight's slowest and fastest knights).
+
+Fixed on the way: hanging weapons left the canvas on the walk's down frames (the dip now absorbs a forward reach facing s and n); the skeleton's speckle cleanup moved planted foot pixels (the planted leg keeps its foot rows); a lone dark pixel in the passing leg showed through greaves; a 17-color random character (the random set was redrawn by `pf random`, which enforces the budget); a line of skin under helmets on the stretched-neck frame.
+
+What the review images show: facing e the anchor girl walks with her feet alternating under a 1 px bob, lowest as the weight lands and highest as the free foot swings through; the knight's sword hangs from a hand that swings back while the same-side foot leads. Running, the stride opens wide with the back foot kicked up, the body leans forward, and on the flight frames both feet leave the ground with their soles outlined and the shadow shrinking. Idle, the chest sinks first, the head follows, the hands settle, and the hair locks swing a pixel past the head before settling; the knight's gorget stretches under the helmet instead of opening a line of skin.
+
+Rubric (anchor girl, knight, orc; idle, walk, run in every view): style match 4 (same parts, palette and outline), 1x readability 4 (the run's open stride and the bob read at 1x; the arm swing is subtle where sleeves match the torso, clear with a held weapon), silhouette 4, motion 4 (the breath travels, timing eases, the hair follows through, feet never slide; how it feels at true speed is the human's call in the preview), consistency 4 (every humanoid recipe and derived part shares the cycles), cleanliness 4 (0 validator findings across 33 recipes), part fit 4 (held items stay on the canvas, armor follows the neck), appeal 4, combat readability 4 (locomotion never covers a tell).
+
+Next (MOTION.md section 5): attack_slash and attack_heavy (a two-frame strike, a follow-through that reaches 1 px further and holds, a settle bounce), combat_idle, and the goblin and ogre idles.

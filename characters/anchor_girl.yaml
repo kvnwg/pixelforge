@@ -21,6 +21,7 @@ anims:
 - idle
 - blink
 - walk
+- run
 - combat_idle
 - attack_slash
 - attack_heavy

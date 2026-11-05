@@ -25,4 +25,4 @@ colors:
   leather: dark
   accent: silver
   eyes: glow red
-anims: [idle, blink, walk, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, dodge, hurt, stun, death, victory]
+anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, dodge, hurt, stun, death, victory]

@@ -1,25 +1,25 @@
 name: random_1_04
 rig: humanoid
 timing_profile: player
-seed: 503886500
+seed: 1040453083
 parts:
-  belt: leather_belt
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
   eyes: dots
-  feet: boots
-  headwear: hood
-  held_far: shield
-  held_near: sword
+  headwear: great_helm
+  held_near: mace
   legs_wear: leggings
+  over_torso: tabard
   torso_wear: plate
-  held_near_trim: hilt
-  belt_trim: buckle
+  headwear_trim: plume
 colors:
-  accent: silver
-  cloth: plum
-  eyes: brown
+  cloth: mustard
+  eyes: navy (anchor)
+  hair: auburn
   leather: tan
-  metal: gold
-  skin: green (orc)
+  metal: bronze
+  skin: ogre
 anims:
 - idle
 - blink

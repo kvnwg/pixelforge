@@ -85,7 +85,7 @@ def orc() -> None:
                   "feet": "boots", "hands": "gauntlets", "held_near": "mace"},
         "colors": {"skin": "green (orc)", "hair": "black", "metal": "iron", "leather": "dark",
                    "accent": "silver", "eyes": "glow red", "horn": "pale"},
-        "anims": ["idle", "blink", "walk", "combat_idle", "attack_slash", "attack_heavy", "hurt",
+        "anims": ["idle", "blink", "walk", "run", "combat_idle", "attack_slash", "attack_heavy", "hurt",
                   "stun", "death", "victory"],
     })
 
@@ -191,7 +191,7 @@ def skeleton() -> None:
                   "held_far": "shield"},
         "colors": {"bone": "ivory", "eyes": "glow ghost", "metal": "iron", "accent": "silver",
                    "leather": "dark"},
-        "anims": ["idle", "walk", "combat_idle", "attack_slash", "block_enter", "block_hold",
+        "anims": ["idle", "walk", "run", "combat_idle", "attack_slash", "block_enter", "block_hold",
                   "block_impact", "hurt", "stun", "death_crumble", "victory"],
     })
 

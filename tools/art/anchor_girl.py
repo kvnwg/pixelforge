@@ -142,7 +142,7 @@ RECIPE = {
         "accent": "gold (anchor)",
         "eyes": "navy (anchor)",
     },
-    "anims": ["idle", "blink", "walk", *COMBAT_ANIMS],
+    "anims": ["idle", "blink", "walk", "run", *COMBAT_ANIMS],
 }
 
 

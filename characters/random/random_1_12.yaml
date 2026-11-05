@@ -1,24 +1,24 @@
 name: random_1_12
 rig: humanoid
 timing_profile: player
-seed: 883553524
+seed: 261700922
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: leather_belt
   eyes: dots
-  feet: boots
-  headwear: wizard_hat
-  held_near: sword
+  hands: gauntlets
+  held_near: bow
   legs_wear: leggings
-  torso_wear: robe
-  held_near_trim: hilt
+  torso_wear: plate
+  belt_trim: buckle
 colors:
-  accent: red
-  cloth: mustard
+  accent: silver
   eyes: brown
-  hair: silver
+  hair: blonde
   leather: tan
-  metal: bronze
+  metal: steel
   skin: green (orc)
 anims:
 - idle

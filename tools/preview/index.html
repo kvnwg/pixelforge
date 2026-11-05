@@ -166,11 +166,12 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
 <section id="view-walk-test" class="walk" hidden>
   <div class="controls">
     <label for="walk-char">Character <select id="walk-char"></select></label>
-    <label for="walk-speed">Speed <input type="range" id="walk-speed" min="8" max="60" step="1" value="19"> <span id="walk-speed-out" class="readout">19 px/s</span></label>
+    <label for="walk-gait">Gait <select id="walk-gait"><option value="walk">walk</option><option value="run">run</option></select></label>
+    <label for="walk-speed">Speed <input type="range" id="walk-speed" min="8" max="72" step="1" value="17"> <span id="walk-speed-out" class="readout">17 px/s</span></label>
     <label><input type="checkbox" id="walk-marks" checked> Ground marks</label>
   </div>
   <canvas id="walkstrip" class="walkstrip" width="320" height="128" aria-label="Walk test"></canvas>
-  <p class="meta">Whole-pixel steps at the speed above. At the walk's natural speed (its stride over its duration) a planted foot stays on its ground mark; faster or slower and it slides. If the game moves faster, shorten frame durations rather than adding frames (ANIMATION_SPEC.md section 5).</p>
+  <p class="meta">Whole-pixel steps at the speed above. At a gait's natural speed (its stride over its duration: about 17 px/s walking, 54 px/s running) a planted foot stays on its ground mark; faster or slower and it slides. Play the run above the walk's speed, and shorten frame durations rather than adding frames if a game moves faster still (ANIMATION_SPEC.md section 5).</p>
 </section>
 
 <section id="view-arena" class="player" hidden>
@@ -490,10 +491,10 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   }
 
   // ---------------------------------------------------------------- walk test view
-  const walk = { x: 0, dir: 1, actor: null, ch: null };
+  const walk = { x: 0, dir: 1, actor: null, ch: null, gait: "walk" };
   function naturalSpeed(ch) {
-    // The walk's own speed: ground travel per cycle (stride_px) over the cycle's duration.
-    const stride = (ch.pf.stride_px || {}).walk_e, tag = ch.tags.walk_e;
+    // The gait's own speed: ground travel per cycle (stride_px) over the cycle's duration.
+    const stride = (ch.pf.stride_px || {})[walk.gait + "_e"], tag = ch.tags[walk.gait + "_e"];
     if (!stride || !tag) return null;
     let ms = 0; for (let i = tag.from; i <= tag.to; i++) ms += ch.json.frames[i].duration;
     return Math.round(stride.reduce((a, b) => a + b, 0) / ms * 1000);
@@ -501,7 +502,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
   function setupWalk(name) {
     const ch = state.byName[name] || state.chars[0];
     walk.ch = ch; walk.x = 0; walk.dir = 1;
-    walk.actor = ch.tags.walk_e ? new Actor(ch, "walk_e") : null;
+    walk.actor = ch.tags[walk.gait + "_e"] ? new Actor(ch, walk.gait + "_e") : null;
     $("walk-char").value = ch.name;
     const natural = naturalSpeed(ch);
     if (natural) { $("walk-speed").value = natural; $("walk-speed-out").textContent = natural + " px/s (natural)"; }
@@ -515,13 +516,14 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     paintGround(ctx, c.width, c.height, state.ground, z);
     if (!ch || !walk.actor) {
       ctx.fillStyle = "#3a263a"; ctx.font = "16px sans-serif";
-      ctx.fillText("This character has no walk yet.", 16, 40); return;
+      ctx.fillText("This character has no " + walk.gait + " yet.", 16, 40); return;
     }
     const speed = Number($("walk-speed").value);
     const span = Math.floor(c.width / z) - cell;
     walk.x += walk.dir * speed * dt / 1000;
-    if (walk.x > span) { walk.x = span; walk.dir = -1; walk.actor.set(ch, ch.tags.walk_w ? "walk_w" : "walk_e"); }
-    if (walk.x < 0) { walk.x = 0; walk.dir = 1; walk.actor.set(ch, "walk_e"); }
+    const g = walk.gait;
+    if (walk.x > span) { walk.x = span; walk.dir = -1; walk.actor.set(ch, ch.tags[g + "_w"] ? g + "_w" : g + "_e"); }
+    if (walk.x < 0) { walk.x = 0; walk.dir = 1; walk.actor.set(ch, g + "_e"); }
     if ($("walk-marks").checked) {
       ctx.fillStyle = "rgba(58,38,58,0.35)";
       for (let gx = 0; gx < c.width / z; gx += 4) ctx.fillRect(gx * z, (ch.pf.pivot[1] + 1) * z, z, z);
@@ -898,6 +900,7 @@ canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: bloc
     $("prev").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(-1)); });
     $("next").addEventListener("click", () => { state.playing = false; syncPlay(); stageActors.forEach((s) => s.actor.go(1)); });
     $("walk-char").addEventListener("change", (e) => setupWalk(e.target.value));
+    $("walk-gait").addEventListener("change", (e) => { walk.gait = e.target.value; setupWalk(walk.ch ? walk.ch.name : null); });
     $("walk-speed").addEventListener("input", (e) => {
       const natural = walk.ch ? naturalSpeed(walk.ch) : null;
       $("walk-speed-out").textContent = e.target.value + " px/s" + (Number(e.target.value) === natural ? " (natural)" : "");

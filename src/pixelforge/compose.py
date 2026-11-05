@@ -27,11 +27,12 @@ from .outline import outline
 from .parts import RIGID_SHEET, Library, Part, PartError
 from .recipe import Recipe, RecipeError
 from .recolor import preset_ramp, ramp_map, recolor
-from .rig import Rig, load_rig
+from .rig import Rig, RigError, load_rig
 from .sheet import mirror, shift
 from .style import Style
 
 EMPTY, OUTLINE, SMEAR = -1, -2, -3
+NECK_SLOTS = ("torso_wear", "over_torso")  # parts that wear the collar stretch with the neck
 HELD_SLOTS = ("held_near", "held_near_trim", "held_far")
 
 
@@ -75,6 +76,20 @@ class Frame:
     def material_at(self, x: int, y: int) -> str | None:
         i = self.owner[y, x]
         return self.layers[i].part.material if i >= 0 else None
+
+
+def _follow(track: list[int], held: bool = False) -> int:
+    """A trailing part's coordinate from its anchor's now, a frame ago, two and three ago.
+    `held`: the frame stays on screen (a once-through animation's last), so no overshoot."""
+    a, p, q, r = track
+    clamp = lambda v: max(-1, min(1, v))  # noqa: E731
+    if a != p:
+        return a - clamp(a - p)    # moving: 1 px behind
+    if p != q or held:
+        return a                   # just stopped: caught up
+    if q != r:
+        return a + clamp(q - r)    # then 1 px past (follow-through)
+    return a                       # settled
 
 
 class Composer:
@@ -129,14 +144,20 @@ class Composer:
         return self.rig.anchor("idle", direction, 0, part.attach)
 
     def offset(self, part: Part, anim: AnimDef, direction: str, index: int) -> tuple[int, int]:
-        """Where a rigid part sits in this frame. A lagging part trails its anchor by one frame
-        but never by more than 1 px, so a lock drifts behind a big move instead of detaching."""
+        """Where a rigid part sits in this frame. A lagging part (hair locks, a ponytail, a tail)
+        follows its anchor like loose material (MOTION.md rule 5): 1 px behind while the anchor
+        moves, caught up on the frame after it stops, 1 px past it on the next (follow-through),
+        then settled. It is never more than 1 px from its anchor, so it never detaches."""
         ax, ay = self.rig.anchor(anim.name, direction, index, part.attach)
         if part.lags:
-            px, py = self.rig.anchor(anim.name, direction,
-                                     self.lag_frame(part, anim, direction, index), part.attach)
-            ax -= max(-1, min(1, ax - px))
-            ay -= max(-1, min(1, ay - py))
+            frames = [index]
+            for _ in range(3):
+                frames.append(self.lag_frame(part, anim, direction, frames[-1]))
+            pts = [self.rig.anchor(anim.name, direction, i, part.attach) for i in frames]
+            # a once-through animation's last frame is held by the game: it never overshoots
+            held = not anim.loop and index == self.rig.frame_count(anim.name, direction) - 1
+            ax = _follow([p[0] for p in pts], held)
+            ay = _follow([p[1] for p in pts], held)
         ox, oy = self.origin(part, direction)
         return ax - ox, ay - oy
 
@@ -175,6 +196,8 @@ class Composer:
                 return None
             dx, dy = self.offset(part, anim, direction, index)
             cell, dropped = shift(cell, dx, dy)
+            if part.slot in NECK_SLOTS:
+                cell = self.stretch_neck(cell, part, anim, direction, index)
             offset = (dx, dy)
             name = sheet.path.stem if getattr(sheet, "path", None) else RIGID_SHEET
         elif behind:
@@ -188,6 +211,34 @@ class Composer:
             name = anim.name
         return Layer(part.slot, part, recolor(cell, self.maps[part.material]), offset, dropped,
                      name)
+
+    def stretch_neck(self, cell: np.ndarray, part: Part, anim: AnimDef, direction: str,
+                     index: int) -> np.ndarray:
+        """The idle's wave drops the chest under a still head and the body's neck stretches a
+        row (tools/art/humanoid.py). A part that wears the collar follows: the row it shows at
+        the torso's top is repeated up into the gap, so a gorget or a neckline stretches instead
+        of opening a line of skin under a helmet. Facing n the repeated row takes the material's
+        dark shade, the head's shadow on the back, as the body's does (a doubled row of flat
+        cloth reads as a slab, W5). The gap is measured against idle frame 0."""
+        try:
+            chin, torso = (self.rig.anchor(anim.name, direction, index, n) for n in ("chin", "torso"))
+            chin0, torso0 = (self.rig.anchor("idle", direction, 0, n) for n in ("chin", "torso"))
+        except RigError:
+            return cell
+        gap, top = (torso[1] - chin[1]) - (torso0[1] - chin0[1]), torso[1]
+        if gap <= 0 or top - gap < 0 or top >= cell.shape[0]:
+            return cell
+        out = cell.copy()
+        source = cell[top].copy()
+        if direction == "n":
+            dark = np.array(parse_hex(self.style.materials[part.material].base[0]), np.uint8)
+            ink = np.array(self.style.outline.rgb, np.uint8)
+            shade = (source[:, 3] == 255) & ~np.all(source[:, :3] == ink, axis=-1)
+            source[shade, :3] = dark
+        for y in range(top - gap, top):
+            fill = (source[:, 3] == 255) & (out[y, :, 3] == 0)
+            out[y][fill] = source[fill]
+        return out
 
     # ------------------------------------------------------------------ frames
     def shadow_rows(self, sprite: np.ndarray, flags: frozenset[str],

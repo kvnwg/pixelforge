@@ -1,20 +1,22 @@
 name: random_1_06
 rig: humanoid
 timing_profile: player
-seed: 752076169
+seed: 727747380
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
-  belt: leather_belt
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
   eyes: dots
   legs_wear: leggings
-  torso_wear: tunic
+  torso_wear: dress
 colors:
-  cloth: forest
-  eyes: navy (anchor)
+  accent: silver
+  cloth: navy (anchor)
+  eyes: green
   hair: brown (anchor)
-  leather: dark
-  skin: deep
+  leather: tan
+  skin: green (orc)
 anims:
 - idle
 - blink

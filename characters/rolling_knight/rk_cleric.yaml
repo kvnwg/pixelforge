@@ -21,4 +21,4 @@ colors:
   leather: brown (anchor)
   accent: gold (anchor)
   eyes: navy (anchor)
-anims: [idle, blink, walk, combat_idle, cast, roll, hurt, stun, death, victory]
+anims: [idle, blink, walk, run, combat_idle, cast, roll, hurt, stun, death, victory]

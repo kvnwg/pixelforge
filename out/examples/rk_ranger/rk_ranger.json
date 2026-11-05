@@ -20,7 +20,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 360
   },
   {
    "filename": "rk_ranger idle_s 1",
@@ -42,7 +42,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_s 2",
@@ -64,7 +64,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_s 3",
@@ -86,7 +86,51 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 260
+  },
+  {
+   "filename": "rk_ranger idle_s 4",
+   "frame": {
+    "x": 128,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger idle_s 5",
+   "frame": {
+    "x": 160,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
   },
   {
    "filename": "rk_ranger idle_e 0",
@@ -108,7 +152,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 360
   },
   {
    "filename": "rk_ranger idle_e 1",
@@ -130,7 +174,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_e 2",
@@ -152,7 +196,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_e 3",
@@ -174,7 +218,51 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 260
+  },
+  {
+   "filename": "rk_ranger idle_e 4",
+   "frame": {
+    "x": 128,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger idle_e 5",
+   "frame": {
+    "x": 160,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
   },
   {
    "filename": "rk_ranger idle_n 0",
@@ -196,7 +284,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 360
   },
   {
    "filename": "rk_ranger idle_n 1",
@@ -218,7 +306,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_n 2",
@@ -240,7 +328,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_n 3",
@@ -262,7 +350,51 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 260
+  },
+  {
+   "filename": "rk_ranger idle_n 4",
+   "frame": {
+    "x": 128,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger idle_n 5",
+   "frame": {
+    "x": 160,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
   },
   {
    "filename": "rk_ranger idle_w 0",
@@ -284,7 +416,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 360
   },
   {
    "filename": "rk_ranger idle_w 1",
@@ -306,7 +438,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_w 2",
@@ -328,7 +460,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 450
+   "duration": 100
   },
   {
    "filename": "rk_ranger idle_w 3",
@@ -350,7 +482,51 @@
     "w": 32,
     "h": 32
    },
-   "duration": 150
+   "duration": 260
+  },
+  {
+   "filename": "rk_ranger idle_w 4",
+   "frame": {
+    "x": 128,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
+  },
+  {
+   "filename": "rk_ranger idle_w 5",
+   "frame": {
+    "x": 160,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 140
   },
   {
    "filename": "rk_ranger blink_s 0",
@@ -438,7 +614,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 100
   },
   {
    "filename": "rk_ranger walk_s 1",
@@ -460,7 +636,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_s 2",
@@ -482,7 +658,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 90
   },
   {
    "filename": "rk_ranger walk_s 3",
@@ -504,7 +680,95 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_s 4",
+   "frame": {
+    "x": 128,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger walk_s 5",
+   "frame": {
+    "x": 160,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_s 6",
+   "frame": {
+    "x": 192,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger walk_s 7",
+   "frame": {
+    "x": 224,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_e 0",
@@ -526,7 +790,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 100
   },
   {
    "filename": "rk_ranger walk_e 1",
@@ -548,7 +812,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_e 2",
@@ -570,7 +834,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 90
   },
   {
    "filename": "rk_ranger walk_e 3",
@@ -592,7 +856,95 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_e 4",
+   "frame": {
+    "x": 128,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger walk_e 5",
+   "frame": {
+    "x": 160,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_e 6",
+   "frame": {
+    "x": 192,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger walk_e 7",
+   "frame": {
+    "x": 224,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_n 0",
@@ -614,7 +966,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 100
   },
   {
    "filename": "rk_ranger walk_n 1",
@@ -636,7 +988,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_n 2",
@@ -658,7 +1010,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 90
   },
   {
    "filename": "rk_ranger walk_n 3",
@@ -680,7 +1032,95 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_n 4",
+   "frame": {
+    "x": 128,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger walk_n 5",
+   "frame": {
+    "x": 160,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_n 6",
+   "frame": {
+    "x": 192,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger walk_n 7",
+   "frame": {
+    "x": 224,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_w 0",
@@ -702,7 +1142,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 100
   },
   {
    "filename": "rk_ranger walk_w 1",
@@ -724,7 +1164,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
   },
   {
    "filename": "rk_ranger walk_w 2",
@@ -746,7 +1186,7 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 90
   },
   {
    "filename": "rk_ranger walk_w 3",
@@ -768,13 +1208,805 @@
     "w": 32,
     "h": 32
    },
-   "duration": 130
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_w 4",
+   "frame": {
+    "x": 128,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rk_ranger walk_w 5",
+   "frame": {
+    "x": 160,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger walk_w 6",
+   "frame": {
+    "x": 192,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 90
+  },
+  {
+   "filename": "rk_ranger walk_w 7",
+   "frame": {
+    "x": 224,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_s 0",
+   "frame": {
+    "x": 0,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_s 1",
+   "frame": {
+    "x": 32,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_s 2",
+   "frame": {
+    "x": 64,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_s 3",
+   "frame": {
+    "x": 96,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_s 4",
+   "frame": {
+    "x": 128,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_s 5",
+   "frame": {
+    "x": 160,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_s 6",
+   "frame": {
+    "x": 192,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_s 7",
+   "frame": {
+    "x": 224,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_e 0",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_e 1",
+   "frame": {
+    "x": 32,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_e 2",
+   "frame": {
+    "x": 64,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_e 3",
+   "frame": {
+    "x": 96,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_e 4",
+   "frame": {
+    "x": 128,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_e 5",
+   "frame": {
+    "x": 160,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_e 6",
+   "frame": {
+    "x": 192,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_e 7",
+   "frame": {
+    "x": 224,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_n 0",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_n 1",
+   "frame": {
+    "x": 32,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_n 2",
+   "frame": {
+    "x": 64,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_n 3",
+   "frame": {
+    "x": 96,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_n 4",
+   "frame": {
+    "x": 128,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_n 5",
+   "frame": {
+    "x": 160,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_n 6",
+   "frame": {
+    "x": 192,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_n 7",
+   "frame": {
+    "x": 224,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_w 0",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_w 1",
+   "frame": {
+    "x": 32,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_w 2",
+   "frame": {
+    "x": 64,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_w 3",
+   "frame": {
+    "x": 96,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
+  },
+  {
+   "filename": "rk_ranger run_w 4",
+   "frame": {
+    "x": 128,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_w 5",
+   "frame": {
+    "x": 160,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 60
+  },
+  {
+   "filename": "rk_ranger run_w 6",
+   "frame": {
+    "x": 192,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 70
+  },
+  {
+   "filename": "rk_ranger run_w 7",
+   "frame": {
+    "x": 224,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 80
   },
   {
    "filename": "rk_ranger combat_idle_s 0",
    "frame": {
     "x": 0,
-    "y": 352,
+    "y": 480,
     "w": 32,
     "h": 32
    },
@@ -796,7 +2028,7 @@
    "filename": "rk_ranger combat_idle_s 1",
    "frame": {
     "x": 32,
-    "y": 352,
+    "y": 480,
     "w": 32,
     "h": 32
    },
@@ -818,7 +2050,7 @@
    "filename": "rk_ranger combat_idle_s 2",
    "frame": {
     "x": 64,
-    "y": 352,
+    "y": 480,
     "w": 32,
     "h": 32
    },
@@ -840,7 +2072,7 @@
    "filename": "rk_ranger combat_idle_s 3",
    "frame": {
     "x": 96,
-    "y": 352,
+    "y": 480,
     "w": 32,
     "h": 32
    },
@@ -862,7 +2094,7 @@
    "filename": "rk_ranger combat_idle_e 0",
    "frame": {
     "x": 0,
-    "y": 384,
+    "y": 512,
     "w": 32,
     "h": 32
    },
@@ -884,7 +2116,7 @@
    "filename": "rk_ranger combat_idle_e 1",
    "frame": {
     "x": 32,
-    "y": 384,
+    "y": 512,
     "w": 32,
     "h": 32
    },
@@ -906,7 +2138,7 @@
    "filename": "rk_ranger combat_idle_e 2",
    "frame": {
     "x": 64,
-    "y": 384,
+    "y": 512,
     "w": 32,
     "h": 32
    },
@@ -928,7 +2160,7 @@
    "filename": "rk_ranger combat_idle_e 3",
    "frame": {
     "x": 96,
-    "y": 384,
+    "y": 512,
     "w": 32,
     "h": 32
    },
@@ -950,7 +2182,7 @@
    "filename": "rk_ranger combat_idle_n 0",
    "frame": {
     "x": 0,
-    "y": 416,
+    "y": 544,
     "w": 32,
     "h": 32
    },
@@ -972,7 +2204,7 @@
    "filename": "rk_ranger combat_idle_n 1",
    "frame": {
     "x": 32,
-    "y": 416,
+    "y": 544,
     "w": 32,
     "h": 32
    },
@@ -994,7 +2226,7 @@
    "filename": "rk_ranger combat_idle_n 2",
    "frame": {
     "x": 64,
-    "y": 416,
+    "y": 544,
     "w": 32,
     "h": 32
    },
@@ -1016,7 +2248,7 @@
    "filename": "rk_ranger combat_idle_n 3",
    "frame": {
     "x": 96,
-    "y": 416,
+    "y": 544,
     "w": 32,
     "h": 32
    },
@@ -1038,7 +2270,7 @@
    "filename": "rk_ranger combat_idle_w 0",
    "frame": {
     "x": 0,
-    "y": 448,
+    "y": 576,
     "w": 32,
     "h": 32
    },
@@ -1060,7 +2292,7 @@
    "filename": "rk_ranger combat_idle_w 1",
    "frame": {
     "x": 32,
-    "y": 448,
+    "y": 576,
     "w": 32,
     "h": 32
    },
@@ -1082,7 +2314,7 @@
    "filename": "rk_ranger combat_idle_w 2",
    "frame": {
     "x": 64,
-    "y": 448,
+    "y": 576,
     "w": 32,
     "h": 32
    },
@@ -1104,7 +2336,7 @@
    "filename": "rk_ranger combat_idle_w 3",
    "frame": {
     "x": 96,
-    "y": 448,
+    "y": 576,
     "w": 32,
     "h": 32
    },
@@ -1126,7 +2358,7 @@
    "filename": "rk_ranger shoot_bow_s 0",
    "frame": {
     "x": 0,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1148,7 +2380,7 @@
    "filename": "rk_ranger shoot_bow_s 1",
    "frame": {
     "x": 32,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1170,7 +2402,7 @@
    "filename": "rk_ranger shoot_bow_s 2",
    "frame": {
     "x": 64,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1192,7 +2424,7 @@
    "filename": "rk_ranger shoot_bow_s 3",
    "frame": {
     "x": 96,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1214,7 +2446,7 @@
    "filename": "rk_ranger shoot_bow_s 4",
    "frame": {
     "x": 128,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1236,7 +2468,7 @@
    "filename": "rk_ranger shoot_bow_s 5",
    "frame": {
     "x": 160,
-    "y": 480,
+    "y": 608,
     "w": 32,
     "h": 32
    },
@@ -1258,7 +2490,7 @@
    "filename": "rk_ranger shoot_bow_e 0",
    "frame": {
     "x": 0,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1280,7 +2512,7 @@
    "filename": "rk_ranger shoot_bow_e 1",
    "frame": {
     "x": 32,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1302,7 +2534,7 @@
    "filename": "rk_ranger shoot_bow_e 2",
    "frame": {
     "x": 64,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1324,7 +2556,7 @@
    "filename": "rk_ranger shoot_bow_e 3",
    "frame": {
     "x": 96,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1346,7 +2578,7 @@
    "filename": "rk_ranger shoot_bow_e 4",
    "frame": {
     "x": 128,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1368,7 +2600,7 @@
    "filename": "rk_ranger shoot_bow_e 5",
    "frame": {
     "x": 160,
-    "y": 512,
+    "y": 640,
     "w": 32,
     "h": 32
    },
@@ -1390,7 +2622,7 @@
    "filename": "rk_ranger shoot_bow_n 0",
    "frame": {
     "x": 0,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1412,7 +2644,7 @@
    "filename": "rk_ranger shoot_bow_n 1",
    "frame": {
     "x": 32,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1434,7 +2666,7 @@
    "filename": "rk_ranger shoot_bow_n 2",
    "frame": {
     "x": 64,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1456,7 +2688,7 @@
    "filename": "rk_ranger shoot_bow_n 3",
    "frame": {
     "x": 96,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1478,7 +2710,7 @@
    "filename": "rk_ranger shoot_bow_n 4",
    "frame": {
     "x": 128,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1500,7 +2732,7 @@
    "filename": "rk_ranger shoot_bow_n 5",
    "frame": {
     "x": 160,
-    "y": 544,
+    "y": 672,
     "w": 32,
     "h": 32
    },
@@ -1522,7 +2754,7 @@
    "filename": "rk_ranger shoot_bow_w 0",
    "frame": {
     "x": 0,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1544,7 +2776,7 @@
    "filename": "rk_ranger shoot_bow_w 1",
    "frame": {
     "x": 32,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1566,7 +2798,7 @@
    "filename": "rk_ranger shoot_bow_w 2",
    "frame": {
     "x": 64,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1588,7 +2820,7 @@
    "filename": "rk_ranger shoot_bow_w 3",
    "frame": {
     "x": 96,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1610,7 +2842,7 @@
    "filename": "rk_ranger shoot_bow_w 4",
    "frame": {
     "x": 128,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1632,7 +2864,7 @@
    "filename": "rk_ranger shoot_bow_w 5",
    "frame": {
     "x": 160,
-    "y": 576,
+    "y": 704,
     "w": 32,
     "h": 32
    },
@@ -1654,7 +2886,7 @@
    "filename": "rk_ranger backflip_s 0",
    "frame": {
     "x": 0,
-    "y": 608,
+    "y": 736,
     "w": 32,
     "h": 32
    },
@@ -1676,7 +2908,7 @@
    "filename": "rk_ranger backflip_s 1",
    "frame": {
     "x": 32,
-    "y": 608,
+    "y": 736,
     "w": 32,
     "h": 32
    },
@@ -1698,7 +2930,7 @@
    "filename": "rk_ranger backflip_s 2",
    "frame": {
     "x": 64,
-    "y": 608,
+    "y": 736,
     "w": 32,
     "h": 32
    },
@@ -1720,7 +2952,7 @@
    "filename": "rk_ranger backflip_s 3",
    "frame": {
     "x": 96,
-    "y": 608,
+    "y": 736,
     "w": 32,
     "h": 32
    },
@@ -1742,7 +2974,7 @@
    "filename": "rk_ranger backflip_s 4",
    "frame": {
     "x": 128,
-    "y": 608,
+    "y": 736,
     "w": 32,
     "h": 32
    },
@@ -1764,7 +2996,7 @@
    "filename": "rk_ranger backflip_e 0",
    "frame": {
     "x": 0,
-    "y": 640,
+    "y": 768,
     "w": 32,
     "h": 32
    },
@@ -1786,7 +3018,7 @@
    "filename": "rk_ranger backflip_e 1",
    "frame": {
     "x": 32,
-    "y": 640,
+    "y": 768,
     "w": 32,
     "h": 32
    },
@@ -1808,7 +3040,7 @@
    "filename": "rk_ranger backflip_e 2",
    "frame": {
     "x": 64,
-    "y": 640,
+    "y": 768,
     "w": 32,
     "h": 32
    },
@@ -1830,7 +3062,7 @@
    "filename": "rk_ranger backflip_e 3",
    "frame": {
     "x": 96,
-    "y": 640,
+    "y": 768,
     "w": 32,
     "h": 32
    },
@@ -1852,7 +3084,7 @@
    "filename": "rk_ranger backflip_e 4",
    "frame": {
     "x": 128,
-    "y": 640,
+    "y": 768,
     "w": 32,
     "h": 32
    },
@@ -1874,7 +3106,7 @@
    "filename": "rk_ranger backflip_n 0",
    "frame": {
     "x": 0,
-    "y": 672,
+    "y": 800,
     "w": 32,
     "h": 32
    },
@@ -1896,7 +3128,7 @@
    "filename": "rk_ranger backflip_n 1",
    "frame": {
     "x": 32,
-    "y": 672,
+    "y": 800,
     "w": 32,
     "h": 32
    },
@@ -1918,7 +3150,7 @@
    "filename": "rk_ranger backflip_n 2",
    "frame": {
     "x": 64,
-    "y": 672,
+    "y": 800,
     "w": 32,
     "h": 32
    },
@@ -1940,7 +3172,7 @@
    "filename": "rk_ranger backflip_n 3",
    "frame": {
     "x": 96,
-    "y": 672,
+    "y": 800,
     "w": 32,
     "h": 32
    },
@@ -1962,7 +3194,7 @@
    "filename": "rk_ranger backflip_n 4",
    "frame": {
     "x": 128,
-    "y": 672,
+    "y": 800,
     "w": 32,
     "h": 32
    },
@@ -1984,7 +3216,7 @@
    "filename": "rk_ranger backflip_w 0",
    "frame": {
     "x": 0,
-    "y": 704,
+    "y": 832,
     "w": 32,
     "h": 32
    },
@@ -2006,7 +3238,7 @@
    "filename": "rk_ranger backflip_w 1",
    "frame": {
     "x": 32,
-    "y": 704,
+    "y": 832,
     "w": 32,
     "h": 32
    },
@@ -2028,7 +3260,7 @@
    "filename": "rk_ranger backflip_w 2",
    "frame": {
     "x": 64,
-    "y": 704,
+    "y": 832,
     "w": 32,
     "h": 32
    },
@@ -2050,7 +3282,7 @@
    "filename": "rk_ranger backflip_w 3",
    "frame": {
     "x": 96,
-    "y": 704,
+    "y": 832,
     "w": 32,
     "h": 32
    },
@@ -2072,7 +3304,7 @@
    "filename": "rk_ranger backflip_w 4",
    "frame": {
     "x": 128,
-    "y": 704,
+    "y": 832,
     "w": 32,
     "h": 32
    },
@@ -2094,7 +3326,7 @@
    "filename": "rk_ranger dodge_s 0",
    "frame": {
     "x": 0,
-    "y": 736,
+    "y": 864,
     "w": 32,
     "h": 32
    },
@@ -2116,7 +3348,7 @@
    "filename": "rk_ranger dodge_s 1",
    "frame": {
     "x": 32,
-    "y": 736,
+    "y": 864,
     "w": 32,
     "h": 32
    },
@@ -2138,7 +3370,7 @@
    "filename": "rk_ranger dodge_s 2",
    "frame": {
     "x": 64,
-    "y": 736,
+    "y": 864,
     "w": 32,
     "h": 32
    },
@@ -2160,7 +3392,7 @@
    "filename": "rk_ranger dodge_s 3",
    "frame": {
     "x": 96,
-    "y": 736,
+    "y": 864,
     "w": 32,
     "h": 32
    },
@@ -2182,7 +3414,7 @@
    "filename": "rk_ranger dodge_e 0",
    "frame": {
     "x": 0,
-    "y": 768,
+    "y": 896,
     "w": 32,
     "h": 32
    },
@@ -2204,7 +3436,7 @@
    "filename": "rk_ranger dodge_e 1",
    "frame": {
     "x": 32,
-    "y": 768,
+    "y": 896,
     "w": 32,
     "h": 32
    },
@@ -2226,7 +3458,7 @@
    "filename": "rk_ranger dodge_e 2",
    "frame": {
     "x": 64,
-    "y": 768,
+    "y": 896,
     "w": 32,
     "h": 32
    },
@@ -2248,7 +3480,7 @@
    "filename": "rk_ranger dodge_e 3",
    "frame": {
     "x": 96,
-    "y": 768,
+    "y": 896,
     "w": 32,
     "h": 32
    },
@@ -2270,7 +3502,7 @@
    "filename": "rk_ranger dodge_n 0",
    "frame": {
     "x": 0,
-    "y": 800,
+    "y": 928,
     "w": 32,
     "h": 32
    },
@@ -2292,7 +3524,7 @@
    "filename": "rk_ranger dodge_n 1",
    "frame": {
     "x": 32,
-    "y": 800,
+    "y": 928,
     "w": 32,
     "h": 32
    },
@@ -2314,7 +3546,7 @@
    "filename": "rk_ranger dodge_n 2",
    "frame": {
     "x": 64,
-    "y": 800,
+    "y": 928,
     "w": 32,
     "h": 32
    },
@@ -2336,7 +3568,7 @@
    "filename": "rk_ranger dodge_n 3",
    "frame": {
     "x": 96,
-    "y": 800,
+    "y": 928,
     "w": 32,
     "h": 32
    },
@@ -2358,7 +3590,7 @@
    "filename": "rk_ranger dodge_w 0",
    "frame": {
     "x": 0,
-    "y": 832,
+    "y": 960,
     "w": 32,
     "h": 32
    },
@@ -2380,7 +3612,7 @@
    "filename": "rk_ranger dodge_w 1",
    "frame": {
     "x": 32,
-    "y": 832,
+    "y": 960,
     "w": 32,
     "h": 32
    },
@@ -2402,7 +3634,7 @@
    "filename": "rk_ranger dodge_w 2",
    "frame": {
     "x": 64,
-    "y": 832,
+    "y": 960,
     "w": 32,
     "h": 32
    },
@@ -2424,7 +3656,7 @@
    "filename": "rk_ranger dodge_w 3",
    "frame": {
     "x": 96,
-    "y": 832,
+    "y": 960,
     "w": 32,
     "h": 32
    },
@@ -2446,7 +3678,7 @@
    "filename": "rk_ranger hurt_s 0",
    "frame": {
     "x": 0,
-    "y": 864,
+    "y": 992,
     "w": 32,
     "h": 32
    },
@@ -2468,7 +3700,7 @@
    "filename": "rk_ranger hurt_s 1",
    "frame": {
     "x": 32,
-    "y": 864,
+    "y": 992,
     "w": 32,
     "h": 32
    },
@@ -2490,7 +3722,7 @@
    "filename": "rk_ranger hurt_s 2",
    "frame": {
     "x": 64,
-    "y": 864,
+    "y": 992,
     "w": 32,
     "h": 32
    },
@@ -2512,7 +3744,7 @@
    "filename": "rk_ranger hurt_e 0",
    "frame": {
     "x": 0,
-    "y": 896,
+    "y": 1024,
     "w": 32,
     "h": 32
    },
@@ -2534,7 +3766,7 @@
    "filename": "rk_ranger hurt_e 1",
    "frame": {
     "x": 32,
-    "y": 896,
+    "y": 1024,
     "w": 32,
     "h": 32
    },
@@ -2556,7 +3788,7 @@
    "filename": "rk_ranger hurt_e 2",
    "frame": {
     "x": 64,
-    "y": 896,
+    "y": 1024,
     "w": 32,
     "h": 32
    },
@@ -2578,7 +3810,7 @@
    "filename": "rk_ranger hurt_n 0",
    "frame": {
     "x": 0,
-    "y": 928,
+    "y": 1056,
     "w": 32,
     "h": 32
    },
@@ -2600,7 +3832,7 @@
    "filename": "rk_ranger hurt_n 1",
    "frame": {
     "x": 32,
-    "y": 928,
+    "y": 1056,
     "w": 32,
     "h": 32
    },
@@ -2622,7 +3854,7 @@
    "filename": "rk_ranger hurt_n 2",
    "frame": {
     "x": 64,
-    "y": 928,
+    "y": 1056,
     "w": 32,
     "h": 32
    },
@@ -2644,7 +3876,7 @@
    "filename": "rk_ranger hurt_w 0",
    "frame": {
     "x": 0,
-    "y": 960,
+    "y": 1088,
     "w": 32,
     "h": 32
    },
@@ -2666,7 +3898,7 @@
    "filename": "rk_ranger hurt_w 1",
    "frame": {
     "x": 32,
-    "y": 960,
+    "y": 1088,
     "w": 32,
     "h": 32
    },
@@ -2688,7 +3920,7 @@
    "filename": "rk_ranger hurt_w 2",
    "frame": {
     "x": 64,
-    "y": 960,
+    "y": 1088,
     "w": 32,
     "h": 32
    },
@@ -2710,7 +3942,7 @@
    "filename": "rk_ranger stun_s 0",
    "frame": {
     "x": 0,
-    "y": 992,
+    "y": 1120,
     "w": 32,
     "h": 32
    },
@@ -2732,7 +3964,7 @@
    "filename": "rk_ranger stun_s 1",
    "frame": {
     "x": 32,
-    "y": 992,
+    "y": 1120,
     "w": 32,
     "h": 32
    },
@@ -2754,7 +3986,7 @@
    "filename": "rk_ranger stun_s 2",
    "frame": {
     "x": 64,
-    "y": 992,
+    "y": 1120,
     "w": 32,
     "h": 32
    },
@@ -2776,7 +4008,7 @@
    "filename": "rk_ranger stun_s 3",
    "frame": {
     "x": 96,
-    "y": 992,
+    "y": 1120,
     "w": 32,
     "h": 32
    },
@@ -2798,7 +4030,7 @@
    "filename": "rk_ranger stun_e 0",
    "frame": {
     "x": 0,
-    "y": 1024,
+    "y": 1152,
     "w": 32,
     "h": 32
    },
@@ -2820,7 +4052,7 @@
    "filename": "rk_ranger stun_e 1",
    "frame": {
     "x": 32,
-    "y": 1024,
+    "y": 1152,
     "w": 32,
     "h": 32
    },
@@ -2842,7 +4074,7 @@
    "filename": "rk_ranger stun_e 2",
    "frame": {
     "x": 64,
-    "y": 1024,
+    "y": 1152,
     "w": 32,
     "h": 32
    },
@@ -2864,7 +4096,7 @@
    "filename": "rk_ranger stun_e 3",
    "frame": {
     "x": 96,
-    "y": 1024,
+    "y": 1152,
     "w": 32,
     "h": 32
    },
@@ -2886,7 +4118,7 @@
    "filename": "rk_ranger stun_n 0",
    "frame": {
     "x": 0,
-    "y": 1056,
+    "y": 1184,
     "w": 32,
     "h": 32
    },
@@ -2908,7 +4140,7 @@
    "filename": "rk_ranger stun_n 1",
    "frame": {
     "x": 32,
-    "y": 1056,
+    "y": 1184,
     "w": 32,
     "h": 32
    },
@@ -2930,7 +4162,7 @@
    "filename": "rk_ranger stun_n 2",
    "frame": {
     "x": 64,
-    "y": 1056,
+    "y": 1184,
     "w": 32,
     "h": 32
    },
@@ -2952,7 +4184,7 @@
    "filename": "rk_ranger stun_n 3",
    "frame": {
     "x": 96,
-    "y": 1056,
+    "y": 1184,
     "w": 32,
     "h": 32
    },
@@ -2974,7 +4206,7 @@
    "filename": "rk_ranger stun_w 0",
    "frame": {
     "x": 0,
-    "y": 1088,
+    "y": 1216,
     "w": 32,
     "h": 32
    },
@@ -2996,7 +4228,7 @@
    "filename": "rk_ranger stun_w 1",
    "frame": {
     "x": 32,
-    "y": 1088,
+    "y": 1216,
     "w": 32,
     "h": 32
    },
@@ -3018,7 +4250,7 @@
    "filename": "rk_ranger stun_w 2",
    "frame": {
     "x": 64,
-    "y": 1088,
+    "y": 1216,
     "w": 32,
     "h": 32
    },
@@ -3040,7 +4272,7 @@
    "filename": "rk_ranger stun_w 3",
    "frame": {
     "x": 96,
-    "y": 1088,
+    "y": 1216,
     "w": 32,
     "h": 32
    },
@@ -3062,7 +4294,7 @@
    "filename": "rk_ranger death_s 0",
    "frame": {
     "x": 0,
-    "y": 1120,
+    "y": 1248,
     "w": 32,
     "h": 32
    },
@@ -3084,7 +4316,7 @@
    "filename": "rk_ranger death_s 1",
    "frame": {
     "x": 32,
-    "y": 1120,
+    "y": 1248,
     "w": 32,
     "h": 32
    },
@@ -3106,7 +4338,7 @@
    "filename": "rk_ranger death_s 2",
    "frame": {
     "x": 64,
-    "y": 1120,
+    "y": 1248,
     "w": 32,
     "h": 32
    },
@@ -3128,7 +4360,7 @@
    "filename": "rk_ranger death_s 3",
    "frame": {
     "x": 96,
-    "y": 1120,
+    "y": 1248,
     "w": 32,
     "h": 32
    },
@@ -3150,7 +4382,7 @@
    "filename": "rk_ranger death_s 4",
    "frame": {
     "x": 128,
-    "y": 1120,
+    "y": 1248,
     "w": 32,
     "h": 32
    },
@@ -3172,7 +4404,7 @@
    "filename": "rk_ranger death_e 0",
    "frame": {
     "x": 0,
-    "y": 1152,
+    "y": 1280,
     "w": 32,
     "h": 32
    },
@@ -3194,7 +4426,7 @@
    "filename": "rk_ranger death_e 1",
    "frame": {
     "x": 32,
-    "y": 1152,
+    "y": 1280,
     "w": 32,
     "h": 32
    },
@@ -3216,7 +4448,7 @@
    "filename": "rk_ranger death_e 2",
    "frame": {
     "x": 64,
-    "y": 1152,
+    "y": 1280,
     "w": 32,
     "h": 32
    },
@@ -3238,7 +4470,7 @@
    "filename": "rk_ranger death_e 3",
    "frame": {
     "x": 96,
-    "y": 1152,
+    "y": 1280,
     "w": 32,
     "h": 32
    },
@@ -3260,7 +4492,7 @@
    "filename": "rk_ranger death_e 4",
    "frame": {
     "x": 128,
-    "y": 1152,
+    "y": 1280,
     "w": 32,
     "h": 32
    },
@@ -3282,7 +4514,7 @@
    "filename": "rk_ranger death_n 0",
    "frame": {
     "x": 0,
-    "y": 1184,
+    "y": 1312,
     "w": 32,
     "h": 32
    },
@@ -3304,7 +4536,7 @@
    "filename": "rk_ranger death_n 1",
    "frame": {
     "x": 32,
-    "y": 1184,
+    "y": 1312,
     "w": 32,
     "h": 32
    },
@@ -3326,7 +4558,7 @@
    "filename": "rk_ranger death_n 2",
    "frame": {
     "x": 64,
-    "y": 1184,
+    "y": 1312,
     "w": 32,
     "h": 32
    },
@@ -3348,7 +4580,7 @@
    "filename": "rk_ranger death_n 3",
    "frame": {
     "x": 96,
-    "y": 1184,
+    "y": 1312,
     "w": 32,
     "h": 32
    },
@@ -3370,7 +4602,7 @@
    "filename": "rk_ranger death_n 4",
    "frame": {
     "x": 128,
-    "y": 1184,
+    "y": 1312,
     "w": 32,
     "h": 32
    },
@@ -3392,7 +4624,7 @@
    "filename": "rk_ranger death_w 0",
    "frame": {
     "x": 0,
-    "y": 1216,
+    "y": 1344,
     "w": 32,
     "h": 32
    },
@@ -3414,7 +4646,7 @@
    "filename": "rk_ranger death_w 1",
    "frame": {
     "x": 32,
-    "y": 1216,
+    "y": 1344,
     "w": 32,
     "h": 32
    },
@@ -3436,7 +4668,7 @@
    "filename": "rk_ranger death_w 2",
    "frame": {
     "x": 64,
-    "y": 1216,
+    "y": 1344,
     "w": 32,
     "h": 32
    },
@@ -3458,7 +4690,7 @@
    "filename": "rk_ranger death_w 3",
    "frame": {
     "x": 96,
-    "y": 1216,
+    "y": 1344,
     "w": 32,
     "h": 32
    },
@@ -3480,7 +4712,7 @@
    "filename": "rk_ranger death_w 4",
    "frame": {
     "x": 128,
-    "y": 1216,
+    "y": 1344,
     "w": 32,
     "h": 32
    },
@@ -3502,7 +4734,7 @@
    "filename": "rk_ranger victory_s 0",
    "frame": {
     "x": 0,
-    "y": 1248,
+    "y": 1376,
     "w": 32,
     "h": 32
    },
@@ -3524,7 +4756,7 @@
    "filename": "rk_ranger victory_s 1",
    "frame": {
     "x": 32,
-    "y": 1248,
+    "y": 1376,
     "w": 32,
     "h": 32
    },
@@ -3546,7 +4778,7 @@
    "filename": "rk_ranger victory_s 2",
    "frame": {
     "x": 64,
-    "y": 1248,
+    "y": 1376,
     "w": 32,
     "h": 32
    },
@@ -3568,7 +4800,7 @@
    "filename": "rk_ranger victory_s 3",
    "frame": {
     "x": 96,
-    "y": 1248,
+    "y": 1376,
     "w": 32,
     "h": 32
    },
@@ -3590,7 +4822,7 @@
    "filename": "rk_ranger victory_e 0",
    "frame": {
     "x": 0,
-    "y": 1280,
+    "y": 1408,
     "w": 32,
     "h": 32
    },
@@ -3612,7 +4844,7 @@
    "filename": "rk_ranger victory_e 1",
    "frame": {
     "x": 32,
-    "y": 1280,
+    "y": 1408,
     "w": 32,
     "h": 32
    },
@@ -3634,7 +4866,7 @@
    "filename": "rk_ranger victory_e 2",
    "frame": {
     "x": 64,
-    "y": 1280,
+    "y": 1408,
     "w": 32,
     "h": 32
    },
@@ -3656,7 +4888,7 @@
    "filename": "rk_ranger victory_e 3",
    "frame": {
     "x": 96,
-    "y": 1280,
+    "y": 1408,
     "w": 32,
     "h": 32
    },
@@ -3678,7 +4910,7 @@
    "filename": "rk_ranger victory_n 0",
    "frame": {
     "x": 0,
-    "y": 1312,
+    "y": 1440,
     "w": 32,
     "h": 32
    },
@@ -3700,7 +4932,7 @@
    "filename": "rk_ranger victory_n 1",
    "frame": {
     "x": 32,
-    "y": 1312,
+    "y": 1440,
     "w": 32,
     "h": 32
    },
@@ -3722,7 +4954,7 @@
    "filename": "rk_ranger victory_n 2",
    "frame": {
     "x": 64,
-    "y": 1312,
+    "y": 1440,
     "w": 32,
     "h": 32
    },
@@ -3744,7 +4976,7 @@
    "filename": "rk_ranger victory_n 3",
    "frame": {
     "x": 96,
-    "y": 1312,
+    "y": 1440,
     "w": 32,
     "h": 32
    },
@@ -3766,7 +4998,7 @@
    "filename": "rk_ranger victory_w 0",
    "frame": {
     "x": 0,
-    "y": 1344,
+    "y": 1472,
     "w": 32,
     "h": 32
    },
@@ -3788,7 +5020,7 @@
    "filename": "rk_ranger victory_w 1",
    "frame": {
     "x": 32,
-    "y": 1344,
+    "y": 1472,
     "w": 32,
     "h": 32
    },
@@ -3810,7 +5042,7 @@
    "filename": "rk_ranger victory_w 2",
    "frame": {
     "x": 64,
-    "y": 1344,
+    "y": 1472,
     "w": 32,
     "h": 32
    },
@@ -3832,7 +5064,7 @@
    "filename": "rk_ranger victory_w 3",
    "frame": {
     "x": 96,
-    "y": 1344,
+    "y": 1472,
     "w": 32,
     "h": 32
    },
@@ -3857,267 +5089,291 @@
   "image": "rk_ranger.png",
   "format": "RGBA8888",
   "size": {
-   "w": 192,
-   "h": 1376
+   "w": 256,
+   "h": 1504
   },
   "scale": "1",
   "frameTags": [
    {
     "name": "idle_s",
     "from": 0,
-    "to": 3,
+    "to": 5,
     "direction": "forward"
    },
    {
     "name": "idle_e",
-    "from": 4,
-    "to": 7,
-    "direction": "forward"
-   },
-   {
-    "name": "idle_n",
-    "from": 8,
+    "from": 6,
     "to": 11,
     "direction": "forward"
    },
    {
-    "name": "idle_w",
+    "name": "idle_n",
     "from": 12,
-    "to": 15,
-    "direction": "forward"
-   },
-   {
-    "name": "blink_s",
-    "from": 16,
-    "to": 16,
-    "direction": "forward"
-   },
-   {
-    "name": "blink_e",
-    "from": 17,
     "to": 17,
     "direction": "forward"
    },
    {
-    "name": "blink_w",
+    "name": "idle_w",
     "from": 18,
-    "to": 18,
+    "to": 23,
     "direction": "forward"
    },
    {
-    "name": "walk_s",
-    "from": 19,
-    "to": 22,
+    "name": "blink_s",
+    "from": 24,
+    "to": 24,
     "direction": "forward"
    },
    {
-    "name": "walk_e",
-    "from": 23,
+    "name": "blink_e",
+    "from": 25,
+    "to": 25,
+    "direction": "forward"
+   },
+   {
+    "name": "blink_w",
+    "from": 26,
     "to": 26,
     "direction": "forward"
    },
    {
-    "name": "walk_n",
+    "name": "walk_s",
     "from": 27,
-    "to": 30,
-    "direction": "forward"
-   },
-   {
-    "name": "walk_w",
-    "from": 31,
     "to": 34,
     "direction": "forward"
    },
    {
-    "name": "combat_idle_s",
+    "name": "walk_e",
     "from": 35,
-    "to": 38,
-    "direction": "forward"
-   },
-   {
-    "name": "combat_idle_e",
-    "from": 39,
     "to": 42,
     "direction": "forward"
    },
    {
-    "name": "combat_idle_n",
+    "name": "walk_n",
     "from": 43,
-    "to": 46,
-    "direction": "forward"
-   },
-   {
-    "name": "combat_idle_w",
-    "from": 47,
     "to": 50,
     "direction": "forward"
    },
    {
-    "name": "shoot_bow_s",
+    "name": "walk_w",
     "from": 51,
-    "to": 56,
+    "to": 58,
     "direction": "forward"
    },
    {
-    "name": "shoot_bow_e",
-    "from": 57,
-    "to": 62,
+    "name": "run_s",
+    "from": 59,
+    "to": 66,
     "direction": "forward"
    },
    {
-    "name": "shoot_bow_n",
-    "from": 63,
-    "to": 68,
-    "direction": "forward"
-   },
-   {
-    "name": "shoot_bow_w",
-    "from": 69,
+    "name": "run_e",
+    "from": 67,
     "to": 74,
     "direction": "forward"
    },
    {
-    "name": "backflip_s",
+    "name": "run_n",
     "from": 75,
-    "to": 79,
+    "to": 82,
     "direction": "forward"
    },
    {
-    "name": "backflip_e",
-    "from": 80,
-    "to": 84,
+    "name": "run_w",
+    "from": 83,
+    "to": 90,
     "direction": "forward"
    },
    {
-    "name": "backflip_n",
-    "from": 85,
-    "to": 89,
-    "direction": "forward"
-   },
-   {
-    "name": "backflip_w",
-    "from": 90,
+    "name": "combat_idle_s",
+    "from": 91,
     "to": 94,
     "direction": "forward"
    },
    {
-    "name": "dodge_s",
+    "name": "combat_idle_e",
     "from": 95,
     "to": 98,
     "direction": "forward"
    },
    {
-    "name": "dodge_e",
+    "name": "combat_idle_n",
     "from": 99,
     "to": 102,
     "direction": "forward"
    },
    {
-    "name": "dodge_n",
+    "name": "combat_idle_w",
     "from": 103,
     "to": 106,
     "direction": "forward"
    },
    {
-    "name": "dodge_w",
+    "name": "shoot_bow_s",
     "from": 107,
-    "to": 110,
+    "to": 112,
     "direction": "forward"
    },
    {
-    "name": "hurt_s",
-    "from": 111,
-    "to": 113,
+    "name": "shoot_bow_e",
+    "from": 113,
+    "to": 118,
     "direction": "forward"
    },
    {
-    "name": "hurt_e",
-    "from": 114,
-    "to": 116,
+    "name": "shoot_bow_n",
+    "from": 119,
+    "to": 124,
     "direction": "forward"
    },
    {
-    "name": "hurt_n",
-    "from": 117,
-    "to": 119,
-    "direction": "forward"
-   },
-   {
-    "name": "hurt_w",
-    "from": 120,
-    "to": 122,
-    "direction": "forward"
-   },
-   {
-    "name": "stun_s",
-    "from": 123,
-    "to": 126,
-    "direction": "forward"
-   },
-   {
-    "name": "stun_e",
-    "from": 127,
+    "name": "shoot_bow_w",
+    "from": 125,
     "to": 130,
     "direction": "forward"
    },
    {
-    "name": "stun_n",
+    "name": "backflip_s",
     "from": 131,
-    "to": 134,
+    "to": 135,
     "direction": "forward"
    },
    {
-    "name": "stun_w",
-    "from": 135,
-    "to": 138,
+    "name": "backflip_e",
+    "from": 136,
+    "to": 140,
     "direction": "forward"
    },
    {
-    "name": "death_s",
-    "from": 139,
-    "to": 143,
+    "name": "backflip_n",
+    "from": 141,
+    "to": 145,
     "direction": "forward"
    },
    {
-    "name": "death_e",
-    "from": 144,
-    "to": 148,
+    "name": "backflip_w",
+    "from": 146,
+    "to": 150,
     "direction": "forward"
    },
    {
-    "name": "death_n",
-    "from": 149,
-    "to": 153,
+    "name": "dodge_s",
+    "from": 151,
+    "to": 154,
     "direction": "forward"
    },
    {
-    "name": "death_w",
-    "from": 154,
+    "name": "dodge_e",
+    "from": 155,
     "to": 158,
     "direction": "forward"
    },
    {
-    "name": "victory_s",
+    "name": "dodge_n",
     "from": 159,
     "to": 162,
     "direction": "forward"
    },
    {
-    "name": "victory_e",
+    "name": "dodge_w",
     "from": 163,
     "to": 166,
     "direction": "forward"
    },
    {
-    "name": "victory_n",
+    "name": "hurt_s",
     "from": 167,
-    "to": 170,
+    "to": 169,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_e",
+    "from": 170,
+    "to": 172,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_n",
+    "from": 173,
+    "to": 175,
+    "direction": "forward"
+   },
+   {
+    "name": "hurt_w",
+    "from": 176,
+    "to": 178,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_s",
+    "from": 179,
+    "to": 182,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_e",
+    "from": 183,
+    "to": 186,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_n",
+    "from": 187,
+    "to": 190,
+    "direction": "forward"
+   },
+   {
+    "name": "stun_w",
+    "from": 191,
+    "to": 194,
+    "direction": "forward"
+   },
+   {
+    "name": "death_s",
+    "from": 195,
+    "to": 199,
+    "direction": "forward"
+   },
+   {
+    "name": "death_e",
+    "from": 200,
+    "to": 204,
+    "direction": "forward"
+   },
+   {
+    "name": "death_n",
+    "from": 205,
+    "to": 209,
+    "direction": "forward"
+   },
+   {
+    "name": "death_w",
+    "from": 210,
+    "to": 214,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_s",
+    "from": 215,
+    "to": 218,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_e",
+    "from": 219,
+    "to": 222,
+    "direction": "forward"
+   },
+   {
+    "name": "victory_n",
+    "from": 223,
+    "to": 226,
     "direction": "forward"
    },
    {
     "name": "victory_w",
-    "from": 171,
-    "to": 174,
+    "from": 227,
+    "to": 230,
     "direction": "forward"
    }
   ],
@@ -4133,6 +5389,7 @@
     "idle": true,
     "blink": false,
     "walk": true,
+    "run": true,
     "combat_idle": true,
     "shoot_bow": false,
     "backflip": false,
@@ -5501,16 +6758,44 @@
    },
    "stride_px": {
     "walk_e": [
-     3,
      2,
-     3,
-     2
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1
     ],
     "walk_w": [
-     3,
      2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1
+    ],
+    "run_e": [
+     4,
+     4,
+     4,
      3,
-     2
+     4,
+     4,
+     4,
+     3
+    ],
+    "run_w": [
+     4,
+     4,
+     4,
+     3,
+     4,
+     4,
+     4,
+     3
     ]
    },
    "holds": {
@@ -5529,28 +6814,36 @@
    },
    "base_durations": {
     "idle_s": [
-     450,
-     150,
-     450,
-     150
+     360,
+     100,
+     100,
+     260,
+     140,
+     140
     ],
     "idle_e": [
-     450,
-     150,
-     450,
-     150
+     360,
+     100,
+     100,
+     260,
+     140,
+     140
     ],
     "idle_n": [
-     450,
-     150,
-     450,
-     150
+     360,
+     100,
+     100,
+     260,
+     140,
+     140
     ],
     "idle_w": [
-     450,
-     150,
-     450,
-     150
+     360,
+     100,
+     100,
+     260,
+     140,
+     140
     ],
     "blink_s": [
      100
@@ -5562,28 +6855,84 @@
      100
     ],
     "walk_s": [
-     130,
-     130,
-     130,
-     130
+     100,
+     80,
+     90,
+     80,
+     100,
+     80,
+     90,
+     80
     ],
     "walk_e": [
-     130,
-     130,
-     130,
-     130
+     100,
+     80,
+     90,
+     80,
+     100,
+     80,
+     90,
+     80
     ],
     "walk_n": [
-     130,
-     130,
-     130,
-     130
+     100,
+     80,
+     90,
+     80,
+     100,
+     80,
+     90,
+     80
     ],
     "walk_w": [
-     130,
-     130,
-     130,
-     130
+     100,
+     80,
+     90,
+     80,
+     100,
+     80,
+     90,
+     80
+    ],
+    "run_s": [
+     70,
+     60,
+     70,
+     80,
+     70,
+     60,
+     70,
+     80
+    ],
+    "run_e": [
+     70,
+     60,
+     70,
+     80,
+     70,
+     60,
+     70,
+     80
+    ],
+    "run_n": [
+     70,
+     60,
+     70,
+     80,
+     70,
+     60,
+     70,
+     80
+    ],
+    "run_w": [
+     70,
+     60,
+     70,
+     80,
+     70,
+     60,
+     70,
+     80
     ],
     "combat_idle_s": [
      300,

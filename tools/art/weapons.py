@@ -439,8 +439,12 @@ def check_bounds() -> list[str]:
     defaults = STYLE.raw["rigs"]["humanoid"].get("defaults", {})
     x0, y0, x1, y1 = 2, 2, 29, 30
     problems = set()
+    from pixelforge.anim import anim_specs
+    specs = anim_specs(STYLE, "humanoid")
     for path in all_recipes(ROOT, include_random=True):
         recipe = load_recipe(path, STYLE)
+        if recipe.rig != "humanoid":  # monsters draw their own weapons per frame
+            continue
         parts = {**defaults, **recipe.parts}
         for slot in ("held_near", "held_near_trim", "held_far"):
             if parts.get(slot, "none") == "none":
@@ -448,7 +452,7 @@ def check_bounds() -> list[str]:
             part = lib.part(slot, parts[slot])
             hand = part.attach  # the anchor the item follows (the shield rides the torso)
             for anim in recipe.anims:
-                src = STYLE.raw["animations"][anim].get("source", {}).get("anim", anim)
+                src = specs[anim].get("source", {}).get("anim", specs[anim].get("alias", anim))
                 for d in DIRS:
                     origin = rig.anchor("idle", d, 0, hand)
                     for i in range(rig.frame_count(src, d)):

@@ -94,7 +94,7 @@ Score each 1 to 5. A checkpoint needs 4 or higher on every line. Report the scor
 | 1 | Style match | Indistinguishable in style from the anchor: palette feel, outline, proportions, face |
 | 2 | 1x readability | Facing and action obvious at true size on all three backgrounds |
 | 3 | Silhouette | The solid silhouette alone reads clearly; no lumps or ambiguous shapes |
-| 4 | Motion | Weight and follow-through feel right; no popping, sliding or jitter |
+| 4 | Motion | Weight and follow-through feel right: the move travels through the body, timing eases, loose parts follow through (MOTION.md); no popping, sliding or jitter |
 | 5 | Consistency | Same proportions and colors across all frames and directions |
 | 6 | Cleanliness | No stray pixels, jaggies, banding, doubled outlines or noise |
 | 7 | Part fit | Layers align in every frame; correct z-order; nothing peeking through |

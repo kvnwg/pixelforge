@@ -76,3 +76,34 @@ def test_charge_loops_are_exported(exported):
     b, path = exported["goblin_archer"]
     pf = json.loads(path.read_text())["meta"]["pixelforge"]
     assert pf["loop_frames"]["shoot_bow_e"] == [2]  # the held full draw
+
+
+GAIT_PROBE = """
+import { readFileSync } from "node:fs";
+const { Sheet, Animator } = await import(process.argv[2]);
+const sheet = new Sheet(JSON.parse(readFileSync(process.argv[3], "utf8")));
+const a = new Animator(sheet);
+a.play("run", "e");
+const run = sheet.naturalSpeed("run");
+a.rate = Number(process.argv[4]) / run;
+let t = 0, loops = 0, last = 0;
+while (t < 10000) { t += 5; a.update(5); if (a.frame < last) loops++; last = a.frame; }
+console.log(JSON.stringify({ run, walk: sheet.naturalSpeed("walk"), idle: sheet.naturalSpeed("idle"), loops }));
+"""
+
+
+@pytest.mark.parametrize("speed", [50, 64])  # Rolling Knight's slowest and fastest knights
+def test_loader_matches_the_run_to_the_entity_speed(root, exported, tmp_path, speed):
+    """naturalSpeed is the stride per cycle over the cycle; a rate of speed / naturalSpeed plays
+    the run so its planted feet travel exactly as fast as the entity moves."""
+    b, path = exported["knight"]
+    probe = tmp_path / "probe.mjs"
+    probe.write_text(GAIT_PROBE)
+    run = subprocess.run([NODE, "--experimental-strip-types", "--no-warnings", str(probe),
+                          str(root / "loaders" / "pixelforge.ts"), str(path), str(speed)],
+                         capture_output=True, text=True, timeout=60)
+    assert run.returncode == 0, run.stderr
+    got = json.loads(run.stdout)
+    assert got["run"] == pytest.approx(30 / 560 * 1000) and got["walk"] == pytest.approx(12 / 700 * 1000)
+    assert got["idle"] is None
+    assert got["loops"] == int(10000 * speed / got["run"] // 560)  # 30 px per loop at `speed` px/s

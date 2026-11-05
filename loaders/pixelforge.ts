@@ -22,6 +22,10 @@
  *   // each tick:
  *   for (const ev of anim.update(dtMs)) if (ev.type === "hit") dealDamage(anim.hitboxes(x, y));
  *   anim.draw(ctx, x, y, zoom);   // (x, y) is the entity's ground point: the pivot lands there
+ *
+ * Moving: play "run" (or "walk") and match its feet to the entity's speed, so they don't slide:
+ *   anim.play("run", facing(vx, vy));
+ *   anim.rate = speed / sheet.naturalSpeed("run");   // px/s at zoom 1; back to 1 for other clips
  */
 
 export type Dir = "s" | "e" | "n" | "w";
@@ -120,6 +124,18 @@ export class Sheet {
 
   has(anim: string, dir: Dir): boolean { return this.clips.has(`${anim}_${dir}`); }
 
+  /**
+   * A gait's own ground speed in px/s (at zoom 1): the stride its planted feet travel per cycle
+   * (`stride_px`, recorded facing e and w) over the cycle's duration. Moving at this speed, the
+   * feet stay on the ground; set an Animator's `rate` to speed / naturalSpeed to match any other.
+   */
+  naturalSpeed(anim: string, dir: Dir = "e"): number | null {
+    const stride: number[] | undefined = this.json.meta.pixelforge.stride_px?.[`${anim}_${dir}`];
+    if (!stride || !this.has(anim, dir)) return null;
+    const ms = this.clip(anim, dir).frames.reduce((a, f) => a + f.duration, 0);
+    return (stride.reduce((a, b) => a + b, 0) / ms) * 1000;
+  }
+
   /** The pixel placed on the world position for a tag: one pivot for characters, per tag for FX. */
   pivotFor(tag: string): [number, number] {
     const pv = this.json.meta.pixelforge.pivot;
@@ -166,6 +182,8 @@ export class Animator {
   clip: Clip | null = null;
   frame = 0;
   done = false;
+  /** Playback speed: 1 plays the sheet's durations; a walk or run takes speed / naturalSpeed. */
+  rate = 1;
   private t = 0;
   private durations: number[] = [];
   private holdLoop = false;
@@ -195,7 +213,7 @@ export class Animator {
     const c = this.clip;
     if (!c || this.done) return [];
     const fired: PFEvent[] = [];
-    this.t += dtMs;
+    this.t += dtMs * this.rate;
     while (this.t >= this.durations[this.frame]) {
       this.t -= this.durations[this.frame];
       let next = this.frame + 1;
