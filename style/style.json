@@ -2566,29 +2566,30 @@
           "loop": false,
           "frames_ms": [
             120,
+            100,
             300,
             300,
             150
           ],
           "hold_frames": [
-            2
+            3
           ],
           "combat": true,
           "events": [
             {
-              "frame": 1,
+              "frame": 2,
               "type": "vfx",
-              "fx": "sound_rings",
+              "fx": "howl_rings",
               "point": "mouth"
             },
             {
-              "frame": 2,
+              "frame": 3,
               "type": "vfx",
-              "fx": "sound_rings",
+              "fx": "howl_rings",
               "point": "mouth"
             }
           ],
-          "note": "a buff: head up, howl, hold, lower"
+          "note": "a buff: draw breath (dip, chin tucked), throw the head back, howl with the snout at the sky, keep stretching through the hold, lower (body first, head a frame later)"
         },
         "hurt": {
           "loop": false,

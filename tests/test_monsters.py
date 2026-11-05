@@ -142,6 +142,22 @@ def test_wolf_bite_reaches_ahead(wolf):
     assert all(bx >= 0 for bx, *_ in w_frame.hitboxes)
 
 
+def test_wolf_howls_at_the_sky(wolf):
+    """The howl arches the head back until the muzzle points up (MONSTERS.md section 5.2)."""
+    top = lambda f: bbox(f)[1]  # noqa: E731
+    idle, peak = wolf.frames[("idle", "e")][0], wolf.frames[("howl", "e")][3]
+    assert top(idle) - top(peak) >= 8  # the head rises far above the rest pose
+    (mx, my), (ex, ey) = peak.points["mouth"], peak.points["eyes"]
+    assert my <= ey - 4 and abs(mx - ex) <= 1  # the muzzle points up, not ahead
+    assert top(wolf.frames[("idle", "s")][0]) - top(wolf.frames[("howl", "s")][3]) >= 5
+    assert top(wolf.frames[("howl", "n")][3]) < top(wolf.frames[("idle", "n")][0])
+    heights = [top(f) for f in wolf.frames[("howl", "e")]]
+    assert heights[3] < heights[2] < heights[1] < heights[0]  # rising through the hold
+    adef = wolf.composer.anims["howl"]
+    assert [e["fx"] for e in adef.events if e["type"] == "vfx"] == ["howl_rings", "howl_rings"]
+    assert sorted(adef.flags["hold"]) == [3]
+
+
 def test_wolf_dies_on_its_side(wolf):
     last = wolf.frames[("death", "e")][-1]
     x0, y0, x1, y1 = bbox(last)

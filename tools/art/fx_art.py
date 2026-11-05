@@ -507,6 +507,20 @@ def sound_rings():
     return {"play": out}
 
 
+def howl_rings():
+    """A howl: arcs widening above a muzzle raised to the sky, light with dark ends. Drawn rising,
+    so it stays upright in every view (the wolf's snout points up whichever way it faces)."""
+    out = []
+    for radii in ((3,), (3, 6), (6, 9), (9,)):
+        c = Cell(24)
+        for r in radii:
+            c.ring(11, 21, r, 3 if r == radii[0] else 2, keep=lambda a: 40 < a < 140)
+            x, y = polar(11, 21, r, 35); c.put(x, y, 0)
+            x, y = polar(11, 21, r, 145); c.put(x, y, 0)
+        out.append(c)
+    return {"play": out}
+
+
 # ============================================================================== boss (Phase 9)
 def ground_ellipse(c: Cell, cx, cy, rx, ry, s, keep=lambda a: True) -> None:
     """A 1 px ellipse along the ground (rx wide, ry deep), with gaps where keep(angle) is false."""
@@ -659,6 +673,9 @@ def library():
            bone_crumble(), notes="Bones falling apart and scattering (skeletons)."),
         fx("sound_rings", "impact", 16, (2, 7), {"play": {"frames_ms": [80, 80, 80, 80], "loop": False}},
            sound_rings(), rotate=True, notes="A howl or roar: arcs widening ahead of the mouth."),
+        fx("howl_rings", "impact", 24, (11, 21), {"play": {"frames_ms": [90, 90, 100, 110], "loop": False}},
+           howl_rings(), notes="A howl: arcs rising above a muzzle pointed at the sky (upright in "
+                               "every view)."),
         fx("heal_sparkle", "poison", 24, (11, 21), {"play": {"frames_ms": [80, 80, 80, 80, 80],
                                                              "loop": False}},
            heal_sparkle(), space="follow", attach="torso", notes="Green sparkles rising: healing."),
