@@ -70,7 +70,12 @@
   },
   "effects": {
     "flash": "#efe2c8",
-    "flash_note": "Only allowed in frames flagged flash (hurt/death). Lighter than the palette rule on purpose."
+    "flash_note": "Only allowed in frames flagged flash (hurt/death). Lighter than the palette rule on purpose.",
+    "close_eyes": {
+      "material": "skin",
+      "shade": 0,
+      "note": "Blink and hurt frames replace each eye pixel with this skin shade (recolored)."
+    }
   },
   "constraints": {
     "oklch_L_range": [
@@ -134,6 +139,23 @@
         "reason": "Shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide; the ramp reads correctly in style/monster_fx_swatches.png."
       }
     }
+  },
+  "validator": {
+    "singletons_max": 3,
+    "flat_area_max": 22,
+    "change_budget": 0.35,
+    "area_change_max": 0.15,
+    "pivot_drift_px": {
+      "s": 1,
+      "n": 1,
+      "e": 2,
+      "w": 2
+    },
+    "motion_checked_anims": [
+      "idle",
+      "walk"
+    ],
+    "note": "Thresholds for QUALITY.md warnings. flat_area_max is the anchor's largest flat area (22 px of hair light); the doc's 12 would flag the anchor itself, and the anchor wins."
   },
   "materials": {
     "skin": {
@@ -623,6 +645,7 @@
       "hands",
       "eyes",
       "hair_front",
+      "hair_locks",
       "headwear",
       "held_near"
     ],
@@ -640,6 +663,7 @@
       "arm_near",
       "hands",
       "hair_front",
+      "hair_locks",
       "hair_back",
       "headwear",
       "back"
@@ -658,6 +682,7 @@
       "hair_back",
       "eyes",
       "hair_front",
+      "hair_locks",
       "headwear",
       "arm_near",
       "hands",
@@ -720,7 +745,16 @@
       "frames_ms": [
         100
       ],
-      "note": "idle frame 0 with eyes closed; engine swaps it in every 2.5 to 5 s"
+      "note": "idle frame 0 with eyes closed; engine swaps it in every 2.5 to 5 s",
+      "source": {
+        "anim": "idle",
+        "frame": 0
+      },
+      "effect": "close_eyes",
+      "directions": [
+        "s",
+        "e"
+      ]
     },
     "combat_idle": {
       "loop": true,

@@ -68,6 +68,9 @@ pixelforge/
       slime.yaml  wolf.yaml  bat.yaml ...
   src/pixelforge/
     style.py        load + validate style.json
+    anim.py         animation definitions: timing, loops, per-frame flags, events
+    rig.py          rigs: size class, z-order, anchors.json
+    grid.py         character grids: how art is drawn in code, and dumped for review
     color.py        hex/rgb/oklch helpers, ramp checks
     palette.py      pf palette --check: every ramp against its limits, swatch sheet
     sheet.py        read/write grid sheets (cells of 32x32)
@@ -82,6 +85,7 @@ pixelforge/
     review.py       review image renders
     export.py       spritesheet + Aseprite JSON
     cli.py          `pf` command
+  tools/art/        the scripts that drew the parts as character grids (artlib.py helpers)
   tools/preview/
     index.html      static viewer (vanilla JS, no build step)
   tests/
@@ -128,7 +132,10 @@ kind: animated            # animated | rigid
 # animated_overrides: [attack]   # rigid part with drawn frames for these anims
 hides: []                 # slots this part hides, e.g. a helmet hides [hair_front]
 lags: true                # this part trails the upper body by one frame (hair locks)
-allow_singletons: []      # pixel coords allowed to be isolated (e.g. a highlight)
+allow_singletons: []      # pixel coords allowed to be isolated (e.g. a highlight); a list,
+                          # or a map per direction, in frame-0 coordinates
+# origin: auto            # rigid parts: 'auto' (default) means the cell is drawn in place for
+                          # idle frame 0, so the origin is the attach anchor in that frame
 notes: "Anchor girl's hair."
 ```
 
@@ -165,19 +172,25 @@ Every rig has its own base body (`parts/body/<rig>/`). For the humanoid rig it i
 
 - `head` is a fixed reference pixel on the head (choose the top-center of the skull fill and keep that definition for every frame).
 - Hands are the pixel where a held item's grip sits.
+- The humanoid also has `chin` (the chin row, used by the head-height rule E10), `torso` (the collar center: clothing, belts and tabards attach here), `back` (where a cape hangs), `foot_near` and `foot_far` (the bottom-center pixel of each foot), and a `planted` list naming the feet that carry weight in that frame (used by the jitter rule W1).
+- Facing s, the near arm, hand and foot are the character's right: the viewer's left.
 - `pf anchors --check` renders every frame with anchor points marked, so wrong anchors are obvious.
 
 ## 7. Layer order
 
 Z-order comes from `style.json` (`z_order.s`, `z_order.e`, `z_order.n`), bottom to top. Defaults:
 
-- **s:** shadow, back, hair_back, held_far, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, eyes, hair_front, headwear, held_near
-- **e:** shadow, held_far, arm_far, back, body, legs_wear, feet, torso_wear, over_torso, belt, hair_back, eyes, hair_front, headwear, arm_near, hands, held_near
-- **n:** shadow, held_far, held_near, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, hair_front, hair_back, headwear, back
+- **s:** shadow, back, hair_back, held_far, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, eyes, hair_front, hair_locks, headwear, held_near
+- **e:** shadow, held_far, arm_far, back, body, legs_wear, feet, torso_wear, over_torso, belt, hair_back, eyes, hair_front, hair_locks, headwear, arm_near, hands, held_near
+- **n:** shadow, held_far, held_near, body, legs_wear, feet, torso_wear, over_torso, belt, arm_far, arm_near, hands, hair_front, hair_locks, hair_back, headwear, back
 
 Notes: in the N view, `hair_back` is drawn over the head because it's what you see from behind, and a cape (`back`) goes over everything except headwear. Arms are above clothing in S and N because they hang beside the torso. In E, the near arm and its held item are in front of everything.
 
-`hides`: a part can hide other slots (a helmet hides `hair_front`, a hood hides both hair slots). Hidden slots are skipped entirely.
+`hides`: a part can hide other slots (a helmet hides `hair_front`, `hair_locks` and `hair_back`). Hidden slots are skipped entirely.
+
+`hair_locks` (added in Phase 1): the loose hair in front that trails the head by one frame. Facing s these are the outer locks framing the face (ANIMATION_SPEC.md section 2); `hair_front` holds the rest of the front hair, which moves with the head. A slot of its own keeps `lags` a whole-part setting.
+
+Rigid parts are drawn once per direction in their idle frame 0 place and follow an anchor: hair, eyes and headwear follow `head`; dresses, tabards and belts follow `torso`. Only parts that deform with the pose (the base body, arms, legs wear, boots, gauntlets) and held items in attacks are drawn per frame.
 
 ## 8. Recipes
 
@@ -218,7 +231,7 @@ Randomizer: `pf random --seed N --count K` picks a part per slot from allowed va
 For each animation, each direction in `s, e, n`, each frame:
 
 1. Resolve the recipe: for each slot, get the part (skip slots hidden by other parts).
-2. For each part, get its cell for this (anim, dir, frame). Rigid parts: take the direction cell and translate by `anchor - origin`. Parts with `lags: true` use the previous frame's offset (frame 0 uses the last frame's offset for loops).
+2. For each part, get its cell for this (anim, dir, frame). Rigid parts: take the direction cell and translate by `anchor - origin`. Parts with `lags: true` use the previous frame's offset (frame 0 uses the last frame's offset for loops); drawn parts with `lags: true` use the previous frame's cell.
 3. Recolor the cell: map each pixel of the part's material base ramp to the recipe's preset ramp (index to index). Outline-colored pixels pass through.
 4. Stack the cells in z-order with binary alpha (a pixel is either fully replaced or untouched). Keep a record of which pixels are hand-placed outline pixels.
 5. Compute the silhouette: every opaque pixel that is not outline-colored.

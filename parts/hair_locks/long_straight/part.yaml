@@ -1,0 +1,10 @@
+slot: hair_locks
+variant: long_straight
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: The outer locks framing the face; they trail the head.

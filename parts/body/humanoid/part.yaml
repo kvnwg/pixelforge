@@ -1,0 +1,8 @@
+slot: body
+variant: humanoid
+material: skin
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: 'Skin-only mannequin: bald head, bare torso, legs. Arms are separate slots.'

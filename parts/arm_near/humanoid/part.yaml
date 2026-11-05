@@ -1,0 +1,8 @@
+slot: arm_near
+variant: humanoid
+material: skin
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: The near arm (the character's right; viewer-left facing s). Holds held_near.

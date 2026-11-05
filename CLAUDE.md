@@ -26,7 +26,7 @@ Read the relevant doc before starting a task. If a decision changes, update the 
 5. Every frame uses its size class: small is 32 x 32 with pivot (15, 27) and baseline row 27; medium, large and huge are in `style.json`. West is mirrored from East around the size class's axis (`x_new = 2 * axis - x`, so `30 - x` for small), never by flipping the canvas. Never upscale a sprite to make a bigger size class.
 6. Art is reviewed by looking at it. After any art change, run `pf review` and open the images before saying anything about how it looks. Write down what you see, then judge it with the rubric in QUALITY.md.
 7. `pf validate` and `pytest` must pass before every commit.
-8. Stop at every CHECKPOINT in ROADMAP.md: show the human the review images, tell them how to open the preview, and wait for approval. Never start the next phase on your own.
+8. Stop at every CHECKPOINT in ROADMAP.md: show the human the review images, tell them how to open the preview, and wait for approval. Never start the next phase on your own. (Waived by the human on 2026-11-05: see the note at the top of ROADMAP.md.)
 9. Commit after every working milestone with a clear message. Push to GitHub after each phase.
 10. When an art decision is unclear, prefer the simpler option that reads better at 1x, and record the decision in the relevant doc.
 11. Characters and monsters stay muted. Only FX (from `fx_ramps`) and glow eye presets may go brighter or more saturated. FX may be rotated in exact 90-degree steps; characters never.
@@ -54,7 +54,18 @@ Drawing tip: when creating art in code, define each cell as a small character gr
 
 ## Commands
 
-Fill these in as they get built. Built so far: `pf palette [--check] [--out PATH]` (Phase 0) checks every color ramp in `style.json` and writes `review/palette_swatches.png`; `--check` exits 1 on errors.
+Fill these in as they get built. Built so far:
+
+- `pf palette [--check] [--out PATH]` (Phase 0): checks every color ramp in `style.json` and writes `review/palette_swatches.png`; `--check` exits 1 on errors.
+- `pf build <recipe>... | --all [--out DIR] [--no-gifs]` (Phase 1): composite, validate, export to `out/<name>/`.
+- `pf validate [part folders or recipes]` (Phase 1): every rule; exits 1 on errors.
+- `pf review <recipe> [--anim A] [--dir D] [--recolors]` (Phase 1): review images in `review/<name>/`.
+- `pf anchors --check [--rig R]` (Phase 1): `review/anchors_<rig>.png`.
+- `pf diff a.png b.png [--out PATH]` (Phase 1).
+
+Art is drawn in code as character grids by the scripts in `tools/art/` (run them with `.venv/bin/python tools/art/<script>.py`); the PNGs they write are canonical.
+
+Planned:
 
 - `pf build <recipe>` / `pf build --all`
 - `pf validate [paths]`

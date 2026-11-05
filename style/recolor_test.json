@@ -1,0 +1,16 @@
+{
+  "note": "The eight color combinations shown in recolor_test_6x.png and recolor_test_1x.png (left to right), read back from the images in Phase 1. Eyes stay navy in all eight. The reference images were rendered without the ground shadow's row 26 (x 16 and 19), so those two pixels differ; anchor_with_shadow.png is the reference for the shadow.",
+  "reference_1x": "style/recolor_test_1x.png",
+  "cell": 34,
+  "offset": [1, 1],
+  "combos": [
+    {"hair": "brown (anchor)", "cloth": "navy (anchor)", "skin": "light (anchor)", "leather": "brown (anchor)", "accent": "gold (anchor)", "eyes": "navy (anchor)"},
+    {"hair": "black", "cloth": "crimson", "skin": "light (anchor)", "leather": "dark", "accent": "gold (anchor)", "eyes": "navy (anchor)"},
+    {"hair": "blonde", "cloth": "forest", "skin": "fair", "leather": "brown (anchor)", "accent": "gold (anchor)", "eyes": "navy (anchor)"},
+    {"hair": "auburn", "cloth": "teal", "skin": "tan", "leather": "tan", "accent": "gold (anchor)", "eyes": "navy (anchor)"},
+    {"hair": "silver", "cloth": "plum", "skin": "deep", "leather": "brown (anchor)", "accent": "silver", "eyes": "navy (anchor)"},
+    {"hair": "mint", "cloth": "mustard", "skin": "light (anchor)", "leather": "brown (anchor)", "accent": "red", "eyes": "navy (anchor)"},
+    {"hair": "black", "cloth": "forest", "skin": "green (orc)", "leather": "dark", "accent": "gold (anchor)", "eyes": "navy (anchor)"},
+    {"hair": "brown (anchor)", "cloth": "cream", "skin": "deep", "leather": "brown (anchor)", "accent": "red", "eyes": "navy (anchor)"}
+  ]
+}

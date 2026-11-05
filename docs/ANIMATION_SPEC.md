@@ -26,7 +26,7 @@ The pixel offsets below are tested conventions for sprites this size and the rig
 - **upper body:** head, torso, arms and everything attached to them (hair, headwear, torso wear, belt, held items at rest). In the anchor that's rows 10 to 24.
 - **upper offset (dx, dy):** how far the upper body is translated relative to idle frame 0. Positive dy is down.
 - **legs:** rows 25 to 27 in idle frame 0. Redrawn per frame rather than translated.
-- **hair locks:** the parts of hair marked `lags: true`. In S these are the side locks around rows 16 and 17; in E, the back of the hair.
+- **hair locks:** the parts of hair marked `lags: true`. In S these are the side locks around rows 16 and 17 (the `hair_locks` slot: x 11-12 and 18-19, rows 15 to 17); in E and N, the back of the hair (`hair_back`).
 - **planted foot:** a foot touching the baseline (row 27) and carrying weight. It may not move.
 - **lifted foot:** raised 1 px (bottom at row 26).
 

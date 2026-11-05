@@ -1,0 +1,8 @@
+slot: legs_wear
+variant: leggings
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: Leather leggings and shoes, redrawn per frame with the legs.

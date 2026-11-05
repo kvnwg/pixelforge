@@ -114,6 +114,7 @@ class Style:
     baseline_y: int
     directions: tuple[str, ...]
     drawn_directions: tuple[str, ...]  # directions with their own art (w is mirrored from e)
+    mirrors: dict[str, str]  # generated direction -> the direction it is mirrored from
     outline: OutlineSpec
     shadow: ShadowSpec
     flash: str
@@ -398,6 +399,7 @@ def _build(raw: dict[str, Any], path: Path) -> Style:
     return Style(
         path=path, root=root, raw=raw, name=name, canvas=canvas, pivot=(px, py),
         baseline_y=baseline, directions=tuple(directions), drawn_directions=drawn,
+        mirrors=generated,
         outline=OutlineSpec(outline_color, parse_hex(outline_color), soles_on, sole_rows),
         shadow=shadow, flash=flash.lower(), constraints=constraints, materials=materials,
         fx_ramps=fx_ramps, size_classes=classes, combat_view=view,

@@ -1,0 +1,10 @@
+slot: hair_back
+variant: long_straight
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: 'Hair behind the head: hidden facing s.'

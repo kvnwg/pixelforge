@@ -36,3 +36,28 @@ def test_broken_style_exits_2(raw_style, style_root):
 def test_version():
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0 and __version__ in result.output
+
+
+def test_build_validate_review_and_anchors(root, tmp_path):
+    env = {"PIXELFORGE_ROOT": str(root)}
+    result = runner.invoke(app, ["build", "anchor_girl", "--out", str(tmp_path), "--no-gifs"], env=env)
+    assert result.exit_code == 0, result.output
+    assert (tmp_path / "anchor_girl" / "anchor_girl.json").is_file()
+    assert (tmp_path / "index.json").is_file()
+    result = runner.invoke(app, ["validate"], env=env)
+    assert result.exit_code == 0, result.output
+    assert "0 errors" in result.output
+    result = runner.invoke(app, ["review", "anchor_girl"], env=env)
+    assert result.exit_code == 0, result.output
+    assert (root / "review" / "anchor_girl" / "turnaround.png").is_file()
+    result = runner.invoke(app, ["anchors", "--check"], env=env)
+    assert result.exit_code == 0, result.output
+
+
+def test_diff(root, tmp_path):
+    a = root / "style" / "anchor.png"
+    same = runner.invoke(app, ["diff", str(a), str(a)])
+    assert same.exit_code == 0 and "0 pixels differ" in same.output
+    other = runner.invoke(app, ["diff", str(a), str(root / "style" / "anchor_with_shadow.png"),
+                                "--out", str(tmp_path / "d.png")])
+    assert other.exit_code == 1 and (tmp_path / "d.png").is_file()

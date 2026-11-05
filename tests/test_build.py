@@ -1,0 +1,106 @@
+"""Phase 1 acceptance: anchor_girl rebuilds the anchor exactly and recolors like the reference."""
+
+from __future__ import annotations
+
+import json
+from dataclasses import replace
+
+import numpy as np
+import pytest
+
+from pixelforge.build import build
+from pixelforge.color import parse_hex
+from pixelforge.effects import composite_on
+from pixelforge.export import aseprite_json, check_export, export, spritesheet
+from pixelforge.recipe import find_recipe, load_recipe
+from pixelforge.recolor import ramp_map, recolor
+
+from .conftest import read_rgba
+
+
+@pytest.fixture(scope="module")
+def girl(root, style):
+    return build(root, "anchor_girl", style=style)
+
+
+@pytest.fixture(scope="module")
+def recipe(root, style):
+    return load_recipe(find_recipe(root, "anchor_girl"), style)
+
+
+def test_anchor_girl_rebuilds_the_anchor_exactly(girl, root):
+    frame = girl.frames[("idle", "s")][0]
+    ref = read_rgba(root / "style" / "anchor_with_shadow.png")
+    diff = np.argwhere(np.any(frame.image != ref, axis=-1))
+    assert diff.size == 0, f"{len(diff)} pixels differ, first (y, x): {diff[:10].tolist()}"
+
+
+def test_anchor_girl_validates(girl):
+    assert [str(f) for f in girl.errors] == []
+    assert [str(f) for f in girl.warnings] == []
+
+
+def test_recolors_match_the_reference(root, style, recipe):
+    spec = json.loads((root / "style" / "recolor_test.json").read_text())
+    ref = read_rgba(root / spec["reference_1x"])[..., :3]
+    beige = parse_hex(style.raw["preview_backgrounds"]["beige"])
+    cell, (ox, oy) = spec["cell"], spec["offset"]
+    for i, colors in enumerate(spec["combos"]):
+        frame = build(root, replace(recipe, colors=colors), style=style, validate=False
+                      ).frames[("idle", "s")][0]
+        ours = composite_on(frame.image, beige)
+        theirs = ref[oy:oy + 32, i * cell + ox:i * cell + ox + 32]
+        character = frame.sprite[..., 3] == 255
+        assert np.array_equal(ours[character], theirs[character]), f"combo {i} character pixels"
+        others = np.argwhere(np.any(ours != theirs, axis=-1))
+        # The reference images have no shadow on row 26 (see style/recolor_test.json).
+        assert {(int(x), int(y)) for y, x in others} <= {(16, 26), (19, 26)}, f"combo {i}"
+
+
+def test_eyes_and_legs_recolor_independently(root, style, recipe, girl):
+    base = girl.frames[("idle", "s")][0]
+    eyes = base.slot_mask("eyes")
+    legs = base.slot_mask("legs_wear")
+    other = build(root, replace(recipe, colors={**recipe.colors, "cloth": "crimson",
+                                                "hair": "blonde"}),
+                  style=style, validate=False).frames[("idle", "s")][0]
+    assert np.array_equal(base.image[eyes], other.image[eyes])
+    assert np.array_equal(base.image[legs], other.image[legs])
+    dress = base.slot_mask("torso_wear")
+    assert not np.array_equal(base.image[dress], other.image[dress])
+    for material, preset in (("eyes", "green"), ("leather", "tan")):
+        changed = build(root, replace(recipe, colors={**recipe.colors, material: preset}),
+                        style=style, validate=False).frames[("idle", "s")][0]
+        mask = eyes if material == "eyes" else legs
+        assert not np.array_equal(base.image[mask], changed.image[mask])
+        assert np.array_equal(base.image[dress], changed.image[dress])
+
+
+def test_recolor_to_the_base_presets_is_a_no_op(style, girl):
+    for layer in girl.frames[("idle", "s")][0].layers:
+        m = style.materials[layer.part.material]
+        assert np.array_equal(recolor(layer.image, ramp_map(m, m.base)), layer.image)
+
+
+def test_build_is_deterministic(root, style, tmp_path):
+    a = export(build(root, "anchor_girl", style=style), tmp_path / "a", gifs=False)[0]
+    b = export(build(root, "anchor_girl", style=style), tmp_path / "b", gifs=False)[0]
+    for name in ("anchor_girl.png", "anchor_girl.json"):
+        assert (a / name).read_bytes() == (b / name).read_bytes()
+
+
+def test_export_json_matches_the_sheet(girl):
+    image = spritesheet(girl)
+    data = aseprite_json(girl, "anchor_girl.png")
+    assert check_export(data, image, "anchor_girl") == []
+    assert data["meta"]["size"] == {"w": image.shape[1], "h": image.shape[0]}
+    assert data["meta"]["pixelforge"]["pivot"] == [15, 27]
+    tags = {t["name"]: t for t in data["meta"]["frameTags"]}
+    for (anim, d), frames in girl.frames.items():
+        tag = tags[f"{anim}_{d}"]
+        assert tag["to"] - tag["from"] + 1 == len(frames)
+        for i, f in enumerate(frames):
+            r = data["frames"][tag["from"] + i]["frame"]
+            cell = image[r["y"]:r["y"] + r["h"], r["x"]:r["x"] + r["w"]]
+            assert np.array_equal(cell, f.image)
+            assert data["frames"][tag["from"] + i]["duration"] == f.duration

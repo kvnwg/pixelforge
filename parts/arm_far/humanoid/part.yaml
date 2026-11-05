@@ -1,0 +1,8 @@
+slot: arm_far
+variant: humanoid
+material: skin
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: The far arm (the character's left; viewer-right facing s). Holds held_far.

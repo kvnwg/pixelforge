@@ -1,0 +1,10 @@
+slot: belt
+variant: sash
+material: accent
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Sash knotted on the hip, tail in front.

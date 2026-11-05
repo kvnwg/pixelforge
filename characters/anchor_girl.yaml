@@ -1,0 +1,21 @@
+name: anchor_girl
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  torso_wear: dress
+  belt: sash
+  legs_wear: leggings
+colors:
+  skin: light (anchor)
+  hair: brown (anchor)
+  cloth: navy (anchor)
+  leather: brown (anchor)
+  accent: gold (anchor)
+  eyes: navy (anchor)
+anims:
+- idle

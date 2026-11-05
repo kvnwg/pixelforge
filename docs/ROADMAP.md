@@ -6,6 +6,8 @@ Keep the status line of each phase updated: `Status: not started | in progress |
 
 Why this order: everything is built on the base body and its walk cycle. If those are mediocre, every character will be. So the early phases go slowly and get human approval; later phases go fast.
 
+**Approval waived (2026-11-05):** after Phase 0 the human asked for every remaining phase to run without stopping for approval. Checkpoints still happen as self-reviews: the review images are rendered, looked at and scored with the rubric, fixed until every score is 4 or higher, and the checkpoint material is published for the human to look at later. The human can still send any phase back.
+
 ---
 
 ## Phase 0: Foundation

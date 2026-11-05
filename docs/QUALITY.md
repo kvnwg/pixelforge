@@ -26,7 +26,7 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
 | E8 | Bounds: no opaque pixel outside x 2..29, y 2..30. |
 | E9 | Mirror: every `w` frame equals its `e` frame mirrored around x = 15. |
-| E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. |
+| E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. |
 | E11 | At most 16 distinct colors per frame. |
 | E12 | Export integrity: JSON frame rects match the sheet, every duration is positive, tags cover all frames with no overlap, events point at valid frames. |
 | E13 | Part material: every pixel in a part file is from that part's declared material base ramp or the outline color. |
@@ -42,11 +42,11 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 
 | ID | Rule |
 |---|---|
-| W1 | Jitter: a region that the animation spec says is static (legs in idle, a planted foot in walk) changed between consecutive frames. |
+| W1 | Jitter: a region that the animation spec says is static (legs in idle, a planted foot in walk) changed between consecutive frames. Checked on each planted foot's bottom row (x - 1 to x + 1 around the `foot_*` anchor) in the lower-body layers, so a belt swinging in front of a foot is not jitter. |
 | W2 | Change budget: more than 35% of silhouette pixels changed between consecutive frames of idle or walk. Usually means boiling or a misaligned layer. |
 | W3 | Singletons: more than 3 isolated pixels of a shade (no same-colored neighbor up, down, left or right) in one frame, not counting eyes and pixels listed in a part's `allow_singletons`. |
 | W4 | Silhouette area changed by more than 15% between consecutive frames of idle or walk. |
-| W5 | A material uses a single shade over more than 12 connected pixels (flat, unshaded area). |
+| W5 | A material uses a single shade over more than 22 connected pixels (flat, unshaded area). The doc first said 12, but the anchor's own hair light covers 22, and the anchor wins. |
 | W6 | Lag check: a part with `lags: true` moved in the same frame as the upper body instead of one frame later. |
 | W7 | Roster distinctness: two different monsters' `combat_idle` frame 0 silhouettes overlap by more than 85% (intersection over union). |
 | W8 | Weak tell: an attack's windup pose changes the silhouette by less than 8% compared with `combat_idle`. |
@@ -54,6 +54,8 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | W10 | Busy big sprite: in medium, large and huge sprites, singletons exceed 0.5% of the silhouette area or the average shade cluster is under 3 px. |
 
 Validator output must say which character, animation, direction, frame and pixel coordinates failed, and suggest the likely cause.
+
+Thresholds live in `style.json` under `validator`.
 
 ---
 

@@ -1,0 +1,11 @@
+slot: eyes
+variant: dots
+material: eyes
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Two 1 px eyes, 3 px apart.
+allow_singletons: []

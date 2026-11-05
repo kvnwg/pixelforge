@@ -189,6 +189,7 @@ Other outline facts:
 
 - An 11 x 4 ellipse with cut corners: row 26 spans x 11..19, rows 27 and 28 span x 10..20, row 29 spans x 11..19. Centered on x = 15.
 - Color: the outline color #3a263a at alpha 70 (about 27.5%). Over the preview beige #c3bc9d this gives exactly #9d9382, the shadow color in the original screenshot.
+- `style/recolor_test_1x.png` and `_6x.png` were rendered without the shadow's row 26, so two shadow pixels (x 16 and 19) differ from `anchor_with_shadow.png`. The shadow here and in `style.json` is the reference; every character pixel of the eight recolors matches exactly (tested).
 - Always drawn behind the character. It is never outlined and never part of the silhouette.
 - For airborne frames (future jumps), shrink it by 2 px of width for every 2 px of height, minimum 5 px wide, and never move it vertically.
 - Lying-down poses (death) get a wider, flatter shadow matched to the body.

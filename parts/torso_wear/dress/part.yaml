@@ -1,0 +1,10 @@
+slot: torso_wear
+variant: dress
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Dress with sleeves to the elbow.

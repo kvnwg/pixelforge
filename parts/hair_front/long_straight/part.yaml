@@ -1,0 +1,10 @@
+slot: hair_front
+variant: long_straight
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: 'Long straight hair: top, center part, bangs, inner locks.'
