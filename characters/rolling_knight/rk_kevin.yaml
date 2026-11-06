@@ -1,0 +1,24 @@
+# Rolling Knight's Kevin, the one Absolute knight (a Blade): a normal guy, the strongest in the game. Messy black hair, a plain white tee, dark slate trousers, brown shoes and a plain steel sword. No armor, no cape, no glow. Remade in pixelforge's format (2026-11-06; the game's own sheet broke it, see docs/GAMES.md).
+name: rk_kevin
+rig: humanoid
+timing_profile: player
+seed: 1
+parts:
+  eyes: dots
+  hair_front: messy
+  torso_wear: tunic
+  legs_wear: leggings
+  feet: boots
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  skin: fair
+  hair: black
+  cloth: snow
+  leather: slate
+  accent: silver
+  metal: steel
+  eyes: dark
+slot_colors:
+  feet: chestnut
+anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, roll, hurt, stun, death, victory]

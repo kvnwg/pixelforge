@@ -487,6 +487,11 @@
           "#6b3826",
           "#8e563a",
           "#ab7a5a"
+        ],
+        "slate": [
+          "#253048",
+          "#404966",
+          "#5e6480"
         ]
       },
       "anchor_use": "legs and feet; same hex values as hair in the anchor but a separate material"

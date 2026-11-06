@@ -87,6 +87,38 @@ HORNS_CURLED = {  # horn: from the helm's upper sides out past the head and up, 
                   "...001.......100..."]),
 }
 
+#                x: 890123456789012
+MESSY_FRONT = {  # hair: the short cut with uneven tufts sticking up off the crown (Kevin's mop); each
+    # tuft is a 3 px cluster of the mid shade (light would make the crown one flat area, W5)
+    "s": G(8, 9, [".....1..11.....",
+                  ".....11..11....",
+                  "....1222221....",
+                  "...122222221...",
+                  "...112222211...",
+                  "...011122110...",
+                  "...0.......0...",
+                  "...0.......0..."]),
+    "e": G(8, 9, ["....1..1.......",
+                  "....11.11......",
+                  ".....12222.....",
+                  "....1222222....",
+                  "...01222222....",
+                  "...01122211....",
+                  "...0011........",
+                  "...0011........",
+                  "...001.........",
+                  "...00.........."]),
+    "n": G(8, 9, [".....11..1.....",
+                  "....11..11.....",
+                  "....1222221....",
+                  "...022222221...",
+                  "...012212211...",
+                  "...011202110...",
+                  "...011101110...",
+                  "...001101100...",
+                  "...000101000..."]),
+}
+
 # ============================================================================== flowing cloth
 # Shades come in clusters of 2 px or more (STYLE_GUIDE.md section 7): the scarf's tail is banded in
 # 2 x 2 blocks, the cape's edges are a dark strip on the shadow side and a light one on the lit side.
@@ -324,6 +356,8 @@ def main() -> None:
     write_part("headwear_trim", "horns_curled", rigid(
         "horn", "head", "Viking horns sweeping out past the head and up, light at the tips."),
         cells(**HORNS_CURLED))
+    write_part("hair_front", "messy", rigid(
+        "hair", "head", "A mop with a few tufts sticking up and a ragged fringe."), cells(**MESSY_FRONT))
     write_part("scarf", "long", rigid(
         "cloth", "torso", "A scarf wrapped over the collar, its long tail streaming out to one side "
         "in bands; it follows through.", lags=True), cells(**SCARF_LONG))

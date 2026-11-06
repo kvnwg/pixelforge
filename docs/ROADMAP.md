@@ -578,3 +578,13 @@ What the review images show (beige, light and dark ground, 1x and zoomed). The k
 
 Rubric: style match 4 (the anchor's proportions, outline and shading, in a brighter palette by request), 1x readability 5, silhouette 5, motion 4 (the cape and scarf follow through), consistency 4, cleanliness 4, part fit 4, appeal 5, combat readability 4. Known limits: the plume is 3 rows tall because of the backflip; the frost elf is still the palest of the cast; random characters can land on loud color pairs.
 
+---
+
+## Kevin in pixelforge's format
+
+Status: done (commit "Kevin, the Absolute knight, in pixelforge's format")
+
+Asked about Rolling Knight's Kevin (its one Absolute knight, a plain black-haired guy and the strongest in the game): "he doesnt hold the sword right, also is he following the format?". He wasn't: the game drew him with its own `tools/knights`, not pixelforge, so his sheet has a 48 px cell and its own pivot, hand-drawn near-black outlines, 44 off-palette colors and no run, and his sword sticks up behind him from a hand at his hip, floats off his hand facing e, and on the slash pokes straight out and cuts through his legs (GAMES.md). Remade as a recipe like every knight (`characters/rolling_knight/rk_kevin.yaml`, a new `hair_front/messy` mop with uneven tufts, a `slate` leather preset for his trousers): the humanoid rig on the 32 px canvas, the Blade's whole set, the sword held by its grip in every frame (`tests/test_kevin.py`), 0 errors and 0 warnings. He keeps his point: no armor, no cape, no glow, the one plain figure in a vivid cast.
+
+What the review images show: a small figure with a black mop and three tufts, a white tee, slate trousers and brown shoes; the sword hangs in his near hand, blade down along the leg, in every facing and through the walk; the slash coils the blade back over his shoulders and sweeps a white arc across his front, the blade in his hand throughout. Rubric: style match 5, 1x readability 4, silhouette 4 (plain on purpose: the tufts and the sword), motion 4, consistency 5, cleanliness 4, part fit 4, appeal 4, combat readability 4.
+

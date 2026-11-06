@@ -1,0 +1,10 @@
+slot: hair_front
+variant: messy
+material: hair
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A mop with a few tufts sticking up and a ragged fringe.
