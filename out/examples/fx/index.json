@@ -29,6 +29,24 @@
    ]
   },
   {
+   "name": "blood_crescent",
+   "image": "fx/blood_crescent/blood_crescent.png",
+   "json": "fx/blood_crescent/blood_crescent.json",
+   "layer": "above",
+   "anims": [
+    "travel"
+   ]
+  },
+  {
+   "name": "blood_crescent_impact",
+   "image": "fx/blood_crescent_impact/blood_crescent_impact.png",
+   "json": "fx/blood_crescent_impact/blood_crescent_impact.json",
+   "layer": "above",
+   "anims": [
+    "play"
+   ]
+  },
+  {
    "name": "bone_crumble",
    "image": "fx/bone_crumble/bone_crumble.png",
    "json": "fx/bone_crumble/bone_crumble.json",

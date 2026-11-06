@@ -1,0 +1,247 @@
+{
+ "frames": [
+  {
+   "filename": "blood_crescent travel_s 0",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_s 1",
+   "frame": {
+    "x": 24,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_e 0",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_e 1",
+   "frame": {
+    "x": 24,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_n 0",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_n 1",
+   "frame": {
+    "x": 24,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_w 0",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  },
+  {
+   "filename": "blood_crescent travel_w 1",
+   "frame": {
+    "x": 24,
+    "y": 72,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 60
+  }
+ ],
+ "meta": {
+  "app": "pixelforge",
+  "version": "1",
+  "image": "blood_crescent.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 48,
+   "h": 96
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "travel_s",
+    "from": 0,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "travel_e",
+    "from": 2,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "travel_n",
+    "from": 4,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "travel_w",
+    "from": 6,
+    "to": 7,
+    "direction": "forward"
+   }
+  ],
+  "pixelforge": {
+   "fx": "blood_crescent",
+   "ramp": "blood",
+   "cell": 24,
+   "pivot": {
+    "travel_s": [
+     12,
+     11
+    ],
+    "travel_e": [
+     11,
+     11
+    ],
+    "travel_n": [
+     11,
+     12
+    ],
+    "travel_w": [
+     12,
+     11
+    ]
+   },
+   "layer": "above",
+   "space": "world",
+   "attach": null,
+   "rotate": true,
+   "loop": {
+    "travel": true
+   }
+  }
+ }
+}

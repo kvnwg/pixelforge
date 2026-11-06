@@ -1,0 +1,16 @@
+slot: eyes
+variant: rook
+material: eyes
+kind: rigid
+attach: eyes
+origin: auto
+lags: false
+rigs:
+- greatknight
+allow_singletons:
+  s:
+  - - 45
+    - 45
+  - - 49
+    - 45
+notes: A red glint in the visor slit.

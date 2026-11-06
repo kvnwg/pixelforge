@@ -1,0 +1,8 @@
+slot: grip
+variant: rook
+material: leather
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: The greatsword's wrapped grip and the belt.

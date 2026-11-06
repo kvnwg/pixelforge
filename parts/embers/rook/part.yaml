@@ -1,0 +1,8 @@
+slot: embers
+variant: rook
+material: eyes
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: 'Glowing cracks in the plate: the enraged Rook only.'

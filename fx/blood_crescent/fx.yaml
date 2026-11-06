@@ -1,0 +1,16 @@
+name: blood_crescent
+ramp: blood
+cell: 24
+pivot:
+- 11
+- 11
+layer: above
+space: world
+rotate: true
+anims:
+  travel:
+    frames_ms:
+    - 60
+    - 60
+    loop: true
+notes: 'Rook''s flying red crescent: his ring and his fan. Impact in blood_crescent_impact.'

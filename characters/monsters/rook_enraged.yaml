@@ -1,0 +1,33 @@
+name: rook_enraged
+rig: greatknight
+timing_profile: boss
+seed: 1
+family: rook
+trail: blood
+anims:
+- idle
+- combat_idle
+- walk
+- attack_slash
+- charge
+- attack_slam
+- attack_ring
+- attack_fan
+- enrage
+- hurt
+- death
+parts:
+  cape: rook
+  body: rook
+  grip: rook
+  blade: rook
+  eyes: rook
+  held_near: rook_greatsword
+  embers: rook
+colors:
+  metal: obsidian
+  cloth: scarlet
+  leather: black
+  eyes: glow red
+slot_colors:
+  blade: iron

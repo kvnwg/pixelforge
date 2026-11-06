@@ -42,9 +42,16 @@ def empty(size: int = SIZE) -> np.ndarray:
 
 
 def write_part(slot: str, variant: str, meta: dict[str, Any], sheets: dict[str, Cells],
-               frames: dict[str, int] | None = None, size: int = SIZE) -> Path:
+               frames: dict[str, int] | None = None, size: int = SIZE, prune: bool = False) -> Path:
+    """Write a part folder. With prune, sheets this call did not write are deleted first, so a
+    sheet an older version of the script made (a trail it no longer draws) cannot linger and
+    still be composited."""
     folder = ROOT / "parts" / slot / variant
     folder.mkdir(parents=True, exist_ok=True)
+    if prune:
+        for old in folder.glob("*.png"):
+            if old.stem not in sheets:
+                old.unlink()
     data = {"slot": slot, "variant": variant, **meta}
     (folder / "part.yaml").write_text(yaml.safe_dump(data, sort_keys=False, width=100))
     ramp = STYLE.materials[meta["material"]].base

@@ -221,7 +221,7 @@ How the humanoid turnaround was drawn (Phase 2, measured from the parts in `part
 
 ## 11. Brightness belongs to FX
 
-Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact, swing; see `fx_ramps` in `style.json`) and glow eye presets may go brighter and more saturated (L up to 0.93 and 0.88, C up to 0.16). In combat, that contrast is what makes attacks, spells and enemy tells pop without the characters losing their soft look. `style/examples/battle_mock_6x.png` shows the balance.
+Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact, swing, blood; see `fx_ramps` in `style.json`) and glow eye presets may go brighter and more saturated (L up to 0.93 and 0.88, C up to 0.16). In combat, that contrast is what makes attacks, spells and enemy tells pop without the characters losing their soft look. `style/examples/battle_mock_6x.png` shows the balance.
 
 ## 12. What breaks this style
 

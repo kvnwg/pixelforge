@@ -1,0 +1,9 @@
+slot: body
+variant: rook
+material: metal
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: 'Black plate: helm with a swept crest, spiked pauldrons, breastplate, tassets, armored limbs, the
+  sword''s crossguard and pommel; posed per frame.'

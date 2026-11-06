@@ -125,7 +125,8 @@ class Composer:
         self.lid = parse_hex(preset_ramp(style, lid["material"], recipe.colors.get(lid["material"]))
                              [lid["shade"]])
         self.flash_rgb = parse_hex(style.flash)
-        self.swing_rgb = [parse_hex(c) for c in style.fx_ramps["swing"]]  # rim, mid, core
+        # swing trails: rim, mid, core of the recipe's trail ramp (white `swing` unless it names one)
+        self.swing_rgb = [parse_hex(c) for c in style.fx_ramps[recipe.trail]]
 
     # ------------------------------------------------------------------ parts
     def _resolve(self) -> dict[str, Part]:
@@ -307,7 +308,8 @@ class Composer:
         the strike) drops its darkest rank and steps the rest one shade down.
         With `ramp` (the item's material ramp), ranks are absolute instead: the ramp's top shade
         is the core, the next the mid, the third the rim (weapons.trail_shade), so a trail split
-        into pieces (a ring's front and back halves) keeps its ages in each piece."""
+        into pieces (a ring's front and back halves) keeps its ages in each piece. Every trail
+        drawn per frame (a monster's weapon, a spin) ranks this way; pose smears rank by color."""
         out = np.zeros_like(cell)
         solid = cell[..., 3] == 255
         if ramp is not None:
@@ -428,7 +430,7 @@ class Composer:
                 cell, fade = self.smear_cell(held, src, direction, src_index - 1, front), True
             if cell is not None:
                 ramp = (self.style.materials[held.material].base  # a trail drawn per frame
-                        if not held.drawn(src.name) and self.per_frame_trails(held, src.name)
+                        if held.drawn(src.name) or self.per_frame_trails(held, src.name)
                         else None)
                 cell = self.swing(cell, fade, ramp)
                 mask = (cell[..., 3] == 255) & (sprite[..., 3] == 0 if not front else True)

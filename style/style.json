@@ -1697,6 +1697,11 @@
       "#a3abbc",
       "#c6cbd4",
       "#e8e7e2"
+    ],
+    "blood": [
+      "#943038",
+      "#c0453f",
+      "#ff8a78"
     ]
   },
   "fx_constraints": {
@@ -3915,6 +3920,450 @@
           "lying_frames": [
             3
           ]
+        }
+      }
+    },
+    "greatknight": {
+      "size_class": "huge",
+      "examples": "a fast knight boss with a greatsword: Rook",
+      "footprint": 16,
+      "note": "Rook (MONSTERS.md section 5.10), drawn by tools/art/rook.py: a joint skeleton per frame with plate tube limbs, polygon torso and cape, oval helm and pauldrons, painted back to front; every layer keeps only what it shows. About 55 px tall on the 96 px canvas, which is room for the raised greatsword.",
+      "z_order": {
+        "s": [
+          "shadow",
+          "cape",
+          "body",
+          "grip",
+          "blade",
+          "embers",
+          "held_near",
+          "eyes"
+        ],
+        "e": [
+          "shadow",
+          "cape",
+          "body",
+          "grip",
+          "blade",
+          "embers",
+          "held_near",
+          "eyes"
+        ],
+        "n": [
+          "shadow",
+          "cape",
+          "body",
+          "grip",
+          "blade",
+          "embers",
+          "held_near",
+          "eyes"
+        ]
+      },
+      "close_eyes": {
+        "material": "metal",
+        "shade": 0
+      },
+      "emitters": [
+        "weapon_tip",
+        "hand_near",
+        "torso"
+      ],
+      "validator": {
+        "motion_checked_anims": [],
+        "note": "a knight posed per frame by its joints"
+      },
+      "animations": {
+        "idle": {
+          "loop": true,
+          "frames_ms": [
+            520,
+            240,
+            520,
+            240
+          ]
+        },
+        "combat_idle": {
+          "alias": "idle",
+          "combat": true
+        },
+        "walk": {
+          "loop": true,
+          "frames_ms": [
+            80,
+            80,
+            80,
+            80,
+            80,
+            80
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "footstep",
+              "point": "foot_near"
+            },
+            {
+              "frame": 3,
+              "type": "footstep",
+              "point": "foot_far"
+            }
+          ],
+          "note": "a fast prowl, the greatsword carried low with its point trailing"
+        },
+        "attack_slash": {
+          "loop": false,
+          "frames_ms": [
+            230,
+            50,
+            70,
+            50,
+            140,
+            180
+          ],
+          "hold_frames": [
+            0
+          ],
+          "active_frames": [
+            1,
+            3
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "root_motion_px": [
+            0,
+            4,
+            0,
+            4,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 1,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 3,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 5,
+              "type": "recover"
+            }
+          ],
+          "note": "two cuts, each with a red crescent: hoisted over the shoulder (the tell), down across the front, swung back low, a backhand the other way"
+        },
+        "charge": {
+          "loop": false,
+          "frames_ms": [
+            200,
+            200,
+            60,
+            60,
+            50,
+            220
+          ],
+          "hold_frames": [
+            0,
+            1
+          ],
+          "active_frames": [
+            2,
+            3,
+            4
+          ],
+          "loop_frames": [
+            2,
+            3
+          ],
+          "airborne_frames": [
+            2,
+            3
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "root_motion_px": [
+            0,
+            0,
+            16,
+            16,
+            8,
+            2
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "vfx",
+              "fx": "dust_puff",
+              "point": "foot_far"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 4,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 5,
+              "type": "recover"
+            }
+          ],
+          "note": "Rolling Knight's charge: sinks low with the blade drawn back (the tell), flat out with red streaks (loop_frames while the game moves him), a passing cut, a skid"
+        },
+        "attack_slam": {
+          "loop": false,
+          "frames_ms": [
+            240,
+            90,
+            50,
+            60,
+            180,
+            220
+          ],
+          "hold_frames": [
+            0
+          ],
+          "active_frames": [
+            2,
+            3
+          ],
+          "airborne_frames": [
+            1
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 2,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 3,
+              "type": "vfx",
+              "fx": "shockwave",
+              "point": "weapon_tip",
+              "layer": "below"
+            },
+            {
+              "frame": 3,
+              "type": "vfx",
+              "fx": "impact_big",
+              "point": "weapon_tip"
+            },
+            {
+              "frame": 5,
+              "type": "recover"
+            }
+          ],
+          "note": "Rolling Knight's slam: crouch with the blade raised behind the head, leap, drive it into the ground in front (a red trail, impact_big and a shockwave), wrench it out"
+        },
+        "attack_ring": {
+          "loop": false,
+          "frames_ms": [
+            240,
+            50,
+            50,
+            50,
+            50,
+            200
+          ],
+          "hold_frames": [
+            0
+          ],
+          "active_frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 1,
+              "type": "hit",
+              "fx": "spark_small"
+            },
+            {
+              "frame": 2,
+              "type": "spawn",
+              "fx": "blood_crescent",
+              "point": "torso",
+              "pattern": "ring",
+              "count": 14
+            },
+            {
+              "frame": 5,
+              "type": "recover"
+            }
+          ],
+          "note": "Rolling Knight's ring: the blade swung out behind (the tell), one full spin through every view inside a red ring, a ring of red crescents"
+        },
+        "attack_fan": {
+          "loop": false,
+          "frames_ms": [
+            250,
+            50,
+            140,
+            200
+          ],
+          "hold_frames": [
+            0
+          ],
+          "active_frames": [
+            1
+          ],
+          "combat": true,
+          "displaced_frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "events": [
+            {
+              "frame": 0,
+              "type": "windup"
+            },
+            {
+              "frame": 1,
+              "type": "hit",
+              "fx": "impact_big"
+            },
+            {
+              "frame": 1,
+              "type": "spawn",
+              "fx": "blood_crescent",
+              "point": "weapon_tip",
+              "pattern": "fan",
+              "count": 5,
+              "spread": 0.22
+            },
+            {
+              "frame": 3,
+              "type": "recover"
+            }
+          ],
+          "note": "Rolling Knight's fan: raised high over the shoulder (the tell), one huge cut forward and a fan of red crescents"
+        },
+        "enrage": {
+          "loop": false,
+          "frames_ms": [
+            160,
+            520,
+            240
+          ],
+          "hold_frames": [
+            1
+          ],
+          "combat": true,
+          "events": [
+            {
+              "frame": 1,
+              "type": "vfx",
+              "fx": "sound_rings",
+              "point": "head"
+            },
+            {
+              "frame": 1,
+              "type": "vfx",
+              "fx": "gather_glow",
+              "point": "torso"
+            }
+          ],
+          "note": "half health: plants the sword and throws his head back; rook_enraged takes over"
+        },
+        "hurt": {
+          "loop": false,
+          "frames_ms": [
+            80,
+            140,
+            140
+          ],
+          "flash_frames": [
+            0
+          ],
+          "displaced_frames": [
+            0,
+            1,
+            2
+          ],
+          "combat": true
+        },
+        "death": {
+          "loop": false,
+          "frames_ms": [
+            100,
+            200,
+            260,
+            900
+          ],
+          "flash_frames": [
+            0
+          ],
+          "eyes_closed_frames": [
+            2,
+            3
+          ],
+          "displaced_frames": [
+            1,
+            2,
+            3
+          ],
+          "combat": true,
+          "note": "drops to one knee on the planted sword, head bowed, and stays"
         }
       }
     }

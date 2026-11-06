@@ -280,6 +280,45 @@ Asked for: "monsters that are humanoid and tall, almost like a messmer from elde
 
 Recipe: `ashen_duelist` (elite; obsidian armor, a scarlet cape, a snow plume, a steel blade, yellow glowing eyes). `tests/test_duelist.py` checks the height, the quick strikes against the elite minimum, the lunge's dash and the dodge, and the slash crossing the body.
 
+### 5.10 A fast knight boss: Rook (2026-11-06)
+
+Asked for: "make this guy a boss. super fast, red trail behind every sword swing. dashes, lots of damage. give him a super cool name that doesnt sound like its trying too hard", with a reference image of a knight in black, battle-worn plate under a tattered red cape, a horned helm and a greatsword planted point-down at his side. An original design in our style, after that look.
+
+**Name.** Rook: one plain word. The chess piece crosses the board in straight lines (his dashes), and a rook is a black bird (his armor).
+
+**The target, written before drawing** (MOTION.md rule 9):
+- **Look.** Black plate, worn and scratched (obsidian metal with cold highlights): broad layered pauldrons, a barrel breastplate, tassets, armored legs. A great helm with a tall crest swept back like a horn and a narrow visor with a red glint. A tattered scarlet cape from the shoulders to the knees, its hem ragged. A greatsword nearly his height: a straight grey blade with a dark fuller, a wide spiked crossguard, a long grip and a spiked pommel.
+- **Read at 1x.** A tall black figure with horned shoulders, a ragged red shape behind it and a long straight blade beside it. At rest the sword stands planted point-down at his side with his hand on the hilt, as in the reference. That stance is his idle and his signature.
+- **Size.** About 55 px from the soles to the crest: almost three heroes tall and well above the Ashen Duelist (40 px); the blade alone is 32 px. He is drawn on the huge class (96 x 96, pivot (47, 91)): the first sketch on the large 64 px canvas put a greatsword raised overhead off the top, so the bigger canvas is room for his swings and dashes, not a bigger body.
+- **Speed.** His strikes and dashes are the fastest frames in the game (40 to 60 ms), with big root motion. Every attack still telegraphs on the `boss` profile (holds x 2.2, at least 500 ms to the hit) with a whole-body tell: crouches, a blade cocked far back, a red visor flare. FX never cover the tell.
+- **Red trails.** Every swing leaves a trail in its own red FX ramp (`fx_ramps.blood`) instead of the white one: the recipe names its trail ramp.
+- **Damage.** It reads in the art: two-hit combos, the greatsword's long reach (big hitboxes), `impact_big` and a red shockwave on the slam, and a dash that cuts through everything in its path.
+
+**Moves**, mapped to Rolling Knight's boss AI (`src/world/ai.ts`: a move every 3 s, 2.2 s enraged, after a 0.7 s wind, 0.8 s for the charge; melee when touching):
+
+| Animation | Rolling Knight | Key poses |
+|---|---|---|
+| idle (loop) | standing between moves | the sword planted point-down beside him, the near hand on the hilt; a slow breath, the cape stirring, the visor glint |
+| walk (loop) | drifting toward the squad | a fast prowl, the greatsword carried low in one hand with its point trailing, the cape streaming |
+| attack_slash | the melee hit | the blade hoisted over the shoulder (the tell), a diagonal cut down across the front, a backhand cut back the other way, follow-through, recover: two hits, two red crescents |
+| charge | charge | the wind (0.8 s): sinks low, leans in, the blade drawn back low behind; the dash (`loop_frames` while the game moves him 170 px/s for 0.6 s): almost flat out, the blade trailing, red afterimage streaks behind him; then a passing cut and a skid |
+| attack_slam | slam (a 46 px area) | crouch with the blade raised behind the head in both hands, leap, drive it point-first into the ground in front: `impact_big` and a red `shockwave`, then wrench it out |
+| attack_ring | ring (14 shots, 20 enraged) | the blade swung out to the side (the tell), one full spin with a red ring around him, `spawn` a ring of red crescents |
+| attack_fan | fan (5 shots, 7 enraged) | the blade raised high over the shoulder (the tell), a huge forward cut with a wide red crescent, `spawn` a fan of red crescents |
+| enrage | half health | plants the sword and throws his head back under red rings; then `rook_enraged` takes over (glowing red cracks in the plate, red eyes) |
+| hurt, death | | a flash and a recoil; death drops him to one knee on the planted sword, head bowed, and he stays |
+
+**As built** (`tools/art/rook.py`, the `greatknight` rig, `characters/monsters/rook.yaml` and `rook_enraged.yaml`):
+- **Drawn like the Cinderwyrm.** A joint skeleton per frame (`P(...)` specs: lean, crouch, stance, the near and far hands, the sword's angle), plate tube limbs with knee cops and sabatons, a polygon torso, tassets and cape, an oval helm and pauldrons, painted back to front with the dragon's Painter. Five layers, one material each: `cape` (cloth, scarlet), `body` (metal, obsidian: the plate, the crossguard and the pommel), `grip` (leather, black), `blade` (metal, iron through `slot_colors`) and `embers` (glow red, the enraged form's cracks, drawn over body pixels only). Facing w is facing e mirrored; the spin's frames are drawn from another view (ARCHITECTURE.md section 21).
+- **The sword is part of the body**, posed per frame, so it never floats off his hands. `held_near: rook_greatsword` has no art: it carries only the red trails the script draws per frame (`smear_<anim>` behind him, `smear_<anim>_front` in front): a curve from where the tip was to where it is now, bowed over the top for the cuts, the slam and the fan, or across his waist for the backhand and the passing cut; a comet ring for the spin (`weapons.ring_trail`); speed streaks for the dash (behind him facing e, rising over his shoulders facing s, trailing down his sides facing n, since below his feet there is only ground). The recipe's `trail: blood` paints them in `fx_ramps.blood` (#943038, #c0453f, #ff8a78) instead of white.
+- **Timing as built** on the `boss` profile: tells of 506 ms (slash), 880 ms (charge), 618 ms (slam), 528 ms (ring) and 550 ms (fan); every strike frame 50 or 60 ms; the walk 6 x 80 ms. The game can stretch the held tell frames to its 0.7 s wind.
+- **Damage in the data:** each attack's hitbox spans the blade tip, the hand and its whole trail, so the long reach and wide arcs hit what they show; the dash's hitbox is his whole body; the ring's is about 60 px wide. Hits use `impact_big`. The damage numbers themselves are the game's (GAMES.md).
+- **The cape** passes W5 (flat areas) with ragged tears and fold lines; where a pose shows only a sliver of it (max run of 6 px or under 120 px in all), it takes alternating 3-row bands instead.
+
+What the review images show: a tall black knight, almost three heroes high, with spiked pauldrons, a crest swept back like a horn and a red glint in the visor, a ragged scarlet cape and a greatsword planted beside him. The slash hoists the blade over his shoulder, cuts down across the front in a thick red crescent, cocks it low behind him and sweeps it through at the waist. The charge sinks low with the blade drawn back, then he is almost flat out with red streaks behind him and a passing cut. The slam leaps with the blade straight up and drives it point-first into the ground. The ring spins him through every view inside a red ring. Death drops him to one knee on the planted sword. At 1x the red trails read on light, beige and dark ground.
+
+Rubric: style match 4 (plate and a cape like the cast, at boss scale), 1x readability 4, silhouette 5 (the horned crest, the spikes and the planted greatsword), motion 4, consistency 4, cleanliness 4, part fit 4, appeal 5, combat readability 4. Known limits: the slash's second cut is a re-cock and a second forehand, not a true backhand; facing s the overhead slam comes straight at the camera, so its trail is a vertical bar above the blade.
+
 ## 6. Variants: elites and families
 
 - **Family variant** (frost wolf, fire slime): new material presets plus matching FX element. Change value pattern, not just hue, so it reads differently in grayscale.

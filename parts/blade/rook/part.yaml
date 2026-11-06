@@ -1,0 +1,8 @@
+slot: blade
+variant: rook
+material: metal
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: The greatsword's blade.

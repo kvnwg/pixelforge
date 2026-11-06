@@ -518,3 +518,17 @@ Asked for: "attack heavy just slams his sword on the ground bruh. wtf is this", 
 What the review images show. The wolf stands braced with its chest up and its snout pointing straight up, and at 1x it is plainly howling; facing s the head lifts and tips back, facing n it rises over the shoulders. The whirlwind's coil turns the knight away with the blade trailing, then a white ring circles the body while the facing changes every frame, brightest just behind the blade. The Cleave pulls the sword level behind the shoulders, then a thick white arc cuts across the front of the body from behind the hero to the blade's tip. On the fists, mace, lance (a thrust) and the skeleton the same moves read with their own reach.
 
 Rubric (each of the three): style match 4, 1x readability 4 (the whirlwind's ring 5), silhouette 4, motion 4, consistency 4, cleanliness 4, part fit 4, appeal 4, combat readability 4 (the whirlwind 5: a whole-body tell and a hitbox around the ring). Known limits: facing s the whirlwind's blade pointing at the camera is a short stub mostly under the ring, and facing n it is behind the body; the Cleave's north arc goes over the head for readability, not along the true path of a level cut seen from behind.
+
+---
+
+## New bosses: Rook, a fast knight
+
+Status: done (commit "Rook: a fast knight boss with red trails")
+
+Asked for, with a reference image of a black knight in battle-worn plate, a tattered red cape and a greatsword planted point-down: "make this guy a boss. super fast, red trail behind every sword swing. dashes, lots of damage. give him a super cool name that doesnt sound like its trying too hard". Rook (MONSTERS.md section 5.10), an original design in our style after that look, on the huge 96 px canvas (about 55 px tall), the `boss` profile and a new `greatknight` rig. Target first (MOTION.md rule 9): the look, the 1x read, the speed and the moves were written down and sketched before the art script.
+
+- **Moves:** a two-hit slash, a charge (a coil, a looping dash, a passing cut), a leaping slam, a spinning ring and a fan cut, mapped to Rolling Knight's boss moves; enrage, hurt and a death on one knee. Strikes are 50 to 60 ms; tells are 506 to 880 ms.
+- **Red trails:** a recipe names the `fx_ramps` ramp its swing trails are painted in (`trail: blood`; the default stays the white `swing`), and `fx_ramps.blood` is new. The new FX `blood_crescent` (a red crescent projectile with an impact) is what his ring and fan spawn.
+- **Engine:** `write_part(..., prune=True)` deletes the sheets a part folder no longer gets, so a trail an older version of a script drew cannot linger and still be composited (an old front slam trail did, until the review caught it).
+
+Validates with 0 errors and 0 warnings (both recipes); `tests/test_rook.py`. The review notes and rubric are in MONSTERS.md section 5.10.

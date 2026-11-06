@@ -571,6 +571,32 @@ def rock_shard():
     return {"travel": out, "impact": impact}
 
 
+def blood_crescent():
+    """Rook's flying cut: a red crescent with its edge leading (facing e), flickering as it
+    flies; impact (blood_crescent_impact): a red burst."""
+    out = []
+    for f in range(2):
+        c = Cell(24)
+        c.ring(9, 11, 8, 2, keep=lambda a: a < 62 or a > 298)
+        c.ring(9, 11, 7, 1, keep=lambda a: a < 56 or a > 304)
+        c.ring(9, 11, 6 - f, 0, keep=lambda a: a < 42 or a > 318)
+        out.append(c)
+    impact = []
+    for i, r in enumerate((2, 4, 6, 7)):
+        c = Cell(24)
+        for k, ang in enumerate(range(0, 360, 45)):
+            x, y = polar(11, 11, r + (k % 2), ang + i * 10)
+            c.put(x, y, 2 if i < 2 else (1 if k % 2 else 0))
+        if i < 2:
+            c.disk(11, 11, 1.5 - 0.7 * i, 2)
+        impact.append(c)
+    c = Cell(24)  # the last sparks fade
+    for ang in range(20, 360, 90):
+        x, y = polar(11, 11, 8, ang); c.put(x, y, 0)
+    impact.append(c)
+    return {"travel": out, "impact": impact}
+
+
 def summon_circle():
     """A rune ring on the ground where minions rise: two ellipses and four marks that turn."""
     cx, cy = 23, 24
@@ -688,6 +714,9 @@ def library():
         fx("rock_shard", "impact", 16, (8, 7), {"travel": {"frames_ms": [70, 70], "loop": True}},
            rock_shard(), rotate=True, notes="A spinning stone shard; the Stone Warden's ring and fan. "
                                             "Impact in rock_shard_impact."),
+        fx("blood_crescent", "blood", 24, (11, 11), {"travel": {"frames_ms": [60, 60], "loop": True}},
+           blood_crescent(), rotate=True, notes="Rook's flying red crescent: his ring and his fan. "
+                                                "Impact in blood_crescent_impact."),
         fx("summon_circle", "ice", 48, (23, 24), {"loop": {"frames_ms": [120, 120, 120], "loop": True}},
            summon_circle(), layer="below", notes="A rune ring on the ground where minions rise."),
         fx("falling_rock", "impact", 32, (15, 27), {"play": {"frames_ms": [60, 60, 60, 60, 70, 80],
@@ -701,7 +730,7 @@ def projectile_impacts(entries):
     out = []
     for e in entries:
         art = e["_art"]
-        if e["name"] in ("fireball", "ice_shard", "poison_glob", "arcane_orb", "rock_shard"):
+        if e["name"] in ("fireball", "ice_shard", "poison_glob", "arcane_orb", "rock_shard", "blood_crescent"):
             out.append(fx(f"{e['name']}_impact", e["ramp"], 24, (11, 11),
                           {"play": {"frames_ms": [40, 50, 50, 60, 70], "loop": False}},
                           {"play": art["impact"]}, rotate=True,

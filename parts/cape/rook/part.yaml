@@ -1,0 +1,8 @@
+slot: cape
+variant: rook
+material: cloth
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: A tattered cape from the shoulders to the knees, its hem ragged.

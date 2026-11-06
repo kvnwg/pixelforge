@@ -1,0 +1,8 @@
+slot: held_near
+variant: rook_greatsword
+material: metal
+kind: animated
+lags: false
+rigs:
+- greatknight
+notes: 'No art: the greatsword''s red trails (smear_<anim>), ranked by shade.'
