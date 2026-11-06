@@ -1,0 +1,11 @@
+slot: headwear
+variant: ranger_hat
+layers:
+- name: base
+  slot: headwear
+  material: leather
+- name: feather
+  slot: headwear_trim
+  material: accent
+  requires:
+    headwear_trim: feather

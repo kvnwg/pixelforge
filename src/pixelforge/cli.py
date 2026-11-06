@@ -277,6 +277,28 @@ def roster() -> None:
 
 
 @app.command()
+def icons(
+    sets: Optional[list[str]] = typer.Option(None, "--set", help="Only these gear sets (parts/sets.yaml)."),
+    out: Optional[Path] = typer.Option(None, "--out", help="Output folder [default: out/icons]."),
+) -> None:
+    """Item icons for the gear sets: a 16 x 16 icon for each piece a set wears plus its amulet and
+    ring, in the set's presets (out/icons/: one PNG per piece, icons.png, index.json), and
+    review/icons_overview.png. Exits 1 on errors (a piece with no icon, a color off its ramp)."""
+    from .icons import build_icons, render_overview
+    style = _style()
+    target = out or style.root / "out" / "icons"
+    result, problems = build_icons(style, style.root, list(sets) if sets else None, target)
+    for p in problems:
+        typer.echo(f"  ERROR   {p}")
+    overview = render_overview(style, result, style.root / "review" / "icons_overview.png")
+    count = sum(len(v) for v in result.values())
+    typer.echo(f"icons: {count} icons for {len(result)} sets -> {target} ({len(problems)} errors); "
+               f"overview: {overview}")
+    if problems:
+        raise typer.Exit(1)
+
+
+@app.command()
 def anchors(
     check: bool = typer.Option(True, "--check/--no-check", help="Render the anchor check image."),
     rig: str = typer.Option("humanoid", "--rig", help="Rig to check."),

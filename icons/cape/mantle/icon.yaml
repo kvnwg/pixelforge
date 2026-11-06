@@ -1,0 +1,9 @@
+slot: cape
+variant: mantle
+layers:
+- name: base
+  slot: cape
+  material: cloth
+- name: clasp
+  slot: clasp
+  material: accent

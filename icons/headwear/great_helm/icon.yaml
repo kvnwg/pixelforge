@@ -1,0 +1,16 @@
+slot: headwear
+variant: great_helm
+layers:
+- name: base
+  slot: headwear
+  material: metal
+- name: plume_tall
+  slot: headwear_trim
+  material: cloth
+  requires:
+    headwear_trim: plume_tall
+- name: cross_helm
+  slot: headwear_emblem
+  material: accent
+  requires:
+    headwear_emblem: cross_helm

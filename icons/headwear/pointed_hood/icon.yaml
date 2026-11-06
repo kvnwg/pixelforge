@@ -1,0 +1,6 @@
+slot: headwear
+variant: pointed_hood
+layers:
+- name: base
+  slot: headwear
+  material: cloth

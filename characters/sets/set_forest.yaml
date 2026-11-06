@@ -1,0 +1,16 @@
+# A ranger wearing the forest set, with a bow. See parts/sets.yaml.
+name: set_forest
+rig: humanoid
+timing_profile: player
+seed: 1
+set: forest
+parts:
+  eyes: dots
+  hair_front: short
+  ears: elf
+  held_near: bow
+colors:
+  skin: tan
+  hair: golden
+  eyes: green
+anims: [idle, blink, walk, run, combat_idle, shoot_bow, hurt, death]

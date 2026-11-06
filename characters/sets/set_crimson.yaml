@@ -1,0 +1,16 @@
+# A pyromancer wearing the crimson set, with a ruby orb staff. See parts/sets.yaml.
+name: set_crimson
+rig: humanoid
+timing_profile: player
+seed: 1
+set: crimson
+parts:
+  eyes: dots
+  held_near: staff
+  held_near_trim: orb
+colors:
+  skin: fair
+  eyes: amber
+slot_colors:
+  held_near_trim: ruby
+anims: [idle, blink, walk, run, combat_idle, cast, hurt, death]

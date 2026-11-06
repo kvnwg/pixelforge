@@ -242,6 +242,8 @@ anims: [idle, walk, blink, combat_idle, attack_slash, attack_heavy, block_enter,
 
 `slot_colors` (design pass): `{slot: preset}` gives one part its own preset of its material, so two parts of one material can differ (a scarlet cloak over a royal tunic, both cloth). The validator allows the slot's colors like any recipe color.
 
+`set` (gear sets, 2026-11-06): `set: forest` dresses a recipe in a named outfit from `parts/sets.yaml` (its parts, colors and slot colors), laid underneath the recipe's own, so the recipe still picks its body, hair, weapon and anything it overrides (`recipe.wear_set`). An unknown set is a recipe error. The eight sets (iron, leather, gold, crystal, traveler, crimson, forest, azure) each have a demo recipe in `characters/sets/`.
+
 Randomizer: `pf random --seed N --count K` picks a part per slot from allowed variants and a preset per material, respecting `hides` and `parts/compat.yaml`: weighted hairstyles (one hairstyle sets up to three hair slots), weighted variants per slot, trims that follow their parent part (a sword gets a hilt), `requires` (a tabard needs plate or a tunic), `incompatible` pairs (a bun under a tall hat, spikes or cat ears under a helmet) and `slot_colors` chances (a cloak in a second color). It redraws any character that would use more colors than the budget in any idle or walk frame, or that would not validate with 0 errors and 0 warnings, and writes the recipes it generated to `characters/random/` so a good one can be kept. Same seed, same characters.
 
 ## 9. Compositing pipeline
@@ -442,3 +444,16 @@ A move that turns the body (the whirlwind, COMBAT.md `attack_heavy`) needs a fra
 A posed weapon whose move turns the body cannot draw its trail per pose, so it may carry `smear_<anim>.png` and `smear_<anim>_front.png` with a cell per frame, like a drawn weapon; they take over that animation's trails. Their shades rank absolutely (the material's top shade is the core, the next the mid, the third the rim, `weapons.trail_shade`) instead of within the cell, so a ring split into a front and a back half keeps its ages in both, and the frame after a trail fades it by dropping the rim. A drawn item's per-frame trails (Rook's `rook_greatsword`) rank the same way.
 
 Art scripts write part folders with `tools/art/artlib.py` `write_part`; with `prune=True` it first deletes the folder's sheets this call does not write, so a sheet an older version of the script made cannot linger and still be composited.
+
+## 22. Gear sets and item icons
+
+A gear set (`parts/sets.yaml`) is an outfit: parts for the gear slots (headwear and its trim and emblem, torso, shoulders, tabard, legs, hands, feet, cape, belt and buckle), presets for their materials, slot colors, and a `jewel` (an accent preset). Recipes wear one with `set:` (section 8).
+
+`pf icons` draws an inventory icon for every piece a set wears plus two pieces of jewelry no sprite shows, an amulet and a ring (`pixelforge/icons.py`). Icon art lives in `icons/<slot>/<variant>/`, drawn by `tools/art/icons_art.py` like parts are: one 16 x 16 PNG per layer, each in one material's base ramp, and `icon.yaml` naming each layer's slot and material. Composing an icon follows the compositor's rules, so a piece's icon always matches its sprite:
+
+- a layer takes the set's slot color for its slot first, then the set's preset for its material; a gem takes the set's `jewel`;
+- an overlay that `requires` a part variant (a plume, a cross, a buckle, a tabard) only shows when the set wears it, and the base is drawn complete underneath it, so hiding it leaves no hole;
+- the outline is generated: a closed 1 px ring in the outline color around the silhouette (no open soles; nothing stands on the ground), so art stays inside x and y 1..14.
+
+Output: `out/icons/<set>/<piece>.png`, `out/icons/icons.png` (a row per set, a column per piece: helmet, chest, legs, gloves, boots, cape, belt, amulet, ring) and `out/icons/index.json` (each set's row, each piece's column, label and part variant); `review/icons_overview.png` shows them all on beige, light and dark ground. Errors (exit 1): a piece with no icon, a layer color outside its material's base ramp, a preset that is not one of the layer material's, art on the canvas edge.
+

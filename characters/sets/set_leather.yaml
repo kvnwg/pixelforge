@@ -1,0 +1,15 @@
+# A scout wearing the leather set, with a bow. See parts/sets.yaml.
+name: set_leather
+rig: humanoid
+timing_profile: player
+seed: 1
+set: leather
+parts:
+  eyes: dots
+  hair_front: short
+  held_near: bow
+colors:
+  skin: fair
+  hair: auburn
+  eyes: green
+anims: [idle, blink, walk, run, combat_idle, shoot_bow, hurt, death]

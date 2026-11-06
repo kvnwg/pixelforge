@@ -1,0 +1,6 @@
+slot: torso_wear
+variant: tunic
+layers:
+- name: base
+  slot: torso_wear
+  material: cloth

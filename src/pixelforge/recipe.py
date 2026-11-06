@@ -32,6 +32,8 @@ class Recipe:
     # the fx_ramps ramp (rim, mid, core) this character's swing trails are drawn in: white
     # `swing` by default; a boss may have its own (Rook's red `blood`)
     trail: str = "swing"
+    # the gear set (parts/sets.yaml) the recipe wears under its own parts and colors, if any
+    gear_set: str | None = None
 
     def to_yaml(self) -> str:
         data = {"name": self.name, "rig": self.rig, "timing_profile": self.timing_profile,
@@ -41,11 +43,41 @@ class Recipe:
             data["slot_colors"] = dict(self.slot_colors)
         if self.trail != "swing":
             data["trail"] = self.trail
+        if self.gear_set:
+            data["set"] = self.gear_set
         return yaml.safe_dump(data, sort_keys=False, allow_unicode=True)
+
+
+def load_sets(root: Path) -> dict[str, dict[str, Any]]:
+    """parts/sets.yaml: named outfits (parts, colors, slot_colors) a recipe wears with `set:`."""
+    path = Path(root) / "parts" / "sets.yaml"
+    if not path.is_file():
+        return {}
+    data = yaml.safe_load(path.read_text()) or {}
+    return {str(k): v for k, v in (data.get("sets") or {}).items()}
+
+
+def wear_set(data: dict[str, Any], sets: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """The recipe data with its gear set laid underneath: the recipe's own parts, colors and
+    slot colors win over the set's (a ranger in the forest set may still pick its own hat)."""
+    name = data.get("set")
+    if not name or name not in sets:
+        return data
+    gear = sets[name]
+    out = dict(data)
+    for key in ("parts", "colors", "slot_colors"):
+        out[key] = {**(gear.get(key) or {}), **(data.get(key) or {})}
+    return out
 
 
 def parse_recipe(data: dict[str, Any], style: Style, path: Path | None = None) -> Recipe:
     problems = []
+    gear_set = data.get("set")
+    if gear_set is not None:
+        sets = load_sets(style.root)
+        if str(gear_set) not in sets:
+            problems.append(f"set: {gear_set!r} is not a set in parts/sets.yaml ({', '.join(sorted(sets))})")
+        data = wear_set(data, sets)
     for key in ("name", "rig", "parts", "anims"):
         if key not in data:
             problems.append(f"{key}: missing")
@@ -82,6 +114,7 @@ def parse_recipe(data: dict[str, Any], style: Style, path: Path | None = None) -
         name=str(data["name"]), rig=rig, timing_profile=profile, seed=int(data.get("seed", 1)),
         parts={str(k): str(v) for k, v in data["parts"].items()}, colors=colors, anims=anims,
         path=path, raw=data, slot_colors=slot_colors, trail=trail,
+        gear_set=str(gear_set) if gear_set is not None else None,
     )
 
 

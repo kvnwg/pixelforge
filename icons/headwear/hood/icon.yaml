@@ -1,0 +1,6 @@
+slot: headwear
+variant: hood
+layers:
+- name: base
+  slot: headwear
+  material: cloth

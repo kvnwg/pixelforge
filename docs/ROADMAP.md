@@ -588,3 +588,25 @@ Asked about Rolling Knight's Kevin (its one Absolute knight, a plain black-haire
 
 What the review images show: a small figure with a black mop and three tufts, a white tee, slate trousers and brown shoes; the sword hangs in his near hand, blade down along the leg, in every facing and through the walk; the slash coils the blade back over his shoulders and sweeps a white arc across his front, the blade in his hand throughout. Rubric: style match 5, 1x readability 4, silhouette 4 (plain on purpose: the tufts and the sword), motion 4, consistency 5, cleanliness 4, part fit 4, appeal 4, combat readability 4.
 
+
+---
+
+## Gear sets and item icons
+
+Status: done (commit "Gear sets and item icons")
+
+Asked: the human uploaded a free icon pack of fantasy armor and accessories (TheSquawkyRaven: 64 inventory icons at 16 x 16, eight gear slots in eight material sets) and, asked what to do with it, said "feel free to use whatever u think fits". Its free license forbids AI or machine-learning use, redistribution (edited or not) and commercial use, so nothing from the pack is copied, traced, recolored or committed: pixelforge gets original gear and icons in its own style, and the pack only suggested the idea of matching sets across slots.
+
+**The target.**
+- **Gear sets** (`parts/sets.yaml`): eight named outfits a recipe can wear with `set: <name>` (the recipe's own parts and colors win over the set's): iron (a warrior: sallet, plate, pauldrons, greaves, gauntlets), leather (a scout: a leather cap, a laced jerkin, gloves, leggings), gold (a paladin: a plumed great helm, gold plate and pauldrons, a white tabard, a blue cape), crystal (a crystal knight: a bright azure helm, plate and greaves with an orange plume and trim), traveler (a brown hood, tunic and cloak), crimson (a pyromancer: a red pointed hood and robe, a gold sash, a wine cape), forest (a ranger: a feathered hat, a green tunic and cape, green leathers) and azure (a sorcerer: a blue wizard hat with a gold band, a blue robe, a midnight cape). Each reads as its set at 1x on any body, hair and skin.
+- **Item icons** (`pf icons`): one 16 x 16 inventory icon for each piece of every set (helmet, chest, legs, gloves, boots, cape, belt, and two pieces of jewelry no sprite shows: an amulet and a ring), in the locked palette, outlined like characters (a closed 1 px ring in the outline color), lit from the upper right, recolored with the set's presets so a piece's icon and its sprite always match. Exported as a sheet with an index (`out/icons/`).
+- New pieces for the sets: `headwear/leather_cap`, `torso_wear/jerkin`, `hands/gloves` (the gauntlets' shapes in leather), and presets `metal/crystal` and `cloth/umber`.
+
+Done means: the eight set recipes and their icons validate with 0 errors and 0 warnings, the sets lineup reads as eight different outfits at 1x, and every icon reads as its piece at 1x on light and dark ground.
+
+**As built.** `parts/sets.yaml` holds the eight sets and recipes wear them with `set:` (`recipe.wear_set`; the recipe's own parts and colors win); `characters/sets/set_<name>.yaml` dresses a figure in each, with a weapon to suit. New pieces: `headwear/leather_cap`, `torso_wear/jerkin` (laced down the front), `hands/gloves` (the gauntlets' shapes remapped to leather, so they fit every pose), presets `metal/crystal` and `cloth/umber`, and a `jewel` per set for its gems. Icons: 22 designs in `tools/art/icons_art.py` (seven helmets, four chests, two legs, two gloves, boots, two capes, two belts, an amulet, a ring; overlays for a plume, a cross, a feather, a hat band, a tabard, a buckle, a cape's clasp and the gems), composed by `pixelforge/icons.py` into 65 icons for the eight sets with `pf icons`, and copied into `out/examples/icons/`. Nothing from the uploaded pack is in the repository.
+
+What the review images show. The lineup reads as eight outfits at 1x, on bodies with their own hair and weapons: a grey iron warrior in a sallet and pauldrons, a tan scout in a leather cap and a laced chestnut jerkin, a gold paladin under a white plume with a blue cape, a bright azure crystal knight with an orange plume, a brown hooded traveler, a red pyromancer in a pointed hood, a green ranger in a feathered hat and an emerald cape, a blue sorcerer in a gold-banded hat. The icons read as their pieces at 1x: helmets in their set's shapes, cuirasses with a center ridge and a plated skirt (the gold one with its tabard), capes with a gold clasp and folds, a strap belt with its buckle, a knotted sash, legs, gloves, boots, and the amulet and ring with each set's gem. Two passes fixed what the first showed: a helmet's hidden cross left holes (overlays now have their base drawn underneath), and the plate, cape, belt and sash read as a heart, a bell, a stone and a bow tie until redrawn.
+
+Rubric: style match 4, 1x readability 4 (black boots and leggings are dim on dark ground), silhouette 4, consistency 5 (icons recolor from the same presets as the sprites), cleanliness 4, part fit 4, appeal 4.
+

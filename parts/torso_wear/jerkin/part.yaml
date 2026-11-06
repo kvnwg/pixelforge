@@ -1,0 +1,14 @@
+slot: torso_wear
+variant: jerkin
+material: leather
+kind: rigid
+attach: torso
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A leather vest laced down the front.
+allow_singletons:
+  s:
+  - - 19
+    - 20

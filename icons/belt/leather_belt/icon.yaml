@@ -1,0 +1,11 @@
+slot: belt
+variant: leather_belt
+layers:
+- name: base
+  slot: belt
+  material: leather
+- name: buckle
+  slot: belt_trim
+  material: accent
+  requires:
+    belt_trim: buckle

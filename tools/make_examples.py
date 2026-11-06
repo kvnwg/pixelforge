@@ -1,7 +1,7 @@
 """Refresh out/examples/: finished exports a game (or a person) can pick up without running
 anything: one character per rig, the Stone Warden boss and the FX set (ROADMAP.md Phase 10).
 
-Run after `pf build --all` and `pf fx build --all`:
+Run after `pf build --all`, `pf fx build --all` and `pf icons`:
     .venv/bin/python tools/make_examples.py
 """
 
@@ -42,6 +42,8 @@ def main() -> None:
                     f"{pf['timing_profile']} | {why} | {len(anims)} |")
     shutil.copytree(OUT / "fx", EXAMPLES / "fx", ignore=shutil.ignore_patterns("*.gif"))
     fx = json.loads((OUT / "fx" / "index.json").read_text())["fx"]
+    shutil.copytree(OUT / "icons", EXAMPLES / "icons")
+    icon_sets = json.loads((OUT / "icons" / "index.json").read_text())["sets"]
     readme = [
         "# Example exports",
         "",
@@ -56,6 +58,10 @@ def main() -> None:
         "",
         f"`fx/`: the FX library, {len(fx)} effects, each a sheet plus JSON with its pivot per tag "
         "(`<anim>_<dir>`), layer, space and loops; `fx/index.json` lists them.",
+        "",
+        f"`icons/`: inventory icons for the {len(icon_sets)} gear sets (`parts/sets.yaml`), 16 x 16, one "
+        "PNG per piece in a folder per set, `icons.png` (a row per set, a column per piece) and "
+        "`icons/index.json` (`pf icons`).",
         "",
     ]
     (EXAMPLES / "README.md").write_text("\n".join(readme))

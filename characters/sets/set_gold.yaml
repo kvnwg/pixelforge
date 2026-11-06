@@ -1,0 +1,15 @@
+# A paladin wearing the gold set, with sword and shield. See parts/sets.yaml.
+name: set_gold
+rig: humanoid
+timing_profile: player
+seed: 1
+set: gold
+parts:
+  eyes: dots
+  held_near: sword
+  held_near_trim: hilt
+  held_far: shield
+colors:
+  skin: fair
+  eyes: dark
+anims: [idle, blink, walk, run, combat_idle, attack_slash, hurt, death]

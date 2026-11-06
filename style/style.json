@@ -436,6 +436,10 @@
         "midnight": [
           "#24326d",
           "#424b8e"
+        ],
+        "umber": [
+          "#633d23",
+          "#835d3b"
         ]
       },
       "anchor_use": "dress"
@@ -670,6 +674,12 @@
           "#aa2f2f",
           "#d05747",
           "#e9886f"
+        ],
+        "crystal": [
+          "#006d8f",
+          "#0a95cb",
+          "#5bbbfa",
+          "#bddfff"
         ]
       },
       "anchor_use": "not in anchor; armor, helmets, blades"

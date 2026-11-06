@@ -1,0 +1,10 @@
+slot: amulet
+variant: amulet
+layers:
+- name: base
+  slot: amulet
+  material: accent
+- name: gem
+  slot: amulet
+  material: accent
+  preset_from: jewel

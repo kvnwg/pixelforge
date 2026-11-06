@@ -1,0 +1,400 @@
+{
+ "cell": 16,
+ "pieces": [
+  "headwear",
+  "torso_wear",
+  "legs_wear",
+  "hands",
+  "feet",
+  "cape",
+  "belt",
+  "amulet",
+  "ring"
+ ],
+ "labels": {
+  "headwear": "helmet",
+  "torso_wear": "chest",
+  "legs_wear": "legs",
+  "hands": "gloves",
+  "feet": "boots",
+  "cape": "cape",
+  "belt": "belt",
+  "amulet": "amulet",
+  "ring": "ring"
+ },
+ "sets": {
+  "iron": {
+   "row": 0,
+   "note": "A warrior in dark iron plate.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "sallet"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "plate"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "greaves"
+    },
+    "hands": {
+     "col": 3,
+     "label": "gloves",
+     "variant": "gauntlets"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "leather_belt"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "leather": {
+   "row": 1,
+   "note": "A scout in a leather cap, a laced jerkin, gloves and leggings.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "leather_cap"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "jerkin"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "leggings"
+    },
+    "hands": {
+     "col": 3,
+     "label": "gloves",
+     "variant": "gloves"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "leather_belt"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "gold": {
+   "row": 2,
+   "note": "A paladin in gold plate under a white-plumed great helm, a white tabard and a blue cape.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "great_helm"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "plate"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "greaves"
+    },
+    "hands": {
+     "col": 3,
+     "label": "gloves",
+     "variant": "gauntlets"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "cape": {
+     "col": 5,
+     "label": "cape",
+     "variant": "mantle"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "crystal": {
+   "row": 3,
+   "note": "A crystal knight in bright azure plate with an orange plume and trim.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "great_helm"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "plate"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "greaves"
+    },
+    "hands": {
+     "col": 3,
+     "label": "gloves",
+     "variant": "gauntlets"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "leather_belt"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "traveler": {
+   "row": 4,
+   "note": "A traveler in a brown hood, tunic and cloak.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "hood"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "tunic"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "leggings"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "cape": {
+     "col": 5,
+     "label": "cape",
+     "variant": "cloak"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "leather_belt"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "crimson": {
+   "row": 5,
+   "note": "A pyromancer in a red pointed hood and robe, a gold sash and a wine cape.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "pointed_hood"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "robe"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "leggings"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "cape": {
+     "col": 5,
+     "label": "cape",
+     "variant": "mantle"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "sash"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "forest": {
+   "row": 6,
+   "note": "A ranger in a feathered hat, a green tunic and cape and green leathers.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "ranger_hat"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "tunic"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "leggings"
+    },
+    "hands": {
+     "col": 3,
+     "label": "gloves",
+     "variant": "gloves"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "cape": {
+     "col": 5,
+     "label": "cape",
+     "variant": "mantle"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "leather_belt"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  },
+  "azure": {
+   "row": 7,
+   "note": "A sorcerer in a blue wizard hat with a gold band, a blue robe and a midnight cape.",
+   "pieces": {
+    "headwear": {
+     "col": 0,
+     "label": "helmet",
+     "variant": "witch_hat"
+    },
+    "torso_wear": {
+     "col": 1,
+     "label": "chest",
+     "variant": "robe"
+    },
+    "legs_wear": {
+     "col": 2,
+     "label": "legs",
+     "variant": "leggings"
+    },
+    "feet": {
+     "col": 4,
+     "label": "boots",
+     "variant": "boots"
+    },
+    "cape": {
+     "col": 5,
+     "label": "cape",
+     "variant": "mantle"
+    },
+    "belt": {
+     "col": 6,
+     "label": "belt",
+     "variant": "sash"
+    },
+    "amulet": {
+     "col": 7,
+     "label": "amulet",
+     "variant": "amulet"
+    },
+    "ring": {
+     "col": 8,
+     "label": "ring",
+     "variant": "ring"
+    }
+   }
+  }
+ }
+}

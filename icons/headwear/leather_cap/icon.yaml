@@ -1,0 +1,6 @@
+slot: headwear
+variant: leather_cap
+layers:
+- name: base
+  slot: headwear
+  material: leather

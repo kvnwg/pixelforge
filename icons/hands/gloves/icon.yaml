@@ -1,0 +1,6 @@
+slot: hands
+variant: gloves
+layers:
+- name: base
+  slot: hands
+  material: leather

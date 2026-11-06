@@ -1,0 +1,19 @@
+# A sorcerer wearing the azure set, with a sapphire orb staff. See parts/sets.yaml.
+name: set_azure
+rig: humanoid
+timing_profile: player
+seed: 1
+set: azure
+parts:
+  eyes: dots
+  hair_front: short
+  beard: full
+  held_near: staff
+  held_near_trim: orb
+colors:
+  skin: fair
+  hair: snow
+  eyes: dark
+slot_colors:
+  held_near_trim: sapphire
+anims: [idle, blink, walk, run, combat_idle, cast, hurt, death]

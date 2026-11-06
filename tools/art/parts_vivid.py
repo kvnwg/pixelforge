@@ -313,6 +313,54 @@ WINGS = {  # cloth (white): feathered wings sweeping out and up from the cap's s
                   "....001.....100...."]),
 }
 
+# ============================================================================== gear sets
+#                  x: 890123456789012
+LEATHER_CAP = {  # leather: a rounded cap to the brow, stitched round the crown (the leather set)
+    "s": G(8, 10, [".....22222.....",
+                   "....1222221....",
+                   "...112222211...",
+                   "...011121110...",
+                   "...000000000..."]),
+    "e": G(8, 10, [".....2222......",
+                   "....122222.....",
+                   "...11222221....",
+                   "...01122211....",
+                   "...00000000...."]),
+    "n": G(8, 10, [".....22222.....",
+                   "....1222221....",
+                   "...112222211...",
+                   "...011121110...",
+                   "...011111110...",
+                   "...000000000..."]),
+}
+JERKIN = {  # leather: a vest laced down the front, light panels either side of the lacing
+    "s": G(8, 20, ["...011...110...",
+                   "...0012021.....",
+                   "....012021.....",
+                   "....012021.....",
+                   "....0000000...."]),
+    "e": G(8, 20, ["....001..1.....",
+                   "....001220.....",
+                   "....001220.....",
+                   "....001220.....",
+                   "....000000....."]),
+    "n": G(8, 20, ["...001111111...",
+                   "...0012121.....",
+                   "....012121.....",
+                   "....012121.....",
+                   "....0000000...."]),
+}
+METAL_TO_LEATHER = {0: 0, 1: 0, 2: 1, 3: 2}  # the gauntlets' four steel shades as three of leather
+
+
+def gloves() -> dict:
+    """Leather gloves on exactly the gauntlets' shapes, so they fit every pose of every arm."""
+    from parts_library import derived, remap
+    _, _, gauntlets = derived()
+    return {anim: {key: remap(cell, METAL_TO_LEATHER) for key, cell in cells_.items()}
+            for anim, cells_ in gauntlets.items()}
+
+
 # ============================================================================== emblems (accent)
 #                 x: 2345678
 CROSS_HELM = {  # a gold cross on the great helm's face, above the eye slit
@@ -380,6 +428,13 @@ def main() -> None:
         cells(**WING_CAP))
     write_part("headwear_trim", "wings", rigid(
         "cloth", "head", "White feathered wings sweeping out and up from a cap's sides."), cells(**WINGS))
+    write_part("headwear", "leather_cap", rigid(
+        "leather", "head", "A rounded leather cap to the brow, stitched round the crown."), cells(**LEATHER_CAP))
+    write_part("torso_wear", "jerkin", rigid(
+        "leather", "torso", "A leather vest laced down the front.",
+        allow_singletons={"s": [[19, 20]]}), cells(**JERKIN))
+    write_part("hands", "gloves", {"material": "leather", "kind": "animated", "lags": False, "rigs": ["humanoid"],
+                                   "notes": "Leather gloves and bracers on the gauntlets' shapes."}, gloves())
     write_part("headwear", "circlet", rigid(
         "accent", "head", "A gold crown band over the hair with three points."), cells(**CIRCLET))
     write_part("headwear_emblem", "cross_helm", rigid(

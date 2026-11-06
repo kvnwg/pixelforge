@@ -1,0 +1,6 @@
+slot: legs_wear
+variant: leggings
+layers:
+- name: base
+  slot: legs_wear
+  material: leather

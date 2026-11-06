@@ -1,0 +1,11 @@
+slot: headwear
+variant: witch_hat
+layers:
+- name: base
+  slot: headwear
+  material: cloth
+- name: hatband
+  slot: headwear_emblem
+  material: accent
+  requires:
+    headwear_emblem: hatband

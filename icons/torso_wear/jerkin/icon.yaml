@@ -1,0 +1,6 @@
+slot: torso_wear
+variant: jerkin
+layers:
+- name: base
+  slot: torso_wear
+  material: leather

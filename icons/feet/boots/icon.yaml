@@ -1,0 +1,6 @@
+slot: feet
+variant: boots
+layers:
+- name: base
+  slot: feet
+  material: leather

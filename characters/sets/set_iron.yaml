@@ -1,0 +1,15 @@
+# A warrior wearing the iron set, with a sword. See parts/sets.yaml.
+name: set_iron
+rig: humanoid
+timing_profile: player
+seed: 1
+set: iron
+parts:
+  eyes: dots
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  skin: tan
+  eyes: dark
+  metal: iron
+anims: [idle, blink, walk, run, combat_idle, attack_slash, hurt, death]

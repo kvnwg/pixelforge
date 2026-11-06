@@ -1,0 +1,11 @@
+slot: torso_wear
+variant: plate
+layers:
+- name: base
+  slot: torso_wear
+  material: metal
+- name: tabard
+  slot: over_torso
+  material: cloth
+  requires:
+    over_torso: tabard

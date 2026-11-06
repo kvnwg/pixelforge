@@ -1,0 +1,6 @@
+slot: headwear
+variant: sallet
+layers:
+- name: base
+  slot: headwear
+  material: metal

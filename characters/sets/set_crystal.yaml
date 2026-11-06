@@ -1,0 +1,14 @@
+# A crystal knight wearing the crystal set, with a sword. See parts/sets.yaml.
+name: set_crystal
+rig: humanoid
+timing_profile: player
+seed: 1
+set: crystal
+parts:
+  eyes: dots
+  held_near: sword
+  held_near_trim: hilt
+colors:
+  skin: fair
+  eyes: dark
+anims: [idle, blink, walk, run, combat_idle, attack_slash, hurt, death]

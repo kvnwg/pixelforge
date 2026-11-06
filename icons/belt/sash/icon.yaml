@@ -1,0 +1,6 @@
+slot: belt
+variant: sash
+layers:
+- name: base
+  slot: belt
+  material: accent

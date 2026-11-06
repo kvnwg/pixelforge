@@ -1,0 +1,10 @@
+slot: ring
+variant: ring
+layers:
+- name: base
+  slot: ring
+  material: accent
+- name: gem
+  slot: ring
+  material: accent
+  preset_from: jewel

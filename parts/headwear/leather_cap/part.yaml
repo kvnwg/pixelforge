@@ -1,0 +1,10 @@
+slot: headwear
+variant: leather_cap
+material: leather
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A rounded leather cap to the brow, stitched round the crown.

@@ -1,0 +1,13 @@
+# A traveler wearing the traveler set, with a staff. See parts/sets.yaml.
+name: set_traveler
+rig: humanoid
+timing_profile: player
+seed: 1
+set: traveler
+parts:
+  eyes: dots
+  held_near: staff
+colors:
+  skin: tan
+  eyes: brown
+anims: [idle, blink, walk, run, combat_idle, cast, hurt, death]

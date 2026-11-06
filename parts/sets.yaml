@@ -1,0 +1,59 @@
+# Gear sets (ROADMAP.md, "Gear sets and item icons"): outfits a recipe wears with `set: <name>`.
+# A set lays its parts, colors and slot colors under the recipe's own (the recipe wins), so any
+# body, hair and weapon can wear it. `pf icons` draws an inventory icon for each piece in the
+# same presets, so a piece's icon always matches its sprite; `jewel` (an accent preset) colors
+# the gem in the set's amulet and ring.
+sets:
+  iron:
+    jewel: ruby
+    note: A warrior in dark iron plate.
+    parts: {headwear: sallet, torso_wear: plate, shoulders: pauldrons, legs_wear: greaves, hands: gauntlets,
+            feet: boots, belt: leather_belt, belt_trim: buckle}
+    colors: {metal: iron, leather: dark, accent: silver}
+  leather:
+    jewel: emerald
+    note: A scout in a leather cap, a laced jerkin, gloves and leggings.
+    parts: {headwear: leather_cap, torso_wear: jerkin, legs_wear: leggings, hands: gloves, feet: boots,
+            belt: leather_belt, belt_trim: buckle}
+    colors: {leather: tan, accent: bright gold}
+    slot_colors: {torso_wear: chestnut, feet: chestnut}
+  gold:
+    jewel: sapphire
+    note: A paladin in gold plate under a white-plumed great helm, a white tabard and a blue cape.
+    parts: {headwear: great_helm, headwear_trim: plume_tall, torso_wear: plate, shoulders: pauldrons,
+            over_torso: tabard, legs_wear: greaves, hands: gauntlets, feet: boots, cape: mantle}
+    colors: {metal: royal gold, cloth: snow, leather: white, accent: bright gold}
+    slot_colors: {cape: royal}
+  crystal:
+    jewel: sapphire
+    note: A crystal knight in bright azure plate with an orange plume and trim.
+    parts: {headwear: great_helm, headwear_trim: plume_tall, torso_wear: plate, legs_wear: greaves,
+            hands: gauntlets, feet: boots, belt: leather_belt, belt_trim: buckle}
+    colors: {metal: crystal, cloth: tangerine, leather: black, accent: orange}
+  traveler:
+    jewel: pearl
+    note: A traveler in a brown hood, tunic and cloak.
+    parts: {headwear: hood, torso_wear: tunic, legs_wear: leggings, feet: boots, belt: leather_belt,
+            belt_trim: buckle, cape: cloak}
+    colors: {cloth: umber, leather: chestnut, accent: bright gold}
+  crimson:
+    jewel: ruby
+    note: A pyromancer in a red pointed hood and robe, a gold sash and a wine cape.
+    parts: {headwear: pointed_hood, torso_wear: robe, belt: sash, legs_wear: leggings, feet: boots,
+            cape: mantle}
+    colors: {cloth: crimson, leather: black, accent: bright gold}
+    slot_colors: {cape: wine}
+  forest:
+    jewel: emerald
+    note: A ranger in a feathered hat, a green tunic and cape and green leathers.
+    parts: {headwear: ranger_hat, headwear_trim: feather, torso_wear: tunic, legs_wear: leggings,
+            hands: gloves, feet: boots, belt: leather_belt, belt_trim: buckle, cape: mantle}
+    colors: {cloth: forest, leather: green, accent: bright gold}
+    slot_colors: {cape: emerald}
+  azure:
+    jewel: amethyst
+    note: A sorcerer in a blue wizard hat with a gold band, a blue robe and a midnight cape.
+    parts: {headwear: witch_hat, headwear_emblem: hatband, torso_wear: robe, belt: sash,
+            legs_wear: leggings, feet: boots, cape: mantle}
+    colors: {cloth: royal, leather: black, accent: bright gold}
+    slot_colors: {cape: midnight}

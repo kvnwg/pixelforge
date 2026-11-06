@@ -1,0 +1,8 @@
+slot: hands
+variant: gloves
+material: leather
+kind: animated
+lags: false
+rigs:
+- humanoid
+notes: Leather gloves and bracers on the gauntlets' shapes.

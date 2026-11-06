@@ -1,0 +1,6 @@
+slot: cape
+variant: cloak
+layers:
+- name: base
+  slot: cape
+  material: cloth

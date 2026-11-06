@@ -1,0 +1,6 @@
+slot: hands
+variant: gauntlets
+layers:
+- name: base
+  slot: hands
+  material: metal
