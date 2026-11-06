@@ -1,33 +1,29 @@
 name: random_1_07
 rig: humanoid
 timing_profile: player
-seed: 194136367
+seed: 952573399
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
-  belt: sash
-  cape: cloak
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: leather_belt
+  cape: mantle
   eyes: dots
-  feet: boots
-  headwear: sallet
-  held_near: sword
+  headwear: tricorn
   legs_wear: leggings
-  over_torso: tabard
   torso_wear: plate
-  held_near_trim: hilt
-  headwear_trim: plume
+  belt_trim: buckle
+  headwear_trim: feather
 colors:
-  accent: gold (anchor)
-  cloth: ink
-  eyes: amber
+  accent: silver
+  cloth: lime
+  eyes: blue
   hair: sky
-  leather: white
-  metal: royal gold
-  skin: ebony
+  leather: red
+  metal: gold
+  skin: ogre
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  cape: mustard
+  cape: ice

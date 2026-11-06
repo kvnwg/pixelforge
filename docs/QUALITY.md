@@ -23,11 +23,11 @@ Errors block a build and a commit. Warnings must be read and either fixed or exp
 | E4 | Closed outline: no silhouette pixel has a transparent or shadow-only neighbor directly up, down, left or right, except at open-sole positions. |
 | E5 | No floating pixels: every opaque pixel has at least one opaque neighbor among its 8 surrounding pixels. |
 | E6 | Baseline: in grounded frames, the feet (the lowest pixels of the body, legs wear and boots layers, even where a robe covers them) are on row 27. Held items may hang lower. Frames flagged `airborne` or `lying` in the animation definition are exempt. |
-| E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette, without held items, stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
+| E7 | Pivot drift: in idle and walk, the horizontal center of the silhouette, without held items or the flowing pieces that stream to one side by design (cape, scarf, headwear trims; design pass 2), stays within 1 px of x = 15 in S and N, and within 2 px in E and W. Frames flagged `displaced` (knockback, lunge) are exempt. |
 | E8 | Bounds: no opaque pixel outside x 2..29, y 2..30. |
 | E9 | Mirror: every `w` frame equals its `e` frame mirrored around x = 15. |
 | E10 | Head height: the head region is the same number of rows in every frame of a character, except frames flagged `squash`. Measured from the outline row above the topmost head-layer pixel (body, hair, eyes, headwear) to the `chin` anchor. A rig whose body layer also holds raised arms names the layers to measure instead (`validator.head_slots`; the ogre uses its topknot). |
-| E11 | At most 24 distinct colors per frame (`constraints.max_colors_per_frame`; 16 until the 2026-11-05 design pass). |
+| E11 | At most 32 distinct colors per frame (`constraints.max_colors_per_frame`; 16 until the 2026-11-05 design pass, 24 until design pass 2 on 2026-11-06). |
 | E12 | Export integrity: JSON frame rects match the sheet, every duration is positive, tags cover all frames with no overlap, events point at valid frames. |
 | E13 | Part material: every pixel in a part file is from that part's declared material base ramp or the outline color. |
 | E14 | Completeness: every animated part in a recipe has a sheet for every animation the recipe lists. |

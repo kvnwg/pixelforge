@@ -1,0 +1,10 @@
+slot: headwear_trim
+variant: plume_tall
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A plume on a great helm's crown curling over; facing e it sweeps back.

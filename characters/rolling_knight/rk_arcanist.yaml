@@ -1,4 +1,4 @@
-# Rolling Knight arcanist: Mage. A white-bearded wizard in a violet witch's hat and robe, with an amethyst orb staff. See docs/GAMES.md.
+# Rolling Knight arcanist: Mage. A white-bearded wizard under a giant violet hat with a gold band, a violet robe and a sapphire orb staff. See docs/GAMES.md.
 name: rk_arcanist
 rig: humanoid
 timing_profile: player
@@ -8,16 +8,19 @@ parts:
   hair_front: short
   beard: full
   headwear: witch_hat
+  headwear_emblem: hatband
   torso_wear: robe
   belt: sash
   legs_wear: leggings
   held_near: staff
   held_near_trim: orb
 colors:
-  skin: light (anchor)
-  hair: platinum
+  skin: fair
+  hair: snow
   cloth: violet
   leather: dark
-  accent: amethyst
+  accent: bright gold
   eyes: dark
+slot_colors:
+  held_near_trim: sapphire
 anims: [idle, blink, walk, run, combat_idle, cast, dodge, hurt, stun, death, victory]

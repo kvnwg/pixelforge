@@ -1,31 +1,28 @@
 name: random_1_23
 rig: humanoid
 timing_profile: player
-seed: 826359573
+seed: 419256994
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
-  belt: leather_belt
+  hair_front: ponytail
+  hair_back: ponytail
+  cape: mantle
   eyes: dots
-  headwear: hood
   held_near: sword
   legs_wear: leggings
   shoulders: pauldrons
   torso_wear: plate
   held_near_trim: hilt
-  belt_trim: buckle
 colors:
-  accent: gold (anchor)
-  cloth: rose
-  eyes: teal
-  hair: auburn
-  leather: dark
-  metal: crimson
+  accent: sapphire
+  cloth: flame
+  eyes: amber
+  hair: lavender
+  leather: chestnut
+  metal: iron
   skin: dusk
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  headwear: jade
+  cape: azure

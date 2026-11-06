@@ -1,31 +1,31 @@
 name: random_1_04
 rig: humanoid
 timing_profile: player
-seed: 152291735
+seed: 916444838
 parts:
-  hair_front: short
+  hair_front: ponytail
+  hair_back: ponytail
   belt: leather_belt
-  cape: cloak
+  cape: mantle
   eyes: dots
-  feet: boots
   headwear: ranger_hat
-  held_far: shield
+  held_near: bow
   legs_wear: leggings
-  shoulders: pauldrons
+  over_torso: tabard
+  scarf: long
   torso_wear: tunic
   belt_trim: buckle
   headwear_trim: feather
 colors:
-  accent: onyx
-  cloth: wine
-  eyes: dark
-  hair: auburn
-  leather: dark
-  metal: steel
-  skin: deep
+  accent: orange
+  cloth: azure
+  eyes: brown
+  hair: chestnut
+  leather: white
+  skin: tan
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  cape: scarlet
+  scarf: emerald

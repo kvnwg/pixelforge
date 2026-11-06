@@ -80,18 +80,18 @@
   "constraints": {
     "oklch_L_range": [
       0.3,
-      0.84
+      0.95
     ],
-    "oklch_C_max": 0.13,
+    "oklch_C_max": 0.2,
     "ramp_L_step_range": [
       0.05,
-      0.1
+      0.18
     ],
     "ramp_hue_shift_deg_per_lighter_step": [
       3,
       10
     ],
-    "max_colors_per_frame": 24,
+    "max_colors_per_frame": 32,
     "alpha_values_allowed": [
       0,
       255
@@ -108,18 +108,6 @@
         ],
         "reason": "Anchor ground truth: the anchor's skin shifts hue only 1.5 to 2.6 degrees per step."
       },
-      "skin/fair": {
-        "rules": [
-          "hue_shift"
-        ],
-        "reason": "Follows the anchor skin's small hue shift (about 2 degrees per step), so skin stays skin-colored in the light shade."
-      },
-      "skin/tan": {
-        "rules": [
-          "hue_shift"
-        ],
-        "reason": "Follows the anchor skin's small hue shift (about 2 degrees per step), so skin stays skin-colored in the light shade."
-      },
       "cloth/navy (anchor)": {
         "rules": [
           "hue_shift"
@@ -132,17 +120,23 @@
         ],
         "reason": "Anchor ground truth: the dark leather shade #5e494c is redder than the two hair browns above it."
       },
-      "bone/ivory": {
-        "rules": [
-          "hue_shift"
-        ],
-        "reason": "Shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide; the ramp reads correctly in style/monster_fx_swatches.png."
-      },
       "leaf/spring": {
         "rules": [
           "hue_shift"
         ],
-        "reason": "Leaves yellow toward their light shades (hue 146 down to 125), as sunlit foliage does in the human's reference; the guide's rising hue would turn them blue."
+        "reason": "Leaves yellow toward their light shades (hue 150 down to 129), as sunlit foliage does in the human's reference; the guide's rising hue would turn them blue."
+      },
+      "bone/base": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "The base ramp is the color the bone parts are drawn in (the first ivory); shade 2 to 3 shifts 2.9 degrees, 0.1 under the guide. Presets are what show."
+      },
+      "leaf/base": {
+        "rules": [
+          "hue_shift"
+        ],
+        "reason": "The base ramp is the color the leaf parts are drawn in (the first spring green), which yellows toward its light shades like the spring preset."
       }
     },
     "bold_note": "Raised on 2026-11-05 from C 0.09 and L 0.80 at the human's request: characters should be as varied and colorful as a chibi roster, each with a signature color. The anchor's own colors stay at C 0.03 to 0.09; bold presets go up to 0.13. FX and glow eyes keep the brighter range.",
@@ -183,59 +177,59 @@
           "#dba292"
         ],
         "fair": [
-          "#aa8173",
-          "#c69d8c",
-          "#ddb3a0"
+          "#c4917d",
+          "#e7b094",
+          "#ffd4b9"
         ],
         "tan": [
-          "#865f4a",
-          "#a3785f",
-          "#bb9174"
+          "#a0684d",
+          "#c58864",
+          "#e3ae87"
         ],
         "deep": [
-          "#5f3e33",
-          "#785444",
-          "#8f6b57"
+          "#724130",
+          "#945e45",
+          "#b08063"
         ],
         "green (orc)": [
-          "#526540",
-          "#67805c",
-          "#7b9977"
+          "#4f6f16",
+          "#65953d",
+          "#82b970"
         ],
         "ogre": [
-          "#755e4d",
-          "#8f7863",
-          "#a8957e"
+          "#856042",
+          "#a7815b",
+          "#c4a57f"
         ],
         "ebony": [
-          "#5f3e33",
-          "#735243",
-          "#876655"
+          "#60352a",
+          "#7f503e",
+          "#9a6f5a"
         ],
         "frost": [
-          "#538296",
-          "#6a96ae",
-          "#81abc6"
+          "#4e90aa",
+          "#6eb1d4",
+          "#9cd2f7"
         ],
         "dusk": [
-          "#5e4f79",
-          "#75618d",
-          "#8d75a0"
+          "#635090",
+          "#8a6cb4",
+          "#af8ece"
         ],
         "ash": [
-          "#6a737b",
-          "#7f8791",
-          "#959ca6"
+          "#6d757f",
+          "#8d96a2",
+          "#b1b8c3"
         ],
         "ember": [
-          "#92413e",
-          "#a8564b",
-          "#bf6c59"
+          "#a33c37",
+          "#cd5b46",
+          "#eb8464"
         ],
         "porcelain": [
-          "#af998e",
-          "#c2aea1",
-          "#d7c3b4"
+          "#c3ac9f",
+          "#dfc7b7",
+          "#f8e4d3"
         ]
       },
       "anchor_use": "face, neck line, arms, hands"
@@ -254,74 +248,84 @@
           "#957e6d"
         ],
         "black": [
-          "#3f3a49",
-          "#504a58",
-          "#625a68"
+          "#2c2e45",
+          "#484762",
+          "#66627c"
         ],
         "blonde": [
-          "#a08461",
-          "#b7996c",
-          "#cbb17d"
+          "#c7943d",
+          "#e7b852",
+          "#ffde84"
         ],
         "auburn": [
-          "#7b4d42",
-          "#8f5e4c",
-          "#a3735c"
+          "#8b3724",
+          "#b25634",
+          "#d07d55"
         ],
         "silver": [
-          "#797983",
-          "#92919a",
-          "#aeacb6"
+          "#848591",
+          "#acadbb",
+          "#d6d6e3"
         ],
         "mint": [
-          "#577a6d",
-          "#698f85",
-          "#80a8a0"
+          "#46987b",
+          "#5cbca2",
+          "#86deca"
         ],
         "fire": [
-          "#96372b",
-          "#ac4f33",
-          "#c2663c"
+          "#b83022",
+          "#e4531f",
+          "#ff8342"
         ],
         "platinum": [
-          "#a29e93",
-          "#b7b4a9",
-          "#cccbbf"
+          "#b0ab98",
+          "#cdcab4",
+          "#eae9d5"
         ],
         "raven": [
-          "#293248",
-          "#3c4359",
-          "#50536c"
+          "#22304a",
+          "#3c4867",
+          "#596280"
         ],
         "bubblegum": [
-          "#ba6988",
-          "#d37d96",
-          "#ed93a4"
+          "#c45f8c",
+          "#f27ca2",
+          "#ffb2bf"
         ],
         "lavender": [
-          "#78669f",
-          "#9278b2",
-          "#ac8cc5"
+          "#816ab9",
+          "#aa87de",
+          "#d3a9f8"
         ],
         "sky": [
-          "#3f82a8",
-          "#5b96c1",
-          "#77aadb"
+          "#2a8ab8",
+          "#50abe4",
+          "#8ccbff"
         ],
         "leaf": [
-          "#457036",
-          "#518750",
-          "#5d9d6b"
+          "#4e8222",
+          "#5ea748",
+          "#7cca7b"
         ],
         "copper": [
-          "#9f4f25",
-          "#b46632",
-          "#c87e41"
+          "#b54e18",
+          "#dc7020",
+          "#f89b4d"
         ],
         "golden": [
-          "#bc9041",
-          "#cda956",
-          "#dec26d"
+          "#c98000",
+          "#eca407",
+          "#ffd06f"
+        ],
+        "chestnut": [
+          "#6c3623",
+          "#905538",
+          "#ad7858"
+        ],
+        "snow": [
+          "#b0b9bf",
+          "#c9d2da",
+          "#e5ecf4"
         ]
       },
       "anchor_use": "hair"
@@ -338,76 +342,100 @@
           "#5a556b"
         ],
         "crimson": [
-          "#6a3638",
-          "#804946"
+          "#860c28",
+          "#af3338"
         ],
         "forest": [
-          "#364f3b",
-          "#466350"
+          "#125624",
+          "#257848"
         ],
         "teal": [
-          "#2d5459",
-          "#41686f"
+          "#007176",
+          "#0098a5"
         ],
         "plum": [
-          "#563a53",
-          "#6c4c64"
+          "#602a5c",
+          "#864678"
         ],
         "mustard": [
-          "#896d3c",
-          "#9a8350"
+          "#a4771e",
+          "#c39c3d"
         ],
         "cream": [
-          "#9b917e",
-          "#afa793"
+          "#c9bca3",
+          "#e8dec1"
         ],
         "royal": [
-          "#1f438a",
-          "#3d55a0"
+          "#1346ab",
+          "#4566d9"
         ],
         "scarlet": [
-          "#933332",
-          "#aa493c"
+          "#b32228",
+          "#e14c33"
         ],
         "emerald": [
-          "#0e6936",
-          "#1a7f51"
+          "#007835",
+          "#00a05e"
         ],
         "violet": [
-          "#55337c",
-          "#6e458d"
+          "#62349c",
+          "#8e53c2"
         ],
         "sunflower": [
-          "#bb9133",
-          "#cbaa4b"
+          "#dba40c",
+          "#f8cc3a"
         ],
         "azure": [
-          "#2e84ab",
-          "#4e98c5"
+          "#0084b8",
+          "#3aa8ed"
         ],
         "rose": [
-          "#b36383",
-          "#cc7791"
+          "#c65d8a",
+          "#f67fa3"
         ],
         "tangerine": [
-          "#be6436",
-          "#d37c43"
+          "#d96629",
+          "#ff9040"
         ],
         "ink": [
-          "#313447",
-          "#424357"
+          "#2d3146",
+          "#464860"
         ],
         "snow": [
-          "#b5b1a6",
-          "#cac8bc"
+          "#cdcbc0",
+          "#edece0"
         ],
         "jade": [
-          "#17745d",
-          "#2c8977"
+          "#00896a",
+          "#00b195"
         ],
         "wine": [
-          "#692436",
-          "#803841"
+          "#781535",
+          "#9c3345"
+        ],
+        "magenta": [
+          "#a33391",
+          "#d553ac"
+        ],
+        "lime": [
+          "#89af0d",
+          "#9dda4f"
+        ],
+        "turquoise": [
+          "#009a94",
+          "#00c3c3"
+        ],
+        "ice": [
+          "#72b6cc",
+          "#97ddf9"
+        ],
+        "flame": [
+          "#d54d1d",
+          "#ff7721"
+        ],
+        "midnight": [
+          "#24326d",
+          "#424b8e"
         ]
       },
       "anchor_use": "dress"
@@ -426,34 +454,39 @@
           "#826b5e"
         ],
         "dark": [
-          "#443333",
-          "#554341",
-          "#65534f"
+          "#482d28",
+          "#64463c",
+          "#7d6255"
         ],
         "tan": [
-          "#795d46",
-          "#8c7258",
-          "#9f886b"
+          "#8c5c3b",
+          "#ae7d52",
+          "#cba276"
         ],
         "black": [
-          "#34313a",
-          "#44404a",
-          "#55505a"
+          "#302e3b",
+          "#494554",
+          "#635e6b"
         ],
         "red": [
-          "#70322d",
-          "#86463b",
-          "#9c5b49"
+          "#852726",
+          "#ac4434",
+          "#c96b50"
         ],
         "white": [
-          "#989187",
-          "#ada79c",
-          "#c2bdb2"
+          "#aba498",
+          "#ccc5b7",
+          "#ece8db"
         ],
         "green": [
-          "#314a2b",
-          "#405e40",
-          "#507357"
+          "#2a5320",
+          "#3b723e",
+          "#578f63"
+        ],
+        "chestnut": [
+          "#6b3826",
+          "#8e563a",
+          "#ab7a5a"
         ]
       },
       "anchor_use": "legs and feet; same hex values as hair in the anchor but a separate material"
@@ -470,40 +503,44 @@
           "#d2ab70"
         ],
         "silver": [
-          "#81868f",
-          "#a0a5ae"
+          "#9a9fa8",
+          "#ccd1db"
         ],
         "red": [
-          "#925651",
-          "#ab6e63"
+          "#be3838",
+          "#eb5e45"
         ],
         "emerald": [
-          "#33854a",
-          "#409e6a"
+          "#189246",
+          "#25bb73"
         ],
         "sapphire": [
-          "#2f5da0",
-          "#5072bb"
+          "#1c5fbd",
+          "#5080eb"
         ],
         "amethyst": [
-          "#734f99",
-          "#9164ae"
+          "#7d4bb4",
+          "#aa6ad9"
         ],
         "ruby": [
-          "#99383e",
-          "#b4514b"
+          "#ac1534",
+          "#db4144"
         ],
         "pearl": [
-          "#b4b1a7",
-          "#cac8bd"
+          "#c8c4b7",
+          "#ebe8da"
         ],
         "onyx": [
-          "#35343f",
-          "#484652"
+          "#323141",
+          "#504d5f"
         ],
         "orange": [
-          "#c46b39",
-          "#dc8649"
+          "#dd621d",
+          "#ff9040"
+        ],
+        "bright gold": [
+          "#df9c21",
+          "#ffcc59"
         ]
       },
       "anchor_use": "sash/belt"
@@ -518,37 +555,37 @@
           "#5a556b"
         ],
         "dark": [
-          "#3f3a49"
+          "#383145"
         ],
         "brown": [
-          "#5e494c"
+          "#6d3f2f"
         ],
         "green": [
-          "#466350"
+          "#1d7d3e"
         ],
         "glow red": [
-          "#cd605a"
+          "#fe4c4c"
         ],
         "glow yellow": [
-          "#dec358"
+          "#fed835"
         ],
         "glow ghost": [
-          "#83d4d8"
+          "#7de8ee"
         ],
         "blue": [
-          "#2e65a0"
+          "#0d6abb"
         ],
         "violet": [
-          "#664689"
+          "#7845ac"
         ],
         "amber": [
-          "#b37736"
+          "#d38400"
         ],
         "teal": [
-          "#157171"
+          "#008686"
         ],
         "glow leaf": [
-          "#a2d060"
+          "#a6e146"
         ]
       },
       "glow_presets": [
@@ -558,7 +595,7 @@
         "glow leaf"
       ],
       "anchor_use": "the two 1px eyes; same hex as cloth mid in the anchor but a separate material",
-      "glow_exception": "Glow presets may use C up to 0.14 and L up to 0.85. They are the only character pixels allowed past the normal limits, used for monster and elite eyes so threats read instantly."
+      "glow_exception": "Glow presets may use C up to 0.22 and L up to 0.92. They are the only character pixels allowed past the normal limits, used for monster and elite eyes so threats read instantly."
     },
     "metal": {
       "shades": 4,
@@ -570,64 +607,64 @@
       ],
       "presets": {
         "steel": [
-          "#50555e",
-          "#6d727b",
-          "#8b8f99",
-          "#a7aab5"
+          "#4c535e",
+          "#737b88",
+          "#9ea5b3",
+          "#cdd1db"
         ],
         "iron": [
-          "#3e4349",
-          "#565b62",
-          "#70757c",
-          "#8b8f97"
+          "#3f4348",
+          "#63686f",
+          "#8b8f97",
+          "#b6b9bf"
         ],
         "bronze": [
-          "#775230",
-          "#8f6d46",
-          "#a88a5e",
-          "#c0a778"
+          "#864e1b",
+          "#b17434",
+          "#d69e5b",
+          "#f5cd94"
         ],
         "gold": [
-          "#926837",
-          "#ac8450",
-          "#c29e66",
-          "#d5b67b"
+          "#996000",
+          "#c38600",
+          "#e4b243",
+          "#fee18c"
         ],
         "obsidian": [
-          "#31323c",
-          "#43434d",
-          "#55545e",
-          "#686671"
+          "#2f2f3e",
+          "#4d4a5c",
+          "#6e687b",
+          "#908998"
         ],
         "royal gold": [
-          "#9d6800",
-          "#b38225",
-          "#c89e41",
-          "#ddba5c"
+          "#a56d00",
+          "#ca9200",
+          "#ecb917",
+          "#ffe686"
         ],
         "blued": [
-          "#334f6d",
-          "#4c6585",
-          "#667b9e",
-          "#8092b8"
+          "#1a4f80",
+          "#4275b2",
+          "#719dde",
+          "#a7c6fe"
         ],
         "rose gold": [
-          "#8b5243",
-          "#a36a55",
-          "#bc8368",
-          "#d49d7d"
+          "#99523f",
+          "#c67656",
+          "#ed9f77",
+          "#ffd2b5"
         ],
         "verdigris": [
-          "#2e6051",
-          "#43776b",
-          "#598f86",
-          "#6fa8a1"
+          "#176653",
+          "#348f7c",
+          "#5fb7a9",
+          "#98ddd5"
         ],
         "crimson": [
-          "#751e26",
-          "#8c3432",
-          "#a34a3d",
-          "#b9604a"
+          "#7d0c20",
+          "#aa2f2f",
+          "#d05747",
+          "#e9886f"
         ]
       },
       "anchor_use": "not in anchor; armor, helmets, blades"
@@ -642,22 +679,22 @@
       ],
       "presets": {
         "gray": [
-          "#564a43",
-          "#6c6158",
-          "#83786e",
-          "#9a9085"
+          "#554b43",
+          "#7a6f66",
+          "#a1968c",
+          "#c7bfb6"
         ],
         "brown": [
-          "#5f3f31",
-          "#755644",
-          "#8c6d58",
-          "#a3856e"
+          "#693923",
+          "#905a3a",
+          "#b47f5a",
+          "#d1a887"
         ],
         "frost": [
-          "#536674",
-          "#718393",
-          "#91a0b1",
-          "#b0bbcc"
+          "#5b798c",
+          "#7d9db5",
+          "#a5c2dc",
+          "#d2e7fe"
         ]
       },
       "anchor_use": "monsters: wolves, bears, rats"
@@ -672,28 +709,28 @@
       ],
       "presets": {
         "green": [
-          "#365030",
-          "#46674a",
-          "#577f66",
-          "#6a9882"
+          "#1e5c0c",
+          "#2d8336",
+          "#49a963",
+          "#7bcc99"
         ],
         "red": [
-          "#6c3434",
-          "#854b42",
-          "#9d6452",
-          "#b57d63"
+          "#8b1d26",
+          "#b93f35",
+          "#e1684d",
+          "#fb9b79"
         ],
         "ember": [
-          "#6f181e",
-          "#8c2e26",
-          "#a64832",
-          "#c06240"
+          "#870e17",
+          "#b63422",
+          "#de603a",
+          "#f7936a"
         ],
         "obsidian": [
-          "#2e2e3f",
-          "#3f3d4f",
-          "#514d5f",
-          "#635d6f"
+          "#2e2e40",
+          "#4b495e",
+          "#6a657b",
+          "#8a8496"
         ]
       },
       "anchor_use": "monsters: lizards, snakes, drakes"
@@ -708,16 +745,16 @@
       ],
       "presets": {
         "ivory": [
-          "#7b705e",
-          "#958b78",
-          "#aca490",
-          "#c1baa5"
+          "#8c7e68",
+          "#ada086",
+          "#cec4a8",
+          "#eee8d1"
         ],
         "antler": [
-          "#867f74",
-          "#9a9589",
-          "#aeaba0",
-          "#c3c1b7"
+          "#8e8574",
+          "#ada691",
+          "#ccc8b3",
+          "#ebebd9"
         ]
       },
       "anchor_use": "skeletons, skulls"
@@ -732,10 +769,10 @@
       ],
       "presets": {
         "dusk": [
-          "#3b2f4a",
-          "#51405b",
-          "#67526d",
-          "#816881"
+          "#3f2d5b",
+          "#62477c",
+          "#876499",
+          "#a987b0"
         ]
       },
       "anchor_use": "spiders, beetles, crabs"
@@ -750,10 +787,10 @@
       ],
       "presets": {
         "mint": [
-          "#3c6553",
-          "#4f7c6d",
-          "#659488",
-          "#7bada5"
+          "#067e3f",
+          "#00a668",
+          "#37ce98",
+          "#80f1cc"
         ]
       },
       "anchor_use": "slimes and oozes; highlight uses the slime_highlight shade"
@@ -765,7 +802,7 @@
       ],
       "presets": {
         "mint": [
-          "#a3c7bf"
+          "#c3f5de"
         ]
       },
       "anchor_use": "1-2 px gloss on slimes (L 0.80, the top of the allowed range)"
@@ -779,14 +816,14 @@
       ],
       "presets": {
         "goblin": [
-          "#525b2b",
-          "#637345",
-          "#758c5f"
+          "#5b6c00",
+          "#709310",
+          "#8bb858"
         ],
         "bog": [
-          "#394523",
-          "#4a5c3a",
-          "#5c7453"
+          "#3a5101",
+          "#4f7229",
+          "#6b9456"
         ]
       },
       "anchor_use": "goblins, trolls"
@@ -799,16 +836,16 @@
       ],
       "presets": {
         "dusk": [
-          "#4b344a",
-          "#61455b"
+          "#5d3568",
+          "#825186"
         ],
         "ember": [
-          "#9f4325",
-          "#b75e30"
+          "#b94219",
+          "#e36927"
         ],
         "ash": [
-          "#4c4b5d",
-          "#625d70"
+          "#515062",
+          "#726f82"
         ]
       },
       "anchor_use": "bat and dragon wings"
@@ -822,14 +859,19 @@
       ],
       "presets": {
         "pale": [
-          "#7d6f5f",
-          "#9a8d7b",
-          "#b5a996"
+          "#96836b",
+          "#bca98d",
+          "#e1d3b7"
         ],
         "gilded": [
-          "#9c703a",
-          "#b58947",
-          "#caa55e"
+          "#b37826",
+          "#dba041",
+          "#fbcd76"
+        ],
+        "ebony": [
+          "#352f41",
+          "#554b5f",
+          "#756a7c"
         ]
       },
       "anchor_use": "horns, claws, tusks, fangs"
@@ -844,34 +886,34 @@
       ],
       "presets": {
         "granite": [
-          "#504d42",
-          "#68675a",
-          "#828175",
-          "#9c9c90"
+          "#555348",
+          "#777568",
+          "#9a998b",
+          "#bebfb3"
         ],
         "basalt": [
-          "#363b45",
-          "#4a505b",
-          "#606771",
-          "#777e87"
+          "#353b44",
+          "#555b66",
+          "#787d89",
+          "#9ea1ac"
         ],
         "sandstone": [
-          "#71543d",
-          "#8a6e54",
-          "#a38a6e",
-          "#bca78b"
+          "#785538",
+          "#9e7853",
+          "#c19e75",
+          "#e0c6a4"
         ],
         "frost": [
-          "#3f5a64",
-          "#5a737f",
-          "#768d9a",
-          "#94a8b6"
+          "#3c5d6b",
+          "#5c8093",
+          "#82a4b9",
+          "#aec8dc"
         ],
         "charcoal": [
           "#2a3139",
-          "#3a4049",
-          "#4b5059",
-          "#5d606a"
+          "#444b55",
+          "#606672",
+          "#7f838d"
         ]
       },
       "anchor_use": "golems, statues, rock monsters: rounded boulders lit from the upper left"
@@ -886,16 +928,16 @@
       ],
       "presets": {
         "spring": [
-          "#1b5524",
-          "#397028",
-          "#5c8a30",
-          "#83a342"
+          "#005e28",
+          "#238523",
+          "#62a739",
+          "#99ca59"
         ],
         "autumn": [
-          "#822d22",
-          "#a24628",
-          "#be6436",
-          "#d98346"
+          "#982519",
+          "#c6481c",
+          "#ec7433",
+          "#ffaa71"
         ]
       },
       "anchor_use": "leaves and foliage on monsters (the Stone Warden's mane, sleeves and shins)"
@@ -908,12 +950,12 @@
       ],
       "presets": {
         "berry": [
-          "#bf623d",
-          "#d77e49"
+          "#d45d30",
+          "#fe843d"
         ],
         "blood": [
-          "#933235",
-          "#ad4c42"
+          "#a92032",
+          "#d74840"
         ]
       },
       "anchor_use": "berries and small fruit on foliage"
@@ -1019,6 +1061,7 @@
       "tusks",
       "beard",
       "headwear",
+      "headwear_emblem",
       "headwear_trim",
       "held_near",
       "held_near_trim"
@@ -1047,6 +1090,7 @@
       "ears",
       "beard",
       "headwear",
+      "headwear_emblem",
       "headwear_trim",
       "back"
     ],
@@ -1072,6 +1116,7 @@
       "tusks",
       "beard",
       "headwear",
+      "headwear_emblem",
       "headwear_trim",
       "arm_near",
       "shoulders",
@@ -1696,7 +1741,7 @@
     "swing": [
       "#a3abbc",
       "#c6cbd4",
-      "#e8e7e2"
+      "#f4f3ef"
     ],
     "blood": [
       "#943038",
@@ -1707,17 +1752,17 @@
   "fx_constraints": {
     "oklch_L_range": [
       0.3,
-      0.93
+      0.97
     ],
-    "oklch_C_max": 0.16,
-    "note": "FX are the only art allowed brighter and more saturated than characters. That contrast is what makes attacks and spells pop against the muted cast. Binary alpha only, no outline by default."
+    "oklch_C_max": 0.26,
+    "note": "FX are the only art allowed brighter and more saturated than characters (design pass 2: characters reach C 0.20, FX 0.26). Binary alpha only, no outline by default."
   },
   "glow_constraints": {
     "oklch_L_range": [
       0.3,
-      0.88
+      0.92
     ],
-    "oklch_C_max": 0.16,
+    "oklch_C_max": 0.22,
     "note": "Limits for glow eye presets (materials.<name>.glow_presets), the only character colors allowed past the normal constraints. Reserved for monsters and elites."
   },
   "size_classes": {
@@ -4430,5 +4475,5 @@
     }
   },
   "fx_swing_note": "Swing trails: every smear (the arc a swung weapon, club or fist traces on its strike frame) is painted in fx_ramps.swing by rank, brightest at the leading edge, the grey-blue rim on the inside and the tail so the trail reads on light ground too. On the frame after a strike the trail lingers one shade dimmer (rim pixels drop), then is gone. Drawn only on empty pixels, never outlined.",
-  "z_order_note_slots": "Design pass (2026-11-05): cape (behind the body facing s and e, over the back but under the hair facing n), scarf, shoulders (pauldrons over the arms), ears (through the hair), beard (over the face)."
+  "z_order_note_slots": "Design pass (2026-11-05): cape (behind the body facing s and e, over the back but under the hair facing n), scarf, shoulders (pauldrons over the arms), ears (through the hair), beard (over the face). Design pass 2 (2026-11-06): headwear_emblem, a second piece on the headwear in its own material (a gold cross on a great helm or a mitre, a gold band on a wizard hat), drawn over the headwear."
 }

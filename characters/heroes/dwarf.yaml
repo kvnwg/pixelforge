@@ -1,4 +1,4 @@
-# A dwarf: a copper beard under a horned helm, steel plate with domed pauldrons, and a mace.
+# A dwarf: big curled horns on a steel helm, a huge copper beard, bronze plate with pauldrons, and a mace.
 name: dwarf
 rig: humanoid
 timing_profile: player
@@ -8,7 +8,7 @@ parts:
   hair_front: short
   beard: full
   headwear: horned_helm
-  headwear_trim: horns
+  headwear_trim: horns_curled
   torso_wear: plate
   shoulders: pauldrons
   belt: leather_belt
@@ -18,11 +18,13 @@ parts:
   hands: gauntlets
   held_near: mace
 colors:
-  skin: light (anchor)
+  skin: fair
   hair: copper
-  metal: steel
-  leather: brown (anchor)
-  accent: gold (anchor)
+  metal: bronze
+  leather: chestnut
+  accent: bright gold
   horn: pale
   eyes: dark
+slot_colors:
+  headwear: steel
 anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, dodge, hurt, stun, death, victory]

@@ -1,0 +1,10 @@
+slot: headwear
+variant: tricorn
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: 'A three-cornered hat: a wide brim turned up at both sides.'

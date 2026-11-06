@@ -1,31 +1,26 @@
 name: random_1_21
 rig: humanoid
 timing_profile: player
-seed: 376147493
+seed: 421581360
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
-  belt: leather_belt
-  cape: cloak
+  hair_front: short
+  hair_back: twintails
   eyes: dots
-  feet: boots
-  held_far: shield
-  held_near: sword
+  held_near: lance
   legs_wear: leggings
+  scarf: long
   torso_wear: plate
-  held_near_trim: hilt
-  belt_trim: buckle
+  held_near_trim: spearhead
 colors:
-  accent: ruby
-  cloth: cream
-  eyes: teal
-  hair: copper
-  leather: tan
-  metal: royal gold
+  cloth: azure
+  eyes: dark
+  hair: raven
+  leather: green
+  metal: gold
   skin: tan
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  cape: emerald
+  scarf: ice

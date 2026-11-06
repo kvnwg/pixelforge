@@ -1,0 +1,12 @@
+slot: headwear
+variant: wing_cap
+material: metal
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A rounded cap for a pair of wings (headwear_trim/wings).
+hides:
+- hair_front

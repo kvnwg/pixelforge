@@ -1,30 +1,24 @@
 name: random_1_06
 rig: humanoid
 timing_profile: player
-seed: 791756013
+seed: 1057204341
 parts:
-  hair_front: short
+  hair_front: spiky
+  hair_back: spiky
   belt: sash
-  cape: cloak
   eyes: dots
-  feet: boots
-  headwear: hood
-  held_near: sword
+  hands: gauntlets
+  held_near: mace
   legs_wear: leggings
-  over_torso: tabard
   torso_wear: plate
-  held_near_trim: hilt
 colors:
-  accent: emerald
-  cloth: rose
-  eyes: violet
-  hair: raven
-  leather: red
-  metal: obsidian
-  skin: ember
+  accent: onyx
+  eyes: green
+  hair: lavender
+  leather: white
+  metal: blued
+  skin: ebony
 anims:
 - idle
 - blink
 - walk
-slot_colors:
-  cape: forest

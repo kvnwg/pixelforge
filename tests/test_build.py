@@ -41,6 +41,11 @@ def test_anchor_girl_validates(girl):
 
 
 def test_recolors_match_the_reference(root, style, recipe):
+    """The reference recolor images (Phase 0) record the original muted presets. The anchor's own
+    combination still matches them pixel for pixel; design pass 2 (2026-11-06) regenerated every
+    other preset as a vivid ramp, so for those the recolor must keep the reference's shade
+    structure: each reference color becomes exactly one new color, taken from that combination's
+    presets (index to index), and nothing outside the character changes."""
     spec = json.loads((root / "style" / "recolor_test.json").read_text())
     ref = read_rgba(root / spec["reference_1x"])[..., :3]
     beige = parse_hex(style.raw["preview_backgrounds"]["beige"])
@@ -51,10 +56,20 @@ def test_recolors_match_the_reference(root, style, recipe):
         ours = composite_on(frame.image, beige)
         theirs = ref[oy:oy + 32, i * cell + ox:i * cell + ox + 32]
         character = frame.sprite[..., 3] == 255
-        assert np.array_equal(ours[character], theirs[character]), f"combo {i} character pixels"
-        others = np.argwhere(np.any(ours != theirs, axis=-1))
+        if all("(anchor)" in preset for preset in colors.values()):
+            assert np.array_equal(ours[character], theirs[character]), f"combo {i} character pixels"
+        else:
+            mapping: dict[tuple, set] = {}
+            for a, b in zip(map(tuple, theirs[character]), map(tuple, ours[character])):
+                mapping.setdefault(a, set()).add(b)
+            assert all(len(v) == 1 for v in mapping.values()), f"combo {i}: shade structure changed"
+            allowed = {parse_hex(style.outline.color)}
+            for material, preset in colors.items():
+                allowed |= {parse_hex(c) for c in style.materials[material].presets[preset]}
+            assert {tuple(int(v) for v in c) for c in ours[character]} <= allowed, f"combo {i} colors"
+        outside = np.argwhere(np.any(ours != theirs, axis=-1) & ~character)
         # The reference images have no shadow on row 26 (see style/recolor_test.json).
-        assert {(int(x), int(y)) for y, x in others} <= {(16, 26), (19, 26)}, f"combo {i}"
+        assert {(int(x), int(y)) for y, x in outside} <= {(16, 26), (19, 26)}, f"combo {i}"
 
 
 def test_eyes_and_legs_recolor_independently(root, style, recipe, girl):

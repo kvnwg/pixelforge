@@ -1,25 +1,30 @@
 name: random_1_20
 rig: humanoid
 timing_profile: player
-seed: 1048568374
+seed: 984263429
 parts:
-  hair_front: short
-  hair_back: twintails
-  belt: leather_belt
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
+  cape: cloak
   eyes: dots
-  held_near: mace
-  legs_wear: leggings
-  torso_wear: tunic
-  belt_trim: buckle
+  hands: gauntlets
+  held_near: sword
+  legs_wear: greaves
+  shoulders: pauldrons
+  torso_wear: plate
+  held_near_trim: hilt
 colors:
-  accent: emerald
-  cloth: rose
-  eyes: teal
-  hair: fire
-  leather: red
-  metal: iron
+  accent: sapphire
+  cloth: scarlet
+  eyes: dark
+  hair: mint
+  metal: crimson
   skin: ash
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  cape: violet

@@ -1,0 +1,10 @@
+slot: headwear
+variant: circlet
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A gold crown band over the hair with three points.

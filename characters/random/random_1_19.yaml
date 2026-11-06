@@ -1,24 +1,23 @@
 name: random_1_19
 rig: humanoid
 timing_profile: player
-seed: 581760420
+seed: 774922143
 parts:
-  hair_front: short
-  hair_back: twintails
-  belt: leather_belt
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: sash
+  ears: cat
   eyes: dots
-  held_far: shield
+  feet: boots
   legs_wear: leggings
   torso_wear: tunic
-  belt_trim: buckle
 colors:
-  accent: gold (anchor)
-  cloth: teal
-  eyes: brown
-  hair: raven
-  leather: red
-  metal: royal gold
-  skin: dusk
+  accent: onyx
+  cloth: sunflower
+  eyes: violet
+  hair: black
+  leather: tan
+  skin: ebony
 anims:
 - idle
 - blink

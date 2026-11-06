@@ -344,14 +344,14 @@ def main() -> None:
         "name": "goblin", "family": "goblin", "rig": RIG, "timing_profile": "enemy", "seed": 1,
         "parts": {"ears": "goblin", "eyes": "goblin", "over_torso": "loincloth",
                   "held_near": "goblin_club"},
-        "colors": {"hide": "goblin", "cloth": "mustard", "leather": "brown (anchor)", "eyes": "glow yellow"},
+        "colors": {"hide": "goblin", "cloth": "mustard", "leather": "chestnut", "eyes": "glow yellow"},
         "anims": common,
     })
     write_recipe("monsters/goblin_chief.yaml", {
         "name": "goblin_chief", "family": "goblin", "rig": RIG, "timing_profile": "elite", "seed": 1,
         "parts": {"ears": "goblin", "eyes": "goblin", "over_torso": "loincloth",
                   "held_near": "goblin_club", "headwear": "crown"},
-        "colors": {"hide": "bog", "cloth": "crimson", "leather": "dark", "accent": "gold (anchor)",
+        "colors": {"hide": "bog", "cloth": "crimson", "leather": "dark", "accent": "bright gold",
                    "eyes": "glow red"},
         "anims": common,
     })

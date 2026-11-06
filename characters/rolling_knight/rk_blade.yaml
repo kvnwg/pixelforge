@@ -1,4 +1,4 @@
-# Rolling Knight blade: Fighter. Spiky black hair, a scarlet scarf that streams behind, a dark tunic and a sword. See docs/GAMES.md.
+# Rolling Knight blade: Fighter. Spiky black hair, a long scarlet scarf streaming out behind, a black tunic and a sword. See docs/GAMES.md.
 name: rk_blade
 rig: humanoid
 timing_profile: player
@@ -7,7 +7,7 @@ parts:
   eyes: dots
   hair_front: spiky
   hair_back: spiky
-  scarf: wrap
+  scarf: long
   torso_wear: tunic
   belt: leather_belt
   belt_trim: buckle
@@ -16,11 +16,11 @@ parts:
   held_near: sword
   held_near_trim: hilt
 colors:
-  skin: light (anchor)
-  hair: raven
+  skin: fair
+  hair: black
   cloth: ink
   leather: black
-  accent: gold (anchor)
+  accent: bright gold
   metal: steel
   eyes: dark
 slot_colors:

@@ -532,3 +532,49 @@ Asked for, with a reference image of a black knight in battle-worn plate, a tatt
 - **Engine:** `write_part(..., prune=True)` deletes the sheets a part folder no longer gets, so a trail an older version of a script drew cannot linger and still be composited (an old front slam trail did, until the review caught it).
 
 Validates with 0 errors and 0 warnings (both recipes); `tests/test_rook.py`. The review notes and rubric are in MONSTERS.md section 5.10.
+
+---
+
+## Design pass 2: a vibrant cast
+
+Status: done (commit "Design pass 2: a vibrant cast")
+
+Asked for, with two references (a painterly set of five heroes with flowing capes and scarves, gold and steel armor, a royal-blue cape and orange sashes; and a chibi "Tiny RPG" pack at our scale with saturated reds and blues, shining steel, plumes, crosses, horns and a giant wizard hat): "i want new more interesting designs. right now every character is a weird dull shade, i want them to be vibrant and interesting and unique. with certain characteristics on their body like scarves or weird hats or capes or whatever".
+
+**Diagnosis (measured, before drawing).** The dullness is the palette, by design: the style was built muted around the anchor. Cloth ramps have 2 shades 0.06 L apart (navy 0.40 and 0.46) and most presets sit at L 0.40 to 0.55 and C 0.03 to 0.08; steel tops out at L 0.74 with no glint; nothing in a character may go above L 0.84 or C 0.13. So every outfit is one flat, mid-dark color and the cast blends together on any ground. Rolling Knight's own art (`src/render/art/knights.ts`) is far brighter: 5-shade metals up to near-white, saturated 4-shade cloth, a plume in the complementary hue. The accessories are also too timid to change a silhouette at 1x: the plume and horns are 1 px stubs, the scarf a short band, the cape a sliver at the shoulders facing s, the hats 3 rows tall.
+
+**The target.**
+- **Palette.** Characters may use L 0.30 (the outline stays the darkest value) to 0.95 (never pure white) and C up to 0.20; shades step 0.06 to 0.18 in L; 32 colors per frame. Every non-anchor preset is regenerated from a (hue, chroma, lightness, step) spec: chromatic presets at C 0.14 to 0.20 with mids at L 0.55 to 0.70; neutrals (steel, iron, snow, ink, black leather) stay grey but get a wide value range, so steel and gold shine with a near-white glint. FX stay brighter still (C up to 0.24). The anchor's own presets stay exact: she is the reference for shapes, proportions, outline and shading, and the muted end of the palette.
+- **Every character has three things:** a signature color at full chroma on its biggest cloth area, unique in the cast; a signature shape that changes the 1x silhouette (a tall or bent hat, a scarf trailing to one side, a cape flaring past the shoulders, a big plume, curled horns, a big shield); and a value plan (one dark, one bright) so it reads on light and dark ground.
+- **Bolder parts:** a big curling plume that sways; curled horns; a long scarf whose tail trails 5 to 7 px behind and waves; a cape that flares past both shoulders down to the ankles; a giant wizard hat with a bent tip and a gold band; a tall mitre with a gold cross; a tricorn; a pointed hood with a tail; a gold cross for great helms (a new `headwear_emblem` slot holds crosses and hatbands, since a part has one material).
+
+| Character | Signature color | Signature shape | Notes |
+|---|---|---|---|
+| Guardian (RK) | royal blue and gold | great helm with a gold cross and a tall blue plume; big kite shield | bright steel plate, blue tabard; mace |
+| Blade (RK) | scarlet | a long scarlet scarf streaming behind | spiky black hair, black leathers; sword |
+| Ranger (RK) | emerald | a pointed hood with a long tail, a cape | tan leathers, a quiver; bow |
+| Cleric (RK) | white and gold | a tall white mitre with a gold cross | red hair in twin tails, white robe; staff |
+| Arcanist (RK) | violet | a giant bent wizard hat with a gold band | long white beard, violet robe; orb staff |
+| Lancer (RK) | tangerine and gold | winged helm with white wings and a plume | gold plate, orange tabard; lance |
+| Knight | scarlet and azure | a tall scarlet plume on a shining great helm; a flared azure cape | scarlet tabard; sword |
+| Paladin | gold, white and royal blue | a big royal-blue cape flaring wide; a crown | gold plate, white tabard, dark hair; sword and shield |
+| Corsair | teal | a black tricorn with a red feather | long teal coat, red sash, deep skin; sword |
+| Dwarf | copper | big curled horns on a steel helm, a huge copper beard | wine tunic; mace |
+| Catfolk scout | bubblegum and sunflower | cat ears, pink twin tails and a long yellow scarf | azure tunic, white boots |
+| Frost elf | ice blue | long platinum hair, elf ears, a flared ice cape | frost skin, snow robe; staff |
+| Ember warlock | flame orange | big dark horns and a flame-orange scarf | ember skin, black robe; staff |
+| Monsters | | | the same vivid presets: brighter skins, fur, scales and glow eyes |
+
+Done means: every character above matches its row at 1x on beige, light and dark ground, no two share a signature color and shape, the cast validates with 0 errors and 0 warnings, and the rubric scores 4 or more.
+
+**As built.**
+- `tools/art/palette_presets.py` regenerates 120 presets (and adds magenta, lime, turquoise, ice, flame and midnight cloth, chestnut and snow hair, chestnut leather, a bright gold accent and ebony horn); `pf palette --check` passes with 0 errors and 0 warnings. `color.oklch_to_rgb` makes the colors, lowering chroma into gamut. The anchor's presets are untouched and she still rebuilds pixel-exact; the Phase 0 recolor images now record the original palette (tests/test_build.py checks the shade structure).
+- `tools/art/parts_vivid.py`: `headwear_trim/plume_tall`, `headwear_trim/horns_curled`, `headwear_trim/wings`, `scarf/long`, `cape/mantle`, `headwear/pointed_hood`, `headwear/tricorn`, `headwear/mitre_tall`, `headwear/wing_cap`, `headwear/circlet`, and the new `headwear_emblem` slot (`cross_helm`, `cross_mitre`, `hatband`). The scarf and cape follow through; head trims do not.
+- Limits found on the way. The head rises 3 px in a dodge or victory and 4 px in a backflip or vault, so tall headgear starts at row 6 (row 7 on a backflipper or vaulter) and the plume is 3 rows tall, sweeping back over the helm facing e instead of rising; the knight keeps the whole combat set. A blocked hit pushes 3 px, so the scarf's tail facing e is 6 px. Shades come in 2 px clusters (the scarf's tail in 2 x 2 bands, the cape's edges as solid strips), which took W3 from about a thousand warnings to none. E7 no longer counts capes, scarves and head trims, which stream to one side by design.
+- Recipes: the six Rolling Knight classes, the knight, the six heroes, the enemy knight and the goblins per the table above; the dwarf wears bronze plate under a steel helm. `parts/compat.yaml` deals the new parts to random characters and never the anchor's muted presets; `pf random --seed 1 --count 24` was redrawn.
+- Every recipe builds with 0 errors and 0 warnings.
+
+What the review images show (beige, light and dark ground, 1x and zoomed). The knight's red plume curls over a shining helm and arcs back facing e while a royal-blue cape flares on both sides and trails behind as a triangle. The paladin is gold plate and a white tabard under a gold circlet and black hair, a deep blue cape behind. The corsair is a wide black tricorn with a red feather over a teal coat and a red sash. The dwarf's ivory horns sweep out past his head above a copper beard. The catfolk scout's yellow scarf streams out past her pink twin tails, the blade's scarlet one past his black spikes, the warlock's flame-orange one under ivory horns. The guardian is a white-plumed great helm with a gold cross; the ranger an emerald hood whose point flops over, on a darker cape; the cleric a tall white mitre with a gold cross over fire-red hair; the arcanist a violet hat with a gold band; the lancer white wings on a gold cap. Monsters picked up the vivid presets: a lime goblin, a mint slime, a purple bat, bright ivory bones, an ice-blue frost wolf, an orange dragon.
+
+Rubric: style match 4 (the anchor's proportions, outline and shading, in a brighter palette by request), 1x readability 5, silhouette 5, motion 4 (the cape and scarf follow through), consistency 4, cleanliness 4, part fit 4, appeal 5, combat readability 4. Known limits: the plume is 3 rows tall because of the backflip; the frost elf is still the palest of the cast; random characters can land on loud color pairs.
+

@@ -1,28 +1,24 @@
-# Rolling Knight cleric: Healer. A gold mitre and cloak over a white robe, golden hair and an orb staff. See docs/GAMES.md.
+# Rolling Knight cleric: Healer. A tall white mitre with a gold cross, fire-red twin tails, a white robe with a gold sash and a gold orb staff. See docs/GAMES.md.
 name: rk_cleric
 rig: humanoid
 timing_profile: player
 seed: 1
 parts:
   eyes: dots
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
-  headwear: mitre
+  hair_front: short
+  hair_back: twintails
+  headwear: mitre_tall
+  headwear_emblem: cross_mitre
   torso_wear: robe
-  cape: cloak
   belt: sash
   legs_wear: leggings
   held_near: staff
   held_near_trim: orb
 colors:
   skin: fair
-  hair: golden
+  hair: fire
   cloth: snow
   leather: white
-  accent: gold (anchor)
+  accent: bright gold
   eyes: blue
-slot_colors:
-  cape: sunflower
-  headwear: sunflower
 anims: [idle, blink, walk, run, combat_idle, cast, roll, hurt, stun, death, victory]

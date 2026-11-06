@@ -1,0 +1,10 @@
+slot: scarf
+variant: long
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: A scarf wrapped over the collar, its long tail streaming out to one side in bands; it follows through.

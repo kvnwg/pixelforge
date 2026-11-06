@@ -72,7 +72,7 @@ pixelforge/
     anim.py         animation definitions: timing, loops, per-frame flags, events
     rig.py          rigs: size class, z-order, anchors.json
     grid.py         character grids: how art is drawn in code, and dumped for review
-    color.py        hex/rgb/oklch helpers, ramp checks
+    color.py        hex/rgb/oklch helpers (oklch_to_rgb keeps L and h and lowers C into gamut), ramp checks
     palette.py      pf palette --check: every ramp against its limits, swatch sheet
     sheet.py        read/write grid sheets (cells of 32x32)
     parts.py        part loading, part.yaml schema
@@ -194,15 +194,15 @@ A rig may name **default parts** in `style.json` (`rigs.<rig>.defaults`): every 
 
 Z-order comes from `style.json` (`z_order.s`, `z_order.e`, `z_order.n`), bottom to top. Defaults:
 
-- **s:** shadow, cape, back, hair_back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, held_far, arm_near, hands, scarf, shoulders, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_trim, held_near, held_near_trim
-- **e:** shadow, held_far, arm_far, cape, back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, scarf, hair_back, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_trim, arm_near, shoulders, hands, held_near, held_near_trim
-- **n:** shadow, held_far, held_near, held_near_trim, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, arm_near, hands, cape, scarf, shoulders, hair_front, hair_locks, hair_back, ears, beard, headwear, headwear_trim, back
+- **s:** shadow, cape, back, hair_back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, held_far, arm_near, hands, scarf, shoulders, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_emblem, headwear_trim, held_near, held_near_trim
+- **e:** shadow, held_far, arm_far, cape, back, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, scarf, hair_back, hair_front, hair_locks, ears, eyes, tusks, beard, headwear, headwear_emblem, headwear_trim, arm_near, shoulders, hands, held_near, held_near_trim
+- **n:** shadow, held_far, held_near, held_near_trim, body, legs_wear, feet, torso_wear, over_torso, belt, belt_trim, arm_far, arm_near, hands, cape, scarf, shoulders, hair_front, hair_locks, hair_back, ears, beard, headwear, headwear_emblem, headwear_trim, back
 
 Notes: in the N view, `hair_back` is drawn over the head because it's what you see from behind, and a quiver (`back`) goes over everything. The design pass slots (2026-11-05): `cape` hangs behind the body facing s and e and covers the back facing n, under the hair; `scarf` wraps the collar; `shoulders` (pauldrons) sit over the arms; `ears` poke through the hair; `beard` lies over the face and chest. Arms are above clothing in S and N because they hang beside the torso. In E, the near arm and its held item are in front of everything.
 
 `hides`: a part can hide other slots (a helmet hides `hair_front`, `hair_locks` and `hair_back`). Hidden slots are skipped entirely.
 
-Trim slots (added in Phase 4): `headwear_trim` (a plume), `belt_trim` (a buckle) and `held_near_trim` (a hilt, an orb, a spearhead) hold the second material of a two-material item, since every part has one material. Facing s, `held_far` sits just above the far arm, so a shield on it is in front of the body (the kit first had it behind the body, where a shield barely showed). Eyes sit above `hair_locks` so a lowered lock never hides an eye.
+Trim slots (added in Phase 4): `headwear_trim` (a plume), `belt_trim` (a buckle) and `held_near_trim` (a hilt, an orb, a spearhead) hold the second material of a two-material item, since every part has one material. `headwear_emblem` (design pass 2) holds a third piece on the headwear, drawn over it: a gold cross on a great helm while the trim slot holds its plume, a cross on a mitre, a band on a wizard hat. Facing s, `held_far` sits just above the far arm, so a shield on it is in front of the body (the kit first had it behind the body, where a shield barely showed). Eyes sit above `hair_locks` so a lowered lock never hides an eye.
 
 `hair_locks` (added in Phase 1): the loose hair in front that trails the head by one frame. Facing s these are the outer locks framing the face (ANIMATION_SPEC.md section 2); `hair_front` holds the rest of the front hair, which moves with the head. A slot of its own keeps `lags` a whole-part setting.
 
@@ -290,6 +290,8 @@ Grounded frames measure open soles from the baseline rather than the lowest silh
 - A preset must have exactly that many shades.
 - Recolor maps base shade i to preset shade i. Because each part declares one material, colors shared between materials (eyes vs cloth, leather vs hair) never collide.
 - `pf palette --check` verifies every preset against the constraints in `style.json` (L range, C max, step size, hue shift direction) and renders a swatch sheet. Hard limits are errors; step size and hue shift are warnings, and known deviations are accepted in `constraints.accepted_ramp_warnings` (STYLE_GUIDE.md section 4).
+
+Presets (design pass 2, 2026-11-06) are generated by `tools/art/palette_presets.py` from a spec per preset (hue, chroma, first lightness, lightness step, hue step) and written into `style.json`; only the anchor's own presets are kept as measured. Run `pf palette --check` after changing a spec.
 
 ## 12. Mirroring
 

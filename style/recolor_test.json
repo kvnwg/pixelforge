@@ -1,5 +1,5 @@
 {
-  "note": "The eight color combinations shown in recolor_test_6x.png and recolor_test_1x.png (left to right), read back from the images in Phase 1. Eyes stay navy in all eight. The reference images were rendered without the ground shadow's row 26 (x 16 and 19), so those two pixels differ; anchor_with_shadow.png is the reference for the shadow.",
+  "note": "The eight color combinations shown in recolor_test_6x.png and recolor_test_1x.png (left to right), read back from the images in Phase 1. Eyes stay navy in all eight. The reference images were rendered without the ground shadow's row 26 (x 16 and 19), so those two pixels differ; anchor_with_shadow.png is the reference for the shadow. Design pass 2 (2026-11-06) regenerated every preset except the anchor's as vivid ramps, so the images now record the original muted palette: the anchor's combination still matches them exactly and the others keep their shade structure (tests/test_build.py).",
   "reference_1x": "style/recolor_test_1x.png",
   "cell": 34,
   "offset": [1, 1],

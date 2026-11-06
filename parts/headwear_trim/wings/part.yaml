@@ -1,0 +1,10 @@
+slot: headwear_trim
+variant: wings
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: White feathered wings sweeping out and up from a cap's sides.

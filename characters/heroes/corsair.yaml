@@ -1,4 +1,4 @@
-# A corsair: red bandana, a sunflower scarf masking the chin, an ink tunic and a sword.
+# A corsair: a black tricorn with a red feather, a long teal coat with a red sash, deep skin and a sword.
 name: corsair
 rig: humanoid
 timing_profile: player
@@ -6,23 +6,22 @@ seed: 1
 parts:
   eyes: dots
   hair_front: short
-  headwear: bandana
-  scarf: wrap
-  torso_wear: tunic
+  headwear: tricorn
+  headwear_trim: feather
+  torso_wear: robe
   belt: sash
   legs_wear: leggings
   feet: boots
   held_near: sword
   held_near_trim: hilt
 colors:
-  skin: ebony
-  hair: raven
-  cloth: scarlet
+  skin: deep
+  hair: black
+  cloth: teal
   leather: black
-  accent: gold (anchor)
+  accent: red
   metal: steel
   eyes: dark
 slot_colors:
-  torso_wear: ink
-  scarf: sunflower
+  headwear: ink
 anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, dodge, hurt, stun, death, victory]

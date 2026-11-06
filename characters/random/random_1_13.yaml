@@ -1,25 +1,26 @@
 name: random_1_13
 rig: humanoid
 timing_profile: player
-seed: 39364905
+seed: 457802281
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
-  belt: sash
+  hair_front: short
+  belt: leather_belt
   eyes: dots
   feet: boots
   legs_wear: leggings
-  shoulders: pauldrons
+  scarf: long
   torso_wear: tunic
+  belt_trim: buckle
 colors:
-  accent: orange
-  cloth: crimson
-  eyes: violet
-  hair: fire
-  leather: black
-  metal: obsidian
-  skin: ember
+  accent: onyx
+  cloth: wine
+  eyes: brown
+  hair: blonde
+  leather: white
+  skin: ebony
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  scarf: mustard

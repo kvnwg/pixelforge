@@ -1,28 +1,26 @@
 name: random_1_02
 rig: humanoid
 timing_profile: player
-seed: 868560209
+seed: 280012817
 parts:
   hair_front: ponytail
   hair_back: ponytail
-  belt: leather_belt
+  belt: sash
   eyes: dots
   feet: boots
-  headwear: hood
+  headwear: bandana
   held_near: sword
   legs_wear: leggings
-  over_torso: tabard
-  torso_wear: tunic
+  torso_wear: dress
   held_near_trim: hilt
-  belt_trim: buckle
 colors:
   accent: red
-  cloth: mustard
+  cloth: teal
   eyes: green
-  hair: brown (anchor)
+  hair: lavender
   leather: green
-  metal: gold
-  skin: dusk
+  metal: bronze
+  skin: frost
 anims:
 - idle
 - blink

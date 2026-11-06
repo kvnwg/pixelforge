@@ -2,7 +2,7 @@
 
 Combat art has a job beyond looking good: it has to tell the player what is about to happen, exactly when it happens, and what it hit. This doc covers the combat animation set for humanoids, the gameplay data exported with it (phases, events, hitboxes, root motion), timing rules for telegraphs, and the FX library. Monster-specific combat animations are in MONSTERS.md and follow the same rules.
 
-`style/examples/battle_mock_6x.png` shows the intended look: muted characters, bright FX.
+`style/examples/battle_mock_6x.png` shows the original look: muted characters, bright FX. Since design pass 2 (2026-11-06) the characters are vivid and FX keep the lightest, near-white cores (STYLE_GUIDE.md section 11).
 
 ---
 
@@ -369,7 +369,7 @@ These are engine-side, not pixelforge's job, but the art is timed assuming them:
 
 ## 8. Combat readability rules
 
-- Characters stay muted; FX and glow eyes carry the brightness. Never make a character brighter to make it "pop".
+- FX and glow eyes carry the lightest values: a character never gets a white core or a glow to make it "pop"; its signature color and silhouette do that (STYLE_GUIDE.md section 14).
 - An enemy's tell must be visible for the full telegraph time; FX never cover it.
 - Different enemies need different silhouettes (MONSTERS.md section 7), not just different colors.
 - Allies and enemies should be distinguishable at a glance. Glow eyes are reserved for enemies by default.

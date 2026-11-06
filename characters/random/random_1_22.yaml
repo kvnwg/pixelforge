@@ -1,21 +1,33 @@
 name: random_1_22
 rig: humanoid
 timing_profile: player
-seed: 547386200
+seed: 82736873
 parts:
-  belt: sash
+  hair_front: short
+  hair_back: twintails
+  belt: leather_belt
+  cape: cloak
   eyes: dots
   feet: boots
-  held_near: bow
+  headwear: mitre_tall
+  held_near: sword
   legs_wear: leggings
-  torso_wear: tunic
+  torso_wear: dress
+  held_near_trim: hilt
+  belt_trim: buckle
+  headwear_emblem: cross_mitre
 colors:
-  accent: orange
-  cloth: teal
-  eyes: violet
-  leather: green
-  skin: frost
+  accent: sapphire
+  cloth: rose
+  eyes: blue
+  hair: mint
+  leather: chestnut
+  metal: rose gold
+  skin: green (orc)
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  cape: ice
+  headwear: teal

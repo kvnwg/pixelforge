@@ -1,0 +1,10 @@
+slot: headwear_emblem
+variant: cross_mitre
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A gold cross on a mitre.

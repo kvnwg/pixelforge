@@ -1,0 +1,10 @@
+slot: headwear_emblem
+variant: hatband
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A gold band around a wizard hat's crown.

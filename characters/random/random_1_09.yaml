@@ -1,28 +1,27 @@
 name: random_1_09
 rig: humanoid
 timing_profile: player
-seed: 870272204
+seed: 169334186
 parts:
   hair_front: short
-  belt: leather_belt
-  cape: cloak
   eyes: dots
-  held_far: shield
-  legs_wear: leggings
+  headwear: ranger_hat
+  held_near: lance
+  legs_wear: greaves
   shoulders: pauldrons
   torso_wear: plate
-  belt_trim: buckle
+  held_near_trim: spearhead
+  headwear_trim: feather
 colors:
-  accent: orange
-  cloth: snow
-  eyes: green
-  hair: mint
-  leather: red
-  metal: steel
-  skin: ember
+  accent: pearl
+  eyes: brown
+  hair: chestnut
+  leather: green
+  metal: obsidian
+  skin: ebony
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  cape: rose
+  headwear_trim: sapphire

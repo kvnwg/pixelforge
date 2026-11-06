@@ -1,4 +1,4 @@
-# Rolling Knight guardian: Tank. Blued plate with domed pauldrons, a scarlet cloak and plume, flanged mace and heater shield. See docs/GAMES.md.
+# Rolling Knight guardian: Tank. A great helm with a gold cross and a white plume, shining steel plate and pauldrons, an azure tabard, flanged mace and heater shield. See docs/GAMES.md.
 name: rk_guardian
 rig: humanoid
 timing_profile: player
@@ -6,10 +6,11 @@ seed: 1
 parts:
   eyes: dots
   headwear: great_helm
-  headwear_trim: plume
+  headwear_emblem: cross_helm
+  headwear_trim: plume_tall
   torso_wear: plate
   shoulders: pauldrons
-  cape: cloak
+  over_torso: tabard
   belt: leather_belt
   belt_trim: buckle
   legs_wear: greaves
@@ -18,10 +19,12 @@ parts:
   held_near: mace
   held_far: shield
 colors:
-  metal: blued
-  cloth: scarlet
+  metal: steel
+  cloth: azure
   leather: black
-  accent: gold (anchor)
-  skin: light (anchor)
+  accent: bright gold
+  skin: fair
   eyes: dark
+slot_colors:
+  headwear_trim: snow
 anims: [idle, blink, walk, run, combat_idle, attack_slash, attack_heavy, block_enter, block_hold, block_impact, roll, hurt, stun, death, victory]

@@ -10,7 +10,7 @@ When this guide and the anchor disagree, the anchor wins. When a new design ques
 
 ## 1. The style in one paragraph
 
-Tiny chibi characters for a cozy top-down RPG, seen from slightly above (low top-down, about 3/4). About 11 px wide and 18 px tall, with a huge head (10 of the 18 rows). Warm colors with no black and no white: the anchor itself is muted, and the cast around it is a colorful roster where every character has a signature color and a silhouette of its own (section 13). A dark plum outline wraps the outer edge with rounded corners. Shading is minimal: two or three tones per material in flat clusters, no gradients, no dithering. The face is just two single-pixel eyes. A soft translucent shadow sits under the feet.
+Tiny chibi characters for a top-down RPG, seen from slightly above (low top-down, about 3/4). About 11 px wide and 18 px tall, with a huge head (10 of the 18 rows). A vibrant cast (design pass 2, section 14): every character wears a saturated signature color and a shape of its own (a tall hat, a plume, horns, a cape flaring past the shoulders, a scarf streaming out), metal shines up to a near-white glint, and the anchor herself stays the muted reference for shapes, outline and shading. A dark plum outline wraps the outer edge with rounded corners. Shading is minimal: two to four tones per material in flat clusters, no gradients, no dithering. The face is just two single-pixel eyes. A soft translucent shadow sits under the feet.
 
 ---
 
@@ -80,8 +80,8 @@ Head to body ratio is 10:8, so the head is about 55% of the height. This ratio i
 Rules:
 
 - Head height stays 10 rows in every direction and every frame, except frames explicitly flagged as squash (hurt, death).
-- Standing height stays 18 rows. Headgear may add at most 2 rows above row 10.
-- In S and N views, nothing except held items and effects is wider than the head (11 px).
+- Standing height stays 18 rows. Headgear may rise to row 6, or row 7 on a character that backflips or vaults: the head lifts up to 4 px in those moves (3 in a dodge or victory) and the outline must stay inside the safe area (E8). Trims on the head never lag, so the head keeps its height (E10). (Design pass 2, 2026-11-06; until then 2 rows.)
+- In S and N views the body (head, torso, arms, legs) is never wider than the head (11 px). The pieces that make a silhouette may reach past it: brims, horns, wings, a cape's flare and a scarf's tail, as far as x 4..26, still inside the safe area after any knockback (a block pushes 3 px). (Design pass 2; until then only held items and effects.)
 - All art stays inside x 2..29 and y 2..30 so effects and outlines never clip the canvas.
 
 Stance: the viewer-left foot is planted on the baseline (row 27) and the viewer-right foot is set back one pixel higher (row 26, drawn as two outline-colored pixels). This relaxed, weight-on-one-leg stance is the idle base pose, and the anchor is exactly `idle_s` frame 0.
@@ -109,11 +109,11 @@ Twelve colors total, plus the translucent ground shadow.
 
 Rules for any new color (checked by the validator and by eye):
 
-- Lightness (OKLCH L) between 0.30 and 0.84. The outline is the darkest value in any sprite. Nothing is near white, except FX (swing trails, sparks) and the effect flash color in flash frames.
+- Lightness (OKLCH L) between 0.30 and 0.95. The outline is the darkest value in any sprite. Never pure white: the lightest shades are a metal's glint, white cloth and pale hair. Raised from 0.84 on 2026-11-06 (design pass 2, section 14).
 - Chroma (OKLCH C) at most 0.13. The anchor's own colors sit between 0.03 and 0.09 and stay there; bold presets (royal, scarlet, emerald, violet, sunflower, fire hair, frost skin...) go up to 0.13 so characters can carry a signature color. Raised from 0.09 and L 0.80 on 2026-11-05 at the human's request ("characters different and interesting with different colours and designs").
-- Shades within a ramp step by about 0.05 to 0.10 in L.
+- Shades within a ramp step by about 0.05 to 0.18 in L (the vivid ramps use 0.10 to 0.14, so a material reads light to dark instead of as one flat color).
 - Hue shifts warmer as shades get lighter: hair goes 44 to 51 to 58 degrees, accent goes 67 to 77. Use 3 to 10 degrees per step. Darker shades lean redder or cooler; lighter shades lean yellower.
-- At most 24 colors in any single frame (the anchor uses 12). Raised from 16 on 2026-11-05: two-tone outfits, 4-shade metals and fantasy skins need room.
+- At most 32 colors in any single frame (the anchor uses 12). Raised from 16 on 2026-11-05 and to 32 on 2026-11-06: two-tone outfits, emblems, 4-shade metals and fantasy skins need room.
 - Never pure black (#000000) or pure white (#ffffff), anywhere.
 
 How `pf palette --check` enforces these (decided in Phase 0; settings in `style.json` under `constraints`):
@@ -121,7 +121,7 @@ How `pf palette --check` enforces these (decided in Phase 0; settings in `style.
 - **Errors** (block a build): L or C outside the limits, pure black or white, shades not ordered dark to light, a color darker than the outline. Limits get a tolerance of 0.002 (`limit_tolerance`), less than one hex step, because colors placed exactly on a limit (the slime gloss at L 0.80, the brightest fire at C 0.14) round slightly past it in 8-bit hex.
 - **Warnings** (guidance for new presets): the lightness step (0.05 to 0.10, with 0.005 of slack) and the hue shift (+3 to +10 degrees per lighter step, the hue angle increasing). The hue rule is skipped for near-gray ramps (mean C under 0.02: steel, iron, silver), where hue is meaningless.
 - **Accepted:** the anchor's own ramps break the hue guide (skin shifts only 1.5 to 2.6 degrees, the navy dress turns 6 degrees cooler, the leather's dark shade is redder than its hair browns). The anchor wins, so these, the fair and tan skins that copy the anchor's small skin shift, and ivory bone (0.1 degrees short) are listed in `accepted_ramp_warnings` with their reasons. A new preset must pass the guide or be added there with a reason; the tests fail otherwise.
-- **Brighter limits:** glow eye presets (`materials.eyes.glow_presets`) use `glow_constraints` (L up to 0.85, C up to 0.14); FX ramps and the flash color use `fx_constraints` (L up to 0.93, C up to 0.14).
+- **Brighter limits:** glow eye presets (`materials.eyes.glow_presets`) use `glow_constraints` (L up to 0.92, C up to 0.22); FX ramps and the flash color use `fx_constraints` (L up to 0.93, C up to 0.14).
 
 ---
 
@@ -219,9 +219,9 @@ How the humanoid turnaround was drawn (Phase 2, measured from the parts in `part
 
 ---
 
-## 11. Brightness belongs to FX
+## 11. The brightest pixels belong to FX
 
-Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact, swing, blood; see `fx_ramps` in `style.json`) and glow eye presets may go brighter and more saturated (L up to 0.93 and 0.88, C up to 0.16). In combat, that contrast is what makes attacks, spells and enemy tells pop without the characters losing their soft look. `style/examples/battle_mock_6x.png` shows the balance.
+Characters and monsters stay inside the palette limits above. Only effects (fire, ice, poison, arcane, holy, shadow, impact, swing, blood; see `fx_ramps` in `style.json`) and glow eye presets may go further (FX to L 0.97 and C 0.26, glow eyes to L 0.92 and C 0.22). Since design pass 2 the characters are vivid too, so FX are told apart by their near-white cores and by being the only light-cored, unoutlined shapes on screen, not by the characters being dull. `style/examples/battle_mock_6x.png` shows the original, muted balance.
 
 ## 12. What breaks this style
 
@@ -229,7 +229,7 @@ These are the mistakes to watch for in every review:
 
 - Faces getting bigger or more detailed (2 px eyes, mouths, noses, eye highlights)
 - Black outlines or black shading
-- Highlights near white, or neon colors past the chroma limit (0.13)
+- Pure white, or neon colors past the chroma limit (0.20); a whole character in one flat mid-dark color
 - A cast that all reads the same: one silhouette in grey and brown (section 13)
 - Antialiased or semi-transparent edges
 - Gradients, pillow shading, dithering, banding
@@ -249,3 +249,12 @@ The human's direction, with a reference roster of chibi sprites: characters shou
 
 The randomizer follows the same rules (`parts/compat.yaml`): new hairstyles and slots, `slot_colors` chances for a second signature color, exclusions where pieces would poke through each other, and every random character must validate cleanly.
 
+## 14. A vibrant cast (design pass 2, 2026-11-06)
+
+The human's direction, with two references (painterly heroes with flowing capes and scarves; a chibi pack at our scale with saturated reds and blues, shining steel, plumes, crosses, horns and a giant wizard hat): "i want new more interesting designs. right now every character is a weird dull shade, i want them to be vibrant and interesting and unique. with certain characteristics on their body like scarves or weird hats or capes or whatever". The dullness was measured (ROADMAP.md, design pass 2): cloth ramps 0.06 L apart at L 0.40 to 0.55 and C 0.03 to 0.08, steel topping out at L 0.74, nothing above L 0.84. Rolling Knight's own sprites are far brighter.
+
+- **Vivid ramps.** Every preset except the anchor's is generated by `tools/art/palette_presets.py` from a spec: a hue, a chroma, the first lightness, a lightness step and a hue step per lighter shade, with a little less chroma at the ends of a ramp. Chromatic presets carry C 0.14 to 0.20 with mids around L 0.55 to 0.70; neutrals (steel, iron, snow, ink, black leather) stay grey but span a wide value range, so metal reads dark to a near-white glint. Colors are made in OKLCH and brought into sRGB by lowering chroma only (`color.oklch_to_rgb`), so the value steps survive. Change a preset there, not in `style.json`.
+- **Every character has three things:** a signature color at full chroma on its biggest cloth area, not shared with another cast member; a signature shape that changes the 1x silhouette (`parts_vivid.py`: a plume that curls over a great helm and sweeps back facing e, curled horns, a long scarf whose tail streams 6 px out in 2 x 2 bands, a cape that flares past both shoulders to the ankles, a pointed hood, a tricorn, a tall mitre, white wings on a cap, a gold circlet); and a value plan, one dark and one bright, so it reads on beige, light and dark ground.
+- **Emblems** are their own slot (`headwear_emblem`, drawn over the headwear) because a part has one material: a gold cross on a great helm or a mitre, a gold band on a wizard hat.
+- **Two of a kind is a family, not a cast.** Hood and cape in the same green read as one blob (the ranger's cape is a darker green); horns as dark as the hair vanish into it (the warlock's are ivory); a pale robe under a pale cape on pale skin washes out (the frost elf's cape is deep teal).
+- **Random characters** (`parts/compat.yaml`) draw the new parts and never the anchor's muted presets.

@@ -1,28 +1,32 @@
 name: random_1_18
 rig: humanoid
 timing_profile: player
-seed: 20827103
+seed: 775201599
 parts:
-  hair_front: short
+  hair_front: ponytail
+  hair_back: ponytail
+  belt: leather_belt
   eyes: dots
   feet: boots
-  hands: gauntlets
-  held_near: sword
+  headwear: pointed_hood
+  held_near: mace
   legs_wear: leggings
   over_torso: tabard
-  torso_wear: plate
-  held_near_trim: hilt
+  scarf: long
+  shoulders: pauldrons
+  torso_wear: tunic
+  belt_trim: buckle
 colors:
-  accent: ruby
-  cloth: tangerine
+  accent: amethyst
+  cloth: magenta
   eyes: amber
-  hair: black
-  leather: red
+  hair: sky
+  leather: chestnut
   metal: bronze
-  skin: green (orc)
+  skin: ember
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  over_torso: navy (anchor)
+  scarf: turquoise

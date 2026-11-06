@@ -19,10 +19,11 @@ slots:
   legs_wear: {leggings: 3, greaves: 1}
   feet: {none: 2, boots: 2}
   hands: {none: 3, gauntlets: 1}
-  headwear: {none: 6, hood: 2, great_helm: 1, sallet: 1, mitre: 1, wizard_hat: 2, winged_helm: 1,
-             ranger_hat: 2, bandana: 1, horned_helm: 1, witch_hat: 2}
-  cape: {none: 3, cloak: 2}
-  scarf: {none: 6, wrap: 1}
+  headwear: {none: 6, hood: 1, pointed_hood: 2, great_helm: 1, sallet: 1, mitre: 1, mitre_tall: 1, wizard_hat: 1,
+             winged_helm: 1, wing_cap: 1, ranger_hat: 2, bandana: 1, horned_helm: 1, witch_hat: 2, tricorn: 2,
+             circlet: 1}
+  cape: {none: 3, cloak: 1, mantle: 2}
+  scarf: {none: 5, wrap: 1, long: 2}
   shoulders: {none: 4, pauldrons: 1}
   ears: {none: 6, elf: 1, cat: 1}
   beard: {none: 8, full: 1}
@@ -35,10 +36,15 @@ trims:
   - {slot: held_near_trim, parent: held_near/lance, variant: spearhead, chance: 1.0}
   - {slot: held_near_trim, parent: held_near/staff, variant: orb, chance: 0.6}
   - {slot: belt_trim, parent: belt/leather_belt, variant: buckle, chance: 0.7}
-  - {slot: headwear_trim, parent: headwear/great_helm, variant: plume, chance: 0.5}
-  - {slot: headwear_trim, parent: headwear/sallet, variant: plume, chance: 0.6}
+  - {slot: headwear_trim, parent: headwear/great_helm, variant: plume_tall, chance: 0.7}
+  - {slot: headwear_trim, parent: headwear/sallet, variant: plume_tall, chance: 0.6}
   - {slot: headwear_trim, parent: headwear/ranger_hat, variant: feather, chance: 0.8}
-  - {slot: headwear_trim, parent: headwear/horned_helm, variant: horns, chance: 1.0}
+  - {slot: headwear_trim, parent: headwear/tricorn, variant: feather, chance: 0.7}
+  - {slot: headwear_trim, parent: headwear/horned_helm, variant: horns_curled, chance: 1.0}
+  - {slot: headwear_trim, parent: headwear/wing_cap, variant: wings, chance: 1.0}
+  - {slot: headwear_emblem, parent: headwear/great_helm, variant: cross_helm, chance: 0.4}
+  - {slot: headwear_emblem, parent: headwear/mitre_tall, variant: cross_mitre, chance: 0.8}
+  - {slot: headwear_emblem, parent: headwear/witch_hat, variant: hatband, chance: 0.7}
 
 # A part needs one of these to be present.
 requires:
@@ -49,6 +55,8 @@ requires:
   headwear/sallet: [torso_wear/plate]
   headwear/winged_helm: [torso_wear/plate]
   headwear/mitre: [torso_wear/robe, torso_wear/dress]
+  headwear/mitre_tall: [torso_wear/robe, torso_wear/dress]
+  headwear/wing_cap: [torso_wear/plate]
   headwear/wizard_hat: [torso_wear/robe, torso_wear/dress]
   headwear/witch_hat: [torso_wear/robe, torso_wear/dress]
   held_near/mace: [torso_wear/plate, torso_wear/tunic]
@@ -93,14 +101,40 @@ incompatible:
   - [beard/full, headwear/great_helm]
   - [beard/full, headwear/hood]
   - [beard/full, scarf/wrap]
+  - [beard/full, scarf/long]
+  - [beard/full, headwear/pointed_hood]
+  # design pass 2 headwear: spikes, cat ears, a bun and elf ears poke through these too
+  - [hair_front/spiky, headwear/pointed_hood]
+  - [hair_front/spiky, headwear/tricorn]
+  - [hair_front/spiky, headwear/mitre_tall]
+  - [hair_front/spiky, headwear/wing_cap]
+  - [hair_front/spiky, headwear/circlet]
+  - [ears/cat, headwear/pointed_hood]
+  - [ears/cat, headwear/tricorn]
+  - [ears/cat, headwear/mitre_tall]
+  - [ears/cat, headwear/wing_cap]
+  - [ears/cat, headwear/circlet]
+  - [ears/elf, headwear/pointed_hood]
+  - [hair_back/bun, headwear/pointed_hood]
+  - [hair_back/bun, headwear/tricorn]
+  - [hair_back/bun, headwear/mitre_tall]
+  - [hair_back/bun, headwear/wing_cap]
+  - [hair_back/bun, headwear/circlet]
+  - [hair_back/twintails, headwear/pointed_hood]
   - [hair_back/twintails, headwear/hood]
   - [hair_back/twintails, headwear/great_helm]
   - [hair_back/twintails, headwear/sallet]
   - [hair_back/twintails, headwear/horned_helm]
 
 # Presets the randomizer never uses for heroes (glow eyes are reserved for monsters).
+# Design pass 2: the anchor's own muted presets are kept for her, not dealt to random heroes.
 exclude_presets:
-  eyes: [glow red, glow yellow, glow ghost]
+  eyes: [glow red, glow yellow, glow ghost, glow leaf, navy (anchor)]
+  skin: [light (anchor)]
+  hair: [brown (anchor)]
+  cloth: [navy (anchor)]
+  leather: [brown (anchor)]
+  accent: [gold (anchor)]
 
 # Two-tone outfits: a part in one of these slots takes its own preset of its material this often
 # (a scarlet cloak over a royal tunic), so random characters get a second signature color.
@@ -108,4 +142,5 @@ slot_colors:
   cape: 0.8
   scarf: 0.7
   headwear: 0.35
+  headwear_trim: 0.6
   over_torso: 0.5

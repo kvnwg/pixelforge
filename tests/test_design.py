@@ -31,8 +31,12 @@ def ramp(style, material, preset):
 
 
 def test_slot_colors_dye_one_part_apart_from_its_material(cast, style):
-    guardian = cast["rk_guardian"]
-    assert guardian.recipe.slot_colors == {} and guardian.recipe.colors["cloth"] == "scarlet"
+    guardian = cast["rk_guardian"]  # an azure tabard under a white plume, both cloth
+    assert guardian.recipe.slot_colors == {"headwear_trim": "snow"} and guardian.recipe.colors["cloth"] == "azure"
+    g = guardian.frames[("idle", "s")][0]
+    plume = next(l for l in g.layers if l.slot == "headwear_trim")
+    assert colors_of(plume) - {parse_hex(style.outline.color)} <= ramp(style, "cloth", "snow")
+    assert colors_of(next(l for l in g.layers if l.slot == "over_torso")) <= ramp(style, "cloth", "azure")
     knight = cast["knight"]
     f = knight.frames[("idle", "n")][0]
     cape = next(l for l in f.layers if l.slot == "cape")
@@ -72,10 +76,11 @@ def test_each_hero_has_a_bold_signature_color(cast, style):
 
 def test_the_limits_keep_fx_brighter_than_characters(style):
     c, fx, glow = style.raw["constraints"], style.raw["fx_constraints"], style.raw["glow_constraints"]
-    assert c["oklch_C_max"] == 0.13 and c["oklch_L_range"][1] == 0.84
+    # design pass 2 (2026-11-06): vivid characters, FX and glow eyes still past them
+    assert c["oklch_C_max"] == 0.2 and c["oklch_L_range"][1] == 0.95
     assert fx["oklch_L_range"][1] > c["oklch_L_range"][1] and fx["oklch_C_max"] > c["oklch_C_max"]
     assert glow["oklch_C_max"] > c["oklch_C_max"]
-    assert c["max_colors_per_frame"] == 24
+    assert c["max_colors_per_frame"] == 32
 
 
 def test_random_characters_use_the_new_parts_and_validate(style):

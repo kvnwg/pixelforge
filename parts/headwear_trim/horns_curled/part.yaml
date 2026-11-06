@@ -1,0 +1,10 @@
+slot: headwear_trim
+variant: horns_curled
+material: horn
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: Viking horns sweeping out past the head and up, light at the tips.

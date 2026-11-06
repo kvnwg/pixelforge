@@ -1,29 +1,34 @@
 name: random_1_16
 rig: humanoid
 timing_profile: player
-seed: 216377533
+seed: 341245656
 parts:
-  hair_front: short
+  hair_front: ponytail
+  hair_back: ponytail
   belt: leather_belt
+  cape: mantle
   eyes: dots
-  headwear: hood
+  feet: boots
+  headwear: tricorn
   held_near: sword
   legs_wear: leggings
-  scarf: wrap
+  shoulders: pauldrons
   torso_wear: tunic
   held_near_trim: hilt
+  belt_trim: buckle
+  headwear_trim: feather
 colors:
-  accent: orange
-  cloth: violet
-  eyes: teal
-  hair: black
-  leather: brown (anchor)
-  metal: royal gold
-  skin: porcelain
+  accent: amethyst
+  cloth: crimson
+  eyes: blue
+  hair: copper
+  leather: chestnut
+  metal: gold
+  skin: ash
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  headwear: wine
-  scarf: emerald
+  cape: forest
+  headwear_trim: onyx

@@ -13,7 +13,7 @@ colors:
   hide: bog
   cloth: crimson
   leather: dark
-  accent: gold (anchor)
+  accent: bright gold
   eyes: glow red
 anims:
 - idle

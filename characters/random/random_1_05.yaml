@@ -1,23 +1,34 @@
 name: random_1_05
 rig: humanoid
 timing_profile: player
-seed: 296962875
+seed: 1047900122
 parts:
-  hair_front: bun
-  hair_back: bun
-  belt: leather_belt
+  hair_front: long_straight
+  hair_locks: long_straight
+  hair_back: long_straight
+  belt: sash
+  cape: cloak
   eyes: dots
   feet: boots
+  headwear: horned_helm
   held_near: bow
   legs_wear: leggings
+  over_torso: tabard
   torso_wear: tunic
+  headwear_trim: horns_curled
 colors:
-  cloth: navy (anchor)
-  eyes: navy (anchor)
-  hair: sky
-  leather: tan
-  skin: ash
+  accent: emerald
+  cloth: lime
+  eyes: teal
+  hair: auburn
+  horn: gilded
+  leather: chestnut
+  metal: gold
+  skin: frost
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  headwear_trim: ebony
+  over_torso: turquoise

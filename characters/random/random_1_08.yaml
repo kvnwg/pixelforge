@@ -1,29 +1,22 @@
 name: random_1_08
 rig: humanoid
 timing_profile: player
-seed: 242870460
+seed: 465054311
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
-  beard: full
-  belt: sash
-  cape: cloak
+  hair_front: short
+  belt: leather_belt
   eyes: dots
-  headwear: wizard_hat
-  legs_wear: leggings
-  torso_wear: robe
+  legs_wear: greaves
+  torso_wear: plate
+  belt_trim: buckle
 colors:
-  accent: gold (anchor)
-  cloth: teal
-  eyes: teal
-  hair: sky
-  leather: black
-  skin: ogre
+  accent: red
+  eyes: brown
+  hair: blonde
+  leather: dark
+  metal: crimson
+  skin: fair
 anims:
 - idle
 - blink
 - walk
-slot_colors:
-  cape: rose
-  headwear: snow

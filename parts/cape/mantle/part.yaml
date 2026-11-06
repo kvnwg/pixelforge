@@ -1,0 +1,20 @@
+slot: cape
+variant: mantle
+material: cloth
+kind: rigid
+attach: torso
+origin: auto
+lags: true
+rigs:
+- humanoid
+notes: A cape from the shoulders to the ankles that flares past both sides of the body; it follows through.
+allow_singletons:
+  s:
+  - - 10
+    - 24
+  - - 10
+    - 26
+  - - 13
+    - 26
+  - - 17
+    - 26

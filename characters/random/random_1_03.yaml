@@ -1,30 +1,34 @@
 name: random_1_03
 rig: humanoid
 timing_profile: player
-seed: 711112269
+seed: 681646403
 parts:
-  hair_front: ponytail
-  hair_back: ponytail
+  hair_front: short
+  hair_back: twintails
+  belt: sash
+  cape: mantle
   eyes: dots
   hands: gauntlets
-  headwear: winged_helm
-  held_far: shield
-  held_near: sword
+  headwear: ranger_hat
+  held_near: lance
   legs_wear: leggings
-  over_torso: tabard
+  scarf: long
+  shoulders: pauldrons
   torso_wear: plate
-  held_near_trim: hilt
+  held_near_trim: spearhead
+  headwear_trim: feather
 colors:
-  accent: amethyst
-  cloth: wine
-  eyes: green
-  hair: raven
-  leather: black
-  metal: rose gold
-  skin: ogre
+  accent: sapphire
+  cloth: cream
+  eyes: amber
+  hair: silver
+  leather: red
+  metal: blued
+  skin: ash
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  over_torso: jade
+  headwear: black
+  scarf: scarlet

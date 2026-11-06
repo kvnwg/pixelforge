@@ -20,6 +20,9 @@ from .style import Style
 
 LOWER_SLOTS = ("body", "legs_wear", "feet")
 HELD_SLOTS = ("held_near", "held_near_trim", "held_far")
+# cloth and trims that stream to one side by design (a scarf tail, a flared cape, a curling plume):
+# like a held staff, they are not the body drifting sideways (E7)
+FLOWING_SLOTS = ("cape", "scarf", "headwear_trim")
 HEAD_SLOTS = ("body", "hair_front", "hair_back", "hair_locks", "headwear", "headwear_trim", "eyes")
 
 
@@ -189,7 +192,7 @@ class Validator:
             # E7 pivot drift
             if f.anim in self.c.anims and self._base_anim(f) in self.motion_anims \
                     and "displaced" not in f.flags:
-                body = sil & ~f.slot_mask(*HELD_SLOTS)  # a staff held out front is not drift
+                body = sil & ~f.slot_mask(*HELD_SLOTS, *FLOWING_SLOTS)  # a staff held out front is not drift
                 bxs = np.flatnonzero(body.any(axis=0)) if body.any() else xs
                 center = (int(bxs.min()) + int(bxs.max())) / 2
                 limit = self.drift.get(f.direction, 2)

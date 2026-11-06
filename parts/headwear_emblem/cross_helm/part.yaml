@@ -1,0 +1,10 @@
+slot: headwear_emblem
+variant: cross_helm
+material: accent
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A gold cross on a great helm's face.

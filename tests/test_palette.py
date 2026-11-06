@@ -45,7 +45,7 @@ def test_anchor_ramps_are_accepted_not_failed(style):
 
 
 def test_a_too_saturated_preset_is_an_error(raw_style, style_root):
-    raw_style["materials"]["cloth"]["presets"]["neon"] = ["#c8323a", "#ee6150"]
+    raw_style["materials"]["cloth"]["presets"]["neon"] = ["#e8102a", "#ff3040"]  # past C 0.20
     style = load_style(style_root(raw_style) / "style" / "style.json")
     report = by_id(check_palette(style))["cloth/neon"]
     assert report.status == "error"

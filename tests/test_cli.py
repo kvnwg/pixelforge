@@ -18,7 +18,7 @@ def test_palette_check_passes_and_writes_swatches(root, tmp_path):
 
 
 def test_palette_check_fails_on_a_bad_color(raw_style, style_root, tmp_path):
-    raw_style["materials"]["hair"]["presets"]["neon"] = ["#7d1d2c", "#c8323a", "#ee6150"]
+    raw_style["materials"]["hair"]["presets"]["neon"] = ["#7d1d2c", "#e8102a", "#ff3040"]  # C 0.24+
     bad_root = style_root(raw_style)
     result = runner.invoke(app, ["palette", "--check", "--out", str(tmp_path / "s.png")],
                            env={"PIXELFORGE_ROOT": str(bad_root)})

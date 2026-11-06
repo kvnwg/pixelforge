@@ -1,32 +1,29 @@
 name: random_1_14
 rig: humanoid
 timing_profile: player
-seed: 6433882
+seed: 871105409
 parts:
-  hair_front: long_straight
-  hair_locks: long_straight
-  hair_back: long_straight
-  cape: cloak
+  hair_front: short
+  belt: leather_belt
   eyes: dots
+  feet: boots
   headwear: ranger_hat
-  held_near: sword
   legs_wear: leggings
   over_torso: tabard
-  shoulders: pauldrons
-  torso_wear: tunic
-  held_near_trim: hilt
+  torso_wear: plate
+  belt_trim: buckle
   headwear_trim: feather
 colors:
-  accent: red
-  cloth: royal
-  eyes: navy (anchor)
-  hair: black
-  leather: tan
-  metal: bronze
-  skin: frost
+  accent: bright gold
+  cloth: mustard
+  eyes: amber
+  hair: platinum
+  leather: red
+  metal: royal gold
+  skin: ebony
 anims:
 - idle
 - blink
 - walk
 slot_colors:
-  cape: teal
+  headwear_trim: pearl

@@ -1,23 +1,31 @@
 name: random_1_15
 rig: humanoid
 timing_profile: player
-seed: 631892289
+seed: 416113824
 parts:
-  hair_front: bun
-  hair_back: bun
+  hair_front: spiky
+  hair_back: spiky
   belt: sash
   eyes: dots
-  headwear: hood
+  headwear: horned_helm
   legs_wear: leggings
-  torso_wear: robe
+  over_torso: tabard
+  scarf: wrap
+  torso_wear: tunic
+  headwear_trim: horns_curled
 colors:
-  accent: gold (anchor)
-  cloth: cream
-  eyes: dark
-  hair: copper
-  leather: black
-  skin: fair
+  accent: emerald
+  cloth: rose
+  eyes: amber
+  hair: raven
+  horn: pale
+  leather: tan
+  metal: royal gold
+  skin: ebony
 anims:
 - idle
 - blink
 - walk
+slot_colors:
+  over_torso: jade
+  scarf: ice

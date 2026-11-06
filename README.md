@@ -2,7 +2,7 @@
 
 pixelforge makes tiny chibi pixel-art characters, monsters, bosses and combat effects in one locked style, and exports them with the combat data a game needs. It was built for **Rolling Knight** and is engine-agnostic: the output is PNG spritesheets plus Aseprite-format JSON.
 
-The style is pinned to one reference sprite, `style/anchor.png` (11 x 18 px on a 32 x 32 canvas): a muted locked palette, a generated 1 px plum outline with open soles, hard pixels, never any scaling or rotation of character art. Everything else is measured against it.
+The style is pinned to one reference sprite, `style/anchor.png` (11 x 18 px on a 32 x 32 canvas): a locked palette (vivid presets around a muted anchor), a generated 1 px plum outline with open soles, hard pixels, never any scaling or rotation of character art. Everything else is measured against it.
 
 How a character is made: hand-authored **parts** (bodies, hair, armor, weapons, ears, tusks...) are layered onto a **rig**'s base animations, recolored with **material ramps**, outlined as one silhouette, checked by a validator and exported. A recipe is a few lines of YAML:
 

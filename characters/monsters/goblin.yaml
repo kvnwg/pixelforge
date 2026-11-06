@@ -11,7 +11,7 @@ parts:
 colors:
   hide: goblin
   cloth: mustard
-  leather: brown (anchor)
+  leather: chestnut
   eyes: glow yellow
 anims:
 - idle

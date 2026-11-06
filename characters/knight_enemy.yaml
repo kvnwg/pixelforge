@@ -1,4 +1,4 @@
-# A dark knight for the enemy profile: obsidian plate, a horned helm, a wine cloak and glowing red eyes.
+# A dark knight for the enemy profile: obsidian plate, a horned helm over an ashen face, a wine cloak and glowing red eyes.
 name: knight_enemy
 rig: humanoid
 timing_profile: enemy
@@ -18,7 +18,7 @@ parts:
   held_near: sword
   held_near_trim: hilt
 colors:
-  skin: light (anchor)
+  skin: ash
   metal: obsidian
   cloth: wine
   leather: black

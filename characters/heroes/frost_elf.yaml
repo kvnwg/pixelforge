@@ -1,4 +1,4 @@
-# A frost elf: blue skin, long white hair, pointed ears, an azure robe and a royal blue cloak, a sapphire orb staff.
+# A frost elf: blue skin, long platinum hair, pointed ears, a white robe under a deep teal cape flaring wide, a sapphire orb staff.
 name: frost_elf
 rig: humanoid
 timing_profile: player
@@ -10,7 +10,7 @@ parts:
   hair_back: long_straight
   ears: elf
   torso_wear: robe
-  cape: cloak
+  cape: mantle
   belt: sash
   legs_wear: leggings
   held_near: staff
@@ -18,10 +18,10 @@ parts:
 colors:
   skin: frost
   hair: platinum
-  cloth: azure
+  cloth: snow
   leather: white
   accent: sapphire
   eyes: blue
 slot_colors:
-  cape: royal
+  cape: teal
 anims: [idle, blink, walk, run, combat_idle, cast, dodge, hurt, stun, death, victory]

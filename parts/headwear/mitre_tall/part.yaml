@@ -1,0 +1,10 @@
+slot: headwear
+variant: mitre_tall
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A tall two-peaked mitre with side bands.

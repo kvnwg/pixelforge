@@ -1,0 +1,14 @@
+slot: headwear
+variant: pointed_hood
+material: cloth
+kind: rigid
+attach: head
+origin: auto
+lags: false
+rigs:
+- humanoid
+notes: A hood framing the face; its point rises and flops over.
+hides:
+- hair_front
+- hair_locks
+- hair_back
